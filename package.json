@@ -1,0 +1,77 @@
+{
+  "name": "@ramekhchhoeng/designkit",
+  "version": "0.1.0",
+  "description": "Apple-inspired, accessible React components for web applications.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:lib": "vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
+    "build:docs": "npm run typecheck && vite build -c vite.config.ts --outDir docs-dist",
+    "build": "npm run build:lib && npm run build:docs",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run build:lib && npm run pack:check",
+    "graph:index": "graphify extract . --code-only && graphify cluster-only . --no-label",
+    "graph:update": "graphify update .",
+    "graph:query": "graphify query"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.3",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "typescript": "7.0.2",
+    "vite": "8.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamekhCHHOENG/designkit.git"
+  },
+  "homepage": "https://github.com/RamekhCHHOENG/designkit#readme",
+  "bugs": {
+    "url": "https://github.com/RamekhCHHOENG/designkit/issues"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "components",
+    "typescript",
+    "apple-inspired",
+    "ui"
+  ],
+  "author": "Ramekh CHHOENG",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

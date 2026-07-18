@@ -1,0 +1,6 @@
+.git/
+.codex/
+.claude/
+node_modules/
+dist/
+graphify-out/

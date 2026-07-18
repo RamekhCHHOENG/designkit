@@ -1,0 +1,312 @@
+{
+  "communities": {
+    "0": [
+      "src_emoji3d",
+      "src_emoji3d_emoji3d",
+      "src_emoji3d_emoji3dangles",
+      "src_emoji3d_emoji3dassets",
+      "src_emoji3d_emoji3dname",
+      "src_interactivetoggle",
+      "src_interactivetoggle_interactivetoggle",
+      "src_interactivetoggle_togglesettingscard",
+      "src_main",
+      "src_main_app",
+      "src_main_applepayactions",
+      "src_main_personicon",
+      "src_main_sample",
+      "src_shadcnapple",
+      "src_shadcnapple_appleaccordion",
+      "src_shadcnapple_appleattachment",
+      "src_shadcnapple_applebreadcrumb",
+      "src_shadcnapple_applebubble",
+      "src_shadcnapple_applecarousel",
+      "src_shadcnapple_applechart",
+      "src_shadcnapple_applecollapsible",
+      "src_shadcnapple_applecombobox",
+      "src_shadcnapple_applecommand",
+      "src_shadcnapple_appledirection",
+      "src_shadcnapple_appledropdownmenu",
+      "src_shadcnapple_applehovercard",
+      "src_shadcnapple_applekbd",
+      "src_shadcnapple_applemarker",
+      "src_shadcnapple_applemenubar",
+      "src_shadcnapple_applemessage",
+      "src_shadcnapple_applemessagescroller",
+      "src_shadcnapple_appleotp",
+      "src_shadcnapple_applepagination",
+      "src_shadcnapple_applepopover",
+      "src_shadcnapple_appleresizable",
+      "src_shadcnapple_applescrollarea",
+      "src_shadcnapple_appleskeleton",
+      "src_shadcnapple_applesonner",
+      "src_shadcnapple_appletooltip",
+      "src_shadcnapple_componentcatalog",
+      "src_shadcnapple_ready",
+      "src_shadcnapple_shadcncomponents"
+    ],
+    "1": [
+      "src_ioscomponents",
+      "src_ioscomponents_iosactionsheet",
+      "src_ioscomponents_iosalert",
+      "src_ioscomponents_iosavatar",
+      "src_ioscomponents_iosbadge",
+      "src_ioscomponents_iosbutton",
+      "src_ioscomponents_ioscard",
+      "src_ioscomponents_ioscheckbox",
+      "src_ioscomponents_iosdatefield",
+      "src_ioscomponents_iosemptystate",
+      "src_ioscomponents_iosgroupedsettings",
+      "src_ioscomponents_iosiconbutton",
+      "src_ioscomponents_ioslistrow",
+      "src_ioscomponents_iosmenu",
+      "src_ioscomponents_iosnavigationbar",
+      "src_ioscomponents_iospagecontrol",
+      "src_ioscomponents_iospicker",
+      "src_ioscomponents_iosprogress",
+      "src_ioscomponents_iosradiogroup",
+      "src_ioscomponents_iossearchfield",
+      "src_ioscomponents_iossegmentedcontrol",
+      "src_ioscomponents_iosslider",
+      "src_ioscomponents_iosspinner",
+      "src_ioscomponents_iosstatusbar",
+      "src_ioscomponents_iosstepper",
+      "src_ioscomponents_iostabbar",
+      "src_ioscomponents_iostextfield",
+      "src_ioscomponents_iostoast",
+      "src_ioscomponents_iostoggle",
+      "src_ioscomponents_iostoolbar"
+    ],
+    "2": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_es2020",
+      "ref_src",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_allowsyntheticdefaultimports",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_usedefineforclassfields",
+      "tsconfig_include",
+      "tsconfig_references"
+    ],
+    "3": [
+      "package",
+      "package_devdependencies",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_graph_index",
+      "package_scripts_graph_query",
+      "package_scripts_graph_update",
+      "package_type",
+      "package_version",
+      "types_react",
+      "types_react_dom"
+    ],
+    "4": [
+      "src_macos",
+      "src_macos_macalert",
+      "src_macos_macbutton",
+      "src_macos_maccheckboxes",
+      "src_macos_macdock",
+      "src_macos_macfiletable",
+      "src_macos_macmenubar",
+      "src_macos_macnotification",
+      "src_macos_macopendialog",
+      "src_macos_macpopover",
+      "src_macos_macprogress",
+      "src_macos_macsavedialog",
+      "src_macos_macsegmentedcontrol",
+      "src_macos_macsidebar",
+      "src_macos_mactoolbar",
+      "src_macos_mactrafficlights"
+    ],
+    "5": [
+      "package_dependencies",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_typescript",
+      "package_dependencies_vite",
+      "package_dependencies_vitejs_plugin_react",
+      "react",
+      "react_dom",
+      "typescript",
+      "vite",
+      "vitejs_plugin_react"
+    ],
+    "6": [
+      "src_applepay",
+      "src_applepay_applepayaction",
+      "src_applepay_applepaybutton",
+      "src_applepay_applepaymark",
+      "src_applepay_applepaysheet",
+      "src_applepay_labels",
+      "src_applepay_payrow"
+    ],
+    "7": [
+      "src_iosdatetime",
+      "src_iosdatetime_ioscalendarpicker",
+      "src_iosdatetime_ioscompactdatefield",
+      "src_iosdatetime_iosdatetimesheet",
+      "src_iosdatetime_iostimewheel",
+      "src_iosdatetime_tone",
+      "src_iosdatetime_weekdays"
+    ],
+    "8": [
+      "src_visionos",
+      "src_visionos_visionbutton",
+      "src_visionos_visionform",
+      "src_visionos_visionglass",
+      "src_visionos_visionsearchfield",
+      "src_visionos_visiontextfield",
+      "src_visionos_visionwindow"
+    ],
+    "9": [
+      "src_tipkit",
+      "src_tipkit_emojiicon",
+      "src_tipkit_sparklesicon",
+      "src_tipkit_tipkit",
+      "src_tipkit_tipkitprops"
+    ],
+    "10": [
+      "src_appicon",
+      "src_appicon_appicon",
+      "src_appicon_appiconprops",
+      "src_appicon_appiconsizeset"
+    ],
+    "11": [
+      "readme",
+      "readme_code_indexing_with_graphify",
+      "readme_tipkit_react"
+    ],
+    "12": [
+      "agents",
+      "agents_graphify"
+    ],
+    "13": [
+      "src_vite_env_d"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08478513356562137,
+    "1": 0.06666666666666667,
+    "2": 0.08695652173913043,
+    "3": 0.125,
+    "4": 0.125,
+    "5": 0.18181818181818182,
+    "6": 0.2857142857142857,
+    "7": 0.2857142857142857,
+    "8": 0.2857142857142857,
+    "9": 0.4,
+    "10": 0.5,
+    "11": 0.6666666666666666,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 6
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 4
+    },
+    {
+      "id": "src_appicon_appicon",
+      "label": "AppIcon()",
+      "degree": 2
+    },
+    {
+      "id": "src_appicon_appiconsizeset",
+      "label": "AppIconSizeSet()",
+      "degree": 2
+    },
+    {
+      "id": "src_applepay_applepayaction",
+      "label": "ApplePayAction",
+      "degree": 2
+    },
+    {
+      "id": "src_applepay_applepaybutton",
+      "label": "ApplePayButton()",
+      "degree": 2
+    },
+    {
+      "id": "src_applepay_applepaysheet",
+      "label": "ApplePaySheet()",
+      "degree": 2
+    },
+    {
+      "id": "src_emoji3d_emoji3dassets",
+      "label": "emoji3DAssets",
+      "degree": 2
+    },
+    {
+      "id": "src_emoji3d_emoji3dname",
+      "label": "Emoji3DName",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Frontend Dependencies` to `Project Scripts`?",
+      "why": "High betweenness centrality (0.013) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `AppIconProps`, `labels`, `Tone` to the rest of the system?",
+      "why": "45 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Component Gallery and Primitives` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08478513356562137 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `iOS Components` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `TypeScript Configuration` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Project Scripts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.125 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `macOS Components` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.125 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
