@@ -101,6 +101,7 @@ checkbox
 checked
 checkmark
 checkout
+chhoeng
 child
 chip
 chips
@@ -123,6 +124,7 @@ color
 colors
 column
 columns
+com
 combobox
 command
 commands
@@ -184,6 +186,7 @@ derived
 description
 descriptions
 design
+designkit
 destructive
 detail
 dev
@@ -310,6 +313,7 @@ homepage
 hook
 horizontal
 hover
+https
 icon
 iconify
 icons
@@ -457,6 +461,7 @@ overview
 pack
 package
 page
+pages
 pagination
 palette
 panel
@@ -519,6 +524,8 @@ quick
 radio
 radix
 rail
+ramekh
+ramekhchhoeng
 range
 rank
 ratings
@@ -528,6 +535,7 @@ reaction
 readme
 real
 recharts
+redeploy
 ref
 references
 region
@@ -563,6 +571,7 @@ rounded
 router
 row
 rows
+run
 sales
 salesbycountrywidget
 save
@@ -598,6 +607,7 @@ shine
 shiny
 shopping
 shortcut
+show
 side
 sidebar
 sides
@@ -659,6 +669,7 @@ system
 tab
 table
 tabs
+tag
 tailwind
 tailwindcss
 target
@@ -754,6 +765,7 @@ weekly
 welcome
 well
 what
+when
 widget
 will
 win
