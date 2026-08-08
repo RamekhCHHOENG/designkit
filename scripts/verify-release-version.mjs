@@ -4,7 +4,7 @@ const packageJson = JSON.parse(await readFile(new URL("../package.json", import.
 const releaseTag = process.env.DESIGNKIT_RELEASE_TAG ?? process.argv[2];
 
 if (!releaseTag) {
-  console.error("Missing release tag. Set DESIGNKIT_RELEASE_TAG or pass a tag such as v0.1.0.");
+  console.error("Missing release tag. Set DESIGNKIT_RELEASE_TAG or pass a tag such as v1.2.3.");
   process.exit(1);
 }
 

@@ -1,47 +1,62 @@
 {
-  "generated_at": "2026-08-08T06:44:41.121747+00:00",
+  "generated_at": "2026-08-08T07:34:37.360392+00:00",
   "nodes": {
     "package": {
       "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
       "label": "package.json",
-      "last": "2026-08-08T06:37:40.582808+00:00",
+      "last": "2026-08-08T07:23:10.143095+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:23:10.143095+00:00",
+          "outcome": "useful",
+          "q": "what we need to do now?"
+        },
+        {
+          "date": "2026-08-08T07:04:38.705714+00:00",
+          "outcome": "useful",
+          "q": "any way to better release"
+        },
+        {
+          "date": "2026-08-08T07:00:37.478228+00:00",
+          "outcome": "useful",
+          "q": "verify https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.1"
+        },
+        {
+          "date": "2026-08-08T06:44:55.873499+00:00",
+          "outcome": "useful",
+          "q": "how about vue or react?"
+        },
         {
           "date": "2026-08-08T06:37:40.582808+00:00",
           "outcome": "useful",
           "q": "so how other people use this package @ramekhchhoeng/designkit ?"
-        },
-        {
-          "date": "2026-08-08T06:34:18.527237+00:00",
-          "outcome": "useful",
-          "q": "can u test test https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.0"
-        },
-        {
-          "date": "2026-08-08T06:25:04.421150+00:00",
-          "outcome": "useful",
-          "q": "so when i redeploy will vercel show docs pages. can u run this project local as well."
-        },
-        {
-          "date": "2026-08-08T05:55:04.434077+00:00",
-          "outcome": "useful",
-          "q": "audit our design kit. what can we do better. i mean engineering behind and structure"
-        },
-        {
-          "date": "2026-08-08T05:47:02.742990+00:00",
-          "outcome": "useful",
-          "q": "wait i think if can make it as react, vue might be better right. so nuxt,next can be use this as well?"
         }
       ],
-      "score": 5.996711718,
+      "score": 9.989901819,
       "source_file": "package.json",
       "status": "preferred",
-      "uses": 6
+      "uses": 10
     },
     "package_publishconfig": {
       "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
       "label": "publishConfig",
-      "last": "2026-08-08T06:37:40.582808+00:00",
+      "last": "2026-08-08T07:23:10.143095+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:23:10.143095+00:00",
+          "outcome": "useful",
+          "q": "what we need to do now?"
+        },
+        {
+          "date": "2026-08-08T07:04:38.705714+00:00",
+          "outcome": "useful",
+          "q": "any way to better release"
+        },
+        {
+          "date": "2026-08-08T07:00:37.478228+00:00",
+          "outcome": "useful",
+          "q": "verify https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.1"
+        },
         {
           "date": "2026-08-08T06:37:40.582808+00:00",
           "outcome": "useful",
@@ -53,7 +68,28 @@
           "q": "can u test test https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.0"
         }
       ],
-      "score": 1.999721068,
+      "score": 4.996909451,
+      "source_file": "package.json",
+      "status": "preferred",
+      "uses": 5
+    },
+    "package_scripts": {
+      "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
+      "label": "scripts",
+      "last": "2026-08-08T07:23:10.143095+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-08T07:23:10.143095+00:00",
+          "outcome": "useful",
+          "q": "what we need to do now?"
+        },
+        {
+          "date": "2026-08-08T07:04:38.705714+00:00",
+          "outcome": "useful",
+          "q": "any way to better release"
+        }
+      ],
+      "score": 1.999335366,
       "source_file": "package.json",
       "status": "preferred",
       "uses": 2
@@ -61,18 +97,28 @@
     "scripts_verify_release_version": {
       "code_fingerprint": "a23bf21e36315b24956228be361ac8c53aa4310d5715652bdd2aa888b36131f4",
       "label": "verify-release-version.mjs",
-      "last": "2026-08-08T06:34:18.527237+00:00",
+      "last": "2026-08-08T07:23:10.143095+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:23:10.143095+00:00",
+          "outcome": "useful",
+          "q": "what we need to do now?"
+        },
+        {
+          "date": "2026-08-08T07:04:38.705714+00:00",
+          "outcome": "useful",
+          "q": "any way to better release"
+        },
         {
           "date": "2026-08-08T06:34:18.527237+00:00",
           "outcome": "useful",
           "q": "can u test test https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.0"
         }
       ],
-      "score": 0.999833521,
+      "score": 2.998368093,
       "source_file": "scripts/verify-release-version.mjs",
-      "status": "tentative",
-      "uses": 1
+      "status": "preferred",
+      "uses": 3
     },
     "src_componentdocs": {
       "code_fingerprint": "33c51e58b7b1ec84ceeca0bbeba6daebf4bd5c423d5df4b65a6a6c8bcd1ceaf7",
@@ -95,7 +141,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.997305272,
+      "score": 2.99490465,
       "source_file": "src/componentDocs.tsx",
       "status": "preferred",
       "uses": 3
@@ -111,7 +157,7 @@
           "q": "audit our design kit. what can we do better. i mean engineering behind and structure"
         }
       ],
-      "score": 0.999204297,
+      "score": 0.998404008,
       "source_file": "src/lib/components/Drawer.tsx",
       "status": "tentative",
       "uses": 1
@@ -119,8 +165,13 @@
     "src_lib_styles_d": {
       "code_fingerprint": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
       "label": "styles.d.ts",
-      "last": "2026-08-08T05:55:04.434077+00:00",
+      "last": "2026-08-08T06:44:55.873499+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T06:44:55.873499+00:00",
+          "outcome": "useful",
+          "q": "how about vue or react?"
+        },
         {
           "date": "2026-08-08T05:55:04.434077+00:00",
           "outcome": "useful",
@@ -132,10 +183,10 @@
           "q": "wait i think if can make it as react, vue might be better right. so nuxt,next can be use this as well?"
         }
       ],
-      "score": 1.998279892,
+      "score": 2.995882431,
       "source_file": "src/lib/styles.d.ts",
       "status": "preferred",
-      "uses": 2
+      "uses": 3
     },
     "src_main": {
       "code_fingerprint": "d773a099607e90df94ca02413f5607ae9bebbc698ee7aa4775331ecb8a151f3b",
@@ -148,7 +199,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 0.99902538,
+      "score": 0.998225233,
       "source_file": "src/main.tsx",
       "status": "tentative",
       "uses": 1
@@ -174,7 +225,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.997305272,
+      "score": 2.99490465,
       "source_file": "src/WebCatalog.tsx",
       "status": "preferred",
       "uses": 3
@@ -190,7 +241,7 @@
           "q": "so when i redeploy will vercel show docs pages. can u run this project local as well."
         }
       ],
-      "score": 0.999685379,
+      "score": 0.998884704,
       "source_file": "vercel.json",
       "status": "tentative",
       "uses": 1

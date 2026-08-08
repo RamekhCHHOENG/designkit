@@ -1,6 +1,6 @@
 {
   "name": "@ramekhchhoeng/designkit",
-  "version": "0.1.0",
+  "version": "1.1.1",
   "description": "Apple-inspired, accessible React components for web applications.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -34,6 +34,9 @@
     "build": "npm run build:lib && npm run build:docs",
     "package:verify": "node scripts/verify-package.mjs",
     "release:verify": "node scripts/verify-release-version.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "verify": "npm run typecheck && npm test && npm run build && npm run package:verify && npm run pack:check",
     "pack:check": "npm pack --dry-run",
     "prepublishOnly": "npm test && npm run build:lib && npm run package:verify && npm run pack:check",
@@ -47,6 +50,7 @@
   },
   "devDependencies": {
     "@base-ui/react": "^1.6.0",
+    "@changesets/cli": "^2.31.1",
     "@faker-js/faker": "^10.5.0",
     "@iconify/react": "^6.0.2",
     "@number-flow/react": "^0.6.1",

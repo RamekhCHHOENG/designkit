@@ -128,7 +128,13 @@ npm run verify
 
 ## Release
 
-This project follows semantic versioning. A GitHub release triggers the npm publishing workflow after its tag matches `package.json` and the tests, package build, exports, declarations, and tarball all pass validation. For package version `0.1.0`, create tag `v0.1.0`. The npm package name is `@ramekhchhoeng/designkit`.
+This project follows semantic versioning with Changesets. Add a changeset to each pull request that changes the public package API or behavior:
+
+```bash
+npm run changeset
+```
+
+After changes land on `main`, the release workflow opens or updates a **Version Packages** pull request. Merging that pull request runs the full verification suite, publishes `@ramekhchhoeng/designkit` to npm, and creates the matching Git tag and GitHub release. Do not create package releases or version tags manually.
 
 ## Credits
 
