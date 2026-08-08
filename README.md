@@ -4,6 +4,8 @@ Apple-inspired, accessible React components for web applications. DesignKit comb
 
 > DesignKit is an independent project. It is not affiliated with or endorsed by Apple Inc. or shadcn.
 
+**Live documentation:** [designkit-smoky.vercel.app](https://designkit-smoky.vercel.app/)
+
 ## Install
 
 ```bash

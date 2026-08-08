@@ -1,11 +1,16 @@
 {
-  "generated_at": "2026-08-08T06:00:28.229305+00:00",
+  "generated_at": "2026-08-08T06:31:50.605593+00:00",
   "nodes": {
     "package": {
-      "code_fingerprint": "e2aea9611804cfeead5eac4ffd576e65385559798a8c0f7f5b665e1b8e82f70b",
+      "code_fingerprint": "e840badfa93988a6158e04b99c7889ec9d1a4947a14e2f1612855e1ea8b428af",
       "label": "package.json",
-      "last": "2026-08-08T05:55:04.434077+00:00",
+      "last": "2026-08-08T06:25:04.421150+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T06:25:04.421150+00:00",
+          "outcome": "useful",
+          "q": "so when i redeploy will vercel show docs pages. can u run this project local as well."
+        },
         {
           "date": "2026-08-08T05:55:04.434077+00:00",
           "outcome": "useful",
@@ -22,13 +27,13 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.999432408,
+      "score": 3.997814315,
       "source_file": "package.json",
       "status": "preferred",
-      "uses": 3
+      "uses": 4
     },
     "src_componentdocs": {
-      "code_fingerprint": "f67739e47aa8047d648f3af25b0ff621e55418881c9ee0a423594968fe18a540",
+      "code_fingerprint": "33c51e58b7b1ec84ceeca0bbeba6daebf4bd5c423d5df4b65a6a6c8bcd1ceaf7",
       "label": "componentDocs.tsx",
       "last": "2026-08-08T05:55:04.434077+00:00",
       "provenance": [
@@ -48,13 +53,13 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.999432408,
+      "score": 2.99792293,
       "source_file": "src/componentDocs.tsx",
       "status": "preferred",
       "uses": 3
     },
     "src_lib_components_drawer": {
-      "code_fingerprint": "c2b11e774c04f9c41e273f944e665f639be9791a24c98e2e532d0ff2d6dd3374",
+      "code_fingerprint": "7cc972167eefabf9a3397c971a6dc30be7b1f4be34b25dbfa1a1c99a4e7bf209",
       "label": "Drawer.tsx",
       "last": "2026-08-08T05:55:04.434077+00:00",
       "provenance": [
@@ -64,36 +69,10 @@
           "q": "audit our design kit. what can we do better. i mean engineering behind and structure"
         }
       ],
-      "score": 0.999913415,
+      "score": 0.999410204,
       "source_file": "src/lib/components/Drawer.tsx",
       "status": "tentative",
       "uses": 1
-    },
-    "src_lib_index": {
-      "code_fingerprint": "2ea1463d5afa1a6688beda5eebfbc5eb49cfad0ffa43bfd116d8e18fe89f9b0a",
-      "label": "index.ts",
-      "last": "2026-08-08T05:55:04.434077+00:00",
-      "provenance": [
-        {
-          "date": "2026-08-08T05:55:04.434077+00:00",
-          "outcome": "useful",
-          "q": "audit our design kit. what can we do better. i mean engineering behind and structure"
-        },
-        {
-          "date": "2026-08-08T05:47:02.742990+00:00",
-          "outcome": "useful",
-          "q": "wait i think if can make it as react, vue might be better right. so nuxt,next can be use this as well?"
-        },
-        {
-          "date": "2026-08-08T05:43:54.785673+00:00",
-          "outcome": "useful",
-          "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
-        }
-      ],
-      "score": 2.999432408,
-      "source_file": "src/lib/index.ts",
-      "status": "preferred",
-      "uses": 3
     },
     "src_lib_styles_d": {
       "code_fingerprint": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa",
@@ -111,13 +90,13 @@
           "q": "wait i think if can make it as react, vue might be better right. so nuxt,next can be use this as well?"
         }
       ],
-      "score": 1.999698037,
+      "score": 1.99869168,
       "source_file": "src/lib/styles.d.ts",
       "status": "preferred",
       "uses": 2
     },
     "src_main": {
-      "code_fingerprint": "3dc5d6275fc9a170edd197baf0e3c3dc49feacedb40a1f8400066780f8e8b5d7",
+      "code_fingerprint": "d773a099607e90df94ca02413f5607ae9bebbc698ee7aa4775331ecb8a151f3b",
       "label": "main.tsx",
       "last": "2026-08-08T05:43:54.785673+00:00",
       "provenance": [
@@ -127,7 +106,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 0.999734371,
+      "score": 0.99923125,
       "source_file": "src/main.tsx",
       "status": "tentative",
       "uses": 1
@@ -153,10 +132,26 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.999432408,
+      "score": 2.99792293,
       "source_file": "src/WebCatalog.tsx",
       "status": "preferred",
       "uses": 3
+    },
+    "vercel": {
+      "code_fingerprint": "364ca3be990b2f27803d7a19dce581a91e22805d19be50a39925ea02d75bf641",
+      "label": "vercel.json",
+      "last": "2026-08-08T06:25:04.421150+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-08T06:25:04.421150+00:00",
+          "outcome": "useful",
+          "q": "so when i redeploy will vercel show docs pages. can u run this project local as well."
+        }
+      ],
+      "score": 0.999891385,
+      "source_file": "vercel.json",
+      "status": "tentative",
+      "uses": 1
     }
   },
   "version": 1
