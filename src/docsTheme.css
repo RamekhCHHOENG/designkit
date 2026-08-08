@@ -1,0 +1,3 @@
+/* Wraps the docs stylesheet in the `docs` cascade layer (ordered in
+   src/space/globals.css) so Tailwind utilities win inside vendored examples. */
+@import "./demo.css" layer(docs);

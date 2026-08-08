@@ -101,7 +101,11 @@ DesignKit uses prefixed CSS custom properties. Override them at the application 
 }
 ```
 
-Set `data-dk-theme="dark"` on the root element to use the included dark tokens. The stylesheet also recognizes an existing `data-theme="dark"` attribute.
+Set `data-dk-theme="dark"` on the root element to use the included dark tokens. The package deliberately leaves generic attributes such as `data-theme` alone so it does not take ownership of a host application's theme system.
+
+## Framework compatibility
+
+The package ships ESM, CommonJS, and TypeScript declarations. Its public entry keeps a React `"use client"` boundary, so interactive components can be imported safely by Next.js App Router client trees. Vite and other React bundlers can import the same entry normally.
 
 ## Local development
 
@@ -114,15 +118,23 @@ Useful checks:
 
 ```bash
 npm run typecheck
-npm run build
-npm run pack:check
+npm test
+npm run verify
 ```
 
-`npm run build:lib` creates ESM, CommonJS, CSS, and TypeScript declaration files in `dist/`. `npm run build:docs` creates the documentation site in `docs-dist/`.
+`npm run build:lib` creates ESM, CommonJS, CSS, and TypeScript declaration files in `dist/`. `npm run build:docs` creates the documentation site in `docs-dist/`. The included `vercel.json` directs Vercel to publish `docs-dist/`, not the repository source.
 
 ## Release
 
-This project follows semantic versioning. A GitHub release triggers the npm publishing workflow after the package builds successfully. The npm package name is `@ramekhchhoeng/designkit`.
+This project follows semantic versioning. A GitHub release triggers the npm publishing workflow after its tag matches `package.json` and the tests, package build, exports, declarations, and tarball all pass validation. For package version `0.1.0`, create tag `v0.1.0`. The npm package name is `@ramekhchhoeng/designkit`.
+
+## Credits
+
+The documentation site's extended example gallery (`src/space/`) vendors components,
+examples, and blocks from [Shadcn Space](https://github.com/shadcnspace/shadcnspace)
+(MIT © 2026 Shadcn Space, see [src/space/LICENSE](./src/space/LICENSE)), adapted to
+run in this Vite docs app. The published `@ramekhchhoeng/designkit` npm package does
+not include these files and remains dependency-free.
 
 ## License
 

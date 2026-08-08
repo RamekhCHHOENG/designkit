@@ -12,6 +12,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
+  type = "button",
   variant = "primary",
   size = "medium",
   color = "neutral",
@@ -25,6 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <button
       {...props}
       ref={ref}
+      type={type}
       className={`dk-button dk-button--${variant} dk-button--${size} ${className}`.trim()}
       data-color={color}
       disabled={disabled || loading}

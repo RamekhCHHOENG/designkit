@@ -14,10 +14,9 @@
   --dk-violet: #8944ab;
   --dk-red: #d70015;
   --dk-amber: #a05a00;
-  color-scheme: light;
+  --dk-color-scheme: light;
 }
 
-:root[data-theme="dark"],
 :root[data-dk-theme="dark"],
 [data-dk-theme="dark"] {
   --dk-background: #000000;
@@ -34,7 +33,11 @@
   --dk-violet: #bf5af2;
   --dk-red: #ff453a;
   --dk-amber: #ff9f0a;
-  color-scheme: dark;
+  --dk-color-scheme: dark;
+}
+
+:where(.dk-button, .dk-badge, .dk-field, .dk-card, .dk-data-table, .dk-drawer) {
+  color-scheme: var(--dk-color-scheme);
 }
 
 .dk-visually-hidden {

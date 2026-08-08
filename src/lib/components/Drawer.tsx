@@ -97,10 +97,9 @@ export function Drawer({
 
   return createPortal(
     <div className={`dk-drawer ${className}`.trim()} data-side={side}>
-      <button
+      <div
         className="dk-drawer__backdrop"
-        type="button"
-        aria-label={closeLabel}
+        aria-hidden="true"
         onClick={() => closeOnOverlayClick && onOpenChange(false)}
       />
       <section

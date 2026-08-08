@@ -3,7 +3,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,8 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./src/space/*"],
+      "next/image": ["./src/space/shims/next-image.tsx"],
+      "next/font/google": ["./src/space/shims/next-font-google.ts"],
+      "next/navigation": ["./src/space/shims/next-navigation.ts"],
+      "next/link": ["./src/space/shims/next-link.tsx"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "tests", "vitest.config.ts"],
+  "exclude": ["src/space"],
   "references": []
 }

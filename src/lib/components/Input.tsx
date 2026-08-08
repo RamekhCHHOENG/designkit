@@ -31,8 +31,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
   const describedBy = [ariaDescribedBy, descriptionId, errorId].filter(Boolean).join(" ") || undefined;
 
   return (
-    <label className={`dk-field ${containerClassName}`.trim()} htmlFor={inputId}>
-      {label && <span className="dk-field__label">{label}</span>}
+    <div className={`dk-field ${containerClassName}`.trim()}>
+      {label && <label className="dk-field__label" htmlFor={inputId}>{label}</label>}
       <span className="dk-input-wrap" data-size={inputSize} data-invalid={Boolean(error) || undefined}>
         {startAdornment && <span className="dk-input__adornment" aria-hidden="true">{startAdornment}</span>}
         <input
@@ -47,6 +47,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
       </span>
       {description && <small className="dk-field__description" id={descriptionId}>{description}</small>}
       {error && <small className="dk-field__error" id={errorId}>{error}</small>}
-    </label>
+    </div>
   );
 });

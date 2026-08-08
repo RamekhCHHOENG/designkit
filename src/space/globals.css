@@ -1,0 +1,314 @@
+/* Adapted from shadcnspace (https://github.com/shadcnspace/shadcnspace, MIT) for the DesignKit docs app. */
+
+/* Establish layer order FIRST: the docs stylesheet (demo.css, layer `docs`)
+   must lose to Tailwind utilities so example styling is never overridden by
+   the docs' bare-element rules (e.g. `button { color: inherit }`), while
+   still beating Tailwind's preflight for the docs chrome itself. */
+@layer theme, base, docs, components, utilities;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./shadcn-tailwind.css";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme inline {
+  --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
+
+/* Token palette aligned with the DesignKit docs (demo.css Apple palette) so
+   every vendored example inherits the same look in light and dark. */
+:root {
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  --primary: #1d1d1f;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f7;
+  --secondary-foreground: #1d1d1f;
+  --muted: #f5f5f7;
+  --muted-foreground: #6e6e73;
+  --accent: #f5f5f7;
+  --accent-foreground: #1d1d1f;
+  --destructive: #d70015;
+  --border: rgba(0, 0, 0, 0.09);
+  --input: rgba(0, 0, 0, 0.16);
+  --ring: #0071e3;
+  --chart-1: #0071e3;
+  --chart-2: #248a3d;
+  --chart-3: #8944ab;
+  --chart-4: #e8a33d;
+  --chart-5: #d70015;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #1d1d1f;
+  --sidebar-primary: #1d1d1f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f7;
+  --sidebar-accent-foreground: #1d1d1f;
+  --sidebar-border: rgba(0, 0, 0, 0.09);
+  --sidebar-ring: #0071e3;
+}
+
+[data-theme="dark"] {
+  --background: #1c1c1e;
+  --foreground: #f5f5f7;
+  --card: #1c1c1e;
+  --card-foreground: #f5f5f7;
+  --popover: #2c2c2e;
+  --popover-foreground: #f5f5f7;
+  --primary: #f5f5f7;
+  --primary-foreground: #1d1d1f;
+  --secondary: #2c2c2e;
+  --secondary-foreground: #f5f5f7;
+  --muted: #2c2c2e;
+  --muted-foreground: #a1a1a6;
+  --accent: #2c2c2e;
+  --accent-foreground: #f5f5f7;
+  --destructive: #ff453a;
+  --border: rgba(255, 255, 255, 0.11);
+  --input: rgba(255, 255, 255, 0.19);
+  --ring: #0a84ff;
+  --chart-1: #0a84ff;
+  --chart-2: #30d158;
+  --chart-3: #bf5af2;
+  --chart-4: #f1c46c;
+  --chart-5: #ff453a;
+  --sidebar: #111113;
+  --sidebar-foreground: #f5f5f7;
+  --sidebar-primary: #f5f5f7;
+  --sidebar-primary-foreground: #1d1d1f;
+  --sidebar-accent: #2c2c2e;
+  --sidebar-accent-foreground: #f5f5f7;
+  --sidebar-border: rgba(255, 255, 255, 0.11);
+  --sidebar-ring: #0a84ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+}
+
+/* Surface that hosts vendored examples: gives them the page background they
+   expect, in the docs' own type stack. */
+.space-surface {
+  @apply bg-background text-foreground;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, "Helvetica Neue", sans-serif;
+}
+
+/* Standalone stage used by the primary preview and QA pages. */
+.space-stage {
+  @apply flex w-full min-h-[170px] items-center justify-center rounded-[14px] border border-border p-6 md:p-8;
+}
+
+.space-block-stage {
+  @apply w-full rounded-[14px] border border-border overflow-hidden;
+}
+
+/* Gallery grid, mirrored from shadcnspace's category pages. */
+.space-grid {
+  @apply grid grid-cols-1 gap-5;
+}
+
+.space-grid[data-columns="2"] {
+  @apply md:grid-cols-2;
+}
+
+.space-grid[data-columns="3"] {
+  @apply md:grid-cols-2;
+}
+
+/* Example card: slim title bar + centered preview. Chrome uses the docs'
+   design tokens (demo.css) so cards read as native DesignKit surfaces. */
+.space-card {
+  @apply flex flex-col overflow-hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.space-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="dark"] .space-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.space-card-header {
+  @apply flex shrink-0 items-center justify-between gap-3;
+  height: 42px;
+  padding: 0 10px 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.space-card-header > p {
+  @apply m-0 truncate;
+  font-size: 13px;
+  font-weight: 590;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.space-card-actions {
+  @apply flex items-center gap-1;
+}
+
+.space-card-actions button {
+  @apply flex items-center justify-center transition-colors;
+  padding: 6px;
+  border-radius: 8px;
+  color: var(--muted-foreground);
+}
+
+.space-card-actions button:hover {
+  color: var(--text);
+  background: var(--surface-soft);
+}
+
+.space-card-actions button.active {
+  color: var(--text);
+  background: var(--surface-soft);
+}
+
+.space-card-preview {
+  @apply flex w-full flex-1 items-center justify-center px-4 py-6 min-h-48;
+}
+
+.space-card-preview--block {
+  @apply block p-0 min-h-0;
+}
+
+.space-card-code {
+  @apply m-0 max-h-96 flex-1 overflow-auto whitespace-pre p-4 font-mono text-xs leading-relaxed;
+  background: var(--surface-raised);
+}
+
+.space-stage-loading {
+  @apply m-10 size-9 animate-spin rounded-full border-2 border-border border-t-foreground;
+}
+
+.space-example-error {
+  @apply w-full rounded-[12px] border border-destructive/40 bg-destructive/5 p-4 text-sm text-destructive;
+}
+
+.space-example-error p {
+  @apply mt-1 opacity-80;
+}
+
+.space-example-error button {
+  @apply mt-3 rounded-md border border-destructive/40 px-3 py-1 text-xs font-medium transition-colors hover:bg-destructive/10;
+}
+
+@layer components {
+  .shiki.with-line-numbers code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  .shiki.with-line-numbers code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    @apply text-muted-foreground bg-background sticky left-0 mr-6 inline-block w-12 pr-3 pl-4 text-right will-change-transform;
+  }
+
+  [data-theme="dark"] .shiki.with-line-numbers code .line::before {
+    @apply bg-[var(--shiki-dark-bg)];
+  }
+
+  [data-theme="dark"] .shiki {
+    background-color: transparent !important;
+  }
+
+  [data-theme="dark"] .shiki span {
+    color: var(--shiki-dark) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+@layer utilities {
+  [data-theme="dark"] .shiki {
+    background-color: transparent !important;
+    --shiki-dark-bg: var(--background) !important;
+  }
+
+  .container {
+    @apply mx-auto px-6 lg:px-8 max-w-full;
+  }
+}

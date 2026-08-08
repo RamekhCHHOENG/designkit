@@ -1,7 +1,9 @@
 import { StrictMode, useEffect, useMemo, useRef, useState, type RefObject } from "react";
-import { createRoot } from "react-dom/client";
-import { componentDocs, componentGroups, readyComponentCount, type ComponentDoc } from "./componentDocs";
-import "./demo.css";
+import { createRoot, type Root } from "react-dom/client";
+import { componentDocs, previewBlockCount, previewExtrasCount, sectionGroups, stableComponentCount, type CatalogSection, type ComponentDoc } from "./componentDocs";
+import { SpaceExampleCard, SpaceExampleStage } from "./spaceExamples";
+import { Toaster } from "./space/components/ui/sonner";
+import "./docsTheme.css";
 
 type Appearance = "light" | "dark" | "system";
 type DetailTab = "preview" | "code";
@@ -29,7 +31,11 @@ function useAppearance() {
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const apply = () => {
-      document.documentElement.dataset.theme = appearance === "system" ? (media.matches ? "dark" : "light") : appearance;
+      const resolved = appearance === "system" ? (media.matches ? "dark" : "light") : appearance;
+      document.documentElement.dataset.theme = resolved;
+      document.documentElement.dataset.dkTheme = resolved;
+      // The vendored shadcnspace styles key off a `.dark` class on <html>.
+      document.documentElement.classList.toggle("dark", resolved === "dark");
     };
     apply();
     localStorage.setItem("appearance", appearance);
@@ -62,20 +68,22 @@ function SearchIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></svg>;
 }
 
-function Header({ query, setQuery, onMenu, appearance, cycleAppearance, searchRef }: {
+function Header({ query, setQuery, onMenu, appearance, cycleAppearance, searchRef, section }: {
   query: string;
   setQuery: (value: string) => void;
   onMenu: () => void;
   appearance: Appearance;
   cycleAppearance: () => void;
   searchRef: RefObject<HTMLInputElement | null>;
+  section: CatalogSection;
 }) {
   return <header className="docs-header">
     <button className="mobile-menu" type="button" aria-label="Open navigation" onClick={onMenu}>☰</button>
     <a className="docs-brand" href="#overview"><BrandMark /><span>DesignKit</span><b>web</b></a>
     <nav className="top-nav" aria-label="Primary navigation">
       <a href="#overview">Docs</a>
-      <a className="active" href="#overview">Components</a>
+      <a className={section === "components" ? "active" : ""} href="#overview">Components</a>
+      <a className={section === "extras" ? "active" : ""} href="#extras">Extras</a>
       <a href="#typography">Foundations</a>
       <a href="#tipkit">Patterns</a>
     </nav>
@@ -91,19 +99,26 @@ function Header({ query, setQuery, onMenu, appearance, cycleAppearance, searchRe
   </header>;
 }
 
-function Sidebar({ query, docs, open, onClose }: { query: string; docs: ComponentDoc[]; open: boolean; onClose: () => void }) {
+function Sidebar({ query, docs, section, open, onClose }: { query: string; docs: ComponentDoc[]; section: CatalogSection; open: boolean; onClose: () => void }) {
+  const sectionDocs = docs.filter((component) => component.section === section);
+  const groups = sectionGroups(section).filter((group) => group !== "Blocks");
+  const blockItems = section === "extras" ? sectionDocs.filter((component) => component.group === "Blocks") : [];
+  const hash = window.location.hash;
   return <>
     <button className={`sidebar-scrim ${open ? "visible" : ""}`} aria-label="Close navigation" onClick={onClose} />
     <aside className={`docs-sidebar ${open ? "open" : ""}`}>
       <nav aria-label="Documentation navigation">
-        <section>
+        {section === "components" ? <section>
           <small>Get started</small>
-          <a className={!window.location.hash || window.location.hash === "#overview" ? "active" : ""} href="#overview">Overview</a>
+          <a className={!hash || hash === "#overview" ? "active" : ""} href="#overview">Overview</a>
           <a href="#typography">Foundations</a>
           <a href="#tipkit">Patterns</a>
-        </section>
-        {componentGroups.map((group) => {
-          const items = docs.filter((component) => component.group === group);
+        </section> : <section>
+          <small>Get started</small>
+          <a className={hash === "#extras" ? "active" : ""} href="#extras">Overview</a>
+        </section>}
+        {groups.map((group) => {
+          const items = sectionDocs.filter((component) => component.group === group);
           if (!items.length) return null;
           return <section key={group}>
             <small>{group}</small>
@@ -113,27 +128,49 @@ function Sidebar({ query, docs, open, onClose }: { query: string; docs: Componen
             </a>)}
           </section>;
         })}
-        {query && !docs.length && <p className="sidebar-empty">No components match “{query}”.</p>}
+        {blockItems.length > 0 && <section className="sidebar-blocks">
+          <small>Blocks · Page sections</small>
+          {blockItems.map((component) => <a href={`#${component.slug}`} key={component.slug}>
+            <span>{component.name}</span>
+          </a>)}
+        </section>}
+        {query && !sectionDocs.length && <p className="sidebar-empty">No components match “{query}”.</p>}
       </nav>
     </aside>
   </>;
 }
 
 function StatusBadge({ status }: { status: ComponentDoc["status"] }) {
-  return <span className={`status-badge status-badge--${status}`}>{status === "ready" ? "Ready" : "Planned"}</span>;
+  const labels: Record<ComponentDoc["status"], string> = {
+    stable: "Stable",
+    preview: "Preview",
+    planned: "Planned",
+  };
+  return <span className={`status-badge status-badge--${status}`}>{labels[status]}</span>;
 }
 
-function Overview({ docs }: { docs: ComponentDoc[] }) {
-  const newComponents = docs.filter((component) => ["Data Table", "Drawer", "Form", "Payment Button", "Navigation Bar"].includes(component.name));
+function Overview({ docs, section }: { docs: ComponentDoc[]; section: CatalogSection }) {
+  const sectionDocs = docs.filter((component) => component.section === section);
+  const newComponents = section === "components"
+    ? sectionDocs.filter((component) => ["Data Table", "Drawer", "Form", "Payment Button", "Navigation Bar"].includes(component.name))
+    : [];
+  const baseDocs = sectionDocs.filter((component) => component.group !== "Blocks");
+  const blockDocs = sectionDocs.filter((component) => component.group === "Blocks");
+  const isExtras = section === "extras";
 
   return <article className="docs-page overview-page">
-    <div className="page-eyebrow"><span>Components</span><b>{readyComponentCount} ready</b></div>
+    <div className="page-eyebrow">
+      <span>{isExtras ? "Extras" : "Components"}</span>
+      <b>{isExtras ? `${previewExtrasCount} previews · ${previewBlockCount} blocks` : `${stableComponentCount} stable`}</b>
+    </div>
     <div className="page-heading-row">
       <div>
-        <h1>Web components</h1>
-        <p>Browse every available component, inspect its states, and use the examples as a living reference for the design system.</p>
+        <h1>{isExtras ? "Extras" : "Web components"}</h1>
+        <p>{isExtras
+          ? "Animated showpieces, specialty inputs, and full-page blocks that extend the core component set."
+          : "Browse every available component, inspect its states, and use the examples as a living reference for the design system."}</p>
       </div>
-      <a className="copy-page" href="#button">Start exploring <span>→</span></a>
+      <a className="copy-page" href={isExtras ? "#apple-dock" : "#button"}>Start exploring <span>→</span></a>
     </div>
 
     {newComponents.length > 0 && <section className="catalog-section" id="new-components">
@@ -147,17 +184,29 @@ function Overview({ docs }: { docs: ComponentDoc[] }) {
       </div>
     </section>}
 
-    <section className="catalog-section" id="all-components">
-      <div className="section-heading"><div><small>Library index</small><h2>All components</h2></div><p>{docs.length} results</p></div>
+    {baseDocs.length > 0 && <section className="catalog-section" id="all-components">
+      <div className="section-heading"><div><small>Library index</small><h2>Components</h2></div><p>{baseDocs.length} results</p></div>
       <div className="component-index">
-        {docs.map((component) => <a href={`#${component.slug}`} key={component.slug}>
+        {baseDocs.map((component) => <a href={`#${component.slug}`} key={component.slug}>
           <span>{component.name}</span>
           <StatusBadge status={component.status} />
           <small>{component.group}</small>
           <b>↗</b>
         </a>)}
       </div>
-    </section>
+    </section>}
+
+    {blockDocs.length > 0 && <section className="catalog-section" id="all-blocks">
+      <div className="section-heading"><div><small>Page sections</small><h2>Blocks</h2></div><p>{blockDocs.length} results</p></div>
+      <div className="component-index">
+        {blockDocs.map((component) => <a href={`#${component.slug}`} key={component.slug}>
+          <span>{component.name}</span>
+          <StatusBadge status={component.status} />
+          <small>Blocks</small>
+          <b>↗</b>
+        </a>)}
+      </div>
+    </section>}
   </article>;
 }
 
@@ -182,6 +231,7 @@ function ExampleCard({ example }: { example: ComponentDoc["examples"][number] })
 function ComponentDetail({ component }: { component: ComponentDoc }) {
   const [tab, setTab] = useState<DetailTab>("preview");
   const [copied, setCopied] = useState(false);
+  const gallery = component.spaceExamples ?? [];
 
   useEffect(() => {
     setTab("preview");
@@ -196,7 +246,7 @@ function ComponentDetail({ component }: { component: ComponentDoc }) {
   };
 
   return <article className="docs-page component-page">
-    <nav className="breadcrumbs" aria-label="Breadcrumb"><a href="#overview">Components</a><span>/</span><span>{component.group}</span><span>/</span><strong>{component.name}</strong></nav>
+    <nav className="breadcrumbs" aria-label="Breadcrumb"><a href={component.section === "extras" ? "#extras" : "#overview"}>{component.section === "extras" ? "Extras" : "Components"}</a><span>/</span><span>{component.group}</span><span>/</span><strong>{component.name}</strong></nav>
     <div className="component-heading">
       <div>
         <div className="component-kicker"><StatusBadge status={component.status} /><span>{component.source}</span></div>
@@ -206,27 +256,40 @@ function ComponentDetail({ component }: { component: ComponentDoc }) {
       <button className="copy-page" type="button" onClick={copyCode}>{copied ? "Copied" : "Copy example"}<span>{copied ? "✓" : "▢"}</span></button>
     </div>
 
-    {component.status === "ready" ? <>
+    {component.status !== "planned" ? <>
       <section className="component-section" id="preview">
         <div className="detail-tabs" role="tablist" aria-label="Component example">
-          <button className={tab === "preview" ? "active" : ""} onClick={() => setTab("preview")} role="tab" aria-selected={tab === "preview"}>Preview</button>
-          <button className={tab === "code" ? "active" : ""} onClick={() => setTab("code")} role="tab" aria-selected={tab === "code"}>Code</button>
+          <button id="preview-tab" type="button" className={tab === "preview" ? "active" : ""} onClick={() => setTab("preview")} role="tab" aria-controls="component-example-panel" aria-selected={tab === "preview"}>Preview</button>
+          <button id="code-tab" type="button" className={tab === "code" ? "active" : ""} onClick={() => setTab("code")} role="tab" aria-controls="component-example-panel" aria-selected={tab === "code"}>Code</button>
           <span />
           <small>Interactive example</small>
         </div>
-        {tab === "preview" ? <div className="primary-preview">{component.examples[0].render()}</div> : <pre className="code-block"><code>{component.code}</code></pre>}
+        {tab === "preview"
+          ? <div key={`${component.slug}-preview`} id="component-example-panel" className="primary-preview" role="tabpanel" aria-labelledby="preview-tab">
+              {component.examples[0]
+                ? component.examples[0].render()
+                : gallery[0] && <SpaceExampleStage example={gallery[0]} block={component.spaceBlock} />}
+            </div>
+          : <pre key={`${component.slug}-code`} id="component-example-panel" className="code-block" role="tabpanel" aria-labelledby="code-tab"><code>{component.code}</code></pre>}
       </section>
 
-      <section className="component-section" id="examples">
+      {component.examples.length > 0 && <section className="component-section" id="examples">
         <div className="section-heading"><div><small>Stories</small><h2>Variants and states</h2></div><p>{component.examples.length} documented examples</p></div>
         <div className="example-grid">
-          {component.examples.map((example) => <ExampleCard example={example} key={example.label} />)}
+          {component.examples.map((example, index) => <ExampleCard example={example} key={`${component.slug}-${index}-${example.label}`} />)}
         </div>
-      </section>
+      </section>}
+
+      {gallery.length > 0 && <section className="component-section" id="gallery">
+        <div className="section-heading"><div><small>Gallery</small><h2>Ready-to-use examples</h2></div><p>{gallery.length} example{gallery.length === 1 ? "" : "s"}</p></div>
+        <div className="space-grid" data-columns={component.spaceBlock ? "1" : "2"}>
+          {gallery.map((example) => <SpaceExampleCard example={example} block={component.spaceBlock} key={example.id} />)}
+        </div>
+      </section>}
 
       <section className="component-section guidance-grid" id="usage">
         <div><small>Usage</small><h2>Built for real interfaces</h2><p>Use semantic labels, keep actions predictable, and choose the simplest variant that communicates the correct hierarchy.</p></div>
-        <div><small>Accessibility</small><h2>Keyboard and screen-reader ready</h2><p>Every production component will include focus-visible behavior, meaningful names, reduced-motion support, and documented keyboard interactions.</p></div>
+        <div id="accessibility"><small>Accessibility</small><h2>Keyboard and screen-reader ready</h2><p>Every production component will include focus-visible behavior, meaningful names, reduced-motion support, and documented keyboard interactions.</p></div>
       </section>
     </> : <section className="planned-panel" id="roadmap">
       <span>Coming next</span>
@@ -240,9 +303,23 @@ function ComponentDetail({ component }: { component: ComponentDoc }) {
 function OnThisPage({ component }: { component?: ComponentDoc }) {
   return <aside className="docs-toc">
     <small>On this page</small>
-    {component?.status === "ready" ? <nav><a href="#preview">Preview</a><a href="#examples">Examples</a><a href="#usage">Usage</a><a href="#usage">Accessibility</a></nav> : component ? <nav><a href="#roadmap">Roadmap</a></nav> : <nav><a href="#new-components">New components</a><a href="#all-components">All components</a></nav>}
+    {component && component.status !== "planned" ? <nav><a href="#preview">Preview</a>{component.examples.length > 0 && <a href="#examples">Examples</a>}{(component.spaceExamples?.length ?? 0) > 0 && <a href="#gallery">Gallery</a>}<a href="#usage">Usage</a><a href="#accessibility">Accessibility</a></nav> : component ? <nav><a href="#roadmap">Roadmap</a></nav> : <nav><a href="#new-components">New components</a><a href="#all-components">All components</a></nav>}
     <div className="toc-card"><span>Web UI</span><strong>Designed to grow.</strong><p>Each component gets a focused page, interactive states, and implementation guidance.</p><a href="#button">Explore Button →</a></div>
   </aside>;
+}
+
+// Hidden QA route (#qa-components / #qa-blocks): renders every vendored example on
+// one page so failures surface in a single scan.
+function QaAllExamples({ blocks }: { blocks: boolean }) {
+  const docs = componentDocs.filter((doc) => (doc.group === "Blocks") === blocks);
+  return <article className="docs-page" data-qa-page="">
+    {docs.map((doc) => (doc.spaceExamples ?? []).map((example) => (
+      <section key={`${doc.slug}-${example.id}`} data-qa-example={`${doc.slug}/${example.id}`}>
+        <h3>{doc.name} — {example.label}</h3>
+        <SpaceExampleStage example={example} block={doc.spaceBlock} />
+      </section>
+    )))}
+  </article>;
 }
 
 function App() {
@@ -252,6 +329,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const selected = componentDocs.find((component) => component.slug === slug);
+  const section: CatalogSection = selected?.section ?? (slug === "extras" ? "extras" : "components");
 
   const filteredDocs = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -278,15 +356,23 @@ function App() {
   useEffect(() => setSidebarOpen(false), [slug]);
 
   return <div className="docs-app">
-    <Header query={query} setQuery={setQuery} onMenu={() => setSidebarOpen(true)} appearance={appearance} cycleAppearance={cycleAppearance} searchRef={searchRef} />
+    <Header query={query} setQuery={setQuery} onMenu={() => setSidebarOpen(true)} appearance={appearance} cycleAppearance={cycleAppearance} searchRef={searchRef} section={section} />
     <div className="docs-shell">
-      <Sidebar query={query} docs={filteredDocs} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar query={query} docs={filteredDocs} section={section} open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className="docs-main">
-        {selected ? <ComponentDetail component={selected} /> : <Overview docs={filteredDocs} />}
+        {slug === "qa-components" || slug === "qa-blocks"
+          ? <QaAllExamples blocks={slug === "qa-blocks"} />
+          : selected ? <ComponentDetail component={selected} /> : <Overview docs={filteredDocs} section={section} />}
       </main>
       <OnThisPage component={selected} />
     </div>
+    <Toaster />
   </div>;
 }
 
-createRoot(document.getElementById("root")!).render(<StrictMode><App /></StrictMode>);
+const rootElement = document.getElementById("root")!;
+const root = (import.meta.hot?.data.designKitRoot as Root | undefined) ?? createRoot(rootElement);
+
+if (import.meta.hot) import.meta.hot.data.designKitRoot = root;
+
+root.render(<StrictMode><App /></StrictMode>);

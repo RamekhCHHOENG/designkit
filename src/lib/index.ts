@@ -1,3 +1,5 @@
+"use client";
+
 import "./styles/designkit.css";
 
 export { Badge } from "./components/Badge";

@@ -17,8 +17,14 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+      - run: npm run release:verify
+        env:
+          DESIGNKIT_RELEASE_TAG: ${{ github.event.release.tag_name }}
       - run: npm ci
+      - run: npm test
       - run: npm run build:lib
+      - run: npm run package:verify
+      - run: npm pack --dry-run
       - run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

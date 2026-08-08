@@ -1,7 +1,24 @@
 import type { ReactNode } from "react";
+import {
+  isStableReactComponent,
+  maturityForReactComponent,
+  stableReactComponents,
+  type ComponentMaturity,
+} from "./componentMaturity";
 import { createWebStories, webComponentNames, type WebComponentName } from "./WebCatalog";
+import {
+  spaceBlocks,
+  spaceCategories,
+  spaceCategoryColumns,
+  type SpaceBlock,
+  type SpaceExample,
+} from "./spaceExamples";
 
-export type ComponentStatus = "ready" | "planned";
+export type ComponentStatus = ComponentMaturity;
+
+/** Which top-nav catalog a doc belongs to: the base component set, or the
+ * Extras tab (vendored-only categories and full-page blocks). */
+export type CatalogSection = "components" | "extras";
 
 export type ComponentExample = {
   label: string;
@@ -14,11 +31,18 @@ export type ComponentDoc = {
   name: string;
   slug: string;
   group: string;
+  section: CatalogSection;
   description: string;
   status: ComponentStatus;
   source: string;
   code: string;
   examples: ComponentExample[];
+  /** Vendored shadcnspace gallery examples, rendered in their own grid. */
+  spaceExamples?: SpaceExample[];
+  /** Gallery grid density (1-3 columns), mirrored from shadcnspace. */
+  spaceColumns?: number;
+  /** True when the doc represents a full-page block. */
+  spaceBlock?: boolean;
 };
 
 const slugify = (name: string) => name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -113,15 +137,8 @@ const descriptions: Partial<Record<WebComponentName, string>> = {
 };
 
 const findGroup = (name: WebComponentName) => Object.entries(groupMembers).find(([, members]) => members.has(name))?.[0] ?? "Utilities";
-const publicSources: Partial<Record<WebComponentName, string>> = {
-  Badge: "lib/components/Badge.tsx",
-  Button: "lib/components/Button.tsx",
-  Card: "lib/components/Card.tsx",
-  "Data Table": "lib/components/DataTable.tsx",
-  Drawer: "lib/components/Drawer.tsx",
-  Input: "lib/components/Input.tsx",
-};
-const sourceFor = (name: WebComponentName) => publicSources[name] ?? "WebCatalog.tsx";
+const sourceFor = (name: WebComponentName) =>
+  isStableReactComponent(name) ? stableReactComponents[name] : "WebCatalog.tsx";
 
 const codeFor = (name: WebComponentName) => {
   if (name === "Button") return `import { Button } from "@ramekhchhoeng/designkit";\n\n<Button variant="primary" size="medium" color="blue">\n  Continue\n</Button>`;
@@ -134,18 +151,148 @@ const codeFor = (name: WebComponentName) => {
   return `// Documentation preview — package extraction is planned.\n<${tag} />`;
 };
 
-export const componentDocs: ComponentDoc[] = webComponentNames
-  .map((name) => ({
-    name,
+// --- shadcnspace examples (vendored, MIT) -------------------------------------
+
+const spaceCategoryFor: Partial<Record<WebComponentName, string>> = {
+  Accordion: "accordion",
+  Alert: "alert",
+  Avatar: "avatar",
+  Badge: "badge",
+  Breadcrumb: "breadcrumb",
+  Button: "button",
+  "Button Group": "button-group",
+  Calendar: "calendar",
+  Card: "card",
+  Carousel: "carousel",
+  Checkbox: "checkbox",
+  Collapsible: "collapsible",
+  Combobox: "combobox",
+  Command: "command",
+  "Context Menu": "context-menu",
+  "Date Picker": "date-picker",
+  Dialog: "dialog",
+  "Dropdown Menu": "dropdown-menu",
+  Input: "input",
+  "Input OTP": "input-otp",
+  Kbd: "kbd",
+  Label: "label",
+  Pagination: "pagination",
+  Popover: "popover",
+  Progress: "progress",
+  "Radio Group": "radio-group",
+  "Scroll Area": "scroll-area",
+  Select: "select",
+  Separator: "separator",
+  Sheet: "sheet",
+  Skeleton: "skeleton",
+  Slider: "slider",
+  Sonner: "sonner",
+  Spinner: "spinner",
+  Switch: "switch",
+  Tabs: "tabs",
+  Textarea: "textarea",
+  Tooltip: "tooltip",
+};
+
+const spaceGroupFor: Record<string, string> = {
+  autocomplete: "Forms",
+  "input-mask": "Forms",
+  "file-upload": "Forms",
+  "multi-select": "Forms",
+  "native-select": "Forms",
+  "code-block": "Data Display",
+  "number-ticker": "Data Display",
+  "animated-list": "Animation",
+  "animated-text": "Animation",
+  "apple-dock": "Animation",
+  marquee: "Animation",
+  "orbiting-circles": "Animation",
+  "shine-border": "Animation",
+  "spinning-text": "Animation",
+  animations: "Animation",
+};
+
+const mappedSlugs = new Set(Object.values(spaceCategoryFor));
+
+const galleryFor = (slug: string | undefined) => {
+  if (!slug) return {};
+  const examples = spaceCategories[slug]?.examples ?? [];
+  if (!examples.length) return {};
+  return { spaceExamples: examples, spaceColumns: spaceCategoryColumns[slug] ?? 1 };
+};
+
+const spaceOnlyDocs: ComponentDoc[] = Object.values(spaceCategories)
+  .filter((category) => !mappedSlugs.has(category.slug) && category.slug !== "blocks" && category.examples.length > 0)
+  .map((category) => ({
+    name: category.title,
+    slug: slugify(category.title),
+    group: spaceGroupFor[category.slug] ?? "Data Display",
+    section: "extras" as const,
+    description: category.description || `${category.title} examples from the shadcnspace collection.`,
+    status: "preview" as const,
+    source: `space/components/shadcn-space/${category.slug}/`,
+    code: `import Example from "${category.examples[0].importPath}";`,
+    examples: [],
+    ...galleryFor(category.slug),
+  }));
+
+const toBlockDoc = (block: SpaceBlock): ComponentDoc => {
+  const shortName = block.title.split(" - ")[0].trim() || block.title;
+  return {
+    name: shortName,
+    slug: slugify(`block-${block.id}`),
+    group: "Blocks",
+    section: "extras" as const,
+    description: block.description,
+    status: "preview" as const,
+    source: `space/components/shadcn-space/blocks/${block.id}/`,
+    code: `import Page from "@/components/shadcn-space/blocks/${block.id}/page";`,
+    examples: [],
+    spaceExamples: [{
+      id: block.id,
+      label: block.title.split(" - ").slice(1).join(" - ").trim() || shortName,
+      description: block.description,
+      importPath: `@/components/shadcn-space/blocks/${block.id}/page`,
+      load: block.load,
+      loadSource: block.loadSource ?? (() => Promise.resolve("")),
+    }],
+    spaceColumns: 1,
+    spaceBlock: true,
+  };
+};
+
+const blockDocs: ComponentDoc[] = spaceBlocks.map(toBlockDoc);
+
+// Base component groups come first in a deliberate order; Blocks (full page
+// sections) are a separate catalog that always sorts last.
+const groupOrder = [
+  "Foundations", "Actions", "Forms", "Navigation", "Data Display",
+  "Feedback", "Overlays", "Disclosure", "Patterns", "Animation", "Utilities", "Blocks",
+];
+const groupRank = (group: string) => {
+  const rank = groupOrder.indexOf(group);
+  return rank === -1 ? groupOrder.indexOf("Utilities") : rank;
+};
+
+export const componentDocs: ComponentDoc[] = [
+  ...webComponentNames.map((name) => ({
+    name: name as string,
     slug: slugify(name),
     group: findGroup(name),
+    section: "components" as const,
     description: descriptions[name] ?? `${name} is a responsive, accessible part of the web component catalog.`,
-    status: "ready" as const,
+    status: maturityForReactComponent(name),
     source: sourceFor(name),
     code: codeFor(name),
     examples: createWebStories(name),
-  }))
-  .sort((first, second) => first.group.localeCompare(second.group) || first.name.localeCompare(second.name));
+    ...galleryFor(spaceCategoryFor[name]),
+  })),
+  ...spaceOnlyDocs,
+  ...blockDocs,
+].sort((first, second) => groupRank(first.group) - groupRank(second.group) || first.name.localeCompare(second.name));
 
-export const componentGroups = Array.from(new Set(componentDocs.map((component) => component.group)));
-export const readyComponentCount = componentDocs.filter((component) => component.status === "ready").length;
+export const sectionGroups = (section: CatalogSection) =>
+  Array.from(new Set(componentDocs.filter((component) => component.section === section).map((component) => component.group)));
+export const stableComponentCount = componentDocs.filter((component) => component.status === "stable" && component.section === "components").length;
+export const previewExtrasCount = componentDocs.filter((component) => component.status === "preview" && component.section === "extras" && component.group !== "Blocks").length;
+export const previewBlockCount = componentDocs.filter((component) => component.status === "preview" && component.group === "Blocks").length;
