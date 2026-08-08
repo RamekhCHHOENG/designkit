@@ -1,6 +1,6 @@
 {
   "name": "@ramekhchhoeng/designkit",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Apple-inspired, accessible React components for web applications.",
   "type": "module",
   "main": "./dist/index.cjs",
