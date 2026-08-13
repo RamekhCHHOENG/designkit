@@ -105,6 +105,10 @@ DesignKit uses prefixed CSS custom properties. Override them at the application 
 
 Set `data-dk-theme="dark"` on the root element to use the included dark tokens. The package deliberately leaves generic attributes such as `data-theme` alone so it does not take ownership of a host application's theme system.
 
+## MCP server
+
+[`mcp-server/`](./mcp-server) exposes the full component catalog — the 6 published lib components plus the vendored ui primitives, gallery examples, and blocks — as a remote MCP server and a shadcn-compatible registry (`npx shadcn add <url>/r/<name>.json`). See [`mcp-server/README.md`](./mcp-server/README.md).
+
 ## Framework compatibility
 
 The package ships ESM, CommonJS, and TypeScript declarations. Its public entry keeps a React `"use client"` boundary, so interactive components can be imported safely by Next.js App Router client trees. Vite and other React bundlers can import the same entry normally.

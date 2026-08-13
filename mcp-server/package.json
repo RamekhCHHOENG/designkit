@@ -1,0 +1,27 @@
+{
+  "name": "@ramekhchhoeng/designkit-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remote MCP + shadcn-compatible registry server exposing every DesignKit component (published lib, vendored ui primitives, gallery examples, and blocks).",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "registry:stats": "bun src/registry/stats.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "hono": "^4.6.14",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.14",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}
