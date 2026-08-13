@@ -5,7 +5,7 @@ import { installCommand } from "../registry/install.ts";
 import { REGISTRY_HOMEPAGE, toRegistryIndexEntry, toRegistryItemJson } from "../registry/shape.ts";
 import type { RegistryKind } from "../registry/types.ts";
 
-const KIND_ENUM = z.enum(["lib", "ui", "component", "block"]);
+const KIND_ENUM = z.enum(["ui"]);
 
 function text(value: unknown) {
   return { content: [{ type: "text" as const, text: typeof value === "string" ? value : JSON.stringify(value, null, 2) }] };
@@ -22,10 +22,10 @@ export function createMcpServer(): McpServer {
     { name: "designkit", version: "0.1.0" },
     {
       instructions:
-        "Discover and install DesignKit components: the 6 zero-dependency components published as " +
-        "@ramekhchhoeng/designkit, plus the full vendored shadcnspace catalog (65 ui primitives, " +
-        "~311 gallery examples, 51 full-page blocks) used by the docs site. Use list_components or " +
-        "search_components to browse, then get_component for full source + an install command.",
+        "Discover and install DesignKit components. The catalog is being redesigned on top of " +
+        "shadcn/ui, so it currently indexes the vendored shadcn/ui primitives (src/components/ui) " +
+        "only. Use list_components or search_components to browse, then get_component for full " +
+        "source + an install command.",
     },
   );
 
@@ -33,10 +33,7 @@ export function createMcpServer(): McpServer {
     "list_components",
     {
       title: "List DesignKit components",
-      description:
-        "List components in the DesignKit registry, optionally filtered by kind " +
-        "(lib = published npm package, ui = shadcnspace primitive, component = gallery example/variant, " +
-        "block = full-page block) and/or category.",
+      description: "List components in the DesignKit registry, optionally filtered by kind and/or category.",
       inputSchema: {
         kind: KIND_ENUM.optional().describe("Restrict to one kind of item."),
         category: z.string().optional().describe("Restrict to items tagged with this category."),
@@ -90,9 +87,7 @@ export function createMcpServer(): McpServer {
     "get_install_command",
     {
       title: "Get the install command for a component",
-      description:
-        "Return just the copy-pasteable install command for a registry item (npm install for published " +
-        "lib components, npx shadcn add <url> for everything else).",
+      description: "Return just the copy-pasteable `npx shadcn add <url>` command for a registry item.",
       inputSchema: { name: z.string() },
     },
     async ({ name }) => {
@@ -101,16 +96,6 @@ export function createMcpServer(): McpServer {
       if (result.status === "ambiguous") return ambiguousText(result.candidates, name);
       return text(installCommand(result.item));
     },
-  );
-
-  server.registerTool(
-    "list_blocks",
-    {
-      title: "List DesignKit full-page blocks",
-      description: "List the vendored shadcnspace full-page blocks (heroes, pricing sections, dashboards, ...).",
-      inputSchema: { category: z.string().optional() },
-    },
-    async ({ category }) => text(listItems({ kind: "block", category }).map(toRegistryIndexEntry)),
   );
 
   server.registerTool(

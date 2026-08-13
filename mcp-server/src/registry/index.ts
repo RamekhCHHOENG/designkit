@@ -1,6 +1,3 @@
-import { loadBlocks } from "./blocks.ts";
-import { loadExampleComponents } from "./example-components.ts";
-import { loadLibComponents } from "./lib-components.ts";
 import { loadUiPrimitives } from "./ui-components.ts";
 import type { RegistryItem, RegistryItemSummary, RegistryKind } from "./types.ts";
 
@@ -12,7 +9,7 @@ type Entry = { key: string; item: RegistryItem };
 let cache: { items: RegistryItem[]; byKey: Map<string, Entry[]> } | null = null;
 
 function build() {
-  const items = [...loadLibComponents(), ...loadUiPrimitives(), ...loadExampleComponents(), ...loadBlocks()];
+  const items = [...loadUiPrimitives()];
 
   const byKey = new Map<string, Entry[]>();
   for (const item of items) {
