@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "types": ["bun"],
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@/*": ["../src/space/*"],
+      "next/image": ["../src/space/shims/next-image.tsx"],
+      "next/font/google": ["../src/space/shims/next-font-google.ts"],
+      "next/navigation": ["../src/space/shims/next-navigation.ts"],
+      "next/link": ["../src/space/shims/next-link.tsx"]
+    }
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,14 @@
+# Used when building mcp-server/Dockerfile with the repo root as context.
+node_modules
+mcp-server/node_modules
+dist
+docs-dist
+graphify-out
+.git
+.github
+.changeset
+.claude
+.codex
+tests
+*.tgz
+*.tsbuildinfo
