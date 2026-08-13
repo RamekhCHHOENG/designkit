@@ -1,4 +1,7 @@
-export type RegistryKind = "lib" | "ui" | "component" | "block";
+// The catalog is being redesigned on top of shadcn/ui; only "ui" primitives
+// are indexed today. Widen this union again as curated lib components,
+// examples, or blocks return.
+export type RegistryKind = "ui";
 
 export type RegistryFileRef = {
   /** Path relative to the tipkit-react repo root. */

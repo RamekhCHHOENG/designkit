@@ -1,17 +1,9 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { absolutePath } from "./paths.ts";
 import type { RegistryFileRef, RegistryItem } from "./types.ts";
-import { webComponentNames } from "./web-component-names.ts";
 
-const UI_DIR = "src/space/components/ui";
+const UI_DIR = "src/components/ui";
 const IGNORED_DEPENDENCIES = new Set(["react", "react-dom", "react/jsx-runtime"]);
-
-const slugify = (name: string) =>
-  name
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
 
 const humanize = (slug: string) =>
   slug
@@ -19,8 +11,6 @@ const humanize = (slug: string) =>
     .map((word) => (word.length <= 3 && word !== "otp" ? word.toUpperCase() : word[0]!.toUpperCase() + word.slice(1)))
     .join(" ")
     .replace(/\bOtp\b/, "OTP");
-
-const CANONICAL_TITLES = new Map(webComponentNames.map((name) => [slugify(name), name]));
 
 function npmPackageName(specifier: string): string {
   const parts = specifier.split("/");
@@ -56,8 +46,8 @@ function classifyImports(source: string, ownSlug: string) {
         continue;
       }
       if (inner === "lib/utils") {
-        extraFiles.set("src/space/lib/utils.ts", {
-          path: "src/space/lib/utils.ts",
+        extraFiles.set("src/lib/utils.ts", {
+          path: "src/lib/utils.ts",
           target: "lib/utils.ts",
           type: "registry:lib",
         });
@@ -65,11 +55,11 @@ function classifyImports(source: string, ownSlug: string) {
       }
       const hooksMatch = inner.match(/^hooks\/([a-z0-9-]+)$/);
       if (hooksMatch) {
-        const hooksDir = absolutePath("src/space/hooks");
+        const hooksDir = absolutePath("src/hooks");
         const found = readdirSync(hooksDir).find((f) => f.startsWith(`${hooksMatch[1]}.`));
         if (found) {
-          extraFiles.set(`src/space/hooks/${found}`, {
-            path: `src/space/hooks/${found}`,
+          extraFiles.set(`src/hooks/${found}`, {
+            path: `src/hooks/${found}`,
             target: `hooks/${found}`,
             type: "registry:hook",
           });
@@ -96,14 +86,14 @@ export function loadUiPrimitives(): RegistryItem[] {
     const slug = file.replace(/\.tsx$/, "");
     const source = readFileSync(absolutePath(`${UI_DIR}/${file}`), "utf8");
     const { dependencies, registryDependencies, extraFiles } = classifyImports(source, slug);
-    const title = CANONICAL_TITLES.get(slug) ?? humanize(slug);
+    const title = humanize(slug);
 
     return {
       name: slug,
       kind: "ui",
       type: "registry:ui",
       title,
-      description: `${title} UI primitive vendored from the shadcnspace registry (Base UI + Tailwind); used as a building block by DesignKit's gallery examples and blocks.`,
+      description: `${title} UI primitive vendored from shadcn/ui (Base UI + Tailwind).`,
       category: "ui-primitive",
       dependencies,
       registryDependencies,

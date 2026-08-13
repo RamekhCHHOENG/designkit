@@ -1,20 +1,19 @@
 # designkit-mcp
 
 A remote MCP server, and a [shadcn](https://ui.shadcn.com)-compatible component
-registry, exposing every DesignKit component from one place:
+registry, for DesignKit.
 
-- **lib** (6) — the zero-dependency components actually published as
-  [`@ramekhchhoeng/designkit`](https://www.npmjs.com/package/@ramekhchhoeng/designkit):
-  Button, Badge, Card, DataTable, Drawer, Input.
-- **ui** (65) — the shadcnspace UI primitives vendored under `src/space/components/ui`
-  (Base UI + Tailwind), auto-indexed with their real dependencies.
-- **component** (~311) — every numbered gallery example/variant from the docs site
-  (`button-01`, `hero`-flavored animated lists, date pickers, etc).
-- **block** (51) — full-page blocks (heroes, pricing sections, dashboards, auth
-  flows, ...).
+The component catalog is being redesigned on top of shadcn/ui. Right now this
+indexes the **61 vendored shadcn/ui primitives** under `../src/components/ui`
+(Base UI + Tailwind, `nova` preset), auto-derived with their real dependencies
+— there's no separate metadata file upstream, so parsing each file's own
+`import` statements is the source of truth. Published lib components, gallery
+examples, and full-page blocks will come back as `kind`s here once that
+redesign lands (see `src/registry/types.ts`).
 
-It reads component source straight out of `../src/lib` and `../src/space` at
-request time — there is no build step or generated snapshot to go stale.
+It reads component source straight out of `../src/components/ui` and
+`../src/lib/utils.ts` at request time — there is no build step or generated
+snapshot to go stale.
 
 ## Run it locally
 
@@ -35,7 +34,7 @@ loader in `src/registry/`.
 | `POST /mcp` | MCP Streamable HTTP endpoint (stateless, JSON responses) |
 | `GET /r/registry.json` | Full registry index (shadcn `registry.json` shape) |
 | `GET /r/:name.json` | One item's full source, shadcn `registry-item.json` shape |
-| `GET /r/:kind/:name.json` | Same, disambiguated by kind (`ui`, `component`, `block`, `lib`) |
+| `GET /r/:kind/:name.json` | Same, disambiguated by kind (only `ui` today) |
 
 ### Install a component with the shadcn CLI
 
@@ -43,7 +42,6 @@ Any item is directly installable once this server is reachable:
 
 ```bash
 npx shadcn add https://<your-deployment>/r/ui/button.json
-npx shadcn add https://<your-deployment>/r/block/hero-01.json
 ```
 
 ### Use it as an MCP server
@@ -55,7 +53,6 @@ transport). Tools exposed:
 - `search_components({ query, kind?, limit? })`
 - `get_component({ name })` — full file contents + dependencies + install command
 - `get_install_command({ name })`
-- `list_blocks({ category? })`
 - `list_categories()`
 
 Plus one resource, `registry://designkit/index`, with the full catalog in one shot.
@@ -98,22 +95,15 @@ docker run -p 8787:8787 -e PUBLIC_BASE_URL=https://designkit-mcp.ramekhchhoeng.c
 
 ## How the registry is built
 
-`src/registry/index.ts` merges four loaders into one in-memory catalog on
-first request (no build step):
+`src/registry/index.ts` merges the active loaders into one in-memory catalog
+on first request (no build step):
 
-- `lib-components.ts` scans `src/lib/components/*.tsx`.
-- `ui-components.ts` scans `src/space/components/ui/*.tsx` and parses each
-  file's own `import` statements to derive `dependencies` (npm packages) and
-  `registryDependencies` (sibling ui primitives) — there's no separate
-  metadata file for these upstream, so this is the source of truth.
-- `example-components.ts` and `blocks.ts` import the vendored
-  `src/space/registry/index.ts` / `src/space/registry/blocks/index.ts` data
-  arrays directly (these already carry shadcn-shaped metadata) and rewrite
-  their `src/components/...` / `src/assets/...` paths to where those files
-  actually live in this repo (`src/space/components/...`).
+- `ui-components.ts` scans `src/components/ui/*.tsx` and parses each file's
+  own `import` statements to derive `dependencies` (npm packages) and
+  `registryDependencies` (sibling ui primitives).
 
-Item names are unique across all 433 items today (verified by
-`registry:stats`), so `get_component("button")` resolves unambiguously to the
-`ui` primitive. If a future vendored sync introduces a name shared across
-kinds, `findItem()` reports the collision and asks for a kind-qualified name
-(`ui:button` vs `component:button-01`) instead of guessing.
+Item names are unique today (verified by `registry:stats`), so
+`get_component("button")` resolves unambiguously. If a future kind (lib,
+example, block) introduces a name shared with an existing `ui` item,
+`findItem()` reports the collision and asks for a kind-qualified name
+(`ui:button` vs `lib:button`) instead of guessing.

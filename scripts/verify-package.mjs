@@ -7,7 +7,6 @@ const requiredArtifacts = [
   "dist/index.js",
   "dist/index.cjs",
   "dist/index.d.ts",
-  "dist/styles.css",
 ];
 
 await Promise.all(requiredArtifacts.map((path) => access(new URL(path, root))));
@@ -17,19 +16,10 @@ if (!esmSource.startsWith('"use client";')) {
   throw new Error('dist/index.js must preserve the Next.js "use client" boundary.');
 }
 
-const expectedExports = [
-  "Badge",
-  "Button",
-  "Card",
-  "CardContent",
-  "CardDescription",
-  "CardFooter",
-  "CardHeader",
-  "CardTitle",
-  "DataTable",
-  "Drawer",
-  "Input",
-];
+// The public component set is being redesigned on top of shadcn/ui; there
+// are no required exports yet. Add names here as curated components return
+// to src/lib/index.ts.
+const expectedExports = [];
 
 const esm = await import(new URL("dist/index.js", root));
 const require = createRequire(import.meta.url);
