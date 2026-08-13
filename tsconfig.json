@@ -16,7 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "next/image": ["./src/shims/next-image.tsx"],
+      "next/link": ["./src/shims/next-link.tsx"]
     }
   },
   "include": ["src", "tests", "vitest.config.ts"],

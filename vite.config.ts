@@ -10,6 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "next/image": fileURLToPath(new URL("./src/shims/next-image.tsx", import.meta.url)),
+      "next/link": fileURLToPath(new URL("./src/shims/next-link.tsx", import.meta.url)),
     },
   },
 });
