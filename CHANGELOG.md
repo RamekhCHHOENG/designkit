@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- Add complete React & Vue parity, full UI primitive suite, styles.css export, and hard test suites across 1,980 components and examples.
+
 ## 1.1.2
 
 ### Patch Changes
