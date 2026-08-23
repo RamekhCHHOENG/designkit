@@ -1,0 +1,895 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Originui Vue",
+  "homepage": "https://www.originui-vue.com",
+  "items": [
+    {
+      "name": "snippet",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "app/registry/default/ui/snippet/Snippet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/SnippetCopyButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/SnippetHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/SnippetTabsContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/SnippetTabsList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/SnippetTabsTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/snippet/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "tags": ["snippet", "extended", "code", "copy", "tabs", "command"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "app/registry/default/ui/empty/Empty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/EmptyContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/EmptyDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/EmptyHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/EmptyMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/EmptyTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/empty/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "tags": ["empty state", "extended", "empty"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "contribution-graph",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "app/registry/default/ui/contribution-graph/ContributionGraph.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/contribution-graph/ContributionGraphGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/contribution-graph/ContributionGraphBlock.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/contribution-graph/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution graph", "extended", "github", "activity"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-01",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-01.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["authentication", "extended", "login", "sign in"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-02",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-02.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["authentication", "extended", "login", "sign in"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-03",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-03.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["authentication", "extended", "login", "sign in"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-04",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-04.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["authentication", "extended", "login", "sign in"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-05",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-05.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["authentication", "extended", "login", "sign in"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-06",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-06.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["empty state", "extended", "empty"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-07",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-07.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["empty state", "extended", "empty"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-08",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-08.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["empty state", "extended", "empty"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-09",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-09.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["empty state", "extended", "empty"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-10",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-10.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-11",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-11.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-12",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-12.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-13",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-13.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-14",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-14.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-15",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-15.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-16",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-16.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-17",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-17.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-18",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-18.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-19",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-19.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["card", "extended", "card"],
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "extended-20",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-20.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-21",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-21.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-22",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-22.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-23",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-23.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-24",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-24.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-25",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-25.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-26",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-26.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-27",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-27.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-28",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-28.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "tasks", "overview"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-29",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-29.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "revenue"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-30",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-30.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "api", "quota"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-31",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-31.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "support", "metrics"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-32",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-32.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "compliance", "checks"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-33",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-33.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "feature", "adoption", "chart"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-34",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-34.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["statistic-card", "extended", "card", "showcase", "metrics"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-35",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-35.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["snippet", "extended", "code", "copy", "tabs", "command"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-36",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-36.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["snippet", "extended", "code", "copy", "tabs", "command", "cli", "dark"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-37",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-37.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["snippet", "extended", "code", "copy", "tabs", "command"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-38",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-38.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["snippet", "extended", "code", "copy", "tabs", "command"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-39",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-39.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution-graph", "extended", "graph"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-40",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-40.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution-graph", "extended", "graph", "blue"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-41",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-41.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution-graph", "extended", "graph", "purple"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-42",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-42.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution-graph", "extended", "graph", "orange"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "extended-43",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-43.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["contribution-graph", "extended", "graph", "tooltip"],
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "mini-calendar",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "app/registry/default/ui/mini-calendar/MiniCalendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/mini-calendar/MiniCalendarNavigation.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/mini-calendar/MiniCalendarDays.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/mini-calendar/MiniCalendarDay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/default/ui/mini-calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-44",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-44.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-45",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-45.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "compact"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-46",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-46.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "week"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-47",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-47.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "minimal"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-48",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-48.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "large"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-49",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-49.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "navigation"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-50",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-50.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "styled"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-51",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-51.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "rounded"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-52",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-52.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "shadow"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-53",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-53.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "gradient"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "extended-54",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "app/registry/default/components/extended-54.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["mini-calendar", "extended", "calendar", "date", "10-day"],
+        "colSpan": 3
+      }
+    }
+  ]
+}

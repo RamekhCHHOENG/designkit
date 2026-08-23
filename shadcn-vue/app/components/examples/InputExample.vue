@@ -1,0 +1,225 @@
+<script setup lang="ts">
+import ExampleWrapper from "@/components/ExampleWrapper.vue";
+import Example from "@/components/Example.vue";
+import { Button } from "@/registry/default/ui/button";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/registry/default/ui/field";
+import { Input } from "@/registry/default/ui/input";
+import {
+  NativeSelect,
+  NativeSelectOption,
+} from "@/registry/default/ui/native-select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/default/ui/select";
+</script>
+
+<template>
+  <ExampleWrapper>
+    <!-- Basic -->
+    <Example title="Basic">
+      <Input type="email" placeholder="Email" />
+    </Example>
+
+    <!-- Invalid -->
+    <Example title="Invalid">
+      <Input type="text" placeholder="Error" aria-invalid="true" />
+    </Example>
+
+    <!-- With Label -->
+    <Example title="With Label">
+      <Field>
+        <FieldLabel for="input-demo-email">Email</FieldLabel>
+        <Input
+          id="input-demo-email"
+          type="email"
+          placeholder="name@example.com"
+        />
+      </Field>
+    </Example>
+
+    <!-- With Description -->
+    <Example title="With Description">
+      <Field>
+        <FieldLabel for="input-demo-username">Username</FieldLabel>
+        <Input
+          id="input-demo-username"
+          type="text"
+          placeholder="Enter your username"
+        />
+        <FieldDescription>
+          Choose a unique username for your account.
+        </FieldDescription>
+      </Field>
+    </Example>
+
+    <!-- Disabled -->
+    <Example title="Disabled">
+      <Field>
+        <FieldLabel for="input-demo-disabled">Email</FieldLabel>
+        <Input
+          id="input-demo-disabled"
+          type="email"
+          placeholder="Email"
+          disabled
+        />
+      </Field>
+    </Example>
+
+    <!-- Input Types -->
+    <Example title="Input Types">
+      <div class="flex w-full flex-col gap-6">
+        <Field>
+          <FieldLabel for="input-demo-password">Password</FieldLabel>
+          <Input
+            id="input-demo-password"
+            type="password"
+            placeholder="Password"
+          />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-tel">Phone</FieldLabel>
+          <Input
+            id="input-demo-tel"
+            type="tel"
+            placeholder="+1 (555) 123-4567"
+          />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-url">URL</FieldLabel>
+          <Input
+            id="input-demo-url"
+            type="url"
+            placeholder="https://example.com"
+          />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-search">Search</FieldLabel>
+          <Input id="input-demo-search" type="search" placeholder="Search" />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-number">Number</FieldLabel>
+          <Input id="input-demo-number" type="number" placeholder="123" />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-date">Date</FieldLabel>
+          <Input id="input-demo-date" type="date" />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-time">Time</FieldLabel>
+          <Input id="input-demo-time" type="time" />
+        </Field>
+        <Field>
+          <FieldLabel for="input-demo-file">File</FieldLabel>
+          <Input id="input-demo-file" type="file" />
+        </Field>
+      </div>
+    </Example>
+
+    <!-- With Select -->
+    <Example title="With Select">
+      <div class="flex w-full gap-2">
+        <Input type="text" placeholder="Enter amount" class="flex-1" />
+        <Select default-value="usd">
+          <SelectTrigger class="w-32">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="usd">USD</SelectItem>
+              <SelectItem value="eur">EUR</SelectItem>
+              <SelectItem value="gbp">GBP</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+    </Example>
+
+    <!-- With Button -->
+    <Example title="With Button">
+      <div class="flex w-full gap-2">
+        <Input type="search" placeholder="Search..." class="flex-1" />
+        <Button>Search</Button>
+      </div>
+    </Example>
+
+    <!-- With Native Select -->
+    <Example title="With Native Select">
+      <div class="flex w-full gap-2">
+        <Input type="tel" placeholder="(555) 123-4567" class="flex-1" />
+        <NativeSelect default-value="+1">
+          <NativeSelectOption value="+1">+1</NativeSelectOption>
+          <NativeSelectOption value="+44">+44</NativeSelectOption>
+          <NativeSelectOption value="+46">+46</NativeSelectOption>
+        </NativeSelect>
+      </div>
+    </Example>
+
+    <!-- Form -->
+    <Example title="Form">
+      <form class="w-full" @submit.prevent>
+        <FieldGroup>
+          <Field>
+            <FieldLabel for="form-name">Name</FieldLabel>
+            <Input id="form-name" type="text" placeholder="John Doe" />
+          </Field>
+          <Field>
+            <FieldLabel for="form-email">Email</FieldLabel>
+            <Input
+              id="form-email"
+              type="email"
+              placeholder="john@example.com"
+            />
+            <FieldDescription>
+              We'll never share your email with anyone.
+            </FieldDescription>
+          </Field>
+          <div class="grid grid-cols-2 gap-4">
+            <Field>
+              <FieldLabel for="form-phone">Phone</FieldLabel>
+              <Input
+                id="form-phone"
+                type="tel"
+                placeholder="+1 (555) 123-4567"
+              />
+            </Field>
+            <Field>
+              <FieldLabel for="form-country">Country</FieldLabel>
+              <Select default-value="us">
+                <SelectTrigger id="form-country">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="us">United States</SelectItem>
+                    <SelectItem value="uk">United Kingdom</SelectItem>
+                    <SelectItem value="ca">Canada</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </Field>
+          </div>
+          <Field>
+            <FieldLabel for="form-address">Address</FieldLabel>
+            <Input id="form-address" type="text" placeholder="123 Main St" />
+          </Field>
+          <Field orientation="horizontal">
+            <Button type="button" variant="outline">
+              Cancel
+            </Button>
+            <Button type="submit">Submit</Button>
+          </Field>
+        </FieldGroup>
+      </form>
+    </Example>
+  </ExampleWrapper>
+</template>

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-22",
+  "files": [
+    {
+      "path": "components/comp-22.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\n</script>\n\n<template>\n  <div class=\"*:not-first:mt-2\">\n    <Label>Input with button</Label>\n    <div class=\"flex gap-2\">\n      <Input class=\"flex-1\" placeholder=\"Email\" type=\"email\" />\n      <Button variant=\"outline\">Send</Button>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["input", "label", "button"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/button.json",
+    "https://www.originui-vue.com/r/input.json",
+    "https://www.originui-vue.com/r/label.json"
+  ]
+}

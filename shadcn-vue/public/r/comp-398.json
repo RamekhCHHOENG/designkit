@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-398",
+  "files": [
+    {
+      "path": "components/comp-398.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { Badge } from \"@/registry/default/ui/badge\";\n</script>\n\n<template>\n  <div class=\"relative\">\n    <Avatar>\n      <AvatarImage src=\"./avatar-80-07.jpg\" alt=\"Kelly King\" />\n      <AvatarFallback>KK</AvatarFallback>\n    </Avatar>\n    <Badge class=\"border-background absolute -top-1.5 left-full min-w-5 -translate-x-3.5 px-1\">\n      6\n    </Badge>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["avatar", "user", "profile", "badge", "chip"],
+    "style": 1
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/avatar.json",
+    "https://www.originui-vue.com/r/badge.json"
+  ]
+}

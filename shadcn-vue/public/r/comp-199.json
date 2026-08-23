@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-199",
+  "files": [
+    {
+      "path": "components/comp-199.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/default/ui/label\";\nimport { NativeSelect } from \"@/registry/default/ui/native-select\";\n</script>\n\n<template>\n  <div class=\"*:not-first:mt-2\">\n    <Label>Select with option groups (native)</Label>\n    <NativeSelect modelValue=\"1\">\n      <optgroup label=\"Frontend\">\n        <option value=\"1\">Vue</option>\n        <option value=\"2\">Nuxt</option>\n        <option value=\"3\">Angular</option>\n      </optgroup>\n      <optgroup label=\"Backend\">\n        <option value=\"4\">Node.js</option>\n        <option value=\"5\">Python</option>\n        <option value=\"6\">PHP</option>\n      </optgroup>\n    </NativeSelect>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["label", "select", "native select"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/label.json",
+    "https://www.originui-vue.com/r/native-select.json"
+  ]
+}

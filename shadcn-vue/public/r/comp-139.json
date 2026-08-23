@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-139",
+  "files": [
+    {
+      "path": "components/comp-139.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Checkbox } from \"@/registry/default/ui/checkbox\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { ref } from \"vue\";\n\nconst checked1 = ref(false);\nconst checked2 = ref(false);\nconst checked3 = ref(false);\n</script>\n\n<template>\n  <div class=\"flex gap-6\">\n    <div class=\"flex items-center gap-2\">\n      <Checkbox v-model=\"checked1\" />\n      <Label>Vue</Label>\n    </div>\n    <div class=\"flex items-center gap-2\">\n      <Checkbox v-model=\"checked2\" />\n      <Label>Nuxt</Label>\n    </div>\n    <div class=\"flex items-center gap-2\">\n      <Checkbox v-model=\"checked3\" />\n      <Label>Astro</Label>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["checkbox", "label", "radix"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/checkbox.json",
+    "https://www.originui-vue.com/r/label.json"
+  ]
+}

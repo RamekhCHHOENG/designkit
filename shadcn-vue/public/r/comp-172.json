@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-172",
+  "files": [
+    {
+      "path": "components/comp-172.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n</script>\n\n<template>\n  <div class=\"inline-flex items-center gap-2\">\n    <Switch />\n    <Label class=\"sr-only\">Simple switch</Label>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["switch", "radix"],
+    "style": 1
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/label.json",
+    "https://www.originui-vue.com/r/switch.json"
+  ]
+}

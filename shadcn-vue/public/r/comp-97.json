@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-97",
+  "files": [
+    {
+      "path": "components/comp-97.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\";\nimport { LucidePlus } from \"lucide-vue-next\";\n</script>\n\n<template>\n  <Button class=\"rounded-full\" variant=\"outline\" size=\"icon\" aria-label=\"Add new item\">\n    <LucidePlus :size=\"16\" aria-hidden=\"true\" />\n  </Button>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["button"],
+    "style": 2
+  },
+  "type": "registry:component",
+  "dependencies": ["lucide-vue-next"],
+  "registryDependencies": ["https://www.originui-vue.com/r/button.json"]
+}

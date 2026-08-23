@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-108",
+  "files": [
+    {
+      "path": "components/comp-108.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\";\nimport { LucideEllipsis, LucideFiles, LucideFilm } from \"lucide-vue-next\";\n</script>\n\n<template>\n  <div class=\"flex items-center justify-center\">\n    <ButtonGroup>\n      <Button variant=\"outline\">\n        <LucideFiles class=\"-ms-1 opacity-60\" :size=\"16\" aria-hidden=\"true\" />\n        Files\n      </Button>\n      <Button variant=\"outline\">\n        <LucideFilm class=\"-ms-1 opacity-60\" :size=\"16\" aria-hidden=\"true\" />\n        Media\n      </Button>\n      <Button variant=\"outline\" size=\"icon\" aria-label=\"Menu\">\n        <LucideEllipsis :size=\"16\" aria-hidden=\"true\" />\n      </Button>\n    </ButtonGroup>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["button", "toggle group", "dropdown"],
+    "style": 2
+  },
+  "type": "registry:component",
+  "dependencies": ["lucide-vue-next"],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/button.json",
+    "https://www.originui-vue.com/r/button-group.json"
+  ]
+}

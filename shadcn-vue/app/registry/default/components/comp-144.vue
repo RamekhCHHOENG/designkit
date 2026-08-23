@@ -1,0 +1,22 @@
+<script setup lang="ts">
+import { Checkbox } from "@/registry/default/ui/checkbox";
+import { Label } from "@/registry/default/ui/label";
+import { ref } from "vue";
+
+const checked = ref(false);
+</script>
+
+<template>
+  <div
+    class="border-input has-data-[state=checked]:border-primary/50 relative flex w-full items-start gap-2 rounded-md border p-4 shadow-xs outline-none"
+  >
+    <Checkbox class="order-1 after:absolute after:inset-0" v-model="checked" />
+    <div class="grid grow gap-2">
+      <Label>
+        Label
+        <span class="text-muted-foreground text-xs leading-[inherit] font-normal">(Sublabel)</span>
+      </Label>
+      <p class="text-muted-foreground text-xs">A short description goes here.</p>
+    </div>
+  </div>
+</template>

@@ -1,4 +1,5 @@
 node_modules/
+shadcn-vue/node_modules/
 dist/
 docs-dist/
 *.tgz
@@ -9,9 +10,15 @@ docs-dist/
 !.env.example
 src/assets/
 
+# Test consumers & build artifacts
+test-consumers/
+shadcn-vue/.nuxt/
+shadcn-vue/.output/
+
 # Graphify keeps the shared graph in version control; these files are local-only.
 graphify-out/cache/
 graphify-out/cost.json
 graphify-out/.graphify_python
 graphify-out/.graphify_root
 graphify-out/20??-??-??/
+

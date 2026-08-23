@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-519",
+  "files": [
+    {
+      "path": "components/comp-519.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Stepper,\n  StepperIndicator,\n  StepperItem,\n  StepperTitle,\n  StepperTrigger,\n} from \"@/registry/default/ui/stepper\";\n\nconst steps = [\n  {\n    step: 1,\n    title: \"Step One\",\n  },\n  {\n    step: 2,\n    title: \"Step Two\",\n  },\n  {\n    step: 3,\n    title: \"Step Three\",\n  },\n  {\n    step: 4,\n    title: \"Step Four\",\n  },\n];\n</script>\n\n<template>\n  <div class=\"mx-auto max-w-xl space-y-8 text-center\">\n    <Stepper :default-value=\"2\" class=\"items-start gap-4\">\n      <StepperItem v-for=\"{ step, title } in steps\" :key=\"step\" :step=\"step\" class=\"flex-1\">\n        <StepperTrigger class=\"w-full flex-col items-start gap-2 rounded\">\n          <StepperIndicator class=\"bg-border h-1 w-full\">\n            <span class=\"sr-only\">{{ step }}</span>\n          </StepperIndicator>\n          <div class=\"space-y-0.5\">\n            <StepperTitle>{{ title }}</StepperTitle>\n          </div>\n        </StepperTrigger>\n      </StepperItem>\n    </Stepper>\n    <p class=\"text-muted-foreground mt-2 text-xs\" role=\"region\" aria-live=\"polite\">\n      Stepper with labels\n    </p>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["stepper"],
+    "colSpan": 3
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": ["https://www.originui-vue.com/r/stepper.json"]
+}

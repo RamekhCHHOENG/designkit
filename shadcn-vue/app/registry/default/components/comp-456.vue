@@ -1,0 +1,33 @@
+<script setup lang="ts">
+import { Button } from "@/registry/default/ui/button";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/registry/default/ui/pagination";
+import { LucideChevronLeft, LucideChevronRight } from "lucide-vue-next";
+</script>
+
+<template>
+  <Pagination :defaultPage="1" :itemsPerPage="10" :total="100" v-slot="{ page, pageCount }">
+    <PaginationContent class="flex w-full items-center justify-between gap-3">
+      <PaginationPrevious asChild>
+        <Button variant="outline" class="size-9">
+          <LucideChevronLeft aria-hidden="true" class="size-4" />
+        </Button>
+      </PaginationPrevious>
+      <p class="text-muted-foreground text-sm" aria-live="polite">
+        Page
+        <span class="text-foreground">{{ page }}</span>
+        of
+        <span class="text-foreground">{{ pageCount }}</span>
+      </p>
+      <PaginationNext asChild>
+        <Button variant="outline" class="size-9">
+          <LucideChevronRight aria-hidden="true" class="size-4" />
+        </Button>
+      </PaginationNext>
+    </PaginationContent>
+  </Pagination>
+</template>

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-428",
+  "files": [
+    {
+      "path": "components/comp-428.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/registry/default/ui/tabs\";\n</script>\n\n<template>\n  <Tabs defaultValue=\"tab-1\" class=\"items-center\">\n    <TabsList class=\"gap-1 bg-transparent\">\n      <TabsTrigger\n        value=\"tab-1\"\n        class=\"data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full data-[state=active]:shadow-none\"\n      >\n        Tab 1\n      </TabsTrigger>\n      <TabsTrigger\n        value=\"tab-2\"\n        class=\"data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full data-[state=active]:shadow-none\"\n      >\n        Tab 2\n      </TabsTrigger>\n      <TabsTrigger\n        value=\"tab-3\"\n        class=\"data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full data-[state=active]:shadow-none\"\n      >\n        Tab 3\n      </TabsTrigger>\n    </TabsList>\n    <TabsContent value=\"tab-1\">\n      <p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 1</p>\n    </TabsContent>\n    <TabsContent value=\"tab-2\">\n      <p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 2</p>\n    </TabsContent>\n    <TabsContent value=\"tab-3\">\n      <p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 3</p>\n    </TabsContent>\n  </Tabs>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["tabs", "radix"],
+    "colSpan": 2,
+    "style": 2
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": ["https://www.originui-vue.com/r/tabs.json"]
+}

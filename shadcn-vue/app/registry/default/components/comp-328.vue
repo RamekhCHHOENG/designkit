@@ -1,0 +1,100 @@
+<script setup lang="ts">
+import { Button } from "@/registry/default/ui/button";
+import { Checkbox } from "@/registry/default/ui/checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/registry/default/ui/dialog";
+import { Input } from "@/registry/default/ui/input";
+import { Label } from "@/registry/default/ui/label";
+import { LucideWallet } from "lucide-vue-next";
+import { vMaska } from "maska/vue";
+import { ref } from "vue";
+
+const isDefaultPayment = ref(false);
+const cardName = ref("");
+const cardNumber = ref("");
+const expiryDate = ref("");
+const cvc = ref("");
+</script>
+
+<template>
+  <Dialog>
+    <DialogTrigger asChild>
+      <Button variant="outline">Card details</Button>
+    </DialogTrigger>
+    <DialogContent>
+      <div class="flex flex-col gap-2">
+        <div
+          class="flex size-11 shrink-0 items-center justify-center rounded-full border"
+          aria-hidden="true"
+        >
+          <LucideWallet class="size-4 opacity-80" aria-hidden="true" />
+        </div>
+        <DialogHeader>
+          <DialogTitle class="text-left">Update your card</DialogTitle>
+          <DialogDescription class="text-left">
+            Your new card will replace your current card.
+          </DialogDescription>
+        </DialogHeader>
+      </div>
+
+      <form class="space-y-5">
+        <div class="space-y-4">
+          <div class="*:not-first:mt-2">
+            <Label>Name on card</Label>
+            <Input v-model="cardName" type="text" required />
+          </div>
+          <div class="*:not-first:mt-2">
+            <Label>Card Number</Label>
+            <div class="relative">
+              <Input
+                v-model="cardNumber"
+                type="text"
+                class="peer pe-9 [direction:inherit]"
+                v-maska="'#### #### #### ####'"
+                placeholder="1234 5678 9012 3456"
+              />
+              <div
+                class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50"
+              >
+                <LucideCreditCard class="size-4" aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-1 space-y-2">
+              <Label>Expiry date</Label>
+              <Input
+                v-model="expiryDate"
+                type="text"
+                class="[direction:inherit]"
+                v-maska="'##/##'"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div class="flex-1 space-y-2">
+              <Label>CVC</Label>
+              <Input
+                v-model="cvc"
+                type="text"
+                class="[direction:inherit]"
+                v-maska="'###'"
+                placeholder="123"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <Checkbox v-model="isDefaultPayment" />
+          <Label class="text-muted-foreground font-normal">Set as default payment method</Label>
+        </div>
+        <Button type="button" class="w-full">Update card</Button>
+      </form>
+    </DialogContent>
+  </Dialog>
+</template>

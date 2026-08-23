@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-52",
+  "files": [
+    {
+      "path": "components/comp-52.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { ref } from \"vue\";\n\nconst inputValue = ref(\"This is a read-only input\");\n</script>\n\n<template>\n  <div class=\"*:not-first:mt-2\">\n    <Label>Read-only input</Label>\n    <Input\n      class=\"read-only:bg-muted\"\n      v-model=\"inputValue\"\n      readonly\n      placeholder=\"Email\"\n      type=\"email\"\n    />\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["input", "label", "read-only"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/input.json",
+    "https://www.originui-vue.com/r/label.json"
+  ]
+}

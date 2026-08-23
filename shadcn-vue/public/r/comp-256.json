@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-256",
+  "files": [
+    {
+      "path": "components/comp-256.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Slider } from \"@/registry/default/ui/slider\";\nimport { ref } from \"vue\";\n\nconst value = ref([3]);\nconst labels = [\"Awful\", \"Poor\", \"Okay\", \"Good\", \"Amazing\"];\n</script>\n\n<template>\n  <div class=\"space-y-3\">\n    <div class=\"flex items-center justify-between gap-2\">\n      <Label class=\"leading-6\">Rate your experience</Label>\n      <span class=\"text-sm font-medium\">{{ labels[(value[0] || 1) - 1] }}</span>\n    </div>\n    <div class=\"flex items-center gap-2\">\n      <span class=\"text-2xl\">😡</span>\n      <Slider v-model=\"value\" :min=\"1\" :max=\"5\" aria-label=\"Rate your experience\" />\n      <span class=\"text-2xl\">😍</span>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["slider", "label", "vote", "rating", "radix"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/label.json",
+    "https://www.originui-vue.com/r/slider.json"
+  ]
+}

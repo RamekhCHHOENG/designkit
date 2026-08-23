@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-109",
+  "files": [
+    {
+      "path": "components/comp-109.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ToggleGroup, ToggleGroupItem } from \"@/registry/default/ui/toggle-group\";\nimport { ref } from \"vue\";\n\nconst value = ref(\"center\");\n</script>\n\n<template>\n  <ToggleGroup variant=\"outline\" class=\"inline-flex\" type=\"single\" v-model=\"value\">\n    <ToggleGroupItem value=\"left\">Left</ToggleGroupItem>\n    <ToggleGroupItem value=\"center\">Center</ToggleGroupItem>\n    <ToggleGroupItem value=\"right\">Right</ToggleGroupItem>\n  </ToggleGroup>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["button", "toggle group"],
+    "style": 2
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": ["https://www.originui-vue.com/r/toggle-group.json"]
+}

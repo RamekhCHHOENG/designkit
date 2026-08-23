@@ -7,7 +7,8 @@
     "declarationDir": "./dist",
     "emitDeclarationOnly": true,
     "noEmit": false,
-    "rootDir": "./src/lib"
+    "rootDir": "./src"
   },
-  "include": ["src/lib"]
+  "include": ["src/lib", "src/components/ui", "src/hooks", "src/custom.d.ts"]
 }
+

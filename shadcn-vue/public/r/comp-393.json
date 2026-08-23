@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-393",
+  "files": [
+    {
+      "path": "components/comp-393.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\n</script>\n\n<template>\n  <Avatar class=\"rounded-md\">\n    <AvatarImage src=\"./avatar-80-07.jpg\" alt=\"Kelly King\" />\n    <AvatarFallback>KK</AvatarFallback>\n  </Avatar>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["avatar", "user", "profile"],
+    "style": 1
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": ["https://www.originui-vue.com/r/avatar.json"]
+}

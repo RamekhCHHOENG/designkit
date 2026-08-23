@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useMemo, useState } from "react";
+import { StrictMode, useEffect, useMemo, useState, type ComponentType } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider, useTheme } from "next-themes";
 import { CheckIcon, CopyIcon, GithubIcon, MonitorIcon, MoonIcon, SearchIcon, SunIcon } from "lucide-react";
@@ -6,7 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toaster } from "@/components/ui/sonner";
 import { catalog, catalogGroups, type CatalogEntry, type CatalogExample } from "@/catalog";
+import { ExamplesSection } from "@/ExamplesSection";
 import "./index.css";
+
+// Lazy glob maps for Origin UI examples
+const compModules = import.meta.glob("./registry/default/components/comp-*.tsx") as Record<
+  string,
+  () => Promise<{ default: ComponentType }>
+>;
+const compSources = import.meta.glob("./registry/default/components/comp-*.tsx", {
+  query: "?raw",
+  import: "default",
+}) as Record<string, () => Promise<string>>;
 
 function useHashSlug() {
   const read = () => window.location.hash.replace(/^#/, "");
@@ -121,6 +132,131 @@ function ComponentPage({ entry }: { entry: CatalogEntry }) {
   );
 }
 
+const INSTALLATION_SLUG = "installation";
+
+const PACKAGE_MANAGERS = [
+  { id: "npm", label: "npm", command: "npm install @ramekhchhoeng/designkit" },
+  { id: "pnpm", label: "pnpm", command: "pnpm add @ramekhchhoeng/designkit" },
+  { id: "yarn", label: "yarn", command: "yarn add @ramekhchhoeng/designkit" },
+  { id: "bun", label: "bun", command: "bun add @ramekhchhoeng/designkit" },
+];
+
+const QUICK_START_SNIPPET = `import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+} from "@ramekhchhoeng/designkit";
+import "@ramekhchhoeng/designkit/styles.css";
+
+export function WorkspaceCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <Badge>New</Badge>
+        <CardTitle>Analytics workspace</CardTitle>
+        <CardDescription>
+          Keep metrics, reports, and team decisions in one place.
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent className="flex flex-col gap-1.5">
+        <Label htmlFor="invite-email">Invite a teammate</Label>
+        <Input id="invite-email" type="email" placeholder="name@example.com" />
+      </CardContent>
+
+      <CardFooter className="justify-end gap-2">
+        <Button variant="outline">Cancel</Button>
+        <Button>Send invite</Button>
+      </CardFooter>
+    </Card>
+  );
+}`;
+
+function InstallationPage() {
+  return (
+    <article className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-6 py-10">
+      <header className="flex flex-col gap-2">
+        <h1 className="text-3xl font-semibold tracking-tight">Installation</h1>
+        <p className="text-sm text-muted-foreground">
+          DesignKit vendors real shadcn/ui source (Base UI, Nova preset) instead of wrapping it, so every primitive in the catalog ships as a package export you can install today.
+        </p>
+      </header>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">1. Install the package</h2>
+        <Tabs defaultValue="npm">
+          <TabsList>
+            {PACKAGE_MANAGERS.map((pm) => (
+              <TabsTrigger key={pm.id} value={pm.id}>{pm.label}</TabsTrigger>
+            ))}
+          </TabsList>
+          {PACKAGE_MANAGERS.map((pm) => (
+            <TabsContent key={pm.id} value={pm.id}>
+              <CodeBlock code={pm.command} />
+            </TabsContent>
+          ))}
+        </Tabs>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">2. Import the styles</h2>
+        <p className="text-sm text-muted-foreground">Once, near the root of your application:</p>
+        <CodeBlock code={'import "@ramekhchhoeng/designkit/styles.css";'} />
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">3. Quick start</h2>
+        <CodeBlock code={QUICK_START_SNIPPET} />
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">4. Theming</h2>
+        <p className="text-sm text-muted-foreground">
+          DesignKit uses the same OKLCH CSS custom properties as shadcn/ui &mdash;{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">--background</code>,{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">--primary</code>,{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">--border</code>, and so on. Override them at your
+          application root to match your product, and add a{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">.dark</code> class to the root element to switch to
+          the included dark tokens &mdash; this site does that with next-themes&apos;{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">{'<ThemeProvider attribute="class">'}</code>.
+        </p>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">Framework compatibility</h2>
+        <p className="text-sm text-muted-foreground">
+          The package ships ESM, CommonJS, and TypeScript declarations. Its public entry keeps a React{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">&quot;use client&quot;</code> boundary, so
+          interactive components can be imported safely by Next.js App Router client trees. Vite and other React
+          bundlers can import the same entry normally.
+        </p>
+      </section>
+
+      <footer className="flex items-center gap-4 border-t pt-6 text-sm">
+        <a
+          href="https://github.com/RamekhCHHOENG/designkit"
+          target="_blank"
+          rel="noreferrer"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          View on GitHub
+        </a>
+        <a href="#" className="text-muted-foreground hover:text-foreground">
+          Browse the catalog
+        </a>
+      </footer>
+    </article>
+  );
+}
+
 function Overview() {
   return (
     <article className="mx-auto flex w-full max-w-4xl flex-col gap-8 px-6 py-10">
@@ -170,6 +306,12 @@ function Sidebar({ query, setQuery, activeSlug }: { query: string; setQuery: (v:
           className="w-full bg-transparent outline-none placeholder:text-muted-foreground"
         />
       </label>
+      <a
+        href={`#${INSTALLATION_SLUG}`}
+        className={`mb-4 block rounded-md px-2 py-1.5 text-sm font-medium hover:bg-muted ${activeSlug === INSTALLATION_SLUG ? "bg-muted text-foreground" : "text-muted-foreground"}`}
+      >
+        Installation
+      </a>
       <nav className="flex flex-col gap-5">
         {filtered.map((group) => (
           <div key={group.name} className="flex flex-col gap-1">
@@ -191,12 +333,47 @@ function Sidebar({ query, setQuery, activeSlug }: { query: string; setQuery: (v:
   );
 }
 
-function Header() {
+function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (m: "components" | "examples") => void }) {
   return (
     <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur">
-      <a href="#" className="text-sm font-semibold">
+      <a href="#" className="text-sm font-semibold" onClick={() => setMode("components")}>
         DesignKit
       </a>
+      {/* Framework switcher: shadcn/ui | shadcn-vue */}
+      <div className="flex items-center gap-0.5 rounded-full border bg-muted/50 p-0.5">
+        <span className="rounded-full bg-background px-2.5 py-1 text-xs font-medium text-foreground shadow-sm">
+          shadcn/ui
+        </span>
+        <a
+          href={`http://localhost:3312/${typeof window !== "undefined" ? window.location.hash : ""}`}
+          className="rounded-full px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          shadcn-vue
+        </a>
+      </div>
+      {/* Mode switcher: Components | Examples */}
+      <div className="flex items-center gap-0.5 rounded-full border bg-muted/50 p-0.5">
+        <button
+          onClick={() => setMode("components")}
+          className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+            mode === "components"
+              ? "bg-background text-foreground shadow-sm"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          Components
+        </button>
+        <button
+          onClick={() => setMode("examples")}
+          className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+            mode === "examples"
+              ? "bg-background text-foreground shadow-sm"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          Examples
+        </button>
+      </div>
       <div className="flex-1" />
       <a
         href="https://github.com/RamekhCHHOENG/designkit"
@@ -215,15 +392,28 @@ function Header() {
 function App() {
   const slug = useHashSlug();
   const [query, setQuery] = useState("");
+  const [mode, setMode] = useState<"components" | "examples">("components");
   const entry = catalog.find((item) => item.slug === slug);
 
   return (
     <div className="flex min-h-svh flex-col">
-      <Header />
-      <div className="mx-auto flex w-full flex-1">
-        <Sidebar query={query} setQuery={setQuery} activeSlug={slug} />
-        <main className="min-w-0 flex-1">{entry ? <ComponentPage entry={entry} /> : <Overview />}</main>
-      </div>
+      <Header mode={mode} setMode={setMode} />
+      {mode === "examples" ? (
+        <ExamplesSection compModules={compModules} compSources={compSources} />
+      ) : (
+        <div className="mx-auto flex w-full flex-1">
+          <Sidebar query={query} setQuery={setQuery} activeSlug={slug} />
+          <main className="min-w-0 flex-1">
+            {slug === INSTALLATION_SLUG ? (
+              <InstallationPage />
+            ) : entry ? (
+              <ComponentPage entry={entry} />
+            ) : (
+              <Overview />
+            )}
+          </main>
+        </div>
+      )}
       <Toaster />
     </div>
   );

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-34",
+  "files": [
+    {
+      "path": "components/comp-34.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n  InputGroupText,\n} from \"@/registry/default/ui/input-group\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { computed, ref } from \"vue\";\n\nconst inputValue = ref(\"\");\nconst maxLength = 50;\n\nconst characterCount = computed(() => inputValue.value.length);\n</script>\n\n<template>\n  <div class=\"*:not-first:mt-2\">\n    <Label>Input with character limit</Label>\n    <InputGroup>\n      <InputGroupInput v-model=\"inputValue\" type=\"text\" :maxlength=\"maxLength\" />\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupText class=\"text-xs tabular-nums\" aria-live=\"polite\" role=\"status\">\n          {{ characterCount }}/{{ maxLength }}\n        </InputGroupText>\n      </InputGroupAddon>\n    </InputGroup>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["input", "label"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/input-group.json",
+    "https://www.originui-vue.com/r/label.json"
+  ]
+}

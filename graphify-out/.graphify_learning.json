@@ -1,11 +1,21 @@
 {
-  "generated_at": "2026-08-08T07:34:37.360392+00:00",
+  "generated_at": "2026-08-08T07:55:15.991926+00:00",
   "nodes": {
     "package": {
-      "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
       "label": "package.json",
-      "last": "2026-08-08T07:23:10.143095+00:00",
+      "last": "2026-08-08T07:49:44.002121+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        },
+        {
+          "date": "2026-08-08T07:43:38.249653+00:00",
+          "outcome": "useful",
+          "q": "done what next."
+        },
         {
           "date": "2026-08-08T07:23:10.143095+00:00",
           "outcome": "useful",
@@ -20,28 +30,28 @@
           "date": "2026-08-08T07:00:37.478228+00:00",
           "outcome": "useful",
           "q": "verify https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.1"
-        },
-        {
-          "date": "2026-08-08T06:44:55.873499+00:00",
-          "outcome": "useful",
-          "q": "how about vue or react?"
-        },
-        {
-          "date": "2026-08-08T06:37:40.582808+00:00",
-          "outcome": "useful",
-          "q": "so how other people use this package @ramekhchhoeng/designkit ?"
         }
       ],
-      "score": 9.989901819,
+      "score": 11.986318042,
       "source_file": "package.json",
       "status": "preferred",
-      "uses": 10
+      "uses": 12
     },
     "package_publishconfig": {
-      "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
       "label": "publishConfig",
-      "last": "2026-08-08T07:23:10.143095+00:00",
+      "last": "2026-08-08T07:49:44.002121+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        },
+        {
+          "date": "2026-08-08T07:43:38.249653+00:00",
+          "outcome": "useful",
+          "q": "done what next."
+        },
         {
           "date": "2026-08-08T07:23:10.143095+00:00",
           "outcome": "useful",
@@ -56,28 +66,28 @@
           "date": "2026-08-08T07:00:37.478228+00:00",
           "outcome": "useful",
           "q": "verify https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.1"
-        },
-        {
-          "date": "2026-08-08T06:37:40.582808+00:00",
-          "outcome": "useful",
-          "q": "so how other people use this package @ramekhchhoeng/designkit ?"
-        },
-        {
-          "date": "2026-08-08T06:34:18.527237+00:00",
-          "outcome": "useful",
-          "q": "can u test test https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.0"
         }
       ],
-      "score": 4.996909451,
+      "score": 6.99497924,
       "source_file": "package.json",
       "status": "preferred",
-      "uses": 5
+      "uses": 7
     },
     "package_scripts": {
-      "code_fingerprint": "7b95cdcab62586faa38ba79f172c44c458a8d6fce02e93d0a3c2f57e0b8db542",
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
       "label": "scripts",
-      "last": "2026-08-08T07:23:10.143095+00:00",
+      "last": "2026-08-08T07:49:44.002121+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        },
+        {
+          "date": "2026-08-08T07:43:38.249653+00:00",
+          "outcome": "useful",
+          "q": "done what next."
+        },
         {
           "date": "2026-08-08T07:23:10.143095+00:00",
           "outcome": "useful",
@@ -89,16 +99,69 @@
           "q": "any way to better release"
         }
       ],
-      "score": 1.999335366,
+      "score": 3.998397884,
       "source_file": "package.json",
       "status": "preferred",
-      "uses": 2
+      "uses": 4
+    },
+    "package_scripts_changeset": {
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
+      "label": "changeset",
+      "last": "2026-08-08T07:49:44.002121+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        }
+      ],
+      "score": 0.999911224,
+      "source_file": "package.json",
+      "status": "tentative",
+      "uses": 1
+    },
+    "package_scripts_release": {
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
+      "label": "release",
+      "last": "2026-08-08T07:49:44.002121+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        }
+      ],
+      "score": 0.999911224,
+      "source_file": "package.json",
+      "status": "tentative",
+      "uses": 1
+    },
+    "package_version": {
+      "code_fingerprint": "32990a3982afa8cb081f076432edb13252a49db335f5de5a3b9ef1534e01405b",
+      "label": "version",
+      "last": "2026-08-08T07:49:44.002121+00:00",
+      "provenance": [
+        {
+          "date": "2026-08-08T07:49:44.002121+00:00",
+          "outcome": "useful",
+          "q": "Release run failed because GitHub Actions is not permitted to create or approve pull requests. What next?"
+        }
+      ],
+      "score": 0.999911224,
+      "source_file": "package.json",
+      "status": "tentative",
+      "uses": 1
     },
     "scripts_verify_release_version": {
-      "code_fingerprint": "a23bf21e36315b24956228be361ac8c53aa4310d5715652bdd2aa888b36131f4",
+      "code_fingerprint": "dc31eeb2db30d787f8a8d599aecfe0ac49e0b439c41b248e318f8221c103bdb3",
       "label": "verify-release-version.mjs",
-      "last": "2026-08-08T07:23:10.143095+00:00",
+      "last": "2026-08-08T07:43:38.249653+00:00",
       "provenance": [
+        {
+          "date": "2026-08-08T07:43:38.249653+00:00",
+          "outcome": "useful",
+          "q": "done what next."
+        },
         {
           "date": "2026-08-08T07:23:10.143095+00:00",
           "outcome": "useful",
@@ -115,10 +178,10 @@
           "q": "can u test test https://github.com/RamekhCHHOENG/designkit/releases/tag/v1.1.0"
         }
       ],
-      "score": 2.998368093,
+      "score": 3.99718853,
       "source_file": "scripts/verify-release-version.mjs",
       "status": "preferred",
-      "uses": 3
+      "uses": 4
     },
     "src_componentdocs": {
       "code_fingerprint": "33c51e58b7b1ec84ceeca0bbeba6daebf4bd5c423d5df4b65a6a6c8bcd1ceaf7",
@@ -141,7 +204,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.99490465,
+      "score": 2.993912805,
       "source_file": "src/componentDocs.tsx",
       "status": "preferred",
       "uses": 3
@@ -157,7 +220,7 @@
           "q": "audit our design kit. what can we do better. i mean engineering behind and structure"
         }
       ],
-      "score": 0.998404008,
+      "score": 0.998073359,
       "source_file": "src/lib/components/Drawer.tsx",
       "status": "tentative",
       "uses": 1
@@ -183,7 +246,7 @@
           "q": "wait i think if can make it as react, vue might be better right. so nuxt,next can be use this as well?"
         }
       ],
-      "score": 2.995882431,
+      "score": 2.994890263,
       "source_file": "src/lib/styles.d.ts",
       "status": "preferred",
       "uses": 3
@@ -199,7 +262,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 0.998225233,
+      "score": 0.997894644,
       "source_file": "src/main.tsx",
       "status": "tentative",
       "uses": 1
@@ -225,7 +288,7 @@
           "q": "i want to make this as package. i will has react, nuxtjs vue, and homepage document. can u help me with this. for now we focus on react or vite first"
         }
       ],
-      "score": 2.99490465,
+      "score": 2.993912805,
       "source_file": "src/WebCatalog.tsx",
       "status": "preferred",
       "uses": 3
@@ -241,7 +304,7 @@
           "q": "so when i redeploy will vercel show docs pages. can u run this project local as well."
         }
       ],
-      "score": 0.998884704,
+      "score": 0.998553896,
       "source_file": "vercel.json",
       "status": "tentative",
       "uses": 1

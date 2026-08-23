@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-419",
+  "files": [
+    {
+      "path": "components/comp-419.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport { LucideCheck } from \"lucide-vue-next\";\n</script>\n\n<template>\n  <Badge variant=\"outline\" class=\"gap-1\">\n    <LucideCheck :size=\"16\" class=\"text-emerald-500\" aria-hidden=\"true\" />\n    Badge\n  </Badge>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["badge", "chip", "status"],
+    "style": 1
+  },
+  "type": "registry:component",
+  "dependencies": ["lucide-vue-next"],
+  "registryDependencies": ["https://www.originui-vue.com/r/badge.json"]
+}

@@ -25,89 +25,63 @@ import {
   Badge,
   Button,
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
   Input,
+  Label,
 } from "@ramekhchhoeng/designkit";
 import "@ramekhchhoeng/designkit/styles.css";
 
 export function WorkspaceCard() {
   return (
-    <Card variant="elevated">
+    <Card>
       <CardHeader>
-        <Badge tone="violet">New</Badge>
+        <Badge>New</Badge>
         <CardTitle>Analytics workspace</CardTitle>
         <CardDescription>
           Keep metrics, reports, and team decisions in one place.
         </CardDescription>
       </CardHeader>
 
-      <Input
-        type="email"
-        label="Invite a teammate"
-        placeholder="name@example.com"
-        description="We will send them a secure invitation."
-      />
+      <CardContent className="flex flex-col gap-1.5">
+        <Label htmlFor="invite-email">Invite a teammate</Label>
+        <Input id="invite-email" type="email" placeholder="name@example.com" />
+      </CardContent>
 
-      <CardFooter>
+      <CardFooter className="justify-end gap-2">
         <Button variant="outline">Cancel</Button>
-        <Button color="blue">Send invite</Button>
+        <Button>Send invite</Button>
       </CardFooter>
     </Card>
   );
 }
 ```
 
+See [`#installation`](https://designkit-smoky.vercel.app/#installation) for the full setup guide, or browse the live catalog at the root of the docs site.
+
 ## Public components
 
-The first package release includes:
-
-- `Button` — primary, secondary, outline, ghost, and destructive variants; four sizes; semantic colors; loading and disabled states.
-- `Badge` — soft, solid, and outline variants with six semantic tones.
-- `Input` — label, help text, error state, adornments, and three sizes.
-- `Card` — default, elevated, and interactive surfaces with compound layout components.
-- `Drawer` — left, right, and bottom placement with focus trapping, Escape handling, focus restoration, and a portal.
-- `DataTable` — search, sorting, row selection, pagination, custom rendering, and accessible table semantics.
-
-The documentation app also explores a larger web-only catalog. Those previews are a roadmap, not package exports, until their APIs and accessibility behavior are production-ready.
-
-## Button examples
-
-```tsx
-<Button size="small">Small</Button>
-<Button size="medium" color="blue">Medium</Button>
-<Button size="large" color="green">Large</Button>
-
-<Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Delete</Button>
-
-<Button loading>Saving</Button>
-<Button disabled>Unavailable</Button>
-```
+Every primitive vendored under `src/components/ui/` is a real package export — there is no separate curated subset. That's the full shadcn/ui (Base UI, Nova preset) catalog: `Accordion`, `Alert`, `AlertDialog`, `Avatar`, `Badge`, `Breadcrumb`, `Button`, `Calendar`, `Card`, `Carousel`, `Checkbox`, `Command`, `ContextMenu`, `Dialog`, `Drawer`, `DropdownMenu`, `Field`, `Input`, `Menubar`, `NavigationMenu`, `Popover`, `RadioGroup`, `Select`, `Sheet`, `Sidebar`, `Table`, `Tabs`, `Toast`, `Toaster`, `Tooltip`, and more — see the sidebar in the docs app for the complete, current list.
 
 ## Theming
 
-DesignKit uses prefixed CSS custom properties. Override them at the application root when you need to match your product:
+DesignKit uses the same OKLCH CSS custom properties as shadcn/ui — `--background`, `--foreground`, `--primary`, `--card`, `--border`, `--ring`, and so on (see `src/index.css` for the full token set). Override them at the application root when you need to match your product:
 
 ```css
 :root {
-  --dk-blue: #0066cc;
-  --dk-text: #1d1d1f;
-  --dk-surface: #ffffff;
-  --dk-border: rgba(29, 29, 31, 0.13);
+  --primary: oklch(0.55 0.2 260);
+  --primary-foreground: oklch(0.98 0 0);
 }
 ```
 
-Set `data-dk-theme="dark"` on the root element to use the included dark tokens. The package deliberately leaves generic attributes such as `data-theme` alone so it does not take ownership of a host application's theme system.
+Add a `.dark` class to the root element to switch to the included dark tokens — DesignKit's own docs site does this via [`next-themes`](https://github.com/pacocoursey/next-themes)'s `<ThemeProvider attribute="class">`, and any class-based theme toggler works the same way.
 
 ## MCP server
 
-[`mcp-server/`](./mcp-server) exposes the full component catalog — the 6 published lib components plus the vendored ui primitives, gallery examples, and blocks — as a remote MCP server and a shadcn-compatible registry (`npx shadcn add <url>/r/<name>.json`). See [`mcp-server/README.md`](./mcp-server/README.md).
+[`mcp-server/`](./mcp-server) exposes the full component catalog — every published lib primitive plus gallery examples and blocks — as a remote MCP server and a shadcn-compatible registry (`npx shadcn add <url>/r/<name>.json`). See [`mcp-server/README.md`](./mcp-server/README.md).
 
 ## Framework compatibility
 

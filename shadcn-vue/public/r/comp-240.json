@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "comp-240",
+  "files": [
+    {
+      "path": "components/comp-240.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Slider } from \"@/registry/default/ui/slider\";\nimport { ref } from \"vue\";\n\nconst value = ref([25]);\n</script>\n\n<template>\n  <div class=\"*:not-first:mt-4\">\n    <Label>Simple slider</Label>\n    <Slider v-model=\"value\" aria-label=\"Simple slider\" />\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": ["slider", "label", "radix"]
+  },
+  "type": "registry:component",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.originui-vue.com/r/label.json",
+    "https://www.originui-vue.com/r/slider.json"
+  ]
+}
