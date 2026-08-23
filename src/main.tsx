@@ -345,7 +345,13 @@ function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (
           shadcn/ui
         </span>
         <a
-          href={`http://localhost:3312/${typeof window !== "undefined" ? window.location.hash : ""}`}
+          href={
+            typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+              ? `http://${window.location.hostname}:3312/${window.location.hash}`
+              : (import.meta.env.VITE_SHADCN_VUE_URL
+                  ? `${import.meta.env.VITE_SHADCN_VUE_URL}/${typeof window !== "undefined" ? window.location.hash : ""}`
+                  : `http://localhost:3312/${typeof window !== "undefined" ? window.location.hash : ""}`)
+          }
           className="rounded-full px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           shadcn-vue
