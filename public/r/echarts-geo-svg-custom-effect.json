@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-svg-custom-effect",
+  "title": "GEO SVG with Customized Effect",
+  "description": "GEO SVG with Customized Effect, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-svg-custom-effect.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"GEO SVG with Customized Effect\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-svg-custom-effect\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(ROOT_PATH + '/data/asset/geo/Map_of_Iceland.svg', function (svg) {\n    echarts.registerMap('iceland_svg', { svg: svg });\n\n    option = {\n      tooltip: {},\n      geo: {\n        tooltip: {\n          show: true\n        },\n        map: 'iceland_svg',\n        roam: true\n      },\n      series: {\n        type: 'custom',\n        coordinateSystem: 'geo',\n        geoIndex: 0,\n        zlevel: 1,\n        data: [\n          [488.2358421078053, 459.70913833075736, 100],\n          [770.3415644319939, 757.9672194986475, 30],\n          [1180.0329284196291, 743.6141808346214, 80],\n          [894.03790632245, 1188.1985153835008, 61],\n          [1372.98925630313, 477.3839988649537, 70],\n          [1378.62251255796, 935.6708486282843, 81]\n        ],\n        renderItem(params, api) {\n          const coord = api.coord([\n            api.value(0, params.dataIndex),\n            api.value(1, params.dataIndex)\n          ]);\n\n          const circles = [];\n          for (let i = 0; i < 5; i++) {\n            circles.push({\n              type: 'circle',\n              shape: {\n                cx: 0,\n                cy: 0,\n                r: 30\n              },\n              style: {\n                stroke: 'red',\n                fill: 'none',\n                lineWidth: 2\n              },\n              // Ripple animation\n              keyframeAnimation: {\n                duration: 4000,\n                loop: true,\n                delay: (-i / 4) * 4000,\n                keyframes: [\n                  {\n                    percent: 0,\n                    scaleX: 0,\n                    scaleY: 0,\n                    style: {\n                      opacity: 1\n                    }\n                  },\n                  {\n                    percent: 1,\n                    scaleX: 1,\n                    scaleY: 0.4,\n                    style: {\n                      opacity: 0\n                    }\n                  }\n                ]\n              }\n            });\n          }\n          return {\n            type: 'group',\n            x: coord[0],\n            y: coord[1],\n            children: [\n              ...circles,\n              {\n                type: 'path',\n                shape: {\n                  d: 'M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',\n                  x: -10,\n                  y: -35,\n                  width: 20,\n                  height: 40\n                },\n                style: {\n                  fill: 'red'\n                },\n                // Jump animation.\n                keyframeAnimation: {\n                  duration: 1000,\n                  loop: true,\n                  delay: Math.random() * 1000,\n                  keyframes: [\n                    {\n                      y: -10,\n                      percent: 0.5,\n                      easing: 'cubicOut'\n                    },\n                    {\n                      y: 0,\n                      percent: 1,\n                      easing: 'bounceOut'\n                    }\n                  ]\n                }\n              }\n            ]\n          } as echarts.CustomSeriesRenderItemReturn;\n        }\n      }\n    };\n\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsGeoSvgCustomEffect() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

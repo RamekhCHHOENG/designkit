@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-treemap-sunburst-transition",
+  "title": "Transition between Treemap and Sunburst",
+  "description": "Transition between Treemap and Sunburst, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-treemap-sunburst-transition.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Transition between Treemap and Sunburst\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=treemap-sunburst-transition\nconst setup: EChartSetup = ({ myChart, setInterval }) => {\n  $.getJSON(\n    ROOT_PATH + '/data/asset/data/echarts-package-size.json',\n    function (data) {\n      const treemapOption: echarts.EChartsOption = {\n        series: [\n          {\n            type: 'treemap',\n            id: 'echarts-package-size',\n            animationDurationUpdate: 1000,\n            roam: false,\n            nodeClick: undefined,\n            data: data.children,\n            universalTransition: true,\n            label: {\n              show: true\n            },\n            breadcrumb: {\n              show: false\n            }\n          }\n        ]\n      };\n\n      const sunburstOption: echarts.EChartsOption = {\n        series: [\n          {\n            type: 'sunburst',\n            id: 'echarts-package-size',\n            radius: ['20%', '90%'],\n            animationDurationUpdate: 1000,\n            nodeClick: undefined,\n            data: data.children,\n            universalTransition: true,\n            itemStyle: {\n              borderWidth: 1,\n              borderColor: 'rgba(255,255,255,.5)'\n            },\n            label: {\n              show: false\n            }\n          }\n        ]\n      };\n\n      let currentOption = treemapOption;\n\n      myChart.setOption(currentOption);\n\n      setInterval(function () {\n        currentOption =\n          currentOption === treemapOption ? sunburstOption : treemapOption;\n        myChart.setOption(currentOption);\n      }, 3000);\n    }\n  );\n}\n\nexport function EchartsTreemapSunburstTransition() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "treemap"
+  ],
+  "type": "registry:block"
+}

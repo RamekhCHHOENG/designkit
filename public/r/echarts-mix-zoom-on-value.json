@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-mix-zoom-on-value",
+  "title": "Mix Zoom On Value",
+  "description": "Mix Zoom On Value, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-mix-zoom-on-value.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Mix Zoom On Value\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=mix-zoom-on-value\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  $.get(\n    ROOT_PATH + '/data/asset/data/obama_budget_proposal_2012.list.json',\n    function (obama_budget_2012) {\n      myChart.hideLoading();\n\n      option = {\n        tooltip: {\n          trigger: 'axis',\n          axisPointer: {\n            type: 'shadow',\n            label: {\n              show: true\n            }\n          }\n        },\n        toolbox: {\n          show: true,\n          feature: {\n            mark: { show: true },\n            dataView: { show: true, readOnly: false },\n            magicType: { show: true, type: ['line', 'bar'] },\n            restore: { show: true },\n            saveAsImage: { show: true }\n          }\n        },\n        calculable: true,\n        legend: {\n          data: ['Growth', 'Budget 2011', 'Budget 2012'],\n          itemGap: 5\n        },\n        grid: {\n          top: '12%',\n          left: '1%',\n          right: '10%',\n          containLabel: true\n        },\n        xAxis: [\n          {\n            type: 'category',\n            data: obama_budget_2012.names\n          }\n        ],\n        yAxis: [\n          {\n            type: 'value',\n            name: 'Budget (million USD)',\n            axisLabel: {\n              formatter: function (a: number) {\n                a = +a;\n                return isFinite(a) ? echarts.format.addCommas(+a / 1000) : '';\n              }\n            }\n          }\n        ],\n        dataZoom: [\n          {\n            show: true,\n            start: 94,\n            end: 100\n          },\n          {\n            type: 'inside',\n            start: 94,\n            end: 100\n          },\n          {\n            show: true,\n            yAxisIndex: 0,\n            filterMode: 'empty',\n            width: 30,\n            height: '80%',\n            showDataShadow: false,\n            left: '93%'\n          }\n        ],\n        series: [\n          {\n            name: 'Budget 2011',\n            type: 'bar',\n            data: obama_budget_2012.budget2011List\n          },\n          {\n            name: 'Budget 2012',\n            type: 'bar',\n            data: obama_budget_2012.budget2012List\n          }\n        ]\n      };\n\n      myChart.setOption(option);\n    }\n  );\n  return option\n}\n\nexport function EchartsMixZoomOnValue() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

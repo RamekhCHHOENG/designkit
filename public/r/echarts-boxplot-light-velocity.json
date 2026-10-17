@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-boxplot-light-velocity",
+  "title": "Boxplot Light Velocity",
+  "description": "Boxplot Light Velocity, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-boxplot-light-velocity.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Boxplot Light Velocity\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=boxplot-light-velocity\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: [\n      {\n        text: 'Michelson-Morley Experiment',\n        left: 'center'\n      },\n      {\n        text: 'upper: Q3 + 1.5 * IQR \\nlower: Q1 - 1.5 * IQR',\n        borderColor: '#999',\n        borderWidth: 1,\n        textStyle: {\n          fontWeight: 'normal',\n          fontSize: 14,\n          lineHeight: 20\n        },\n        left: '10%',\n        top: '90%'\n      }\n    ],\n    dataset: [\n      {\n        // prettier-ignore\n        source: [\n          [850, 740, 900, 1070, 930, 850, 950, 980, 980, 880, 1000, 980, 930, 650, 760, 810, 1000, 1000, 960, 960],\n          [960, 940, 960, 940, 880, 800, 850, 880, 900, 840, 830, 790, 810, 880, 880, 830, 800, 790, 760, 800],\n          [880, 880, 880, 860, 720, 720, 620, 860, 970, 950, 880, 910, 850, 870, 840, 840, 850, 840, 840, 840],\n          [890, 810, 810, 820, 800, 770, 760, 740, 750, 760, 910, 920, 890, 860, 880, 720, 840, 850, 850, 780],\n          [890, 840, 780, 810, 760, 810, 790, 810, 820, 850, 870, 870, 810, 740, 810, 940, 950, 800, 810, 870]\n        ]\n      },\n      {\n        transform: {\n          type: 'boxplot',\n          config: { itemNameFormatter: 'expr {value}' }\n        }\n      },\n      {\n        fromDatasetIndex: 1,\n        fromTransformResult: 1\n      }\n    ],\n    tooltip: {\n      trigger: 'item',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    grid: {\n      left: '10%',\n      right: '10%',\n      bottom: '15%'\n    },\n    xAxis: {\n      type: 'category',\n      boundaryGap: true,\n      nameGap: 30,\n      splitArea: {\n        show: false\n      },\n      splitLine: {\n        show: false\n      }\n    },\n    yAxis: {\n      type: 'value',\n      name: 'km/s minus 299,000',\n      splitArea: {\n        show: true\n      }\n    },\n    series: [\n      {\n        name: 'boxplot',\n        type: 'boxplot',\n        datasetIndex: 1\n      },\n      {\n        name: 'outlier',\n        type: 'scatter',\n        datasetIndex: 2\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBoxplotLightVelocity() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "boxplot"
+  ],
+  "type": "registry:block"
+}

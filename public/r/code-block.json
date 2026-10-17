@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code Block",
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/copy-button.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/code-block.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\nimport { CopyButton } from \"@/components/ui/copy-button\"\n\nexport interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {\n  code: string\n  language?: string\n  filename?: string\n  showLineNumbers?: boolean\n  showCopyButton?: boolean\n}\n\nexport function CodeBlock({\n  code,\n  language,\n  filename,\n  showLineNumbers = false,\n  showCopyButton = true,\n  className,\n  ...props\n}: CodeBlockProps) {\n  const lines = code.trim().split(\"\\n\")\n\n  return (\n    <div\n      data-slot=\"code-block\"\n      className={cn(\n        \"relative overflow-hidden rounded-xl border border-border/70 bg-zinc-950 text-zinc-100 shadow-sm dark:bg-zinc-900/90\",\n        className\n      )}\n      {...props}\n    >\n      {(filename || language || showCopyButton) && (\n        <div className=\"flex h-9 items-center justify-between border-b border-white/10 bg-white/5 px-3.5 text-xs\">\n          <div className=\"flex items-center gap-2 text-zinc-400\">\n            {filename && <span className=\"font-mono text-zinc-200 font-medium\">{filename}</span>}\n            {language && !filename && (\n              <span className=\"font-mono uppercase text-[11px] tracking-wider text-zinc-400\">\n                {language}\n              </span>\n            )}\n          </div>\n          {showCopyButton && (\n            <CopyButton\n              value={code}\n              className=\"size-6 border-white/10 bg-transparent text-zinc-400 hover:bg-white/10 hover:text-zinc-100\"\n            />\n          )}\n        </div>\n      )}\n\n      <div className=\"overflow-x-auto p-3.5 font-mono text-xs leading-relaxed\">\n        <pre className=\"flex\">\n          {showLineNumbers && (\n            <div className=\"select-none pr-4 text-right text-zinc-600 dark:text-zinc-500\">\n              {lines.map((_, i) => (\n                <div key={i}>{i + 1}</div>\n              ))}\n            </div>\n          )}\n          <code className=\"flex-1 text-zinc-200 whitespace-pre\">{code}</code>\n        </pre>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

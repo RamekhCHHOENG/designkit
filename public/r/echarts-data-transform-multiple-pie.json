@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-data-transform-multiple-pie",
+  "title": "Partition Data to Pies",
+  "description": "Partition Data to Pies, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-data-transform-multiple-pie.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Partition Data to Pies\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=data-transform-multiple-pie\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    dataset: [\n      {\n        source: [\n          ['Product', 'Sales', 'Price', 'Year'],\n          ['Cake', 123, 32, 2011],\n          ['Cereal', 231, 14, 2011],\n          ['Tofu', 235, 5, 2011],\n          ['Dumpling', 341, 25, 2011],\n          ['Biscuit', 122, 29, 2011],\n          ['Cake', 143, 30, 2012],\n          ['Cereal', 201, 19, 2012],\n          ['Tofu', 255, 7, 2012],\n          ['Dumpling', 241, 27, 2012],\n          ['Biscuit', 102, 34, 2012],\n          ['Cake', 153, 28, 2013],\n          ['Cereal', 181, 21, 2013],\n          ['Tofu', 395, 4, 2013],\n          ['Dumpling', 281, 31, 2013],\n          ['Biscuit', 92, 39, 2013],\n          ['Cake', 223, 29, 2014],\n          ['Cereal', 211, 17, 2014],\n          ['Tofu', 345, 3, 2014],\n          ['Dumpling', 211, 35, 2014],\n          ['Biscuit', 72, 24, 2014]\n        ]\n      },\n      {\n        transform: {\n          type: 'filter',\n          config: { dimension: 'Year', value: 2011 }\n        }\n      },\n      {\n        transform: {\n          type: 'filter',\n          config: { dimension: 'Year', value: 2012 }\n        }\n      },\n      {\n        transform: {\n          type: 'filter',\n          config: { dimension: 'Year', value: 2013 }\n        }\n      }\n    ],\n    series: [\n      {\n        type: 'pie',\n        radius: 50,\n        center: ['50%', '25%'],\n        datasetIndex: 1\n      },\n      {\n        type: 'pie',\n        radius: 50,\n        center: ['50%', '50%'],\n        datasetIndex: 2\n      },\n      {\n        type: 'pie',\n        radius: 50,\n        center: ['50%', '75%'],\n        datasetIndex: 3\n      }\n    ],\n\n    // Optional. Only for responsive layout:\n    media: [\n      {\n        query: { minAspectRatio: 1 },\n        option: {\n          series: [\n            { center: ['25%', '50%'] },\n            { center: ['50%', '50%'] },\n            { center: ['75%', '50%'] }\n          ]\n        }\n      },\n      {\n        option: {\n          series: [\n            { center: ['50%', '25%'] },\n            { center: ['50%', '50%'] },\n            { center: ['50%', '75%'] }\n          ]\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsDataTransformMultiplePie() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset",
+    "pie",
+    "transform"
+  ],
+  "type": "registry:block"
+}

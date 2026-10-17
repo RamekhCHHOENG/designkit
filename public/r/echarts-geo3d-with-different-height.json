@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo3d-with-different-height",
+  "title": "Geo3D with Different Height",
+  "description": "Geo3D with Different Height, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo3d-with-different-height.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Geo3D with Different Height\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo3d-with-different-height\nconst setup: EChartSetup = async ({ myChart }) => {\n  let option: any\n  await registerBuiltinMap(\"world\")\n  $.getJSON(\n    ROOT_PATH + '/data-gl/asset/data/world-population.json',\n    function (populationData: any) {\n      var max = -Infinity;\n      var min = Infinity;\n      populationData.forEach(function (item: any) {\n        max = Math.max(Math.log(item.value), max);\n        min = Math.min(Math.log(item.value), min);\n      });\n\n      var regions = populationData.map(function (item: any) {\n        return {\n          name: item.name,\n          height: ((Math.log(item.value) - min) / (max - min)) * 3\n        };\n      });\n\n      myChart.setOption(\n        (option = {\n          backgroundColor: '#cdcfd5',\n          geo3D: {\n            map: 'world',\n            shading: 'lambert',\n\n            lambertMaterial: {\n              detailTexture: ROOT_PATH + '/data-gl/asset/woods.jpg',\n              textureTiling: 20\n            },\n\n            postEffect: {\n              enable: true,\n              SSAO: {\n                enable: true,\n                radius: 3,\n                quality: 'high'\n              }\n            },\n            groundPlane: {\n              show: true\n            },\n            light: {\n              main: {\n                intensity: 1,\n                shadow: true,\n                shadowQuality: 'high',\n                alpha: 30\n              },\n              ambient: {\n                intensity: 0\n              },\n              ambientCubemap: {\n                texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',\n                exposure: 2,\n                diffuseIntensity: 0.3\n              }\n            },\n            viewControl: {\n              distance: 50\n            },\n\n            regionHeight: 0.5,\n\n            regions: regions\n          }\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsGeo3dWithDifferentHeight() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "geo3D"
+  ],
+  "type": "registry:block"
+}

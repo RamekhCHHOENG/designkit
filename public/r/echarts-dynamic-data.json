@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dynamic-data",
+  "title": "Dynamic Data",
+  "description": "Dynamic Data, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dynamic-data.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Dynamic Data\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dynamic-data\nconst setup: EChartSetup = ({ myChart, app, setInterval }) => {\n  let option!: EChartsOption\n  const categories = (function () {\n    let now = new Date();\n    let res = [];\n    let len = 10;\n    while (len--) {\n      res.unshift(now.toLocaleTimeString().replace(/^\\D*/, ''));\n      now = new Date(+now - 2000);\n    }\n    return res;\n  })();\n  const categories2 = (function () {\n    let res = [];\n    let len = 10;\n    while (len--) {\n      res.push(10 - len - 1);\n    }\n    return res;\n  })();\n  const data: number[] = (function () {\n    let res = [];\n    let len = 10;\n    while (len--) {\n      res.push(Math.round(Math.random() * 1000));\n    }\n    return res;\n  })();\n  const data2: number[] = (function () {\n    let res = [];\n    let len = 0;\n    while (len < 10) {\n      res.push(+(Math.random() * 10 + 5).toFixed(1));\n      len++;\n    }\n    return res;\n  })();\n\n  option = {\n    title: {\n      text: 'Dynamic Data'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'cross',\n        label: {\n          backgroundColor: '#283b56'\n        }\n      }\n    },\n    legend: {},\n    toolbox: {\n      show: true,\n      feature: {\n        dataView: { readOnly: false },\n        restore: {},\n        saveAsImage: {}\n      }\n    },\n    dataZoom: {\n      show: false,\n      start: 0,\n      end: 100\n    },\n    xAxis: [\n      {\n        type: 'category',\n        boundaryGap: true,\n        data: categories\n      },\n      {\n        type: 'category',\n        boundaryGap: true,\n        data: categories2\n      }\n    ],\n    yAxis: [\n      {\n        type: 'value',\n        scale: true,\n        name: 'Price',\n        max: 30,\n        min: 0,\n        boundaryGap: [0.2, 0.2]\n      },\n      {\n        type: 'value',\n        scale: true,\n        name: 'Order',\n        max: 1200,\n        min: 0,\n        boundaryGap: [0.2, 0.2]\n      }\n    ],\n    series: [\n      {\n        name: 'Dynamic Bar',\n        type: 'bar',\n        xAxisIndex: 1,\n        yAxisIndex: 1,\n        data: data\n      },\n      {\n        name: 'Dynamic Line',\n        type: 'line',\n        data: data2\n      }\n    ]\n  };\n\n  app.count = 11;\n  setInterval(function () {\n    let axisData = new Date().toLocaleTimeString().replace(/^\\D*/, '');\n\n    data.shift();\n    data.push(Math.round(Math.random() * 1000));\n    data2.shift();\n    data2.push(+(Math.random() * 10 + 5).toFixed(1));\n\n    categories.shift();\n    categories.push(axisData);\n    categories2.shift();\n    categories2.push(app.count++);\n\n    myChart.setOption<echarts.EChartsOption>({\n      xAxis: [\n        {\n          data: categories\n        },\n        {\n          data: categories2\n        }\n      ],\n      series: [\n        {\n          data: data\n        },\n        {\n          data: data2\n        }\n      ]\n    });\n  }, 2100);\n  return option\n}\n\nexport function EchartsDynamicData() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

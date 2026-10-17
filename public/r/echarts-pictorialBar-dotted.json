@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pictorialBar-dotted",
+  "title": "Dotted bar",
+  "description": "Dotted bar, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pictorialBar-dotted.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Dotted bar\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pictorialBar-dotted\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  // Generate data\n  let category = [];\n  let dottedBase = +new Date();\n  let lineData = [];\n  let barData = [];\n\n  for (let i = 0; i < 20; i++) {\n    let date = new Date((dottedBase += 3600 * 24 * 1000));\n    category.push(\n      [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-')\n    );\n    let b = Math.random() * 200;\n    let d = Math.random() * 200;\n    barData.push(b);\n    lineData.push(d + b);\n  }\n\n  // option\n  option = {\n    backgroundColor: '#0f375f',\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    legend: {\n      data: ['line', 'bar'],\n      textStyle: {\n        color: '#ccc'\n      }\n    },\n    xAxis: {\n      data: category,\n      axisLine: {\n        lineStyle: {\n          color: '#ccc'\n        }\n      }\n    },\n    yAxis: {\n      splitLine: { show: false },\n      axisLine: {\n        lineStyle: {\n          color: '#ccc'\n        }\n      }\n    },\n    series: [\n      {\n        name: 'line',\n        type: 'line',\n        smooth: true,\n        showAllSymbol: true,\n        symbol: 'emptyCircle',\n        symbolSize: 15,\n        data: lineData\n      },\n      {\n        name: 'bar',\n        type: 'bar',\n        barWidth: 10,\n        itemStyle: {\n          borderRadius: 5,\n          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [\n            { offset: 0, color: '#14c8d4' },\n            { offset: 1, color: '#43eec6' }\n          ])\n        },\n        data: barData\n      },\n      {\n        name: 'line',\n        type: 'bar',\n        barGap: '-100%',\n        barWidth: 10,\n        itemStyle: {\n          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [\n            { offset: 0, color: 'rgba(20,200,212,0.5)' },\n            { offset: 0.2, color: 'rgba(20,200,212,0.2)' },\n            { offset: 1, color: 'rgba(20,200,212,0)' }\n          ])\n        },\n        z: -12,\n        data: lineData\n      },\n      {\n        name: 'dotted',\n        type: 'pictorialBar',\n        symbol: 'rect',\n        itemStyle: {\n          color: '#0f375f'\n        },\n        symbolRepeat: true,\n        symbolSize: [12, 4],\n        symbolMargin: 1,\n        z: -10,\n        data: lineData\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPictorialBarDotted() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pictorialBar"
+  ],
+  "type": "registry:block"
+}

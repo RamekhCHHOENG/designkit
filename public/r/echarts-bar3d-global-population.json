@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar3d-global-population",
+  "title": "Bar3D - Global Population",
+  "description": "Bar3D - Global Population, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar3d-global-population.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Bar3D - Global Population\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar3d-global-population\nconst setup: EChartSetup = async ({ myChart }) => {\n  await registerBuiltinMap(\"world\")\n  $.getJSON(ROOT_PATH + '/data-gl/asset/data/population.json', function (data: any) {\n    data = data\n      .filter(function (dataItem: any) {\n        return dataItem[2] > 0;\n      })\n      .map(function (dataItem: any) {\n        return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];\n      });\n\n    myChart.setOption({\n      backgroundColor: '#cdcfd5',\n      geo3D: {\n        map: 'world',\n        shading: 'lambert',\n        light: {\n          main: {\n            intensity: 5,\n            shadow: true,\n            shadowQuality: 'high',\n            alpha: 30\n          },\n          ambient: {\n            intensity: 0\n          },\n          ambientCubemap: {\n            texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',\n            exposure: 1,\n            diffuseIntensity: 0.5\n          }\n        },\n        viewControl: {\n          distance: 50,\n          panMouseButton: 'left',\n          rotateMouseButton: 'right'\n        },\n        groundPlane: {\n          show: true,\n          color: '#999'\n        },\n        postEffect: {\n          enable: true,\n          bloom: {\n            enable: false\n          },\n          SSAO: {\n            radius: 1,\n            intensity: 1,\n            enable: true\n          },\n          depthOfField: {\n            enable: false,\n            focalRange: 10,\n            blurRadius: 10,\n            fstop: 1\n          }\n        },\n        temporalSuperSampling: {\n          enable: true\n        },\n        itemStyle: {},\n\n        regionHeight: 2\n      },\n      visualMap: {\n        max: 40,\n        calculable: true,\n        realtime: false,\n        inRange: {\n          color: [\n            '#313695',\n            '#4575b4',\n            '#74add1',\n            '#abd9e9',\n            '#e0f3f8',\n            '#ffffbf',\n            '#fee090',\n            '#fdae61',\n            '#f46d43',\n            '#d73027',\n            '#a50026'\n          ]\n        },\n        outOfRange: {\n          colorAlpha: 0\n        }\n      },\n      series: [\n        {\n          type: 'bar3D',\n          coordinateSystem: 'geo3D',\n          shading: 'lambert',\n          data: data,\n          barSize: 0.1,\n          minHeight: 0.2,\n          silent: true,\n          itemStyle: {\n            color: 'orange'\n            // opacity: 0.8\n          }\n        }\n      ]\n    });\n  });\n}\n\nexport function EchartsBar3dGlobalPopulation() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar3D"
+  ],
+  "type": "registry:block"
+}

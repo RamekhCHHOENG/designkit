@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-drilldown",
+  "title": "Bar Chart Drilldown Animation",
+  "description": "Bar Chart Drilldown Animation, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-drilldown.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Bar Chart Drilldown Animation\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-drilldown\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  interface DataItem {\n    value: number;\n    groupId: string;\n  }\n  option = {\n    xAxis: {\n      data: ['Animals', 'Fruits', 'Cars']\n    },\n    yAxis: {},\n    dataGroupId: '',\n    animationDurationUpdate: 500,\n    series: {\n      type: 'bar',\n      id: 'sales',\n      data: [\n        {\n          value: 5,\n          groupId: 'animals'\n        },\n        {\n          value: 2,\n          groupId: 'fruits'\n        },\n        {\n          value: 4,\n          groupId: 'cars'\n        }\n      ] as DataItem[],\n      universalTransition: {\n        enabled: true,\n        divideShape: 'clone'\n      }\n    }\n  };\n\n  const drilldownData = [\n    {\n      dataGroupId: 'animals',\n      data: [\n        ['Cats', 4],\n        ['Dogs', 2],\n        ['Cows', 1],\n        ['Sheep', 2],\n        ['Pigs', 1]\n      ]\n    },\n    {\n      dataGroupId: 'fruits',\n      data: [\n        ['Apples', 4],\n        ['Oranges', 2]\n      ]\n    },\n    {\n      dataGroupId: 'cars',\n      data: [\n        ['Toyota', 4],\n        ['Opel', 2],\n        ['Volkswagen', 2]\n      ]\n    }\n  ];\n\n  myChart.on('click', function (event) {\n    if (event.data) {\n      var subData = drilldownData.find(function (data) {\n        return data.dataGroupId === (event.data as DataItem).groupId;\n      });\n      if (!subData) {\n        return;\n      }\n      myChart.setOption<echarts.EChartsOption>({\n        xAxis: {\n          data: subData.data.map(function (item) {\n            return item[0];\n          })\n        },\n        series: {\n          type: 'bar',\n          id: 'sales',\n          dataGroupId: subData.dataGroupId,\n          data: subData.data.map(function (item) {\n            return item[1];\n          }),\n          universalTransition: {\n            enabled: true,\n            divideShape: 'clone'\n          }\n        },\n        graphic: [\n          {\n            type: 'text',\n            left: 50,\n            top: 20,\n            style: {\n              text: 'Back',\n              fontSize: 18\n            },\n            onclick: function () {\n              myChart.setOption<echarts.EChartsOption>(option);\n            }\n          }\n        ]\n      });\n    }\n  });\n  return option\n}\n\nexport function EchartsBarDrilldown() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

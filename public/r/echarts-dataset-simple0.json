@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dataset-simple0",
+  "title": "Simple Example of Dataset",
+  "description": "Simple Example of Dataset, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dataset-simple0.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Simple Example of Dataset\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dataset-simple0\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    legend: {},\n    tooltip: {},\n    dataset: {\n      source: [\n        ['product', '2015', '2016', '2017'],\n        ['Matcha Latte', 43.3, 85.8, 93.7],\n        ['Milk Tea', 83.1, 73.4, 55.1],\n        ['Cheese Cocoa', 86.4, 65.2, 82.5],\n        ['Walnut Brownie', 72.4, 53.9, 39.1]\n      ]\n    },\n    xAxis: { type: 'category' },\n    yAxis: {},\n    // Declare several bar series, each will be mapped\n    // to a column of dataset.source by default.\n    series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }]\n  };\n  return option\n}\n\nexport function EchartsDatasetSimple0() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset",
+    "bar"
+  ],
+  "type": "registry:block"
+}

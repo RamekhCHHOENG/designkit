@@ -1,0 +1,183 @@
+{
+  "__loose": [
+    "matrix-mbti"
+  ],
+  "animating-contour-on-globe": [
+    "1|context.drawImage(image, 0, 0, canvas.width, canvas.height);",
+    "1|resolve(context.getImageData(0, 0, canvas.width, canvas.height));"
+  ],
+  "area-time-axis": [
+    "1|xAxis: {"
+  ],
+  "bar-breaks-brush": [
+    "1|_brushingEl.setShape('width', myChart.getWidth());",
+    "1|_brushingEl.setShape('height', currPoint[1] - initY);"
+  ],
+  "bar-histogram": [
+    "2|scale: true,"
+  ],
+  "bar3d-myth": [
+    "1|ctx.drawImage(img, 0, 0, width, height);",
+    "1|var imgData = ctx.getImageData(0, 0, width, height);"
+  ],
+  "bar3d-noise-modified-from-marpi-demo": [
+    "1|for (var i in gui.__controllers) {"
+  ],
+  "bar3d-voxelize-image": [
+    "1|ctx.drawImage(img, 0, 0, width, height);",
+    "1|imgData = ctx.getImageData(0, 0, width, height);"
+  ],
+  "candlestick-large": [
+    "1|data[dataIndex - 1][closeDimIdx] <= closeVal"
+  ],
+  "circle-packing-with-d3": [
+    "1|drillDown();"
+  ],
+  "custom-bar-trend": [
+    "1|point[0] += barLayout[i - 1].offsetCenter;"
+  ],
+  "custom-gantt-flight": [
+    "1|this.model.setIconStatus(type, _draggable ? 'emphasis' : 'normal');",
+    "1|var optionInsideX = option.dataZoom[DATA_ZOOM_X_INSIDE_INDEX];",
+    "1|var optionInsideY = option.dataZoom[DATA_ZOOM_Y_INSIDE_INDEX];"
+  ],
+  "custom-spiral-race": [
+    "1|var iRadian = endRadian;"
+  ],
+  "data-transform-aggregate": [
+    "1|import ecSimpleTransform from \"echarts-simple-transform\""
+  ],
+  "globe-contour-paint": [
+    "1|context.drawImage(image, 0, 0, canvas.width, canvas.height);",
+    "1|resolve(context.getImageData(0, 0, canvas.width, canvas.height));"
+  ],
+  "globe-country-carousel": [
+    "1|var regions = mapChart.getModel().getComponent('geo').coordinateSystem.regions;"
+  ],
+  "graphic-wave-animation": [
+    "1|this.x = x;",
+    "1|this.y = y;",
+    "1|this.z = z;",
+    "1|return this.x * x + this.y * y;",
+    "1|return this.x * x + this.y * y + this.z * z;"
+  ],
+  "image-surface-sushuang": [
+    "1|ctx.drawImage(img, 0, 0, width, height);",
+    "1|var imgData = ctx.getImageData(0, 0, width, height);"
+  ],
+  "image-to-bar3d": [
+    "1|ctx.drawImage(img, 0, 0, width, height);",
+    "1|var imgData = ctx.getImageData(0, 0, width, height);"
+  ],
+  "line-fisheye-lens": [
+    "1|_brushingEl.setShape('width', currPoint[0] - initX);",
+    "1|_brushingEl.setShape('height', currPoint[1] - initY);"
+  ],
+  "matrix-confusion": [
+    "1|formatter: (params) => {",
+    "1|const rect = api.layout([x, y]).rect;",
+    "1|x: rect.x,",
+    "1|y: rect.y,",
+    "1|width: rect.width,",
+    "1|height: rect.height,",
+    "1|textAlign: 'center'"
+  ],
+  "matrix-correlation-heatmap": [
+    "1|formatter: params => params.value[2].toFixed(2)"
+  ],
+  "matrix-correlation-scatter": [
+    "1|formatter: (params) => params.value[2].toFixed(2)"
+  ],
+  "matrix-covariance": [
+    "1|temp[j + '_' + i]",
+    "1|temp[i + '_' + j] = value;",
+    "1|matrix: {",
+    "1|tooltip: {",
+    "1|valueFormatter: value => Math.round(value)"
+  ],
+  "matrix-graph": [
+    "1|return params.data[3];",
+    "1|textAlign: 'center',"
+  ],
+  "matrix-grid-layout": [
+    "1|const dataXVal = echarts.time.format(xTime, '{yyyy}-{MM}-{dd}');",
+    "1|app.config = {};",
+    "1|app.configParameters.showMatrixGrid = { options: [false, true] };"
+  ],
+  "matrix-mbti": [
+    "1|color: colorMap[groupName],",
+    "1|children: groupMembers[groupName].map((mbti: any) => ({",
+    "2|color: colorMap[groupName],",
+    "1|if (groupRawData[key]) {",
+    "1|groupRawData[key].push(v);",
+    "1|groupRawData[key] = [v];",
+    "1|const v = median(groupRawData[key]);",
+    "1|matrix: {",
+    "1|series: detailSeries,",
+    "1|animation: 0",
+    "1|option.series = isGroup ? groupSeries : detailSeries;"
+  ],
+  "matrix-periodic-table": [
+    "1|formatter: (params) => {",
+    "1|const rect = api.layout([x, y]).rect;",
+    "1|const isElement = !isNaN(api.value(2));",
+    "1|x: rect.x + margin,",
+    "1|y: rect.y + margin,",
+    "1|width: rect.width - margin * 2,",
+    "1|height: rect.height - margin * 2",
+    "1|fill: api.value(4),",
+    "1|x: center[0] + (row[3] || 0),",
+    "1|y: center[1] + (row[4] || 0)"
+  ],
+  "matrix-pie": [
+    "1|matrix: {",
+    "1|series,"
+  ],
+  "matrix-simple": [
+    "1|matrix: {"
+  ],
+  "matrix-sparkline": [
+    "1|const dataXVal = echarts.time.format(xTime, '{yyyy}-{MM}-{dd}');"
+  ],
+  "sankey-simple": [
+    "1|layout: 'none',"
+  ],
+  "scatter-clustering-process": [
+    "1|makeStepOption(option, originalData);"
+  ],
+  "scatter-map-brush": [
+    "1|xAxis: {"
+  ],
+  "scatter-world-population": [
+    "1|value ="
+  ],
+  "scatter3d": [
+    "1|config.symbolSiz",
+    "2|config.symbolSiz"
+  ],
+  "surface-breather": [
+    "1|var res = echarts.exportGL2PLY(myChart, {",
+    "1|download(res, 'surface.ply', 'text/plain');"
+  ],
+  "surface-golden-rose": [
+    "1|createSeries(1.5, 1.5),",
+    "1|createSeries(-1.5, -1.5),",
+    "1|createSeries(-1.5, 1.5),",
+    "1|createSeries(1.5, -1.5),",
+    "1|createSeries(0, 0)"
+  ],
+  "surface-leather": [
+    "1|ctx.drawImage(heightImg, 0, 0, width, height);",
+    "1|var imgData = ctx.getImageData(0, 0, width, height).data;"
+  ],
+  "surface-theme-roses": [
+    "1|createSeries(1.5, 1.5),",
+    "1|createSeries(-1.5, -1.5),",
+    "1|createSeries(-1.5, 1.5),",
+    "1|createSeries(1.5, -1.5),",
+    "1|createSeries(0, 0)"
+  ],
+  "wind-barb": [
+    "1|textAlign: 'center',"
+  ]
+}

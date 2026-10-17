@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-custom-bar-trend",
+  "title": "Custom Bar Trend",
+  "description": "Custom Bar Trend, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-custom-bar-trend.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Custom Bar Trend\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=custom-bar-trend\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const yearCount = 7;\n  const categoryCount = 30;\n\n  const xAxisData: string[] = [];\n  const customData: number[][] = [];\n  const legendData: string[] = [];\n  const dataList: number[][] = [];\n\n  legendData.push('trend');\n  const encodeY = [];\n  for (var i = 0; i < yearCount; i++) {\n    legendData.push(2010 + i + '');\n    dataList.push([]);\n    encodeY.push(1 + i);\n  }\n\n  for (var i = 0; i < categoryCount; i++) {\n    var val = Math.random() * 1000;\n    xAxisData.push('category' + i);\n    var customVal = [i];\n    customData.push(customVal);\n\n    for (var j = 0; j < dataList.length; j++) {\n      var value =\n        j === 0\n          ? echarts.number.round(val, 2)\n          : echarts.number.round(\n              Math.max(0, dataList[j - 1][i] + (Math.random() - 0.5) * 200),\n              2\n            );\n      dataList[j].push(value);\n      customVal.push(value);\n    }\n  }\n\n  option = {\n    tooltip: {\n      trigger: 'axis'\n    },\n    legend: {\n      data: legendData,\n      top: 20\n    },\n    dataZoom: [\n      {\n        type: 'slider',\n        start: 50,\n        end: 70\n      },\n      {\n        type: 'inside',\n        start: 50,\n        end: 70\n      }\n    ],\n    xAxis: {\n      data: xAxisData\n    },\n    yAxis: {},\n    series: [\n      {\n        type: 'custom',\n        name: 'trend',\n        renderItem: function (params, api) {\n          var xValue = api.value(0);\n          var currentSeriesIndices = api.currentSeriesIndices();\n          var barLayout = api.barLayout({\n            barGap: '30%',\n            barCategoryGap: '20%',\n            count: currentSeriesIndices.length - 1\n          });\n\n          var points = [];\n          for (var i = 0; i < currentSeriesIndices.length; i++) {\n            var seriesIndex = currentSeriesIndices[i];\n            if (seriesIndex !== params.seriesIndex) {\n              var point = api.coord([xValue, api.value(seriesIndex)]);\n              // @ts-ignore\n              point[0] += barLayout[i - 1].offsetCenter;\n              point[1] -= 20;\n              points.push(point);\n            }\n          }\n          var style = api.style({\n            stroke: api.visual('color') as string,\n            fill: 'none'\n          });\n\n          return {\n            type: 'polyline',\n            shape: {\n              points: points\n            },\n            style: style\n          };\n        },\n        itemStyle: {\n          borderWidth: 2\n        },\n        encode: {\n          x: 0,\n          y: encodeY\n        },\n        data: customData,\n        z: 100\n      },\n      ...dataList.map(function (data, index) {\n        return {\n          type: 'bar',\n          animation: false,\n          name: legendData[index + 1],\n          itemStyle: {\n            opacity: 0.5\n          },\n          data: data\n        } as echarts.BarSeriesOption;\n      })\n    ]\n  };\n  return option\n}\n\nexport function EchartsCustomBarTrend() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-svg-scatter-simple",
+  "title": "GEO SVG Scatter",
+  "description": "GEO SVG Scatter, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-svg-scatter-simple.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"GEO SVG Scatter\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-svg-scatter-simple\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(ROOT_PATH + '/data/asset/geo/Map_of_Iceland.svg', function (svg) {\n    echarts.registerMap('iceland_svg', { svg: svg });\n\n    option = {\n      tooltip: {},\n      geo: {\n        tooltip: {\n          show: true\n        },\n        map: 'iceland_svg',\n        roam: true\n      },\n      series: {\n        type: 'effectScatter',\n        coordinateSystem: 'geo',\n        geoIndex: 0,\n        symbolSize: function (params) {\n          return (params[2] / 100) * 15 + 5;\n        },\n        itemStyle: {\n          color: '#b02a02'\n        },\n        encode: {\n          tooltip: 2\n        },\n        data: [\n          [488.2358421078053, 459.70913833075736, 100],\n          [770.3415644319939, 757.9672194986475, 30],\n          [1180.0329284196291, 743.6141808346214, 80],\n          [894.03790632245, 1188.1985153835008, 61],\n          [1372.98925630313, 477.3839988649537, 70],\n          [1378.62251255796, 935.6708486282843, 81]\n        ]\n      }\n    };\n\n    myChart.setOption(option);\n\n    myChart.getZr().on('click', function (params) {\n      var pixelPoint = [params.offsetX, params.offsetY];\n      var dataPoint = myChart.convertFromPixel({ geoIndex: 0 }, pixelPoint);\n      console.log(dataPoint);\n    });\n  });\n  return option\n}\n\nexport function EchartsGeoSvgScatterSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map"
+  ],
+  "type": "registry:block"
+}

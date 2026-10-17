@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-polar-endAngle",
+  "title": "Polar endAngle",
+  "description": "Polar endAngle, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-polar-endAngle.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Polar endAngle\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=polar-endAngle\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {},\n    angleAxis: [\n      {\n        type: 'category',\n        polarIndex: 0,\n        startAngle: 90,\n        endAngle: 0,\n        data: ['S1', 'S2', 'S3']\n      },\n      {\n        type: 'category',\n        polarIndex: 1,\n        startAngle: -90,\n        endAngle: -180,\n        data: ['T1', 'T2', 'T3']\n      }\n    ],\n    radiusAxis: [{ polarIndex: 0 }, { polarIndex: 1 }],\n    polar: [{}, {}],\n    series: [\n      {\n        type: 'bar',\n        polarIndex: 0,\n        data: [1, 2, 3],\n        coordinateSystem: 'polar'\n      },\n      {\n        type: 'bar',\n        polarIndex: 1,\n        data: [1, 2, 3],\n        coordinateSystem: 'polar'\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPolarEndAngle() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

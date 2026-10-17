@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-map-HK",
+  "title": "Population Density of HongKong (2011)",
+  "description": "Population Density of HongKong (2011), adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-map-HK.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Population Density of HongKong (2011)\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=map-HK\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  $.get(ROOT_PATH + '/data/asset/geo/HK.json', function (geoJson) {\n    myChart.hideLoading();\n\n    echarts.registerMap('HK', geoJson);\n\n    myChart.setOption(\n      (option = {\n        title: {\n          text: 'Population Density of Hong Kong （2011）',\n          subtext: 'Data from Wikipedia',\n          sublink:\n            'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'\n        },\n        tooltip: {\n          trigger: 'item',\n          formatter: '{b}<br/>{c} (p / km2)'\n        },\n        toolbox: {\n          show: true,\n          orient: 'vertical',\n          left: 'right',\n          top: 'center',\n          feature: {\n            dataView: { readOnly: false },\n            restore: {},\n            saveAsImage: {}\n          }\n        },\n        visualMap: {\n          min: 800,\n          max: 50000,\n          text: ['High', 'Low'],\n          realtime: false,\n          calculable: true,\n          inRange: {\n            color: ['lightskyblue', 'yellow', 'orangered']\n          }\n        },\n        series: [\n          {\n            name: '香港18区人口密度',\n            type: 'map',\n            map: 'HK',\n            label: {\n              show: true\n            },\n            data: [\n              { name: '中西区', value: 20057.34 },\n              { name: '湾仔', value: 15477.48 },\n              { name: '东区', value: 31686.1 },\n              { name: '南区', value: 6992.6 },\n              { name: '油尖旺', value: 44045.49 },\n              { name: '深水埗', value: 40689.64 },\n              { name: '九龙城', value: 37659.78 },\n              { name: '黄大仙', value: 45180.97 },\n              { name: '观塘', value: 55204.26 },\n              { name: '葵青', value: 21900.9 },\n              { name: '荃湾', value: 4918.26 },\n              { name: '屯门', value: 5881.84 },\n              { name: '元朗', value: 4178.01 },\n              { name: '北区', value: 2227.92 },\n              { name: '大埔', value: 2180.98 },\n              { name: '沙田', value: 9172.94 },\n              { name: '西贡', value: 3368 },\n              { name: '离岛', value: 806.98 }\n            ],\n            // 自定义名称映射\n            nameMap: {\n              'Central and Western': '中西区',\n              Eastern: '东区',\n              Islands: '离岛',\n              'Kowloon City': '九龙城',\n              'Kwai Tsing': '葵青',\n              'Kwun Tong': '观塘',\n              North: '北区',\n              'Sai Kung': '西贡',\n              'Sha Tin': '沙田',\n              'Sham Shui Po': '深水埗',\n              Southern: '南区',\n              'Tai Po': '大埔',\n              'Tsuen Wan': '荃湾',\n              'Tuen Mun': '屯门',\n              'Wan Chai': '湾仔',\n              'Wong Tai Sin': '黄大仙',\n              'Yau Tsim Mong': '油尖旺',\n              'Yuen Long': '元朗'\n            }\n          }\n        ]\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsMapHK() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-mix-line-bar",
+  "title": "Mixed Line and Bar",
+  "description": "Mixed Line and Bar, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-mix-line-bar.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Mixed Line and Bar\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=mix-line-bar\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'cross',\n        crossStyle: {\n          color: '#999'\n        }\n      }\n    },\n    toolbox: {\n      feature: {\n        dataView: { show: true, readOnly: false },\n        magicType: { show: true, type: ['line', 'bar'] },\n        restore: { show: true },\n        saveAsImage: { show: true }\n      }\n    },\n    legend: {\n      data: ['Evaporation', 'Precipitation', 'Temperature']\n    },\n    xAxis: [\n      {\n        type: 'category',\n        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],\n        axisPointer: {\n          type: 'shadow'\n        }\n      }\n    ],\n    yAxis: [\n      {\n        type: 'value',\n        name: 'Precipitation',\n        min: 0,\n        max: 250,\n        interval: 50,\n        axisLabel: {\n          formatter: '{value} ml'\n        }\n      },\n      {\n        type: 'value',\n        name: 'Temperature',\n        min: 0,\n        max: 25,\n        interval: 5,\n        axisLabel: {\n          formatter: '{value} °C'\n        }\n      }\n    ],\n    series: [\n      {\n        name: 'Evaporation',\n        type: 'bar',\n        tooltip: {\n          valueFormatter: function (value) {\n            return value as number + ' ml';\n          }\n        },\n        data: [\n          2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3\n        ]\n      },\n      {\n        name: 'Precipitation',\n        type: 'bar',\n        tooltip: {\n          valueFormatter: function (value) {\n            return value as number + ' ml';\n          }\n        },\n        data: [\n          2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3\n        ]\n      },\n      {\n        name: 'Temperature',\n        type: 'line',\n        yAxisIndex: 1,\n        tooltip: {\n          valueFormatter: function (value) {\n            return value as number + ' °C';\n          }\n        },\n        data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsMixLineBar() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

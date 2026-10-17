@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-smooth",
+  "title": "Smoothed Line Chart",
+  "description": "Smoothed Line Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-smooth.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Smoothed Line Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-smooth\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        data: [820, 932, 901, 934, 1290, 1330, 1320],\n        type: 'line',\n        smooth: true\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineSmooth() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

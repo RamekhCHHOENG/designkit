@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-organ",
+  "title": "Organ Data with SVG",
+  "description": "Organ Data with SVG, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-organ.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Organ Data with SVG\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-organ\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.get(\n    ROOT_PATH + '/data/asset/geo/Veins_Medical_Diagram_clip_art.svg',\n    function (svg: any) {\n      echarts.registerMap('organ_diagram', { svg: svg });\n\n      option = {\n        tooltip: {},\n        geo: {\n          left: 10,\n          right: '50%',\n          map: 'organ_diagram',\n          selectedMode: 'multiple',\n          emphasis: {\n            focus: 'self',\n            itemStyle: {\n              color: null\n            },\n            label: {\n              position: 'bottom',\n              distance: 0,\n              textBorderColor: '#fff',\n              textBorderWidth: 2\n            }\n          },\n          blur: {},\n          select: {\n            itemStyle: {\n              color: '#b50205'\n            },\n            label: {\n              show: false,\n              textBorderColor: '#fff',\n              textBorderWidth: 2\n            }\n          }\n        },\n        grid: {\n          left: '60%',\n          top: '20%',\n          bottom: '20%'\n        },\n        xAxis: {},\n        yAxis: {\n          data: [\n            'heart',\n            'large-intestine',\n            'small-intestine',\n            'spleen',\n            'kidney',\n            'lung',\n            'liver'\n          ]\n        },\n        series: [\n          {\n            type: 'bar',\n            emphasis: {\n              focus: 'self'\n            },\n            data: [121, 321, 141, 52, 198, 289, 139]\n          }\n        ]\n      };\n\n      myChart.setOption(option);\n\n      myChart.on('mouseover', { seriesIndex: 0 }, function (event: any) {\n        myChart.dispatchAction({\n          type: 'highlight',\n          geoIndex: 0,\n          name: event.name\n        });\n      });\n      myChart.on('mouseout', { seriesIndex: 0 }, function (event: any) {\n        myChart.dispatchAction({\n          type: 'downplay',\n          geoIndex: 0,\n          name: event.name\n        });\n      });\n    }\n  );\n  return option\n}\n\nexport function EchartsGeoOrgan() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map"
+  ],
+  "type": "registry:block"
+}

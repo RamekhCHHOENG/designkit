@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sankey-simple",
+  "title": "Basic Sankey",
+  "description": "Basic Sankey, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sankey-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Sankey\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sankey-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    series: {\n      type: 'sankey',\n      // @ts-ignore\n      layout: 'none',\n      emphasis: {\n        focus: 'adjacency'\n      },\n      data: [\n        {\n          name: 'a'\n        },\n        {\n          name: 'b'\n        },\n        {\n          name: 'a1'\n        },\n        {\n          name: 'a2'\n        },\n        {\n          name: 'b1'\n        },\n        {\n          name: 'c'\n        }\n      ],\n      links: [\n        {\n          source: 'a',\n          target: 'a1',\n          value: 5\n        },\n        {\n          source: 'a',\n          target: 'a2',\n          value: 3\n        },\n        {\n          source: 'b',\n          target: 'b1',\n          value: 8\n        },\n        {\n          source: 'a',\n          target: 'b1',\n          value: 3\n        },\n        {\n          source: 'b1',\n          target: 'a1',\n          value: 1\n        },\n        {\n          source: 'b1',\n          target: 'c',\n          value: 2\n        }\n      ]\n    }\n  };\n  return option\n}\n\nexport function EchartsSankeySimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sankey"
+  ],
+  "type": "registry:block"
+}

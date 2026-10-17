@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spoiler",
+  "title": "Spoiler",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/spoiler.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ChevronDownIcon, ChevronUpIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\n\nexport interface SpoilerProps extends React.HTMLAttributes<HTMLDivElement> {\n  maxHeight?: number\n  showLabel?: React.ReactNode\n  hideLabel?: React.ReactNode\n  defaultExpanded?: boolean\n  expanded?: boolean\n  onExpandedChange?: (expanded: boolean) => void\n}\n\nexport function Spoiler({\n  maxHeight = 100,\n  showLabel = \"Show more\",\n  hideLabel = \"Show less\",\n  defaultExpanded = false,\n  expanded: controlledExpanded,\n  onExpandedChange,\n  className,\n  children,\n  ...props\n}: SpoilerProps) {\n  const [uncontrolledExpanded, setUncontrolledExpanded] = React.useState(defaultExpanded)\n  const [contentHeight, setContentHeight] = React.useState<number>(0)\n  const contentRef = React.useRef<HTMLDivElement>(null)\n\n  const isExpanded = controlledExpanded !== undefined ? controlledExpanded : uncontrolledExpanded\n\n  React.useLayoutEffect(() => {\n    if (contentRef.current) {\n      setContentHeight(contentRef.current.scrollHeight)\n    }\n  }, [children])\n\n  const toggleExpanded = () => {\n    const next = !isExpanded\n    if (controlledExpanded === undefined) {\n      setUncontrolledExpanded(next)\n    }\n    onExpandedChange?.(next)\n  }\n\n  const needsCollapse = contentHeight > maxHeight\n\n  return (\n    <div data-slot=\"spoiler\" className={cn(\"relative w-full\", className)} {...props}>\n      <div\n        ref={contentRef}\n        style={{\n          maxHeight: !needsCollapse || isExpanded ? undefined : `${maxHeight}px`,\n        }}\n        className={cn(\n          \"overflow-hidden transition-all duration-300 ease-in-out\",\n          needsCollapse && !isExpanded && \"relative\"\n        )}\n      >\n        {children}\n\n        {needsCollapse && !isExpanded && (\n          <div className=\"absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent pointer-events-none\" />\n        )}\n      </div>\n\n      {needsCollapse && (\n        <div className=\"pt-2\">\n          <Button\n            type=\"button\"\n            variant=\"ghost\"\n            size=\"xs\"\n            onClick={toggleExpanded}\n            className=\"text-primary hover:text-primary gap-1 font-medium\"\n          >\n            <span>{isExpanded ? hideLabel : showLabel}</span>\n            {isExpanded ? (\n              <ChevronUpIcon className=\"size-3.5\" />\n            ) : (\n              <ChevronDownIcon className=\"size-3.5\" />\n            )}\n          </Button>\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

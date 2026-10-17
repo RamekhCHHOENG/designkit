@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-race",
+  "title": "Line Race",
+  "description": "Line Race, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-race.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Line Race\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-race\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(\n    ROOT_PATH + '/data/asset/data/life-expectancy-table.json',\n    function (_rawData) {\n      run(_rawData);\n    }\n  );\n\n  function run(_rawData: any) {\n    // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];\n    const countries = [\n      'Finland',\n      'France',\n      'Germany',\n      'Iceland',\n      'Norway',\n      'Poland',\n      'Russia',\n      'United Kingdom'\n    ];\n    const datasetWithFilters: echarts.DatasetComponentOption[] = [];\n    const seriesList: echarts.SeriesOption[] = [];\n    echarts.util.each(countries, function (country) {\n      var datasetId = 'dataset_' + country;\n      datasetWithFilters.push({\n        id: datasetId,\n        fromDatasetId: 'dataset_raw',\n        transform: {\n          type: 'filter',\n          config: {\n            and: [\n              { dimension: 'Year', gte: 1950 },\n              { dimension: 'Country', '=': country }\n            ]\n          }\n        }\n      });\n      seriesList.push({\n        type: 'line',\n        datasetId: datasetId,\n        showSymbol: false,\n        name: country,\n        endLabel: {\n          show: true,\n          formatter: function (params: any) {\n            return params.value[3] + ': ' + params.value[0];\n          }\n        },\n        labelLayout: {\n          moveOverlap: 'shiftY'\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        encode: {\n          x: 'Year',\n          y: 'Income',\n          label: ['Country', 'Income'],\n          itemName: 'Year',\n          tooltip: ['Income']\n        }\n      });\n    });\n\n    option = {\n      animationDuration: 10000,\n      dataset: [\n        {\n          id: 'dataset_raw',\n          source: _rawData\n        },\n        ...datasetWithFilters\n      ],\n      title: {\n        text: 'Income of Germany and France since 1950'\n      },\n      tooltip: {\n        order: 'valueDesc',\n        trigger: 'axis'\n      },\n      xAxis: {\n        type: 'category',\n        nameLocation: 'middle'\n      },\n      yAxis: {\n        name: 'Income'\n      },\n      grid: {\n        right: 140\n      },\n      series: seriesList\n    };\n\n    myChart.setOption(option);\n  }\n  return option\n}\n\nexport function EchartsLineRace() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

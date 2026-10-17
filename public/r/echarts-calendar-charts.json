@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-calendar-charts",
+  "title": "Calendar Charts",
+  "description": "Calendar Charts, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-calendar-charts.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Calendar Charts\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=calendar-charts\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function getVirtualData(year: string) {\n    const date = +echarts.time.parse(year + '-01-01');\n    const end = +echarts.time.parse(+year + 1 + '-01-01');\n    const dayTime = 3600 * 24 * 1000;\n    const data: [string, number][] = [];\n    for (let time = date; time < end; time += dayTime) {\n      data.push([\n        echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n        Math.floor(Math.random() * 1000)\n      ]);\n    }\n    return data;\n  }\n\n  const graphData = [\n    ['2017-02-01', 260],\n    ['2017-02-04', 200],\n    ['2017-02-09', 279],\n    ['2017-02-13', 847],\n    ['2017-02-18', 241],\n    ['2017-02-23', 411],\n    ['2017-02-27', 985]\n  ];\n\n  const links = graphData.map(function (item, idx) {\n    return {\n      source: idx,\n      target: idx + 1\n    };\n  });\n  links.pop();\n\n  option = {\n    tooltip: {\n      position: 'top'\n    },\n\n    visualMap: [\n      {\n        min: 0,\n        max: 1000,\n        calculable: true,\n        seriesIndex: [2, 3, 4],\n        orient: 'horizontal',\n        left: '55%',\n        bottom: 20\n      },\n      {\n        min: 0,\n        max: 1000,\n        inRange: {\n          color: ['grey'],\n          opacity: [0, 0.3]\n        },\n        controller: {\n          inRange: {\n            opacity: [0.3, 0.6]\n          },\n          outOfRange: {\n            color: '#ccc'\n          }\n        },\n        seriesIndex: [1],\n        orient: 'horizontal',\n        left: '10%',\n        bottom: 20\n      }\n    ],\n\n    calendar: [\n      {\n        orient: 'vertical',\n        yearLabel: {\n          margin: 40\n        },\n        monthLabel: {\n          nameMap: 'cn',\n          margin: 20\n        },\n        dayLabel: {\n          firstDay: 1,\n          nameMap: 'cn'\n        },\n        cellSize: 40,\n        range: '2017-02'\n      },\n      {\n        orient: 'vertical',\n        yearLabel: {\n          margin: 40\n        },\n        monthLabel: {\n          margin: 20\n        },\n        cellSize: 40,\n        left: 460,\n        range: '2017-01'\n      },\n      {\n        orient: 'vertical',\n        yearLabel: {\n          margin: 40\n        },\n        monthLabel: {\n          margin: 20\n        },\n        cellSize: 40,\n        top: 350,\n        range: '2017-03'\n      },\n      {\n        orient: 'vertical',\n        yearLabel: {\n          margin: 40\n        },\n        dayLabel: {\n          firstDay: 1,\n          nameMap: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\n        },\n        monthLabel: {\n          nameMap: 'cn',\n          margin: 20\n        },\n        cellSize: 40,\n        top: 350,\n        left: 460,\n        range: '2017-04'\n      }\n    ],\n\n    series: [\n      {\n        type: 'graph',\n        edgeSymbol: ['none', 'arrow'],\n        coordinateSystem: 'calendar',\n        links: links,\n        symbolSize: 10,\n        calendarIndex: 0,\n        data: graphData\n      },\n      {\n        type: 'heatmap',\n        coordinateSystem: 'calendar',\n        data: getVirtualData('2017')\n      },\n      {\n        type: 'effectScatter',\n        coordinateSystem: 'calendar',\n        calendarIndex: 1,\n        symbolSize: function (val) {\n          return val[1] / 40;\n        },\n        data: getVirtualData('2017')\n      },\n      {\n        type: 'scatter',\n        coordinateSystem: 'calendar',\n        calendarIndex: 2,\n        symbolSize: function (val) {\n          return val[1] / 60;\n        },\n        data: getVirtualData('2017')\n      },\n      {\n        type: 'heatmap',\n        coordinateSystem: 'calendar',\n        calendarIndex: 3,\n        data: getVirtualData('2017')\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCalendarCharts() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "calendar",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

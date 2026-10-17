@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-y-category",
+  "title": "Line Y Category",
+  "description": "Line Y Category, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-y-category.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Line Y Category\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-y-category\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    legend: {\n      data: ['Altitude (km) vs. temperature (°C)']\n    },\n    tooltip: {\n      trigger: 'axis',\n      formatter: 'Temperature : <br/>{b}km : {c}°C'\n    },\n    grid: {\n      left: '3%',\n      right: '4%',\n      bottom: '3%',\n      containLabel: true\n    },\n    xAxis: {\n      type: 'value',\n      axisLabel: {\n        formatter: '{value} °C'\n      }\n    },\n    yAxis: {\n      type: 'category',\n      axisLine: { onZero: false },\n      axisLabel: {\n        formatter: '{value} km'\n      },\n      boundaryGap: false,\n      data: ['0', '10', '20', '30', '40', '50', '60', '70', '80']\n    },\n    series: [\n      {\n        name: 'Altitude (km) vs. temperature (°C)',\n        type: 'line',\n        symbolSize: 10,\n        symbol: 'circle',\n        smooth: true,\n        lineStyle: {\n          width: 3,\n          shadowColor: 'rgba(0,0,0,0.3)',\n          shadowBlur: 10,\n          shadowOffsetY: 8\n        },\n        data: [15, -50, -56.5, -46.5, -22.1, -2.5, -27.7, -55.7, -76.5]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineYCategory() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

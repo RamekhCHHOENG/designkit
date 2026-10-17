@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sunburst-visualMap",
+  "title": "Sunburst VisualMap",
+  "description": "Sunburst VisualMap, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sunburst-visualMap.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Sunburst VisualMap\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sunburst-visualMap\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  var data = [\n    {\n      name: 'Grandpa',\n      children: [\n        {\n          name: 'Uncle Leo',\n          value: 15,\n          children: [\n            {\n              name: 'Cousin Jack',\n              value: 2\n            },\n            {\n              name: 'Cousin Mary',\n              value: 5,\n              children: [\n                {\n                  name: 'Jackson',\n                  value: 2\n                }\n              ]\n            },\n            {\n              name: 'Cousin Ben',\n              value: 4\n            }\n          ]\n        },\n        {\n          name: 'Aunt Jane',\n          children: [\n            {\n              name: 'Cousin Kate',\n              value: 4\n            }\n          ]\n        },\n        {\n          name: 'Father',\n          value: 10,\n          children: [\n            {\n              name: 'Me',\n              value: 5,\n              itemStyle: {\n                color: 'red'\n              }\n            },\n            {\n              name: 'Brother Peter',\n              value: 1\n            }\n          ]\n        }\n      ]\n    },\n    {\n      name: 'Mike',\n      children: [\n        {\n          name: 'Uncle Dan',\n          children: [\n            {\n              name: 'Cousin Lucy',\n              value: 3\n            },\n            {\n              name: 'Cousin Luck',\n              value: 4,\n              children: [\n                {\n                  name: 'Nephew',\n                  value: 2\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    {\n      name: 'Nancy',\n      children: [\n        {\n          name: 'Uncle Nike',\n          children: [\n            {\n              name: 'Cousin Betty',\n              value: 1\n            },\n            {\n              name: 'Cousin Jenny',\n              value: 2\n            }\n          ]\n        }\n      ]\n    }\n  ];\n\n  option = {\n    visualMap: {\n      type: 'continuous',\n      min: 0,\n      max: 10,\n      inRange: {\n        color: ['#2F93C8', '#AEC48F', '#FFDB5C', '#F98862']\n      }\n    },\n    series: {\n      type: 'sunburst',\n      data: data,\n      radius: [0, '90%'],\n      label: {\n        rotate: 'radial'\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsSunburstVisualMap() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sunburst"
+  ],
+  "type": "registry:block"
+}

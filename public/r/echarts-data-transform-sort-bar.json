@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-data-transform-sort-bar",
+  "title": "Sort Data in Bar Chart",
+  "description": "Sort Data in Bar Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-data-transform-sort-bar.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Sort Data in Bar Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=data-transform-sort-bar\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    dataset: [\n      {\n        dimensions: ['name', 'age', 'profession', 'score', 'date'],\n        source: [\n          ['Hannah Krause', 41, 'Engineer', 314, '2011-02-12'],\n          ['Zhao Qian', 20, 'Teacher', 351, '2011-03-01'],\n          ['Jasmin Krause ', 52, 'Musician', 287, '2011-02-14'],\n          ['Li Lei', 37, 'Teacher', 219, '2011-02-18'],\n          ['Karle Neumann', 25, 'Engineer', 253, '2011-04-02'],\n          ['Adrian Groß', 19, 'Teacher', '-', '2011-01-16'],\n          ['Mia Neumann', 71, 'Engineer', 165, '2011-03-19'],\n          ['Böhm Fuchs', 36, 'Musician', 318, '2011-02-24'],\n          ['Han Meimei', 67, 'Engineer', 366, '2011-03-12']\n        ]\n      },\n      {\n        transform: {\n          type: 'sort',\n          config: { dimension: 'score', order: 'desc' }\n        }\n      }\n    ],\n    xAxis: {\n      type: 'category',\n      axisLabel: { interval: 0, rotate: 30 }\n    },\n    yAxis: {},\n    series: {\n      type: 'bar',\n      encode: { x: 'name', y: 'score' },\n      datasetIndex: 1\n    }\n  };\n  return option\n}\n\nexport function EchartsDataTransformSortBar() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset",
+    "bar",
+    "transform"
+  ],
+  "type": "registry:block"
+}

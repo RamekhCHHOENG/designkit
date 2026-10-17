@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-graph",
+  "title": "Geo Graph",
+  "description": "Geo Graph, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-graph.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Geo Graph\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-graph\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  function createChart() {\n    var chRoughLatitude = 47;\n    option = {\n      title: {\n        text: 'Travel Routes',\n      },\n      geo: {\n        map: 'ch',\n        roam: true,\n        aspectScale: Math.cos(chRoughLatitude * Math.PI / 180),\n        // nameProperty: 'name_en', // If using en name.\n        label: {\n          show: true,\n          textBorderColor: '#fff',\n          textBorderWidth: 2,\n        }\n      },\n      tooltip: {},\n      series: [\n        {\n          type: 'graph',\n          coordinateSystem: 'geo',\n          data: [\n            {name: 'a', value: [7.667821250000001, 46.791734269956265]},\n            {name: 'b', value: [7.404848750000001, 46.516308805996054]},\n            {name: 'c', value: [7.376673125000001, 46.24728858538375]},\n            {name: 'd', value: [8.015320625000001, 46.39460918238572]},\n            {name: 'e', value: [8.616400625, 46.7020608630855]},\n            {name: 'f', value: [8.869981250000002, 46.37539345234199]},\n            {name: 'g', value: [9.546196250000001, 46.58676648282309]},\n            {name: 'h', value: [9.311399375, 47.182454114178896]},\n            {name: 'i', value: [9.085994375000002, 47.55395822835779]},\n            {name: 'j', value: [8.653968125000002, 47.47709530818285]},\n            {name: 'k', value: [8.203158125000002, 47.44506909144329]},\n          ],\n          edges: [{\n            source: 'a', target: 'b',\n          }, {\n            source: 'b', target: 'c',\n          }, {\n            source: 'c', target: 'd',\n          }, {\n            source: 'd', target: 'e',\n          }, {\n            source: 'e', target: 'f',\n          }, {\n            source: 'f', target: 'g',\n          }, {\n            source: 'g', target: 'h',\n          }, {\n            source: 'h', target: 'i',\n          }, {\n            source: 'i', target: 'j',\n          }, {\n            source: 'j', target: 'k',\n          }],\n          edgeSymbol: ['none', 'arrow'],\n          edgeSymbolSize: 5,\n          lineStyle: {\n            color: '#718adbff',\n            opacity: 1,\n          }\n        },\n      ]\n    };\n    myChart.setOption(option);\n  }\n\n  function fetchGeoJSON() {\n    myChart.showLoading();\n    $.get(ROOT_PATH + '/data/asset/geo/ch.geo.json', function (geoJSON) {\n      echarts.registerMap('ch', geoJSON);\n      createChart();\n      myChart.hideLoading();\n    });\n  }\n\n  fetchGeoJSON();\n  return option\n}\n\nexport function EchartsGeoGraph() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map",
+    "graph"
+  ],
+  "type": "registry:block"
+}

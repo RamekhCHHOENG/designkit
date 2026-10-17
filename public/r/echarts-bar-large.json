@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-large",
+  "title": "Large Scale Bar Chart",
+  "description": "Large Scale Bar Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-large.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Large Scale Bar Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-large\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const dataCount = 5e5;\n  const data = generateData(dataCount);\n\n  option = {\n    title: {\n      text: echarts.format.addCommas(dataCount) + ' Data',\n      left: 10\n    },\n    toolbox: {\n      feature: {\n        dataZoom: {\n          yAxisIndex: false\n        },\n        saveAsImage: {\n          pixelRatio: 2\n        }\n      }\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    grid: {\n      bottom: 90\n    },\n    dataZoom: [\n      {\n        type: 'inside'\n      },\n      {\n        type: 'slider'\n      }\n    ],\n    xAxis: {\n      data: data.categoryData,\n      silent: false,\n      splitLine: {\n        show: false\n      },\n      splitArea: {\n        show: false\n      }\n    },\n    yAxis: {\n      splitArea: {\n        show: false\n      }\n    },\n    series: [\n      {\n        type: 'bar',\n        data: data.valueData,\n        // Set `large` for large data amount\n        large: true\n      }\n    ]\n  };\n\n  function generateData(count: number) {\n    let baseValue = Math.random() * 1000;\n    let time = +new Date(2011, 0, 1);\n    let smallBaseValue: number;\n\n    function next(idx: number) {\n      smallBaseValue =\n        idx % 30 === 0\n          ? Math.random() * 700\n          : smallBaseValue + Math.random() * 500 - 250;\n      baseValue += Math.random() * 20 - 10;\n      return Math.max(0, Math.round(baseValue + smallBaseValue) + 3000);\n    }\n\n    const categoryData = [];\n    const valueData = [];\n\n    for (let i = 0; i < count; i++) {\n      categoryData.push(\n        echarts.format.formatTime('yyyy-MM-dd\\nhh:mm:ss', time, false)\n      );\n      valueData.push(next(i).toFixed(2));\n      time += 1000;\n    }\n\n    return {\n      categoryData: categoryData,\n      valueData: valueData\n    };\n  }\n  return option\n}\n\nexport function EchartsBarLarge() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

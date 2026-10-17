@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-tooltip-touch",
+  "title": "Tooltip and DataZoom on Mobile",
+  "description": "Tooltip and DataZoom on Mobile, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-tooltip-touch.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Tooltip and DataZoom on Mobile\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-tooltip-touch\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  let base = +new Date(2016, 9, 3);\n  let oneDay = 24 * 3600 * 1000;\n  let valueBase = Math.random() * 300;\n  let valueBase2 = Math.random() * 50;\n  let data = [];\n  let data2 = [];\n\n  for (var i = 1; i < 10; i++) {\n    var now = new Date((base += oneDay));\n    var dayStr = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-');\n\n    valueBase = Math.round((Math.random() - 0.5) * 20 + valueBase);\n    valueBase <= 0 && (valueBase = Math.random() * 300);\n    data.push([dayStr, valueBase]);\n\n    valueBase2 = Math.round((Math.random() - 0.5) * 20 + valueBase2);\n    valueBase2 <= 0 && (valueBase2 = Math.random() * 50);\n    data2.push([dayStr, valueBase2]);\n  }\n\n  option = {\n    title: {\n      left: 'center',\n      text: 'Tootip and dataZoom on Mobile Device'\n    },\n    legend: {\n      top: 'bottom',\n      data: ['Intention']\n    },\n    tooltip: {\n      triggerOn: 'none',\n      position: function (pt) {\n        return [pt[0], 130];\n      }\n    },\n    toolbox: {\n      left: 'center',\n      itemSize: 25,\n      top: 55,\n      feature: {\n        dataZoom: {\n          yAxisIndex: 'none'\n        },\n        restore: {}\n      }\n    },\n    xAxis: {\n      type: 'time',\n      axisPointer: {\n        value: '2016-10-7',\n        snap: true,\n        lineStyle: {\n          color: '#7581BD',\n          width: 2\n        },\n        label: {\n          show: true,\n          formatter: function (params: any) {\n            return echarts.format.formatTime('yyyy-MM-dd', params.value);\n          },\n          backgroundColor: '#7581BD'\n        },\n        handle: {\n          show: true,\n          color: '#7581BD'\n        }\n      },\n      splitLine: {\n        show: false\n      }\n    },\n    yAxis: {\n      type: 'value',\n      axisTick: {\n        inside: true\n      },\n      splitLine: {\n        show: false\n      },\n      axisLabel: {\n        inside: true,\n        formatter: '{value}\\n'\n      },\n      z: 10\n    },\n    grid: {\n      top: 110,\n      left: 15,\n      right: 15,\n      height: 160\n    },\n    dataZoom: [\n      {\n        type: 'inside',\n        throttle: 50\n      }\n    ],\n    series: [\n      {\n        name: 'Fake Data',\n        type: 'line',\n        smooth: true,\n        symbol: 'circle',\n        symbolSize: 5,\n        sampling: 'average',\n        itemStyle: {\n          color: '#0770FF'\n        },\n        stack: 'a',\n        areaStyle: {\n          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [\n            {\n              offset: 0,\n              color: 'rgba(58,77,233,0.8)'\n            },\n            {\n              offset: 1,\n              color: 'rgba(58,77,233,0.3)'\n            }\n          ])\n        },\n        data: data\n      },\n      {\n        name: 'Fake Data',\n        type: 'line',\n        smooth: true,\n        stack: 'a',\n        symbol: 'circle',\n        symbolSize: 5,\n        sampling: 'average',\n        itemStyle: {\n          color: '#F2597F'\n        },\n        areaStyle: {\n          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [\n            {\n              offset: 0,\n              color: 'rgba(213,72,120,0.8)'\n            },\n            {\n              offset: 1,\n              color: 'rgba(213,72,120,0.3)'\n            }\n          ])\n        },\n        data: data2\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineTooltipTouch() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line",
+    "dataZoom"
+  ],
+  "type": "registry:block"
+}

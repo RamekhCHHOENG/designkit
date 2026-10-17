@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-rich-text",
+  "title": "Weather Statistics",
+  "description": "Weather Statistics, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-rich-text.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Weather Statistics\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-rich-text\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const weatherIcons = {\n    Sunny: ROOT_PATH + '/data/asset/img/weather/sunny_128.png',\n    Cloudy: ROOT_PATH + '/data/asset/img/weather/cloudy_128.png',\n    Showers: ROOT_PATH + '/data/asset/img/weather/showers_128.png'\n  } as const;\n\n  const seriesLabel = {\n    show: true\n  } as const;\n\n  option = {\n    title: {\n      text: 'Weather Statistics'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    legend: {\n      data: ['City Alpha', 'City Beta', 'City Gamma']\n    },\n    grid: {\n      left: 100\n    },\n    toolbox: {\n      show: true,\n      feature: {\n        saveAsImage: {}\n      }\n    },\n    xAxis: {\n      type: 'value',\n      name: 'Days',\n      axisLabel: {\n        formatter: '{value}'\n      }\n    },\n    yAxis: {\n      type: 'category',\n      inverse: true,\n      data: ['Sunny', 'Cloudy', 'Showers'],\n      axisLabel: {\n        formatter: function (value: string) {\n          return '{' + value + '| }\\n{value|' + value + '}';\n        },\n        margin: 20,\n        rich: {\n          value: {\n            lineHeight: 30,\n            align: 'center'\n          },\n          Sunny: {\n            height: 40,\n            align: 'center',\n            backgroundColor: {\n              image: weatherIcons.Sunny\n            }\n          },\n          Cloudy: {\n            height: 40,\n            align: 'center',\n            backgroundColor: {\n              image: weatherIcons.Cloudy\n            }\n          },\n          Showers: {\n            height: 40,\n            align: 'center',\n            backgroundColor: {\n              image: weatherIcons.Showers\n            }\n          }\n        }\n      }\n    },\n    series: [\n      {\n        name: 'City Alpha',\n        type: 'bar',\n        data: [165, 170, 30],\n        label: seriesLabel,\n        markPoint: {\n          symbolSize: 1,\n          symbolOffset: [0, '50%'],\n          label: {\n            formatter: '{a|{a}\\n}{b|{b} }{c|{c}}',\n            backgroundColor: 'rgb(242,242,242)',\n            borderColor: '#aaa',\n            borderWidth: 1,\n            borderRadius: 4,\n            padding: [4, 10],\n            lineHeight: 26,\n            // shadowBlur: 5,\n            // shadowColor: '#000',\n            // shadowOffsetX: 0,\n            // shadowOffsetY: 1,\n            position: 'right',\n            distance: 20,\n            rich: {\n              a: {\n                align: 'center',\n                color: '#fff',\n                fontSize: 18,\n                textShadowBlur: 2,\n                textShadowColor: '#000',\n                textShadowOffsetX: 0,\n                textShadowOffsetY: 1,\n                textBorderColor: '#333',\n                textBorderWidth: 2\n              },\n              b: {\n                color: '#333'\n              },\n              c: {\n                color: '#ff8811',\n                textBorderColor: '#000',\n                textBorderWidth: 1,\n                fontSize: 22\n              }\n            }\n          },\n          data: [\n            { type: 'max', name: 'max days: ' },\n            { type: 'min', name: 'min days: ' }\n          ]\n        }\n      },\n      {\n        name: 'City Beta',\n        type: 'bar',\n        label: seriesLabel,\n        data: [150, 105, 110]\n      },\n      {\n        name: 'City Gamma',\n        type: 'bar',\n        label: seriesLabel,\n        data: [220, 82, 63]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarRichText() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar",
+    "rich"
+  ],
+  "type": "registry:block"
+}

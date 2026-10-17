@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-roseType-simple",
+  "title": "Nightingale Chart",
+  "description": "Nightingale Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-roseType-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Nightingale Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-roseType-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    legend: {\n      top: 'bottom'\n    },\n    toolbox: {\n      show: true,\n      feature: {\n        mark: { show: true },\n        dataView: { show: true, readOnly: false },\n        restore: { show: true },\n        saveAsImage: { show: true }\n      }\n    },\n    series: [\n      {\n        name: 'Nightingale Chart',\n        type: 'pie',\n        radius: [50, 250],\n        center: ['50%', '50%'],\n        roseType: 'area',\n        itemStyle: {\n          borderRadius: 8\n        },\n        data: [\n          { value: 40, name: 'rose 1' },\n          { value: 38, name: 'rose 2' },\n          { value: 32, name: 'rose 3' },\n          { value: 30, name: 'rose 4' },\n          { value: 28, name: 'rose 5' },\n          { value: 26, name: 'rose 6' },\n          { value: 22, name: 'rose 7' },\n          { value: 18, name: 'rose 8' }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieRoseTypeSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie"
+  ],
+  "type": "registry:block"
+}

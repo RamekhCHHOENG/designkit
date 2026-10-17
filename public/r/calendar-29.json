@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-29",
+  "title": "Calendar 29",
+  "description": "Natural language date picker.",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/input.json",
+    "https://designkit-smoky.vercel.app/r/label.json",
+    "https://designkit-smoky.vercel.app/r/popover.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-29/page.tsx",
+      "content": "import * as React from \"react\"\nimport { CalendarIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\n// Small natural-language parser (today, tomorrow, in N days/weeks/months,\n// next <weekday>), falling back to Date.parse for explicit dates.\nfunction parseDate(input: string): Date | null {\n  const text = input.trim().toLowerCase()\n  const base = new Date()\n  base.setHours(0, 0, 0, 0)\n  const add = (days: number) => new Date(base.getFullYear(), base.getMonth(), base.getDate() + days)\n  if (text === \"today\") return base\n  if (text === \"tomorrow\") return add(1)\n  const words: Record<string, number> = { a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5 }\n  const rel = text.match(/^in (\\d+|a|an|one|two|three|four|five) (day|week|month)s?$/)\n  if (rel) {\n    const n = words[rel[1]!] ?? Number(rel[1])\n    if (rel[2] === \"day\") return add(n)\n    if (rel[2] === \"week\") return add(n * 7)\n    return new Date(base.getFullYear(), base.getMonth() + n, base.getDate())\n  }\n  const weekdays = [\"sunday\", \"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"]\n  const next = text.match(/^next (\\w+)$/)\n  if (next && weekdays.includes(next[1]!)) {\n    const diff = (weekdays.indexOf(next[1]!) - base.getDay() + 7) % 7 || 7\n    return add(diff)\n  }\n  if (next && next[1] === \"week\") return add(7)\n  const parsed = new Date(input)\n  return Number.isNaN(parsed.getTime()) ? null : parsed\n}\n\nfunction formatDate(date: Date | undefined) {\n  if (!date) {\n    return \"\"\n  }\n\n  return date.toLocaleDateString(\"en-US\", {\n    day: \"2-digit\",\n    month: \"long\",\n    year: \"numeric\",\n  })\n}\n\nfunction Calendar29() {\n  const [open, setOpen] = React.useState(false)\n  const [value, setValue] = React.useState(\"In 2 days\")\n  const [date, setDate] = React.useState<Date | undefined>(\n    parseDate(value) || undefined\n  )\n  const [month, setMonth] = React.useState<Date | undefined>(date)\n\n  return (\n    <div className=\"flex flex-col gap-3\">\n      <Label htmlFor=\"date\" className=\"px-1\">\n        Schedule Date\n      </Label>\n      <div className=\"relative flex gap-2\">\n        <Input\n          id=\"date\"\n          value={value}\n          placeholder=\"Tomorrow or next week\"\n          className=\"bg-background pr-10\"\n          onChange={(e) => {\n            setValue(e.target.value)\n            const date = parseDate(e.target.value)\n            if (date) {\n              setDate(date)\n              setMonth(date)\n            }\n          }}\n          onKeyDown={(e) => {\n            if (e.key === \"ArrowDown\") {\n              e.preventDefault()\n              setOpen(true)\n            }\n          }}\n        />\n        <Popover open={open} onOpenChange={setOpen}>\n          <PopoverTrigger\n          render={<Button\n              id=\"date-picker\"\n              variant=\"ghost\"\n              className=\"absolute top-1/2 right-2 size-6 -translate-y-1/2\" />}\n        >\n          <CalendarIcon className=\"size-3.5\" />\n              <span className=\"sr-only\">Select date</span>\n        </PopoverTrigger>\n          <PopoverContent className=\"w-auto overflow-hidden p-0\" align=\"end\">\n            <Calendar\n              mode=\"single\"\n              selected={date}\n              captionLayout=\"dropdown\"\n              month={month}\n              onMonthChange={setMonth}\n              onSelect={(date) => {\n                setDate(date)\n                setValue(formatDate(date))\n                setOpen(false)\n              }}\n            />\n          </PopoverContent>\n        </Popover>\n      </div>\n      <div className=\"text-muted-foreground px-1 text-sm\">\n        Your post will be published on{\" \"}\n        <span className=\"font-medium\">{formatDate(date)}</span>.\n      </div>\n    </div>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar29 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-29/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

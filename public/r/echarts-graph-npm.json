@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graph-npm",
+  "title": "NPM Dependencies",
+  "description": "NPM Dependencies, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graph-npm.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"NPM Dependencies\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graph-npm\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  interface RawNode {\n    x: number;\n    y: number;\n    id: string;\n    label: string;\n    size: number;\n    color: string;\n  }\n\n  interface RawEdge {\n    sourceID: string;\n    targetID: string;\n  }\n\n  myChart.showLoading();\n  $.getJSON(\n    ROOT_PATH + '/data/asset/data/npmdepgraph.min10.json',\n    function (json) {\n      myChart.hideLoading();\n      myChart.setOption(\n        (option = {\n          title: {\n            text: 'NPM Dependencies'\n          },\n          animationDurationUpdate: 1500,\n          animationEasingUpdate: 'quinticInOut',\n          series: [\n            {\n              type: 'graph',\n              layout: 'none',\n              // progressiveThreshold: 700,\n              data: json.nodes.map(function (node: RawNode) {\n                return {\n                  x: node.x,\n                  y: node.y,\n                  id: node.id,\n                  name: node.label,\n                  symbolSize: node.size,\n                  itemStyle: {\n                    color: node.color\n                  }\n                };\n              }),\n              edges: json.edges.map(function (edge: RawEdge) {\n                return {\n                  source: edge.sourceID,\n                  target: edge.targetID\n                };\n              }),\n              emphasis: {\n                focus: 'adjacency',\n                label: {\n                  position: 'right',\n                  show: true\n                }\n              },\n              roam: true,\n              roamTrigger: 'global',\n              lineStyle: {\n                width: 0.5,\n                curveness: 0.3,\n                opacity: 0.7\n              }\n            }\n          ],\n          thumbnail: {\n            width: '20%',\n            height: '20%',\n            windowStyle: {\n              color: 'rgba(140, 212, 250, 0.5)',\n              borderColor: 'rgba(30, 64, 175, 0.7)',\n              opacity: 1,\n            }\n          }\n        }),\n        true\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsGraphNpm() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graph"
+  ],
+  "type": "registry:block"
+}

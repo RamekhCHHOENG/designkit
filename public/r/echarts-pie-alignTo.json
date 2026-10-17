@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-alignTo",
+  "title": "Pie Label Align",
+  "description": "Pie Label Align, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-alignTo.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Pie Label Align\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-alignTo\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const data = [\n    {\n      name: 'Apples',\n      value: 70\n    },\n    {\n      name: 'Strawberries',\n      value: 68\n    },\n    {\n      name: 'Bananas',\n      value: 48\n    },\n    {\n      name: 'Oranges',\n      value: 40\n    },\n    {\n      name: 'Pears',\n      value: 32\n    },\n    {\n      name: 'Pineapples',\n      value: 27\n    },\n    {\n      name: 'Grapes',\n      value: 18\n    }\n  ];\n\n  option = {\n    title: [\n      {\n        text: 'Pie label alignTo',\n        left: 'center'\n      },\n      {\n        subtext: 'alignTo: \"none\" (default)',\n        left: '16.67%',\n        top: '75%',\n        textAlign: 'center'\n      },\n      {\n        subtext: 'alignTo: \"labelLine\"',\n        left: '50%',\n        top: '75%',\n        textAlign: 'center'\n      },\n      {\n        subtext: 'alignTo: \"edge\"',\n        left: '83.33%',\n        top: '75%',\n        textAlign: 'center'\n      }\n    ],\n    series: [\n      {\n        type: 'pie',\n        radius: '25%',\n        center: ['50%', '50%'],\n        data: data,\n        label: {\n          position: 'outer',\n          alignTo: 'none',\n          bleedMargin: 5\n        },\n        left: 0,\n        right: '66.6667%',\n        top: 0,\n        bottom: 0\n      },\n      {\n        type: 'pie',\n        radius: '25%',\n        center: ['50%', '50%'],\n        data: data,\n        label: {\n          position: 'outer',\n          alignTo: 'labelLine',\n          bleedMargin: 5\n        },\n        left: '33.3333%',\n        right: '33.3333%',\n        top: 0,\n        bottom: 0\n      },\n      {\n        type: 'pie',\n        radius: '25%',\n        center: ['50%', '50%'],\n        data: data,\n        label: {\n          position: 'outer',\n          alignTo: 'edge',\n          margin: 20\n        },\n        left: '66.6667%',\n        right: 0,\n        top: 0,\n        bottom: 0\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieAlignTo() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie"
+  ],
+  "type": "registry:block"
+}

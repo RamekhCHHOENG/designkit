@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-30",
+  "title": "Calendar 30",
+  "description": "Compact range formatting.",
+  "dependencies": [
+    "lucide-react@^0.562.0",
+    "react-day-picker@^10.0.1"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/label.json",
+    "https://designkit-smoky.vercel.app/r/popover.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-30/page.tsx",
+      "content": "import * as React from \"react\"\nimport { ChevronDownIcon } from \"lucide-react\"\nimport { type DateRange } from \"react-day-picker\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Label } from \"@/components/ui/label\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\n\n// formatRange is ES2021; every modern browser supports it but this project's\n// TypeScript lib is ES2020, so type it locally.\ntype RangeFormat = Intl.DateTimeFormat & { formatRange(from: Date, to: Date): string }\n\n// Compact date range text (\"Jun 4 – 10, 2025\"; times for same-day ranges).\nfunction formatDateRange(from: Date, to: Date, options: { includeTime?: boolean } = {}) {\n  const sameDay = from.toDateString() === to.toDateString()\n  const includeTime = options.includeTime ?? sameDay\n  const fmt = (sameDay && includeTime\n    ? new Intl.DateTimeFormat(\"en-US\", { hour: \"numeric\", minute: \"2-digit\" })\n    : new Intl.DateTimeFormat(\"en-US\", {\n        month: \"short\",\n        day: \"numeric\",\n        ...(includeTime ? { hour: \"numeric\", minute: \"2-digit\" } : { year: \"numeric\" }),\n      })) as RangeFormat\n  return fmt.formatRange(from, to).replace(/\\s/g, \" \")\n}\n\nfunction Calendar30() {\n  const [range, setRange] = React.useState<DateRange | undefined>({\n    from: new Date(2025, 5, 4),\n    to: new Date(2025, 5, 10),\n  })\n\n  return (\n    <div className=\"flex flex-col gap-3\">\n      <Label htmlFor=\"dates\" className=\"px-1\">\n        Select your stay\n      </Label>\n      <Popover>\n        <PopoverTrigger\n          render={<Button\n            variant=\"outline\"\n            id=\"dates\"\n            className=\"w-56 justify-between font-normal\" />}\n        >\n          {range?.from && range?.to\n              ? formatDateRange(range.from, range.to, {\n                  includeTime: false,\n                })\n              : \"Select date\"}\n            <ChevronDownIcon />\n        </PopoverTrigger>\n        <PopoverContent className=\"w-auto overflow-hidden p-0\" align=\"start\">\n          <Calendar\n            mode=\"range\"\n            selected={range}\n            captionLayout=\"dropdown\"\n            onSelect={(range) => {\n              setRange(range)\n            }}\n          />\n        </PopoverContent>\n      </Popover>\n    </div>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar30 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-30/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

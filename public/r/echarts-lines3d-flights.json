@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-lines3d-flights",
+  "title": "Flights",
+  "description": "Flights, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-lines3d-flights.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Flights\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=lines3d-flights\nconst setup: EChartSetup = ({ myChart }) => {\n  $.getJSON(ROOT_PATH + '/data-gl/asset/data/flights.json', function (data: any) {\n    var airports = data.airports.map(function (item: any) {\n      return {\n        coord: [item[3], item[4]]\n      };\n    });\n    function getAirportCoord(idx: any) {\n      return [data.airports[idx][3], data.airports[idx][4]];\n    }\n\n    // Route: [airlineIndex, sourceAirportIndex, destinationAirportIndex]\n    var routesGroupByAirline: any = {};\n    data.routes.forEach(function (route: any) {\n      var airline = data.airlines[route[0]];\n      var airlineName = airline[0];\n      if (!routesGroupByAirline[airlineName]) {\n        routesGroupByAirline[airlineName] = [];\n      }\n      routesGroupByAirline[airlineName].push(route);\n    });\n\n    var pointsData: any[] = [];\n    data.routes.forEach(function (airline: any) {\n      pointsData.push(getAirportCoord(airline[1]));\n      pointsData.push(getAirportCoord(airline[2]));\n    });\n\n    var series = data.airlines\n      .map(function (airline: any) {\n        var airlineName = airline[0];\n        var routes = routesGroupByAirline[airlineName];\n\n        if (!routes) {\n          return null;\n        }\n        return {\n          type: 'lines3D',\n          name: airlineName,\n\n          effect: {\n            show: true,\n            trailWidth: 2,\n            trailLength: 0.15,\n            trailOpacity: 1,\n            trailColor: 'rgb(30, 30, 60)'\n          },\n\n          lineStyle: {\n            width: 1,\n            color: 'rgb(50, 50, 150)',\n            // color: 'rgb(118, 233, 241)',\n            opacity: 0.1\n          },\n          blendMode: 'lighter',\n\n          data: routes.map(function (item: any) {\n            return [airports[item[1]].coord, airports[item[2]].coord];\n          })\n        };\n      })\n      .filter(function (series: any) {\n        return !!series;\n      });\n    series.push({\n      type: 'scatter3D',\n      coordinateSystem: 'globe',\n      blendMode: 'lighter',\n      symbolSize: 2,\n      itemStyle: {\n        color: 'rgb(50, 50, 150)',\n        opacity: 0.2\n      },\n      data: pointsData\n    });\n\n    myChart.setOption({\n      legend: {\n        selectedMode: 'single',\n        left: 'left',\n        data: Object.keys(routesGroupByAirline),\n        orient: 'vertical',\n        textStyle: {\n          color: '#fff'\n        }\n      },\n      globe: {\n        environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',\n\n        heightTexture:\n          ROOT_PATH + '/data-gl/asset/bathymetry_bw_composite_4k.jpg',\n\n        displacementScale: 0.1,\n        displacementQuality: 'high',\n\n        baseColor: '#000',\n\n        shading: 'realistic',\n        realisticMaterial: {\n          roughness: 0.2,\n          metalness: 0\n        },\n\n        postEffect: {\n          enable: true,\n          depthOfField: {\n            enable: false,\n            focalDistance: 150\n          }\n        },\n        temporalSuperSampling: {\n          enable: true\n        },\n        light: {\n          ambient: {\n            intensity: 0\n          },\n          main: {\n            intensity: 0.1,\n            shadow: false\n          },\n          ambientCubemap: {\n            texture: ROOT_PATH + '/data-gl/asset/lake.hdr',\n            exposure: 1,\n            diffuseIntensity: 0.5,\n            specularIntensity: 2\n          }\n        },\n        viewControl: {\n          autoRotate: false\n        },\n        silent: true\n      },\n      series: series\n    });\n    window.addEventListener('keydown', function () {\n      series.forEach(function (series: any, idx: any) {\n        myChart.dispatchAction({\n          type: 'lines3DToggleEffect',\n          seriesIndex: idx\n        });\n      });\n    });\n  });\n}\n\nexport function EchartsLines3dFlights() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "lines3D"
+  ],
+  "type": "registry:block"
+}

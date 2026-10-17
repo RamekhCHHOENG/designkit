@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dataset-link",
+  "title": "Share Dataset",
+  "description": "Share Dataset, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dataset-link.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Share Dataset\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dataset-link\nconst setup: EChartSetup = ({ myChart, setTimeout }) => {\n  let option!: EChartsOption\n  setTimeout(function () {\n    option = {\n      legend: {},\n      tooltip: {\n        trigger: 'axis',\n        showContent: false\n      },\n      dataset: {\n        source: [\n          ['product', '2012', '2013', '2014', '2015', '2016', '2017'],\n          ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],\n          ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],\n          ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],\n          ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]\n        ]\n      },\n      xAxis: { type: 'category' },\n      yAxis: { gridIndex: 0 },\n      grid: { top: '55%' },\n      series: [\n        {\n          type: 'line',\n          smooth: true,\n          seriesLayoutBy: 'row',\n          emphasis: { focus: 'series' }\n        },\n        {\n          type: 'line',\n          smooth: true,\n          seriesLayoutBy: 'row',\n          emphasis: { focus: 'series' }\n        },\n        {\n          type: 'line',\n          smooth: true,\n          seriesLayoutBy: 'row',\n          emphasis: { focus: 'series' }\n        },\n        {\n          type: 'line',\n          smooth: true,\n          seriesLayoutBy: 'row',\n          emphasis: { focus: 'series' }\n        },\n        {\n          type: 'pie',\n          id: 'pie',\n          radius: '30%',\n          center: ['50%', '25%'],\n          emphasis: {\n            focus: 'self'\n          },\n          label: {\n            formatter: '{b}: {@2012} ({d}%)'\n          },\n          encode: {\n            itemName: 'product',\n            value: '2012',\n            tooltip: '2012'\n          }\n        }\n      ]\n    };\n\n    myChart.on('updateAxisPointer', function (event: any) {\n      const xAxisInfo = event.axesInfo[0];\n      if (xAxisInfo) {\n        const dimension = xAxisInfo.value + 1;\n        myChart.setOption<echarts.EChartsOption>({\n          series: {\n            id: 'pie',\n            label: {\n              formatter: '{b}: {@[' + dimension + ']} ({d}%)'\n            },\n            encode: {\n              value: dimension,\n              tooltip: dimension\n            }\n          }\n        });\n      }\n    });\n\n    myChart.setOption<echarts.EChartsOption>(option);\n  });\n  return option\n}\n\nexport function EchartsDatasetLink() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset",
+    "line",
+    "pie"
+  ],
+  "type": "registry:block"
+}

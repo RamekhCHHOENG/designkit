@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "payment-input",
+  "title": "Payment Input",
+  "dependencies": [
+    "lucide-react@^0.562.0",
+    "react-payment-inputs@^1.2.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/input.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/payment-input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CreditCardIcon } from \"lucide-react\"\nimport { usePaymentInputs } from \"react-payment-inputs\"\nimport images, { type CardImages } from \"react-payment-inputs/images\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Input } from \"@/components/ui/input\"\n\nexport interface PaymentInputProps extends React.HTMLAttributes<HTMLDivElement> {\n  onCardChange?: (data: {\n    cardNumber: string\n    expiryDate: string\n    cvc: string\n    cardType?: any\n    isValid: boolean\n  }) => void\n  disabled?: boolean\n}\n\nexport function PaymentInput({\n  className,\n  onCardChange,\n  disabled,\n  ...props\n}: PaymentInputProps) {\n  const {\n    meta,\n    getCardNumberProps,\n    getExpiryDateProps,\n    getCVCProps,\n    getCardImageProps,\n  } = usePaymentInputs()\n\n  const cardImages = images as CardImages\n\n  return (\n    <div\n      data-slot=\"payment-input\"\n      className={cn(\n        \"flex flex-col gap-2 rounded-lg border border-input bg-card p-3 shadow-xs\",\n        disabled && \"opacity-50 pointer-events-none\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"relative\">\n        <Input\n          {...getCardNumberProps()}\n          disabled={disabled}\n          placeholder=\"0000 0000 0000 0000\"\n          className=\"pe-10 [direction:inherit]\"\n        />\n        <div className=\"pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3\">\n          {meta.cardType ? (\n            <svg\n              className=\"size-6 overflow-hidden rounded-xs\"\n              {...getCardImageProps({\n                images: cardImages,\n              })}\n            />\n          ) : (\n            <CreditCardIcon className=\"size-4 text-muted-foreground/80\" />\n          )}\n        </div>\n      </div>\n\n      <div className=\"grid grid-cols-2 gap-2\">\n        <Input\n          {...getExpiryDateProps()}\n          disabled={disabled}\n          placeholder=\"MM / YY\"\n          className=\"[direction:inherit]\"\n        />\n        <Input\n          {...getCVCProps()}\n          disabled={disabled}\n          placeholder=\"CVC\"\n          className=\"[direction:inherit]\"\n        />\n      </div>\n\n      {meta.error && (\n        <span className=\"text-[11px] font-medium text-destructive\">\n          {meta.error}\n        </span>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

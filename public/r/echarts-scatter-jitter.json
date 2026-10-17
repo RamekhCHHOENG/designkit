@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-jitter",
+  "title": "Scatter with Jittering",
+  "description": "Scatter with Jittering, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-jitter.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Scatter with Jittering\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-jitter\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  const grid = {\n    left: 80,\n    right: 50\n  };\n  const width = myChart.getWidth() - grid.left - grid.right;\n  const data = [];\n  for (let day = 0; day < 7; ++day) {\n    for (let i = 0; i < 1000; ++i) {\n      const y = Math.tan(i) / 2 + 7;\n      data.push([day, y, Math.random()]);\n    }\n  }\n  option = {\n    title: {\n      text: 'Scatter with Jittering'\n    },\n    grid,\n    xAxis: {\n      type: 'category',\n      jitter: (width / 7) * 0.8,\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    yAxis: {\n      type: 'value',\n      max: 10,\n      min: 0\n    },\n    series: [\n      {\n        name: 'Sleeping Hours',\n        type: 'scatter',\n        data,\n        colorBy: 'data',\n        itemStyle: {\n          opacity: 0.4\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsScatterJitter() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

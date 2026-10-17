@@ -7,6 +7,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toaster } from "@/components/ui/sonner";
 import { catalog, catalogGroups, type CatalogEntry, type CatalogExample } from "@/catalog";
 import { ExamplesSection } from "@/ExamplesSection";
+import { BlocksPage, BlockView, parseViewHash } from "@/blocks-page";
+import { ChartsPage } from "@/charts-page";
+import { ThemesPage } from "@/themes-page";
+import { DocsPage } from "@/docs-page";
+import { InstallCommand } from "@/install-command";
+import { REGISTRY_URL } from "@/registry-url";
 import "./index.css";
 
 // Lazy glob maps for Origin UI examples
@@ -117,6 +123,7 @@ function ComponentPage({ entry }: { entry: CatalogEntry }) {
           Vendored from shadcn/ui &mdash; <code className="rounded bg-muted px-1 py-0.5 text-xs">src/components/ui/{entry.slug}.tsx</code>
         </p>
       </header>
+      <InstallCommand name={entry.slug} />
       {entry.examples.length > 0 ? (
         <div className="flex flex-col gap-10">
           {entry.examples.map((example) => (
@@ -214,6 +221,36 @@ function InstallationPage() {
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-medium">3. Quick start</h2>
         <CodeBlock code={QUICK_START_SNIPPET} />
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h2 className="text-lg font-medium">Install a single component, block or chart</h2>
+        <p className="text-sm text-muted-foreground">
+          Every component, block and chart is also published as a{" "}
+          <a href="https://ui.shadcn.com/docs/registry" className="underline underline-offset-2">shadcn registry</a>{" "}
+          item. In a project that already has a <code className="rounded bg-muted px-1 py-0.5 text-xs">components.json</code>{" "}
+          (run <code className="rounded bg-muted px-1 py-0.5 text-xs">npx shadcn@latest init</code> first), one command copies
+          the source into your app together with the DesignKit components and npm packages it needs:
+        </p>
+        <CodeBlock code={`npx shadcn@latest add ${REGISTRY_URL}/r/login-01.json`} />
+        <p className="text-sm text-muted-foreground">
+          Or register DesignKit as a namespace once, then install by name &mdash; including several items at a time:
+        </p>
+        <CodeBlock
+          code={`// components.json
+{
+  "registries": {
+    "@designkit": "${REGISTRY_URL}/r/{name}.json"
+  }
+}
+
+// then
+npx shadcn@latest add @designkit/button @designkit/login-01 @designkit/chart-area-default`}
+        />
+        <p className="text-sm text-muted-foreground">
+          The catalogue of every item is at{" "}
+          <a href={`${REGISTRY_URL}/r/index.json`} className="underline underline-offset-2">{REGISTRY_URL}/r/index.json</a>.
+        </p>
       </section>
 
       <section className="flex flex-col gap-3">
@@ -333,7 +370,48 @@ function Sidebar({ query, setQuery, activeSlug }: { query: string; setQuery: (v:
   );
 }
 
-function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (m: "components" | "examples") => void }) {
+type Mode = "components" | "examples";
+
+// Top-level pages reached from the header; each owns a `#<key>` hash route.
+const SECTIONS = [
+  { key: "blocks", label: "Blocks" },
+  { key: "charts", label: "Charts" },
+  { key: "themes", label: "Themes" },
+  { key: "docs", label: "Docs" },
+] as const;
+type Section = (typeof SECTIONS)[number]["key"];
+
+function sectionOf(slug: string): Section | null {
+  return SECTIONS.find(({ key }) => slug === key || slug.startsWith(`${key}/`))?.key ?? null;
+}
+
+// Map the current React hash route to the Vue site. Blocks live at
+// #blocks/<category>, #charts/<type> and #charts/echarts/<category> here and at /blocks?category=<category>,
+// /charts?type=<type> and /charts?lib=echarts&category=<category> on the Vue site.
+function vueUrl() {
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  const base = isLocal
+    ? `http://${window.location.hostname}:3312`
+    : (import.meta.env.VITE_SHADCN_VUE_URL ?? "http://localhost:3312");
+  const hash = window.location.hash;
+  const blocks = hash.match(/^#blocks(?:\/([a-z]+))?$/);
+  if (blocks) return `${base}/blocks${blocks[1] ? `?category=${blocks[1]}` : ""}`;
+  const echarts = hash.match(/^#charts\/echarts(?:\/([A-Za-z0-9]+))?$/);
+  if (echarts) return `${base}/charts?lib=echarts${echarts[1] ? `&category=${echarts[1]}` : ""}`;
+  const charts = hash.match(/^#charts(?:\/([a-z]+))?$/);
+  if (charts) return `${base}/charts${charts[1] ? `?type=${charts[1]}` : ""}`;
+  if (hash === "#themes") return `${base}/themes`;
+  const docsMatch = hash.match(/^#docs(?:\/([a-z-]+))?$/);
+  if (docsMatch) return `${base}/docs${docsMatch[1] ? `/${docsMatch[1]}` : ""}`;
+  return `${base}/${hash}`;
+}
+
+function Header({ mode, setMode, section }: { mode: Mode; setMode: (m: Mode) => void; section: Section | null }) {
+  // Leaving a section page goes back to the component catalog first.
+  const select = (m: Mode) => {
+    if (section) window.location.hash = "";
+    setMode(m);
+  };
   return (
     <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur">
       <a href="#" className="text-sm font-semibold" onClick={() => setMode("components")}>
@@ -345,13 +423,7 @@ function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (
           shadcn/ui
         </span>
         <a
-          href={
-            typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-              ? `http://${window.location.hostname}:3312/${window.location.hash}`
-              : (import.meta.env.VITE_SHADCN_VUE_URL
-                  ? `${import.meta.env.VITE_SHADCN_VUE_URL}/${typeof window !== "undefined" ? window.location.hash : ""}`
-                  : `http://localhost:3312/${typeof window !== "undefined" ? window.location.hash : ""}`)
-          }
+          href={vueUrl()}
           className="rounded-full px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           shadcn-vue
@@ -360,9 +432,9 @@ function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (
       {/* Mode switcher: Components | Examples */}
       <div className="flex items-center gap-0.5 rounded-full border bg-muted/50 p-0.5">
         <button
-          onClick={() => setMode("components")}
+          onClick={() => select("components")}
           className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
-            mode === "components"
+            !section && mode === "components"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
           }`}
@@ -370,15 +442,26 @@ function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (
           Components
         </button>
         <button
-          onClick={() => setMode("examples")}
+          onClick={() => select("examples")}
           className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
-            mode === "examples"
+            !section && mode === "examples"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
           }`}
         >
           Examples
         </button>
+        {SECTIONS.map(({ key, label }) => (
+          <a
+            key={key}
+            href={`#${key}`}
+            className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+              section === key ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {label}
+          </a>
+        ))}
       </div>
       <div className="flex-1" />
       <a
@@ -398,13 +481,26 @@ function Header({ mode, setMode }: { mode: "components" | "examples"; setMode: (
 function App() {
   const slug = useHashSlug();
   const [query, setQuery] = useState("");
-  const [mode, setMode] = useState<"components" | "examples">("components");
+  const [mode, setMode] = useState<Mode>("components");
   const entry = catalog.find((item) => item.slug === slug);
+
+  // #view/<name> renders a single block full-screen (the Blocks preview iframe).
+  const view = parseViewHash(slug);
+  if (view) return <BlockView name={view.name} min={view.min} />;
+
+  const section = sectionOf(slug);
 
   return (
     <div className="flex min-h-svh flex-col">
-      <Header mode={mode} setMode={setMode} />
-      {mode === "examples" ? (
+      <Header mode={mode} setMode={setMode} section={section} />
+      {section ? (
+        <main className="min-w-0 flex-1">
+          {section === "blocks" && <BlocksPage />}
+          {section === "charts" && <ChartsPage />}
+          {section === "themes" && <ThemesPage />}
+          {section === "docs" && <DocsPage />}
+        </main>
+      ) : mode === "examples" ? (
         <ExamplesSection compModules={compModules} compSources={compSources} />
       ) : (
         <div className="mx-auto flex w-full flex-1">

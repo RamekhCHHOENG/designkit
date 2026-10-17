@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "result",
+  "title": "Result",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/result.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  AlertTriangleIcon,\n  CheckCircle2Icon,\n  InfoIcon,\n  LockIcon,\n  ServerCrashIcon,\n  XCircleIcon,\n} from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type ResultStatus = \"404\" | \"403\" | \"500\" | \"success\" | \"warning\" | \"error\" | \"info\"\n\nexport interface ResultProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"title\"> {\n  status?: ResultStatus\n  icon?: React.ReactNode\n  title?: React.ReactNode\n  subTitle?: React.ReactNode\n  extra?: React.ReactNode\n}\n\nconst statusIcons: Record<ResultStatus, React.ReactNode> = {\n  \"404\": (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-muted text-muted-foreground\">\n      <span className=\"font-mono text-xl font-bold\">404</span>\n    </div>\n  ),\n  \"403\": (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400\">\n      <LockIcon className=\"size-8\" />\n    </div>\n  ),\n  \"500\": (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400\">\n      <ServerCrashIcon className=\"size-8\" />\n    </div>\n  ),\n  success: (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\">\n      <CheckCircle2Icon className=\"size-8\" />\n    </div>\n  ),\n  warning: (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400\">\n      <AlertTriangleIcon className=\"size-8\" />\n    </div>\n  ),\n  error: (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400\">\n      <XCircleIcon className=\"size-8\" />\n    </div>\n  ),\n  info: (\n    <div className=\"flex size-16 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400\">\n      <InfoIcon className=\"size-8\" />\n    </div>\n  ),\n}\n\nexport function Result({\n  status = \"info\",\n  icon,\n  title,\n  subTitle,\n  extra,\n  className,\n  children,\n  ...props\n}: ResultProps) {\n  const displayIcon = icon ?? statusIcons[status]\n\n  return (\n    <div\n      data-slot=\"result\"\n      className={cn(\n        \"flex flex-col items-center justify-center p-8 text-center\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"mb-4\">{displayIcon}</div>\n      {title && (\n        <h3 className=\"text-xl font-semibold tracking-tight text-foreground\">\n          {title}\n        </h3>\n      )}\n      {subTitle && (\n        <p className=\"mt-2 max-w-md text-sm text-muted-foreground leading-relaxed\">\n          {subTitle}\n        </p>\n      )}\n      {extra && <div className=\"mt-6 flex flex-wrap items-center justify-center gap-3\">{extra}</div>}\n      {children}\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

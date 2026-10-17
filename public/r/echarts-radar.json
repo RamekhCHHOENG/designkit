@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-radar",
+  "title": "Basic Radar Chart",
+  "description": "Basic Radar Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-radar.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Radar Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=radar\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Basic Radar Chart'\n    },\n    legend: {\n      data: ['Allocated Budget', 'Actual Spending']\n    },\n    radar: {\n      // shape: 'circle',\n      indicator: [\n        { name: 'Sales', max: 6500 },\n        { name: 'Administration', max: 16000 },\n        { name: 'Information Technology', max: 30000 },\n        { name: 'Customer Support', max: 38000 },\n        { name: 'Development', max: 52000 },\n        { name: 'Marketing', max: 25000 }\n      ]\n    },\n    series: [\n      {\n        name: 'Budget vs spending',\n        type: 'radar',\n        data: [\n          {\n            value: [4200, 3000, 20000, 35000, 50000, 18000],\n            name: 'Allocated Budget'\n          },\n          {\n            value: [5000, 14000, 28000, 26000, 42000, 21000],\n            name: 'Actual Spending'\n          }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsRadar() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "radar"
+  ],
+  "type": "registry:block"
+}

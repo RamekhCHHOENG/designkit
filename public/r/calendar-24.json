@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-24",
+  "title": "Calendar 24",
+  "description": "Date and time picker.",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/input.json",
+    "https://designkit-smoky.vercel.app/r/label.json",
+    "https://designkit-smoky.vercel.app/r/popover.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-24/page.tsx",
+      "content": "import * as React from \"react\"\nimport { ChevronDownIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\nfunction Calendar24() {\n  const [open, setOpen] = React.useState(false)\n  const [date, setDate] = React.useState<Date | undefined>(undefined)\n\n  return (\n    <div className=\"flex gap-4\">\n      <div className=\"flex flex-col gap-3\">\n        <Label htmlFor=\"date\" className=\"px-1\">\n          Date\n        </Label>\n        <Popover open={open} onOpenChange={setOpen}>\n          <PopoverTrigger\n          render={<Button\n              variant=\"outline\"\n              id=\"date\"\n              className=\"w-32 justify-between font-normal\" />}\n        >\n          {date ? date.toLocaleDateString() : \"Select date\"}\n              <ChevronDownIcon />\n        </PopoverTrigger>\n          <PopoverContent className=\"w-auto overflow-hidden p-0\" align=\"start\">\n            <Calendar\n              mode=\"single\"\n              selected={date}\n              captionLayout=\"dropdown\"\n              onSelect={(date) => {\n                setDate(date)\n                setOpen(false)\n              }}\n            />\n          </PopoverContent>\n        </Popover>\n      </div>\n      <div className=\"flex flex-col gap-3\">\n        <Label htmlFor=\"time\" className=\"px-1\">\n          Time\n        </Label>\n        <Input\n          type=\"time\"\n          id=\"time\"\n          step=\"1\"\n          defaultValue=\"10:30:00\"\n          className=\"bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none\"\n        />\n      </div>\n    </div>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar24 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-24/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

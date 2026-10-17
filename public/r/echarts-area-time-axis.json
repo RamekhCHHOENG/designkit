@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-area-time-axis",
+  "title": "Area Chart with Time Axis",
+  "description": "Area Chart with Time Axis, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-area-time-axis.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Area Chart with Time Axis\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=area-time-axis\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  let base = +new Date(1988, 9, 3);\n  let oneDay = 24 * 3600 * 1000;\n\n  let data = [[base, Math.random() * 300]];\n\n  for (let i = 1; i < 20000; i++) {\n    let now = new Date((base += oneDay));\n    data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])]);\n  }\n\n  option = {\n    tooltip: {\n      trigger: 'axis',\n      position: function (pt) {\n        return [pt[0], '10%'];\n      }\n    },\n    title: {\n      left: 'center',\n      text: 'Large Ara Chart'\n    },\n    toolbox: {\n      feature: {\n        dataZoom: {\n          yAxisIndex: 'none'\n        },\n        restore: {},\n        saveAsImage: {}\n      }\n    },\n    // @ts-ignore\n    xAxis: {\n      type: 'time',\n      boundaryGap: false\n    },\n    yAxis: {\n      type: 'value',\n      boundaryGap: [0, '100%']\n    },\n    dataZoom: [\n      {\n        type: 'inside',\n        start: 0,\n        end: 20\n      },\n      {\n        start: 0,\n        end: 20\n      }\n    ],\n    series: [\n      {\n        name: 'Fake Data',\n        type: 'line',\n        smooth: true,\n        symbol: 'none',\n        areaStyle: {},\n        data: data\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsAreaTimeAxis() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

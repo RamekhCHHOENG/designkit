@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-gauge-stage",
+  "title": "Stage Speed Gauge",
+  "description": "Stage Speed Gauge, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-gauge-stage.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stage Speed Gauge\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=gauge-stage\nconst setup: EChartSetup = ({ myChart, setInterval }) => {\n  let option!: EChartsOption\n  option = {\n    series: [\n      {\n        type: 'gauge',\n        axisLine: {\n          lineStyle: {\n            width: 30,\n            color: [\n              [0.3, '#67e0e3'],\n              [0.7, '#37a2da'],\n              [1, '#fd666d']\n            ]\n          }\n        },\n        pointer: {\n          itemStyle: {\n            color: 'auto'\n          }\n        },\n        axisTick: {\n          distance: -30,\n          length: 8,\n          lineStyle: {\n            color: '#fff',\n            width: 2\n          }\n        },\n        splitLine: {\n          distance: -30,\n          length: 30,\n          lineStyle: {\n            color: '#fff',\n            width: 4\n          }\n        },\n        axisLabel: {\n          color: 'inherit',\n          distance: 40,\n          fontSize: 20\n        },\n        detail: {\n          valueAnimation: true,\n          formatter: '{value} km/h',\n          color: 'inherit'\n        },\n        data: [\n          {\n            value: 70\n          }\n        ]\n      }\n    ]\n  };\n\n  setInterval(function () {\n    myChart.setOption<echarts.EChartsOption>({\n      series: [\n        {\n          data: [\n            {\n              value: +(Math.random() * 100).toFixed(2)\n            }\n          ]\n        }\n      ]\n    });\n  }, 2000);\n  return option\n}\n\nexport function EchartsGaugeStage() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "gauge"
+  ],
+  "type": "registry:block"
+}

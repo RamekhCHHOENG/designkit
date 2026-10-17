@@ -128,3 +128,10 @@
     @apply font-sans;
     }
 }
+/* Blocks preview iframes (#view/<name>?min=N): pin viewport-height minimums to a
+   fixed size so the parent can measure a block's real height without a
+   svh -> iframe height -> svh feedback loop. */
+html.dk-embed .min-h-svh,
+html.dk-embed .min-h-screen {
+  min-height: var(--dk-min) !important;
+}

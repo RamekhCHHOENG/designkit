@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sunburst-label-rotate",
+  "title": "Sunburst Label Rotate",
+  "description": "Sunburst Label Rotate, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sunburst-label-rotate.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Sunburst Label Rotate\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sunburst-label-rotate\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    silent: true,\n    series: [\n      {\n        radius: ['15%', '80%'],\n        type: 'sunburst',\n        sort: undefined,\n        emphasis: {\n          focus: 'ancestor'\n        },\n        data: [\n          {\n            value: 8,\n            children: [\n              {\n                value: 4,\n                children: [\n                  {\n                    value: 2\n                  },\n                  {\n                    value: 1\n                  },\n                  {\n                    value: 1\n                  },\n                  {\n                    value: 0.5\n                  }\n                ]\n              },\n              {\n                value: 2\n              }\n            ]\n          },\n          {\n            value: 4,\n            children: [\n              {\n                children: [\n                  {\n                    value: 2\n                  }\n                ]\n              }\n            ]\n          },\n          {\n            value: 4,\n            children: [\n              {\n                children: [\n                  {\n                    value: 2\n                  }\n                ]\n              }\n            ]\n          },\n          {\n            value: 3,\n            children: [\n              {\n                children: [\n                  {\n                    value: 1\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        label: {\n          color: '#000',\n          textBorderColor: '#fff',\n          textBorderWidth: 2,\n          formatter: function (param: any) {\n            var depth = param.treePathInfo.length;\n            if (depth === 2) {\n              return 'radial';\n            } else if (depth === 3) {\n              return 'tangential';\n            } else if (depth === 4) {\n              return '0';\n            }\n            return '';\n          }\n        },\n        levels: [\n          {},\n          {\n            itemStyle: {\n              color: '#CD4949'\n            },\n            label: {\n              rotate: 'radial'\n            }\n          },\n          {\n            itemStyle: {\n              color: '#F47251'\n            },\n            label: {\n              rotate: 'tangential'\n            }\n          },\n          {\n            itemStyle: {\n              color: '#FFC75F'\n            },\n            label: {\n              rotate: 0\n            }\n          }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsSunburstLabelRotate() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sunburst"
+  ],
+  "type": "registry:block"
+}

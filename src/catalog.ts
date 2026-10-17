@@ -19,6 +19,7 @@ const GROUPS: Record<string, string> = {
   checkbox: "Forms",
   combobox: "Forms",
   field: "Forms",
+  form: "Forms",
   input: "Forms",
   "input-group": "Forms",
   "input-otp": "Forms",
@@ -32,6 +33,17 @@ const GROUPS: Record<string, string> = {
   toggle: "Forms",
   "toggle-group": "Forms",
 
+  "segmented-control": "Forms",
+  "number-input": "Forms",
+  "password-input": "Forms",
+  "phone-input": "Forms",
+  "payment-input": "Forms",
+  "tags-input": "Forms",
+  "color-picker": "Forms",
+  rating: "Forms",
+  "file-dropzone": "Forms",
+  multiselect: "Forms",
+
   breadcrumb: "Navigation",
   command: "Navigation",
   "context-menu": "Navigation",
@@ -40,6 +52,9 @@ const GROUPS: Record<string, string> = {
   "navigation-menu": "Navigation",
   pagination: "Navigation",
   tabs: "Navigation",
+  stepper: "Navigation",
+  tree: "Navigation",
+  tour: "Navigation",
 
   "alert-dialog": "Overlays",
   dialog: "Overlays",
@@ -48,6 +63,8 @@ const GROUPS: Record<string, string> = {
   popover: "Overlays",
   sheet: "Overlays",
   tooltip: "Overlays",
+  "float-button": "Overlays",
+  "image-cropper": "Overlays",
 
   accordion: "Data display",
   avatar: "Data display",
@@ -62,6 +79,14 @@ const GROUPS: Record<string, string> = {
   kbd: "Data display",
   marker: "Data display",
   table: "Data display",
+  statistic: "Data display",
+  descriptions: "Data display",
+  "ring-progress": "Data display",
+  "code-block": "Data display",
+  tag: "Data display",
+  timeline: "Data display",
+  "qr-code": "Data display",
+  watermark: "Data display",
 
   alert: "Feedback",
   message: "Feedback",
@@ -71,11 +96,14 @@ const GROUPS: Record<string, string> = {
   sonner: "Feedback",
   spinner: "Feedback",
   toast: "Feedback",
+  result: "Feedback",
 
   attachment: "Content",
   bubble: "Content",
   questionnaire: "Content",
   direction: "Content",
+  "copy-button": "Content",
+  spoiler: "Content",
 };
 
 export type CatalogExample = {

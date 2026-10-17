@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-map-iceland-pie",
+  "title": "Pie Charts on GEO Map",
+  "description": "Pie Charts on GEO Map, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-map-iceland-pie.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Pie Charts on GEO Map\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=map-iceland-pie\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  $.get(ROOT_PATH + '/data/asset/geo/iceland.geo.json', function (geoJSON) {\n    echarts.registerMap('iceland', geoJSON);\n\n    function randomPieSeries(\n      center: string | number[],\n      radius: number\n    ): echarts.PieSeriesOption {\n      const data = ['A', 'B', 'C', 'D'].map((t) => {\n        return {\n          value: Math.round(Math.random() * 100),\n          name: 'Category ' + t\n        };\n      });\n      return {\n        type: 'pie',\n        coordinateSystem: 'geo',\n        tooltip: {\n          formatter: '{b}: {c} ({d}%)'\n        },\n        label: {\n          show: false\n        },\n        labelLine: {\n          show: false\n        },\n        animationDuration: 0,\n        radius,\n        center,\n        data\n      };\n    }\n\n    option = {\n      geo: {\n        map: 'iceland',\n        roam: true,\n        aspectScale: Math.cos(65 * Math.PI / 180),\n        // nameProperty: 'name_en', // If using en name.\n        itemStyle: {\n          areaColor: '#e7e8ea'\n        },\n        emphasis: {\n          label: {show: false}\n        }\n      },\n      tooltip: {},\n      legend: {},\n      series: [\n        randomPieSeries([-19.007740346534653, 64.1780281585128], 45),\n        randomPieSeries([-17.204666089108912, 65.44804833928391], 25),\n        randomPieSeries([-15.264995297029705, 64.8592208009264], 30),\n        randomPieSeries(\n          // it's also supported to use geo region name as center since v5.4.1\n          +echarts.version.split('.').slice(0, 3).join('') > 540\n            ? 'Vestfirðir'\n            : // or you can only use the LngLat array\n              [-13, 66],\n          30\n        )\n      ]\n    };\n\n    myChart.hideLoading();\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsMapIcelandPie() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map",
+    "pie"
+  ],
+  "type": "registry:block"
+}

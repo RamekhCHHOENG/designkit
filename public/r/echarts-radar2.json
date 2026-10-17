@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-radar2",
+  "title": "Proportion of Browsers",
+  "description": "Proportion of Browsers, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-radar2.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Proportion of Browsers\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=radar2\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Proportion of Browsers',\n      subtext: 'Fake Data',\n      top: 10,\n      left: 10\n    },\n    tooltip: {\n      trigger: 'item'\n    },\n    legend: {\n      type: 'scroll',\n      bottom: 10,\n      data: (function () {\n        var list = [];\n        for (var i = 1; i <= 28; i++) {\n          list.push(i + 2000 + '');\n        }\n        return list;\n      })()\n    },\n    visualMap: {\n      top: 'middle',\n      right: 10,\n      inRange: {\n        color: ['red', 'yellow']\n      },\n      calculable: true\n    },\n    radar: {\n      indicator: [\n        { text: 'IE8-', max: 400 },\n        { text: 'IE9+', max: 400 },\n        { text: 'Safari', max: 400 },\n        { text: 'Firefox', max: 400 },\n        { text: 'Chrome', max: 400 }\n      ]\n    },\n    series: (function () {\n      var series = [];\n      for (var i = 1; i <= 28; i++) {\n        series.push({\n          type: 'radar',\n          symbol: 'none',\n          lineStyle: {\n            width: 1\n          },\n          emphasis: {\n            areaStyle: {\n              color: 'rgba(0,250,0,0.3)'\n            }\n          },\n          data: [\n            {\n              value: [\n                (40 - i) * 10,\n                (38 - i) * 4 + 60,\n                i * 5 + 10,\n                i * 9,\n                (i * i) / 2\n              ],\n              name: i + 2000 + ''\n            }\n          ]\n        });\n      }\n      return series as echarts.RadarSeriesOption;\n    })()\n  };\n  return option\n}\n\nexport function EchartsRadar2() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "radar"
+  ],
+  "type": "registry:block"
+}

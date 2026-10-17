@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-custom-profile",
+  "title": "Profile",
+  "description": "Profile, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-custom-profile.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Profile\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=custom-profile\nconst setup: EChartSetup = () => {\n  let option: any\n  var data: any[] = [];\n  var dataCount = 10;\n  var startTime = +new Date();\n  var categories: any = ['categoryA', 'categoryB', 'categoryC'];\n  var types: any = [\n    { name: 'JS Heap', color: '#7b9ce1' },\n    { name: 'Documents', color: '#bd6d6c' },\n    { name: 'Nodes', color: '#75d874' },\n    { name: 'Listeners', color: '#e0bc78' },\n    { name: 'GPU Memory', color: '#dc77dc' },\n    { name: 'GPU', color: '#72b362' }\n  ];\n\n  // Generate mock data\n  categories.forEach(function (category: any, index: any) {\n    var baseTime = startTime;\n    for (var i = 0; i < dataCount; i++) {\n      var typeItem = types[Math.round(Math.random() * (types.length - 1))];\n      var duration = Math.round(Math.random() * 10000);\n      data.push({\n        name: typeItem.name,\n        value: [index, baseTime, (baseTime += duration), duration],\n        itemStyle: {\n          normal: {\n            color: typeItem.color\n          }\n        }\n      });\n      baseTime += Math.round(Math.random() * 2000);\n    }\n  });\n\n  function renderItem(params: any, api: any) {\n    var categoryIndex = api.value(0);\n    var start = api.coord([api.value(1), categoryIndex]);\n    var end = api.coord([api.value(2), categoryIndex]);\n    var height = api.size([0, 1])[1] * 0.6;\n\n    var rectShape = echarts.graphic.clipRectByRect(\n      {\n        x: start[0],\n        y: start[1] - height / 2,\n        width: end[0] - start[0],\n        height: height\n      },\n      {\n        x: params.coordSys.x,\n        y: params.coordSys.y,\n        width: params.coordSys.width,\n        height: params.coordSys.height\n      }\n    );\n\n    return (\n      rectShape && {\n        type: 'rect',\n        transition: ['shape'],\n        shape: rectShape,\n        style: api.style()\n      }\n    );\n  }\n\n  option = {\n    tooltip: {\n      formatter: function (params: any) {\n        return params.marker + params.name + ': ' + params.value[3] + ' ms';\n      }\n    },\n    title: {\n      text: 'Profile',\n      left: 'center'\n    },\n    dataZoom: [\n      {\n        type: 'slider',\n        filterMode: 'weakFilter',\n        showDataShadow: false,\n        top: 400,\n        labelFormatter: ''\n      },\n      {\n        type: 'inside',\n        filterMode: 'weakFilter'\n      }\n    ],\n    grid: {\n      height: 300\n    },\n    xAxis: {\n      min: startTime,\n      scale: true,\n      axisLabel: {\n        formatter: function (val: any) {\n          return Math.max(0, val - startTime) + ' ms';\n        }\n      }\n    },\n    yAxis: {\n      data: categories\n    },\n    series: [\n      {\n        type: 'custom',\n        renderItem: renderItem,\n        itemStyle: {\n          opacity: 0.8\n        },\n        encode: {\n          x: [1, 2],\n          y: 0\n        },\n        data: data\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCustomProfile() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

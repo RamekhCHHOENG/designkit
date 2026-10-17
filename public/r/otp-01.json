@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-01",
+  "title": "OTP 01",
+  "description": "A simple OTP verification form.",
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/card.json",
+    "https://designkit-smoky.vercel.app/r/field.json",
+    "https://designkit-smoky.vercel.app/r/input-otp.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/otp-01/page.tsx",
+      "content": "import { Button } from \"@/components/ui/button\"\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from \"@/components/ui/card\"\nimport { Field, FieldDescription, FieldGroup, FieldLabel } from \"@/components/ui/field\"\nimport { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from \"@/components/ui/input-otp\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-xs\">\n        <Card>\n          <CardHeader>\n            <CardTitle>Enter verification code</CardTitle>\n            <CardDescription>We sent a 6-digit code to your email.</CardDescription>\n          </CardHeader>\n          <CardContent>\n            <form onSubmit={(e) => e.preventDefault()}>\n              <FieldGroup>\n                <Field>\n                  <FieldLabel htmlFor=\"otp\">Verification code</FieldLabel>\n                  <InputOTP maxLength={6} id=\"otp\" required>\n                    <InputOTPGroup>\n                      <InputOTPSlot index={0} />\n                      <InputOTPSlot index={1} />\n                      <InputOTPSlot index={2} />\n                    </InputOTPGroup>\n                    <InputOTPSeparator />\n                    <InputOTPGroup>\n                      <InputOTPSlot index={3} />\n                      <InputOTPSlot index={4} />\n                      <InputOTPSlot index={5} />\n                    </InputOTPGroup>\n                  </InputOTP>\n                  <FieldDescription>Enter the 6-digit code sent to your email.</FieldDescription>\n                </Field>\n                <Field>\n                  <Button type=\"submit\">Verify</Button>\n                  <FieldDescription className=\"text-center\">\n                    Didn&apos;t receive the code? <a href=\"#\">Resend</a>\n                  </FieldDescription>\n                </Field>\n              </FieldGroup>\n            </form>\n          </CardContent>\n        </Card>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/otp-01/page.tsx"
+    }
+  ],
+  "categories": [
+    "otp"
+  ],
+  "type": "registry:block"
+}

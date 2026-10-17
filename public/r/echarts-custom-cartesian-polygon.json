@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-custom-cartesian-polygon",
+  "title": "Custom Cartesian Polygon",
+  "description": "Custom Cartesian Polygon, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-custom-cartesian-polygon.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Custom Cartesian Polygon\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=custom-cartesian-polygon\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const data: number[][] = [];\n  const dataCount = 7;\n  for (let i = 0; i < dataCount; i++) {\n    data.push([\n      echarts.number.round(Math.random() * 100),\n      echarts.number.round(Math.random() * 400)\n    ]);\n  }\n\n  option = {\n    tooltip: {\n      trigger: 'axis'\n    },\n    legend: {\n      data: ['bar', 'error']\n    },\n    dataZoom: [\n      {\n        type: 'slider',\n        filterMode: 'none'\n      },\n      {\n        type: 'inside',\n        filterMode: 'none'\n      }\n    ],\n    xAxis: {},\n    yAxis: {},\n    series: [\n      {\n        type: 'custom',\n        renderItem: function (params, api) {\n          if (params.context.rendered) {\n            return;\n          }\n          params.context.rendered = true;\n\n          let points: number[][] = [];\n          for (let i = 0; i < data.length; i++) {\n            points.push(api.coord(data[i]));\n          }\n          let color = api.visual('color') as string;\n\n          return {\n            type: 'polygon',\n            transition: ['shape'],\n            shape: {\n              points: points\n            },\n            style: api.style({\n              fill: color,\n              stroke: echarts.color.lift(color, 0.1)\n            })\n          };\n        },\n        clip: true,\n        data: data\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCustomCartesianPolygon() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

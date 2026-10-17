@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-funnel-customize",
+  "title": "Customized Funnel",
+  "description": "Customized Funnel, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-funnel-customize.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Customized Funnel\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=funnel-customize\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Funnel'\n    },\n    tooltip: {\n      trigger: 'item',\n      formatter: '{a} <br/>{b} : {c}%'\n    },\n    toolbox: {\n      feature: {\n        dataView: { readOnly: false },\n        restore: {},\n        saveAsImage: {}\n      }\n    },\n    legend: {\n      data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order']\n    },\n    series: [\n      {\n        name: 'Expected',\n        type: 'funnel',\n        left: '10%',\n        width: '80%',\n        label: {\n          formatter: '{b}Expected'\n        },\n        labelLine: {\n          show: false\n        },\n        itemStyle: {\n          opacity: 0.7\n        },\n        emphasis: {\n          label: {\n            position: 'inside',\n            formatter: '{b}Expected: {c}%'\n          }\n        },\n        data: [\n          { value: 60, name: 'Visit' },\n          { value: 40, name: 'Inquiry' },\n          { value: 20, name: 'Order' },\n          { value: 80, name: 'Click' },\n          { value: 100, name: 'Show' }\n        ]\n      },\n      {\n        name: 'Actual',\n        type: 'funnel',\n        left: '10%',\n        width: '80%',\n        maxSize: '80%',\n        label: {\n          position: 'inside',\n          formatter: '{c}%',\n          color: '#fff'\n        },\n        itemStyle: {\n          opacity: 0.5,\n          borderColor: '#fff',\n          borderWidth: 2\n        },\n        emphasis: {\n          label: {\n            position: 'inside',\n            formatter: '{b}Actual: {c}%'\n          }\n        },\n        data: [\n          { value: 30, name: 'Visit' },\n          { value: 10, name: 'Inquiry' },\n          { value: 5, name: 'Order' },\n          { value: 50, name: 'Click' },\n          { value: 80, name: 'Show' }\n        ],\n        // Ensure outer shape will not be over inner shape when hover.\n        z: 100\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsFunnelCustomize() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "funnel"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-negative",
+  "title": "Bar Chart with Negative Value",
+  "description": "Bar Chart with Negative Value, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-negative.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Bar Chart with Negative Value\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-negative\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    legend: {\n      data: ['Profit', 'Expenses', 'Income']\n    },\n    xAxis: [\n      {\n        type: 'value'\n      }\n    ],\n    yAxis: [\n      {\n        type: 'category',\n        axisTick: {\n          show: false\n        },\n        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n      }\n    ],\n    series: [\n      {\n        name: 'Profit',\n        type: 'bar',\n        label: {\n          show: true,\n          position: 'inside'\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [200, 170, 240, 244, 200, 220, 210]\n      },\n      {\n        name: 'Income',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [320, 302, 341, 374, 390, 450, 420]\n      },\n      {\n        name: 'Expenses',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true,\n          position: 'left'\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [-120, -132, -101, -134, -190, -230, -210]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarNegative() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

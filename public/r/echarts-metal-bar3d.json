@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-metal-bar3d",
+  "title": "Metal Bar3D",
+  "description": "Metal Bar3D, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-metal-bar3d.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\ndeclare const SimplexNoise: any\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\nconst CDN_PATH = \"https://cdn.jsdelivr.net/npm/\"\n\n// Adapted from the Apache ECharts example \"Metal Bar3D\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=metal-bar3d\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.getScript(CDN_PATH + 'simplex-noise@2.4.0/simplex-noise.js').done(\n    function () {\n      var noise = new SimplexNoise(Math.random);\n      function generateData(theta: any, min: any, max: any) {\n        var data: any[] = [];\n        for (var i = 0; i <= 20; i++) {\n          for (var j = 0; j <= 20; j++) {\n            var value = noise.noise2D(i / 20, j / 20);\n            valMax = Math.max(valMax, value);\n            valMin = Math.min(valMin, value);\n            data.push([i, j, value * 2 + 4]);\n          }\n        }\n        return data;\n      }\n      var valMin = Infinity;\n      var valMax = -Infinity;\n      var data = generateData(2, -5, 5);\n\n      myChart.setOption(\n        (option = {\n          tooltip: {},\n          xAxis3D: {\n            type: 'value'\n          },\n          yAxis3D: {\n            type: 'value'\n          },\n          zAxis3D: {\n            type: 'value',\n            max: 10,\n            min: 0\n          },\n          grid3D: {\n            environment: '#000',\n            axisPointer: {\n              show: false\n            },\n            postEffect: {\n              enable: true,\n              SSAO: {\n                enable: true,\n                radius: 5\n              }\n            },\n            light: {\n              main: {\n                intensity: 3\n              },\n              ambientCubemap: {\n                texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',\n                exposure: 1,\n                diffuseIntensity: 0.5,\n                specularIntensity: 2\n              }\n            }\n          },\n          series: [\n            {\n              type: 'bar3D',\n              data: data,\n\n              barSize: 4,\n\n              bevelSize: 0.4,\n              bevelSmoothness: 4,\n\n              shading: 'realistic',\n              realisticMaterial: {\n                roughness: 0.3,\n                metalness: 1\n              },\n\n              label: {\n                textStyle: {\n                  fontSize: 16,\n                  borderWidth: 1\n                }\n              },\n\n              itemStyle: {\n                color: '#ccc'\n              },\n\n              emphasis: {\n                label: {\n                  show: false\n                }\n              }\n            }\n          ]\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsMetalBar3d() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar3D"
+  ],
+  "type": "registry:block"
+}

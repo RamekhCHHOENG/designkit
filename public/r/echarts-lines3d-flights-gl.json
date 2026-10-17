@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-lines3d-flights-gl",
+  "title": "Flights GL",
+  "description": "Flights GL, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-lines3d-flights-gl.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Flights GL\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=lines3d-flights-gl\nconst setup: EChartSetup = async ({ myChart }) => {\n  await registerBuiltinMap(\"world\")\n  var uploadedDataURL = ROOT_PATH + '/data-gl/asset/data/flights.json';\n\n  myChart.showLoading();\n\n  $.getJSON(uploadedDataURL, function (data: any) {\n    myChart.hideLoading();\n\n    function getAirportCoord(idx: any) {\n      return [data.airports[idx][3], data.airports[idx][4]];\n    }\n    var routes = data.routes.map(function (airline: any) {\n      return [getAirportCoord(airline[1]), getAirportCoord(airline[2])];\n    });\n\n    myChart.setOption({\n      geo3D: {\n        map: 'world',\n        shading: 'realistic',\n        silent: true,\n        environment: '#333',\n        realisticMaterial: {\n          roughness: 0.8,\n          metalness: 0\n        },\n        postEffect: {\n          enable: true\n        },\n        groundPlane: {\n          show: false\n        },\n        light: {\n          main: {\n            intensity: 1,\n            alpha: 30\n          },\n          ambient: {\n            intensity: 0\n          }\n        },\n        viewControl: {\n          distance: 70,\n          alpha: 89,\n\n          panMouseButton: 'left',\n          rotateMouseButton: 'right'\n        },\n\n        itemStyle: {\n          color: '#000'\n        },\n\n        regionHeight: 0.5\n      },\n      series: [\n        {\n          type: 'lines3D',\n\n          coordinateSystem: 'geo3D',\n\n          effect: {\n            show: true,\n            trailWidth: 1,\n            trailOpacity: 0.5,\n            trailLength: 0.2,\n            constantSpeed: 5\n          },\n\n          blendMode: 'lighter',\n\n          lineStyle: {\n            width: 0.2,\n            opacity: 0.05\n          },\n\n          data: routes\n        }\n      ]\n    });\n\n    window.addEventListener('keydown', function () {\n      myChart.dispatchAction({\n        type: 'lines3DToggleEffect',\n        seriesIndex: 0\n      });\n    });\n  });\n}\n\nexport function EchartsLines3dFlightsGl() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "lines3D"
+  ],
+  "type": "registry:block"
+}

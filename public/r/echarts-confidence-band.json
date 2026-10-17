@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-confidence-band",
+  "title": "Confidence Band",
+  "description": "Confidence Band, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-confidence-band.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Confidence Band\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=confidence-band\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  interface DataItem {\n    l: number;\n    u: number;\n    date: string;\n    value: number;\n  }\n  $.get(\n    ROOT_PATH + '/data/asset/data/confidence-band.json',\n    function (data: DataItem[]) {\n      myChart.hideLoading();\n\n      var base = -data.reduce(function (min, val) {\n        return Math.floor(Math.min(min, val.l));\n      }, Infinity);\n      myChart.setOption<echarts.EChartsOption>(\n        (option = {\n          title: {\n            text: 'Confidence Band',\n            subtext: 'Example in MetricsGraphics.js',\n            left: 'center'\n          },\n          tooltip: {\n            trigger: 'axis',\n            axisPointer: {\n              type: 'cross',\n              animation: false,\n              label: {\n                backgroundColor: '#ccc',\n                borderColor: '#aaa',\n                borderWidth: 1,\n                shadowBlur: 0,\n                shadowOffsetX: 0,\n                shadowOffsetY: 0,\n\n                color: '#222'\n              }\n            },\n            formatter: function (params: any) {\n              return (\n                params[2].name +\n                '<br />' +\n                ((params[2].value - base) * 100).toFixed(1) +\n                '%'\n              );\n            }\n          },\n          grid: {\n            left: '3%',\n            right: '4%',\n            bottom: '3%',\n            containLabel: true\n          },\n          xAxis: {\n            type: 'category',\n            data: data.map(function (item) {\n              return item.date;\n            }),\n            axisLabel: {\n              formatter: function (value: any, idx: number) {\n                var date = new Date(value);\n                return idx === 0\n                  ? value\n                  : [date.getMonth() + 1, date.getDate()].join('-');\n              }\n            },\n            boundaryGap: false\n          },\n          yAxis: {\n            axisLabel: {\n              formatter: function (val: number) {\n                return (val - base) * 100 + '%';\n              }\n            },\n            axisPointer: {\n              label: {\n                formatter: function (params: any) {\n                  return ((params.value - base) * 100).toFixed(1) + '%';\n                }\n              }\n            },\n            splitNumber: 3\n          },\n          series: [\n            {\n              name: 'L',\n              type: 'line',\n              data: data.map(function (item) {\n                return item.l + base;\n              }),\n              lineStyle: {\n                opacity: 0\n              },\n              stack: 'confidence-band',\n              symbol: 'none'\n            },\n            {\n              name: 'U',\n              type: 'line',\n              data: data.map(function (item) {\n                return item.u - item.l;\n              }),\n              lineStyle: {\n                opacity: 0\n              },\n              areaStyle: {\n                color: '#ccc'\n              },\n              stack: 'confidence-band',\n              symbol: 'none'\n            },\n            {\n              type: 'line',\n              data: data.map(function (item) {\n                return item.value + base;\n              }),\n              itemStyle: {\n                color: '#333'\n              },\n              showSymbol: false\n            }\n          ]\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsConfidenceBand() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

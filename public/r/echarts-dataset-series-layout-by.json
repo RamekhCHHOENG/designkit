@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dataset-series-layout-by",
+  "title": "Series Layout By Column or Row",
+  "description": "Series Layout By Column or Row, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dataset-series-layout-by.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Series Layout By Column or Row\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dataset-series-layout-by\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    legend: {},\n    tooltip: {},\n    dataset: {\n      source: [\n        ['product', '2012', '2013', '2014', '2015'],\n        ['Matcha Latte', 41.1, 30.4, 65.1, 53.3],\n        ['Milk Tea', 86.5, 92.1, 85.7, 83.1],\n        ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4]\n      ]\n    },\n    xAxis: [\n      { type: 'category', gridIndex: 0 },\n      { type: 'category', gridIndex: 1 }\n    ],\n    yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }],\n    grid: [{ bottom: '55%' }, { top: '55%' }],\n    series: [\n      // These series are in the first grid.\n      { type: 'bar', seriesLayoutBy: 'row' },\n      { type: 'bar', seriesLayoutBy: 'row' },\n      { type: 'bar', seriesLayoutBy: 'row' },\n      // These series are in the second grid.\n      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },\n      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },\n      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },\n      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 }\n    ]\n  };\n  return option\n}\n\nexport function EchartsDatasetSeriesLayoutBy() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset",
+    "bar"
+  ],
+  "type": "registry:block"
+}

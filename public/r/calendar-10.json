@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-10",
+  "title": "Calendar 10",
+  "description": "Today button.",
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/card.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-10/page.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\n\nfunction Calendar10() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2025, 5, 12)\n  )\n  const [month, setMonth] = React.useState<Date | undefined>(new Date())\n\n  return (\n    <Card>\n      <CardHeader className=\"relative\">\n        <CardTitle>Appointment</CardTitle>\n        <CardDescription>Find a date</CardDescription>\n        <Button\n          size=\"sm\"\n          variant=\"outline\"\n          className=\"absolute right-4 top-4\"\n          onClick={() => {\n            setMonth(new Date())\n            setDate(new Date())\n          }}\n        >\n          Today\n        </Button>\n      </CardHeader>\n      <CardContent>\n        <Calendar\n          mode=\"single\"\n          month={month}\n          onMonthChange={setMonth}\n          selected={date}\n          onSelect={setDate}\n          className=\"bg-transparent p-0\"\n        />\n      </CardContent>\n    </Card>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar10 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-10/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-in-cartesian-coordinate-system",
+  "title": "Line Chart in Cartesian Coordinate System",
+  "description": "Line Chart in Cartesian Coordinate System, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-in-cartesian-coordinate-system.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Line Chart in Cartesian Coordinate System\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-in-cartesian-coordinate-system\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {},\n    yAxis: {},\n    series: [\n      {\n        data: [\n          [10, 40],\n          [50, 100],\n          [40, 20]\n        ],\n        type: 'line'\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineInCartesianCoordinateSystem() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

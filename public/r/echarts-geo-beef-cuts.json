@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-beef-cuts",
+  "title": "GEO Beef Cuts",
+  "description": "GEO Beef Cuts, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-beef-cuts.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"GEO Beef Cuts\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-beef-cuts\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(ROOT_PATH + '/data/asset/geo/Beef_cuts_France.svg', function (svg) {\n    echarts.registerMap('Beef_cuts_France', { svg: svg });\n\n    option = {\n      tooltip: {},\n      visualMap: {\n        left: 'center',\n        bottom: '10%',\n        min: 5,\n        max: 100,\n        orient: 'horizontal',\n        text: ['', 'Price'],\n        realtime: true,\n        calculable: true,\n        inRange: {\n          color: ['#dbac00', '#db6e00', '#cf0000']\n        }\n      },\n      series: [\n        {\n          name: 'French Beef Cuts',\n          type: 'map',\n          map: 'Beef_cuts_France',\n          roam: true,\n          emphasis: {\n            label: {\n              show: false\n            }\n          },\n          selectedMode: false,\n          data: [\n            { name: 'Queue', value: 15 },\n            { name: 'Langue', value: 35 },\n            { name: 'Plat de joue', value: 15 },\n            { name: 'Gros bout de poitrine', value: 25 },\n            { name: 'Jumeau à pot-au-feu', value: 45 },\n            { name: 'Onglet', value: 85 },\n            { name: 'Plat de tranche', value: 25 },\n            { name: 'Araignée', value: 15 },\n            { name: 'Gîte à la noix', value: 55 },\n            { name: \"Bavette d'aloyau\", value: 25 },\n            { name: 'Tende de tranche', value: 65 },\n            { name: 'Rond de gîte', value: 45 },\n            { name: 'Bavettede de flanchet', value: 85 },\n            { name: 'Flanchet', value: 35 },\n            { name: 'Hampe', value: 75 },\n            { name: 'Plat de côtes', value: 65 },\n            { name: 'Tendron Milieu de poitrine', value: 65 },\n            { name: 'Macreuse à pot-au-feu', value: 85 },\n            { name: 'Rumsteck', value: 75 },\n            { name: 'Faux-filet', value: 65 },\n            { name: 'Côtes Entrecôtes', value: 55 },\n            { name: 'Basses côtes', value: 45 },\n            { name: 'Collier', value: 85 },\n            { name: 'Jumeau à biftek', value: 15 },\n            { name: 'Paleron', value: 65 },\n            { name: 'Macreuse à bifteck', value: 45 },\n            { name: 'Gîte', value: 85 },\n            { name: 'Aiguillette baronne', value: 65 },\n            { name: 'Filet', value: 95 }\n          ]\n        }\n      ]\n    };\n\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsGeoBeefCuts() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map"
+  ],
+  "type": "registry:block"
+}

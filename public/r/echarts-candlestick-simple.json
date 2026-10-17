@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-candlestick-simple",
+  "title": "Basic Candlestick",
+  "description": "Basic Candlestick, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-candlestick-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Candlestick\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=candlestick-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {\n      data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']\n    },\n    yAxis: {},\n    series: [\n      {\n        type: 'candlestick',\n        data: [\n          [20, 34, 10, 38],\n          [40, 35, 30, 50],\n          [31, 38, 33, 44],\n          [38, 15, 5, 42]\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCandlestickSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "candlestick"
+  ],
+  "type": "registry:block"
+}

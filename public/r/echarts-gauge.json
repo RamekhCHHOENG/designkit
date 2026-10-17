@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-gauge",
+  "title": "Gauge Basic chart",
+  "description": "Gauge Basic chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-gauge.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Gauge Basic chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=gauge\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      formatter: '{a} <br/>{b} : {c}%'\n    },\n    series: [\n      {\n        name: 'Pressure',\n        type: 'gauge',\n        detail: {\n          formatter: '{value}'\n        },\n        data: [\n          {\n            value: 50,\n            name: 'SCORE'\n          }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsGauge() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "gauge"
+  ],
+  "type": "registry:block"
+}

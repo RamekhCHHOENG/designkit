@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-stack-normalization-and-variation",
+  "title": "Stacked Bar Normalization and Variation",
+  "description": "Stacked Bar Normalization and Variation, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-stack-normalization-and-variation.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stacked Bar Normalization and Variation\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-stack-normalization-and-variation\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  // There should not be negative values in rawData\n  const rawData = [\n      [100, 302, 301, 334, 390, 330, 320],\n      [320, 132, 101, 134, 90, 230, 210],\n      [220, 182, 191, 234, 290, 330, 310],\n      [150, 212, 201, 154, 190, 330, 410],\n      [820, 832, 901, 934, 1290, 1330, 1320]\n  ];\n  const totalData: number[] = [];\n  for (let i = 0; i < rawData[0].length; ++i) {\n      let sum = 0;\n      for (let j = 0; j < rawData.length; ++j) {\n          sum += rawData[j][i];\n      }\n      totalData.push(sum);\n  }\n\n  const grid = {\n      left: 100,\n      right: 100,\n      top: 50,\n      bottom: 90\n  };\n  const gridWidth = myChart.getWidth() - grid.left - grid.right;\n  const gridHeight = myChart.getHeight() - grid.top - grid.bottom;\n  const categoryWidth = gridWidth / rawData[0].length;\n  const barWidth = categoryWidth * 0.6;\n  const barPadding = (categoryWidth - barWidth) / 2;\n\n  const series: echarts.BarSeriesOption[] = [\n      'Direct',\n      'Mail Ad',\n      'Affiliate Ad',\n      'Video Ad',\n      'Search Engine'\n  ].map((name, sid) => {\n      return {\n          name,\n          type: 'bar',\n          stack: 'total',\n          barWidth: '60%',\n          label: {\n              show: true,\n              formatter: (params: any) => Math.round(params.value * 1000) / 10 + '%'\n          },\n          data: rawData[sid].map((d, did) =>\n          totalData[did] <= 0 ? 0 : d / totalData[did]\n          )\n      };\n  });\n\n  const color = [\n      '#5070dd',\n      '#b6d634',\n      '#505372',\n      '#ff994d',\n      '#0ca8df'\n  ];\n  const elements = [];\n  for (let j = 1, jlen = rawData[0].length; j < jlen; ++j) {\n      const leftX = grid.left + categoryWidth * j - barPadding;\n      const rightX = leftX + barPadding * 2;\n      let leftY = grid.top + gridHeight;\n      let rightY = leftY;\n      for (let i = 0, len = series.length; i < len; ++i) {\n          const points = [];\n          const leftBarHeight = (rawData[i][j - 1] / totalData[j - 1]) * gridHeight;\n          points.push([leftX, leftY]);\n          points.push([leftX, leftY - leftBarHeight]);\n          const rightBarHeight = (rawData[i][j] / totalData[j]) * gridHeight;\n          points.push([rightX, rightY - rightBarHeight]);\n          points.push([rightX, rightY]);\n          points.push([leftX, leftY]);\n\n          leftY -= leftBarHeight;\n          rightY -= rightBarHeight;\n\n          elements.push({\n              type: 'polygon',\n              shape: {\n                  points\n              },\n              style: {\n                  fill: color[i],\n                  opacity: 0.25\n              }\n          });\n      }\n  }\n\n  option = {\n      legend: {\n          selectedMode: false\n      },\n      grid,\n      yAxis: {\n          type: 'value'\n      },\n      xAxis: {\n          type: 'category',\n          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n      },\n      series,\n      graphic: {\n        elements\n      }\n  };\n  return option\n}\n\nexport function EchartsBarStackNormalizationAndVariation() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

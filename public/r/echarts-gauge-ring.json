@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-gauge-ring",
+  "title": "Ring Gauge",
+  "description": "Ring Gauge, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-gauge-ring.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Ring Gauge\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=gauge-ring\nconst setup: EChartSetup = ({ myChart, setInterval }) => {\n  let option!: EChartsOption\n  const gaugeData = [\n    {\n      value: 20,\n      name: 'Perfect',\n      title: {\n        offsetCenter: ['0%', '-30%']\n      },\n      detail: {\n        valueAnimation: true,\n        offsetCenter: ['0%', '-20%']\n      }\n    },\n    {\n      value: 40,\n      name: 'Good',\n      title: {\n        offsetCenter: ['0%', '0%']\n      },\n      detail: {\n        valueAnimation: true,\n        offsetCenter: ['0%', '10%']\n      }\n    },\n    {\n      value: 60,\n      name: 'Commonly',\n      title: {\n        offsetCenter: ['0%', '30%']\n      },\n      detail: {\n        valueAnimation: true,\n        offsetCenter: ['0%', '40%']\n      }\n    }\n  ];\n\n  option = {\n    series: [\n      {\n        type: 'gauge',\n        startAngle: 90,\n        endAngle: -270,\n        pointer: {\n          show: false\n        },\n        progress: {\n          show: true,\n          overlap: false,\n          roundCap: true,\n          clip: false,\n          itemStyle: {\n            borderWidth: 1,\n            borderColor: '#464646'\n          }\n        },\n        axisLine: {\n          lineStyle: {\n            width: 40\n          }\n        },\n        splitLine: {\n          show: false,\n          distance: 0,\n          length: 10\n        },\n        axisTick: {\n          show: false\n        },\n        axisLabel: {\n          show: false,\n          distance: 50\n        },\n        data: gaugeData,\n        title: {\n          fontSize: 14\n        },\n        detail: {\n          width: 50,\n          height: 14,\n          fontSize: 14,\n          color: 'inherit',\n          borderColor: 'inherit',\n          borderRadius: 20,\n          borderWidth: 1,\n          formatter: '{value}%'\n        }\n      }\n    ]\n  };\n\n  setInterval(function () {\n    gaugeData[0].value = +(Math.random() * 100).toFixed(2);\n    gaugeData[1].value = +(Math.random() * 100).toFixed(2);\n    gaugeData[2].value = +(Math.random() * 100).toFixed(2);\n    myChart.setOption<echarts.EChartsOption>({\n      series: [\n        {\n          data: gaugeData,\n          pointer: {\n            show: false\n          }\n        }\n      ]\n    });\n  }, 2000);\n  return option\n}\n\nexport function EchartsGaugeRing() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "gauge"
+  ],
+  "type": "registry:block"
+}

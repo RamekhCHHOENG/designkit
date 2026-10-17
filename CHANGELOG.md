@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- Enrich DesignKit with 26 enterprise and modern web UI primitives:
+  - Form & Inputs: SegmentedControl, NumberInput, PasswordInput, PhoneInput, PaymentInput, TagsInput, ColorPicker, Rating, FileDropzone, MultiSelect.
+  - Hierarchy & Navigation: Tree (TreeView/FileTree), Stepper, Timeline, Tour.
+  - Data Display & Content: Statistic, Descriptions, RingProgress, CodeBlock, Tag, Spoiler, CopyButton.
+  - Enterprise Operations & Feedback: QRCode, Watermark, Result, FloatButton, ImageCropper.
+  - Rebuilt registry.json and 572 shadcn-compatible CLI artifacts under public/r/.
+  - Added full test coverage (54 unit tests) and verified library packaging.
+
 ## 1.1.3
 
 ### Patch Changes

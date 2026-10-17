@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-waterfall",
+  "title": "Waterfall Chart",
+  "description": "Waterfall Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-waterfall.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Waterfall Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-waterfall\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Waterfall Chart',\n      subtext: 'Living Expenses in Shenzhen'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      },\n      formatter: function (params: any) {\n        var tar = params[1];\n        return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;\n      }\n    },\n    grid: {\n      left: '3%',\n      right: '4%',\n      bottom: '3%',\n      containLabel: true\n    },\n    xAxis: {\n      type: 'category',\n      splitLine: { show: false },\n      data: ['Total', 'Rent', 'Utilities', 'Transportation', 'Meals', 'Other']\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        name: 'Placeholder',\n        type: 'bar',\n        stack: 'Total',\n        itemStyle: {\n          borderColor: 'transparent',\n          color: 'transparent'\n        },\n        emphasis: {\n          itemStyle: {\n            borderColor: 'transparent',\n            color: 'transparent'\n          }\n        },\n        data: [0, 1700, 1400, 1200, 300, 0]\n      },\n      {\n        name: 'Life Cost',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true,\n          position: 'inside'\n        },\n        data: [2900, 1200, 300, 200, 900, 300]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarWaterfall() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

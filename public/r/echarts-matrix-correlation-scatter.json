@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-matrix-correlation-scatter",
+  "title": "Correlation Matrix (Scatter)",
+  "description": "Correlation Matrix (Scatter), adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-matrix-correlation-scatter.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Correlation Matrix (Scatter)\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=matrix-correlation-scatter\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const xCnt = 10;\n  const yCnt = 6;\n  const xData = [];\n  const yData = [];\n  for (let i = 0; i < xCnt; ++i) {\n    xData.push({\n      value: 'X' + (i + 1)\n    });\n  }\n\n  for (let i = 0; i < yCnt; ++i) {\n    yData.push({\n      value: 'Y' + (i + 1)\n    });\n  }\n\n  const data = [];\n  for (let i = 1; i <= xCnt; ++i) {\n    for (let j = 1; j <= yCnt; ++j) {\n      data.push(['X' + i, 'Y' + j, Math.random() * 2 - 1]);\n    }\n  }\n\n  option = {\n    matrix: {\n      x: {\n        data: xData\n      },\n      y: {\n        data: yData\n      },\n      top: 80\n    },\n    visualMap: {\n      type: 'continuous',\n      min: -1,\n      max: 1,\n      dimension: 2,\n      calculable: true,\n      orient: 'horizontal',\n      top: 5,\n      left: 'center',\n      inRange: {\n        color: [\n          '#313695',\n          '#4575b4',\n          '#74add1',\n          '#abd9e9',\n          '#e0f3f8',\n          '#ffffbf',\n          '#fee090',\n          '#fdae61',\n          '#f46d43',\n          '#d73027',\n          '#a50026'\n        ],\n        symbolSize: [15, 40]\n      }\n    },\n    series: {\n      type: 'scatter',\n      coordinateSystem: 'matrix',\n      data,\n      itemStyle: {\n        opacity: 1\n      },\n      label: {\n        show: true,\n        // @ts-ignore\n        formatter: (params) => params.value[2].toFixed(2)\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsMatrixCorrelationScatter() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "matrix"
+  ],
+  "type": "registry:block"
+}

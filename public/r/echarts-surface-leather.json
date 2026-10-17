@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-surface-leather",
+  "title": "Leather Material",
+  "description": "Leather Material, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-surface-leather.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Leather Material\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=surface-leather\nconst setup: EChartSetup = ({ myChart }) => {\n  var TILING: any = [4, 2];\n\n  var heightImg = new Image();\n  heightImg.onload = update;\n  heightImg.crossOrigin = 'anonymous';\n  heightImg.crossOrigin = 'anonymous';\n  heightImg.src = ROOT_PATH + '/data-gl/asset/leather/leather_height.jpg';\n\n  function update() {\n    var canvas = document.createElement('canvas');\n    var ctx = canvas.getContext('2d');\n    var width = (canvas.width = heightImg.width);\n    var height = (canvas.height = heightImg.height);\n    // @ts-ignore\n    ctx.drawImage(heightImg, 0, 0, width, height);\n    // @ts-ignore\n    var imgData = ctx.getImageData(0, 0, width, height).data;\n\n    function getScale(u: any, v: any) {\n      u = ((u / Math.PI) * 0.5 + 0.5) * TILING[0];\n      v = (v / Math.PI) * TILING[1];\n\n      u = Math.floor((u - Math.floor(u)) * (width - 1));\n      v = Math.floor((1 - v + Math.floor(v)) * (height - 1));\n\n      var idx = v * width + u;\n      return 1 + imgData[idx * 4] / 255 / 20;\n    }\n\n    myChart.setOption({\n      xAxis3D: {\n        type: 'value',\n        min: -1.5,\n        max: 1.5\n      },\n      yAxis3D: {\n        type: 'value',\n        min: -1.5,\n        max: 1.5\n      },\n      zAxis3D: {\n        type: 'value',\n        min: -1.5,\n        max: 1.5\n      },\n      grid3D: {\n        show: false,\n\n        environment: 'none',\n\n        axisPointer: {\n          show: false\n        },\n        postEffect: {\n          enable: true,\n          screenSpaceAmbientOcclusion: {\n            enable: true,\n            radius: 10,\n            intensity: 2,\n            quality: 'high'\n          },\n          screenSpaceReflection: {\n            enable: false\n          },\n          depthOfField: {\n            enable: false,\n            focalRange: 10,\n            fstop: 4\n          }\n        },\n        temporalSuperSampling: {\n          enable: true\n        },\n        light: {\n          main: {\n            intensity: 2,\n            shadow: true\n          },\n          ambient: {\n            intensity: 0\n          },\n          ambientCubemap: {\n            texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',\n            exposure: 1,\n            diffuseIntensity: 1,\n            specularIntensity: 2\n          }\n        },\n        viewControl: {\n          distance: 80\n          // projection: 'orthographic'\n        }\n      },\n      series: [\n        {\n          type: 'surface',\n          parametric: true,\n          shading: 'realistic',\n          silent: true,\n          wireframe: {\n            show: false\n          },\n          realisticMaterial: {\n            // detailTexture: 'asset/leather/leather_albedo.jpg',\n            roughness: ROOT_PATH + '/data-gl/asset/leather/leather_roughness.jpg',\n            normalTexture:\n              ROOT_PATH + '/data-gl/asset/leather/leather_normal.jpg',\n            textureTiling: TILING\n          },\n          itemStyle: {\n            color: '#300'\n          },\n          parametricEquation: {\n            u: {\n              min: -Math.PI,\n              max: Math.PI,\n              step: Math.PI / 100\n            },\n            v: {\n              min: 0.4,\n              max: Math.PI - 0.4,\n              step: Math.PI / 100\n            },\n            x: function (u: any, v: any) {\n              return Math.sin(v) * Math.sin(u) * getScale(u, v);\n            },\n            y: function (u: any, v: any) {\n              return Math.sin(v) * Math.cos(u) * getScale(u, v);\n            },\n            z: function (u: any, v: any) {\n              return Math.cos(v) * getScale(u, v);\n            }\n          }\n        }\n      ]\n    });\n  }\n}\n\nexport function EchartsSurfaceLeather() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "surface"
+  ],
+  "type": "registry:block"
+}

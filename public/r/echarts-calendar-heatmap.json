@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-calendar-heatmap",
+  "title": "Calendar Heatmap",
+  "description": "Calendar Heatmap, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-calendar-heatmap.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Calendar Heatmap\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=calendar-heatmap\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function getVirtualData(year: string) {\n    const date = +echarts.time.parse(year + '-01-01');\n    const end = +echarts.time.parse(+year + 1 + '-01-01');\n    const dayTime = 3600 * 24 * 1000;\n    const data: [string, number][] = [];\n    for (let time = date; time < end; time += dayTime) {\n      data.push([\n        echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n        Math.floor(Math.random() * 10000)\n      ]);\n    }\n    return data;\n  }\n\n  option = {\n    title: {\n      top: 30,\n      left: 'center',\n      text: 'Daily Step Count'\n    },\n    tooltip: {},\n    visualMap: {\n      min: 0,\n      max: 10000,\n      type: 'piecewise',\n      orient: 'horizontal',\n      left: 'center',\n      top: 65\n    },\n    calendar: {\n      top: 120,\n      left: 30,\n      right: 30,\n      cellSize: ['auto', 13],\n      range: '2016',\n      itemStyle: {\n        borderWidth: 0.5\n      },\n      yearLabel: { show: false }\n    },\n    series: {\n      type: 'heatmap',\n      coordinateSystem: 'calendar',\n      data: getVirtualData('2016')\n    }\n  };\n  return option\n}\n\nexport function EchartsCalendarHeatmap() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "calendar",
+    "heatmap"
+  ],
+  "type": "registry:block"
+}

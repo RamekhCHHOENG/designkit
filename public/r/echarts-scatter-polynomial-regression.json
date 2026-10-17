@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-polynomial-regression",
+  "title": "Polynomial Regression",
+  "description": "Polynomial Regression, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0",
+    "echarts-stat@^1.2.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-polynomial-regression.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\nimport ecStatModule from \"echarts-stat\"\n\nconst ecStat: any = ecStatModule\n\n// Adapted from the Apache ECharts example \"Polynomial Regression\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-polynomial-regression\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  // See https://github.com/ecomfe/echarts-stat\n  echarts.registerTransform(ecStat.transform.regression);\n\n  const data = [\n    [96.24, 11.35],\n    [33.09, 85.11],\n    [57.6, 36.61],\n    [36.77, 27.26],\n    [20.1, 6.72],\n    [45.53, 36.37],\n    [110.07, 80.13],\n    [72.05, 20.88],\n    [39.82, 37.15],\n    [48.05, 70.5],\n    [0.85, 2.57],\n    [51.66, 63.7],\n    [61.07, 127.13],\n    [64.54, 33.59],\n    [35.5, 25.01],\n    [226.55, 664.02],\n    [188.6, 175.31],\n    [81.31, 108.68]\n  ];\n\n  option = {\n    dataset: [\n      {\n        source: data\n      },\n      {\n        transform: {\n          type: 'ecStat:regression',\n          config: { method: 'polynomial', order: 3 }\n        }\n      }\n    ],\n    title: {\n      text: '18 companies net profit and main business income (million)',\n      subtext: 'By ecStat.regression',\n      sublink: 'https://github.com/ecomfe/echarts-stat',\n      left: 'center',\n      top: 16\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'cross'\n      }\n    },\n    xAxis: {\n      splitLine: {\n        lineStyle: {\n          type: 'dashed'\n        }\n      },\n      splitNumber: 20\n    },\n    yAxis: {\n      min: -40,\n      splitLine: {\n        lineStyle: {\n          type: 'dashed'\n        }\n      }\n    },\n    series: [\n      {\n        name: 'scatter',\n        type: 'scatter'\n      },\n      {\n        name: 'line',\n        type: 'line',\n        smooth: true,\n        datasetIndex: 1,\n        symbolSize: 0.1,\n        symbol: 'circle',\n        label: { show: true, fontSize: 16 },\n        labelLayout: { dx: -20 },\n        encode: { label: 2, tooltip: 1 }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsScatterPolynomialRegression() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

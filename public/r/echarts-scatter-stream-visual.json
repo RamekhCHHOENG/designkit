@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-stream-visual",
+  "title": "Visual interaction with stream",
+  "description": "Visual interaction with stream, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-stream-visual.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Visual interaction with stream\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-stream-visual\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  // Thanks to: 若怀冰\n  // http://gallery.echartsjs.com/explore.html?u=bd-16906679\n  // http://gallery.echartsjs.com/editor.html?c=xHJw-hVqjW\n\n  $.getJSON(\n    ROOT_PATH + '/data/asset/data/house-price-area2.json',\n    function (data) {\n      var option = {\n        title: {\n          text: 'Dispersion of house price based on the area',\n          left: 'center',\n          top: 0\n        },\n        visualMap: {\n          min: 15202,\n          max: 159980,\n          dimension: 1,\n          orient: 'vertical',\n          right: 10,\n          top: 'center',\n          text: ['HIGH', 'LOW'],\n          calculable: true,\n          inRange: {\n            color: ['#f2c31a', '#24b7f2']\n          }\n        },\n        tooltip: {\n          trigger: 'item',\n          axisPointer: {\n            type: 'cross'\n          }\n        },\n        xAxis: [\n          {\n            type: 'value'\n          }\n        ],\n        yAxis: [\n          {\n            type: 'value'\n          }\n        ],\n        series: [\n          {\n            name: 'price-area',\n            type: 'scatter',\n            symbolSize: 5,\n            data: data\n          }\n        ]\n      };\n\n      myChart.setOption(option);\n    }\n  );\n  return option\n}\n\nexport function EchartsScatterStreamVisual() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

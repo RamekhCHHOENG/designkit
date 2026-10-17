@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-custom-profit",
+  "title": "Profit",
+  "description": "Profit, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-custom-profit.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Profit\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=custom-profit\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const colorList = [\n    '#4f81bd',\n    '#c0504d',\n    '#9bbb59',\n    '#604a7b',\n    '#948a54',\n    '#e46c0b'\n  ];\n\n  const data = [\n    [10, 16, 3, 'A'],\n    [16, 18, 15, 'B'],\n    [18, 26, 12, 'C'],\n    [26, 32, 22, 'D'],\n    [32, 56, 7, 'E'],\n    [56, 62, 17, 'F']\n  ].map(function (item, index) {\n    return {\n      value: item,\n      itemStyle: {\n        color: colorList[index]\n      }\n    };\n  });\n\n  option = {\n    title: {\n      text: 'Profit',\n      left: 'center'\n    },\n    tooltip: {},\n    xAxis: {\n      scale: true\n    },\n    yAxis: {},\n    series: [\n      {\n        type: 'custom',\n        renderItem: function (params, api) {\n          var yValue = api.value(2);\n          var start = api.coord([api.value(0), yValue]);\n          var size = api.size!([\n            (api.value(1) as number) - (api.value(0) as number),\n            yValue\n          ]) as number[];\n          var style = api.style();\n\n          return {\n            type: 'rect',\n            shape: {\n              x: start[0],\n              y: start[1],\n              width: size[0],\n              height: size[1]\n            },\n            style: style\n          };\n        },\n        label: {\n          show: true,\n          position: 'top'\n        },\n        dimensions: ['from', 'to', 'profit'],\n        encode: {\n          x: [0, 1],\n          y: 2,\n          tooltip: [0, 1, 2],\n          itemName: 3\n        },\n        data: data\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCustomProfit() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

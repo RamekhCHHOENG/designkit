@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sunburst-simple",
+  "title": "Basic Sunburst",
+  "description": "Basic Sunburst, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sunburst-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Sunburst\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sunburst-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  var data = [\n    {\n      name: 'Grandpa',\n      children: [\n        {\n          name: 'Uncle Leo',\n          value: 15,\n          children: [\n            {\n              name: 'Cousin Jack',\n              value: 2\n            },\n            {\n              name: 'Cousin Mary',\n              value: 5,\n              children: [\n                {\n                  name: 'Jackson',\n                  value: 2\n                }\n              ]\n            },\n            {\n              name: 'Cousin Ben',\n              value: 4\n            }\n          ]\n        },\n        {\n          name: 'Father',\n          value: 10,\n          children: [\n            {\n              name: 'Me',\n              value: 5\n            },\n            {\n              name: 'Brother Peter',\n              value: 1\n            }\n          ]\n        }\n      ]\n    },\n    {\n      name: 'Nancy',\n      children: [\n        {\n          name: 'Uncle Nike',\n          children: [\n            {\n              name: 'Cousin Betty',\n              value: 1\n            },\n            {\n              name: 'Cousin Jenny',\n              value: 2\n            }\n          ]\n        }\n      ]\n    }\n  ];\n\n  option = {\n    series: {\n      type: 'sunburst',\n      // emphasis: {\n      //     focus: 'ancestor'\n      // },\n      data: data,\n      radius: [0, '90%'],\n      label: {\n        rotate: 'radial'\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsSunburstSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sunburst"
+  ],
+  "type": "registry:block"
+}

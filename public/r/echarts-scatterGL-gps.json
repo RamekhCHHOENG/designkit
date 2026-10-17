@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatterGL-gps",
+  "title": "10 million Bulk GPS points",
+  "description": "10 million Bulk GPS points, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatterGL-gps.tsx",
+      "content": "import { registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"10 million Bulk GPS points\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatterGL-gps\nconst setup: EChartSetup = async ({ myChart }) => {\n  let option: any\n  await registerBuiltinMap(\"world\")\n  var dataCount = 0;\n  var CHUNK_COUNT = 230;\n  // https://blog.openstreetmap.org/2012/04/01/bulk-gps-point-data/\n  function fetchData(idx: any) {\n    if (idx >= CHUNK_COUNT) {\n      return;\n    }\n    var dataURL = ROOT_PATH + '/data/asset/data/gps/gps_' + idx + '.bin';\n    var xhr = new XMLHttpRequest();\n    xhr.open('GET', dataURL, true);\n    xhr.responseType = 'arraybuffer';\n\n    xhr.onload = function (e: any) {\n      var rawData = new Int32Array(this.response);\n      var data = new Float32Array(rawData.length);\n      var addedDataCount = rawData.length / 2;\n      for (var i = 0; i < rawData.length; i += 2) {\n        data[i] = rawData[i + 1] / 1e7;\n        data[i + 1] = rawData[i] / 1e7;\n      }\n\n      myChart.appendData({\n        seriesIndex: 0,\n        data: data\n      });\n\n      fetchData(idx + 1);\n    };\n\n    xhr.send();\n  }\n\n  option = {\n    backgroundColor: '#000',\n    title: {\n      text: '10000000 GPS Points',\n      left: 'center',\n      textStyle: {\n        color: '#fff'\n      }\n    },\n    geo: {\n      map: 'world',\n      roam: true,\n      label: {\n        emphasis: {\n          show: false\n        }\n      },\n      silent: true,\n      itemStyle: {\n        normal: {\n          areaColor: '#323c48',\n          borderColor: '#111'\n        },\n        emphasis: {\n          areaColor: '#2a333d'\n        }\n      }\n    },\n    series: [\n      {\n        name: '弱',\n        type: 'scatterGL',\n        progressive: 1e6,\n        coordinateSystem: 'geo',\n        symbolSize: 1,\n        zoomScale: 0.002,\n        blendMode: 'lighter',\n        large: true,\n        itemStyle: {\n          color: 'rgb(20, 15, 2)'\n        },\n        postEffect: {\n          enable: true\n        },\n        silent: true,\n        dimensions: ['lng', 'lat'],\n        data: new Float32Array()\n      }\n    ]\n  };\n\n  fetchData(0);\n  return option\n}\n\nexport function EchartsScatterGLGps() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatterGL"
+  ],
+  "type": "registry:block"
+}

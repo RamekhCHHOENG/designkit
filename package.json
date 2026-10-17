@@ -1,6 +1,6 @@
 {
   "name": "@ramekhchhoeng/designkit",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Apple-inspired, accessible React components for web applications.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -33,6 +33,7 @@
     "test:hard": "node scripts/hard-test-all.mjs",
     "test:consumer": "node scripts/test-consumers.mjs",
     "build:lib": "vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
+    "prebuild:docs": "npm run registry:build",
     "build:docs": "npm run typecheck && vite build -c vite.config.ts --outDir docs-dist",
     "build": "npm run build:lib && npm run build:docs",
     "package:verify": "node scripts/verify-package.mjs",
@@ -45,9 +46,11 @@
     "prepublishOnly": "npm test && npm run build:lib && npm run package:verify && npm run pack:check",
     "graph:index": "graphify extract . --code-only && graphify cluster-only . --no-label",
     "graph:update": "graphify update .",
-    "graph:query": "graphify query"
+    "graph:query": "graphify query",
+    "registry:build": "node scripts/build-registry.mjs"
   },
   "dependencies": {
+    "qrcode": "^1.5.4",
     "use-sync-external-store": "^1.6.0"
   },
   "peerDependencies": {
@@ -61,6 +64,7 @@
     }
   },
   "devDependencies": {
+    "@babel/parser": "^7.29.9",
     "@base-ui/react": "^1.6.0",
     "@changesets/cli": "^2.31.1",
     "@dnd-kit/core": "^6.3.1",
@@ -70,6 +74,7 @@
     "@fontsource-variable/geist": "^5.3.0",
     "@headless-tree/core": "^1.7.0",
     "@headless-tree/react": "^1.7.0",
+    "@hookform/resolvers": "^5.9.1",
     "@internationalized/date": "^3.12.3",
     "@origin-space/image-cropper": "^0.1.9",
     "@radix-ui/react-icons": "^1.3.2",
@@ -82,6 +87,7 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.3",
     "@types/node": "^24.0.0",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.3",
@@ -91,6 +97,10 @@
     "cmdk": "^1.1.1",
     "concurrently": "^10.0.5",
     "date-fns": "^4.4.0",
+    "echarts": "^6.1.0",
+    "echarts-gl": "^2.1.0",
+    "echarts-simple-transform": "^1.0.0",
+    "echarts-stat": "^1.2.0",
     "embla-carousel-react": "^8.6.0",
     "emblor": "^1.4.8",
     "input-otp": "^1.4.2",
@@ -104,12 +114,13 @@
     "react-aria-components": "^1.20.0",
     "react-day-picker": "^10.0.1",
     "react-dom": "19.2.7",
+    "react-hook-form": "^7.89.0",
     "react-intersection-observer": "^11.0.0",
     "react-is": "^19.2.8",
     "react-payment-inputs": "^1.2.0",
     "react-phone-number-input": "^3.4.17",
     "react-resizable-panels": "^4.12.2",
-    "recharts": "^3.8.0",
+    "recharts": "^3.10.1",
     "shadcn": "^4.17.0",
     "sonner": "^2.0.8",
     "styled-components": "^6.5.3",
@@ -120,7 +131,8 @@
     "use-mask-input": "^3.13.0",
     "vaul": "^1.1.2",
     "vite": "8.1.4",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "zod": "^4.6.5"
   },
   "engines": {
     "node": ">=18"

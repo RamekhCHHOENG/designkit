@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-matrix-pie",
+  "title": "Pie Charts in Matrix",
+  "description": "Pie Charts in Matrix, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-matrix-pie.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Pie Charts in Matrix\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=matrix-pie\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const xCnt = 9;\n  const yCnt = 6;\n  const series = [];\n  for (let i = 0; i < xCnt; ++i) {\n    for (let j = 0; j < yCnt; ++j) {\n      series.push({\n        type: 'pie',\n        coordinateSystem: 'matrix',\n        center: [`Grade ${i + 1}`, `Class ${j + 1}`],\n        radius: 18,\n        data: [\n          {\n            value: Math.round(Math.random() * 10) + 10,\n            name: 'Male'\n          },\n          {\n            value: Math.round(Math.random() * 10) + 10,\n            name: 'Female'\n          }\n        ],\n        label: {\n          show: false\n        },\n        emphasis: {\n          label: {\n            show: false\n          }\n        }\n      });\n    }\n  }\n\n  option = {\n    legend: {\n      show: true,\n      bottom: 40\n    },\n    // @ts-ignore\n    matrix: {\n      x: {\n        data: [\n          {\n            value: 'Primary School',\n            children: Array.from({ length: 5 }, (_, i) => {\n              return `Grade ${i + 1}`;\n            })\n          },\n          {\n            value: 'High School',\n            children: Array.from({ length: 4 }, (_, i) => {\n              return `Grade ${i + 6}`;\n            })\n          }\n        ]\n      },\n      y: {\n        data: Array.from({ length: 6 }, (_, i) => {\n          return `Class ${i + 1}`;\n        })\n      },\n      top: 80,\n      bottom: 80\n    },\n    // @ts-ignore\n    series,\n    tooltip: {\n      show: true\n    }\n  };\n  return option\n}\n\nexport function EchartsMatrixPie() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "matrix"
+  ],
+  "type": "registry:block"
+}

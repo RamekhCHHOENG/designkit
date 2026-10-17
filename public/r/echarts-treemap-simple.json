@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-treemap-simple",
+  "title": "Basic Treemap",
+  "description": "Basic Treemap, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-treemap-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Treemap\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=treemap-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    series: [\n      {\n        type: 'treemap',\n        data: [\n          {\n            name: 'nodeA', // First tree\n            value: 10,\n            children: [\n              {\n                name: 'nodeAa', // First leaf of first tree\n                value: 4\n              },\n              {\n                name: 'nodeAb', // Second leaf of first tree\n                value: 6\n              }\n            ]\n          },\n          {\n            name: 'nodeB', // Second tree\n            value: 20,\n            children: [\n              {\n                name: 'nodeBa', // Son of first tree\n                value: 20,\n                children: [\n                  {\n                    name: 'nodeBa1', // Granson of first tree\n                    value: 20\n                  }\n                ]\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsTreemapSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "treemap"
+  ],
+  "type": "registry:block"
+}

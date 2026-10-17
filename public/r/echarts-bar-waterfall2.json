@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-waterfall2",
+  "title": "Waterfall Chart",
+  "description": "Waterfall Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-waterfall2.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Waterfall Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-waterfall2\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Accumulated Waterfall Chart'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      },\n      formatter: function (params: any) {\n        let tar;\n        if (params[1] && params[1].value !== '-') {\n          tar = params[1];\n        } else {\n          tar = params[2];\n        }\n        return tar && tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;\n      }\n    },\n    legend: {\n      data: ['Expenses', 'Income']\n    },\n    grid: {\n      left: '3%',\n      right: '4%',\n      bottom: '3%',\n      containLabel: true\n    },\n    xAxis: {\n      type: 'category',\n      data: (function () {\n        let list = [];\n        for (let i = 1; i <= 11; i++) {\n          list.push('Nov ' + i);\n        }\n        return list;\n      })()\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        name: 'Placeholder',\n        type: 'bar',\n        stack: 'Total',\n        silent: true,\n        itemStyle: {\n          borderColor: 'transparent',\n          color: 'transparent'\n        },\n        emphasis: {\n          itemStyle: {\n            borderColor: 'transparent',\n            color: 'transparent'\n          }\n        },\n        data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]\n      },\n      {\n        name: 'Income',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true,\n          position: 'top'\n        },\n        data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']\n      },\n      {\n        name: 'Expenses',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true,\n          position: 'bottom'\n        },\n        data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarWaterfall2() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

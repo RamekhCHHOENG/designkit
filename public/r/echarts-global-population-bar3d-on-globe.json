@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-global-population-bar3d-on-globe",
+  "title": "Global Population - Bar3D on Globe",
+  "description": "Global Population - Bar3D on Globe, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-global-population-bar3d-on-globe.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Global Population - Bar3D on Globe\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=global-population-bar3d-on-globe\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.getJSON(ROOT_PATH + '/data-gl/asset/data/population.json', function (data: any) {\n    data = data\n      .filter(function (dataItem: any) {\n        return dataItem[2] > 0;\n      })\n      .map(function (dataItem: any) {\n        return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];\n      });\n\n    option = {\n      backgroundColor: '#000',\n      globe: {\n        baseTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',\n        heightTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',\n        shading: 'lambert',\n        environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',\n        light: {\n          main: {\n            intensity: 2\n          }\n        },\n        viewControl: {\n          autoRotate: false\n        }\n      },\n      visualMap: {\n        max: 40,\n        calculable: true,\n        realtime: false,\n        inRange: {\n          colorLightness: [0.2, 0.9]\n        },\n        textStyle: {\n          color: '#fff'\n        },\n        controller: {\n          inRange: {\n            color: 'orange'\n          }\n        },\n        outOfRange: {\n          colorAlpha: 0\n        }\n      },\n      series: [\n        {\n          type: 'bar3D',\n          coordinateSystem: 'globe',\n          data: data,\n          barSize: 0.6,\n          minHeight: 0.2,\n          silent: true,\n          itemStyle: {\n            color: 'orange'\n          }\n        }\n      ]\n    };\n\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsGlobalPopulationBar3dOnGlobe() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar3D"
+  ],
+  "type": "registry:block"
+}

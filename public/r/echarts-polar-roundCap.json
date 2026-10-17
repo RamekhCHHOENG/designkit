@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-polar-roundCap",
+  "title": "Rounded Bar on Polar",
+  "description": "Rounded Bar on Polar, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-polar-roundCap.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Rounded Bar on Polar\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=polar-roundCap\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    angleAxis: {\n      max: 2,\n      startAngle: 30,\n      splitLine: {\n        show: false\n      }\n    },\n    radiusAxis: {\n      type: 'category',\n      data: ['v', 'w', 'x', 'y', 'z'],\n      z: 10\n    },\n    polar: {},\n    series: [\n      {\n        type: 'bar',\n        data: [4, 3, 2, 1, 0],\n        coordinateSystem: 'polar',\n        name: 'Without Round Cap',\n        itemStyle: {\n          borderColor: 'red',\n          opacity: 0.8,\n          borderWidth: 1\n        }\n      },\n      {\n        type: 'bar',\n        data: [4, 3, 2, 1, 0],\n        coordinateSystem: 'polar',\n        name: 'With Round Cap',\n        roundCap: true,\n        itemStyle: {\n          borderColor: 'green',\n          opacity: 0.8,\n          borderWidth: 1\n        }\n      }\n    ],\n    legend: {\n      show: true,\n      data: ['Without Round Cap', 'With Round Cap']\n    }\n  };\n  return option\n}\n\nexport function EchartsPolarRoundCap() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

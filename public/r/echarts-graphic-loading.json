@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graphic-loading",
+  "title": "Customized Loading Animation",
+  "description": "Customized Loading Animation, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graphic-loading.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Customized Loading Animation\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graphic-loading\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    graphic: {\n      elements: [\n        {\n          type: 'group',\n          left: 'center',\n          top: 'center',\n          children: new Array(7).fill(0).map((val, i) => ({\n            type: 'rect',\n            x: i * 20,\n            shape: {\n              x: 0,\n              y: -40,\n              width: 10,\n              height: 80\n            },\n            style: {\n              fill: '#5470c6'\n            },\n            keyframeAnimation: {\n              duration: 1000,\n              delay: i * 200,\n              loop: true,\n              keyframes: [\n                {\n                  percent: 0.5,\n                  scaleY: 0.3,\n                  easing: 'cubicIn'\n                },\n                {\n                  percent: 1,\n                  scaleY: 1,\n                  easing: 'cubicOut'\n                }\n              ]\n            }\n          }))\n        }\n      ]\n    }\n  };\n  return option\n}\n\nexport function EchartsGraphicLoading() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graphic"
+  ],
+  "type": "registry:block"
+}

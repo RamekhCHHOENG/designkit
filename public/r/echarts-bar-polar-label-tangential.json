@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-polar-label-tangential",
+  "title": "Tangential Polar Bar Label Position",
+  "description": "Tangential Polar Bar Label Position, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-polar-label-tangential.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Tangential Polar Bar Label Position\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-polar-label-tangential\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: [\n      {\n        text: 'Tangential Polar Bar Label Position (middle)'\n      }\n    ],\n    polar: {\n      radius: [30, '80%']\n    },\n    angleAxis: {\n      max: 4,\n      startAngle: 75\n    },\n    radiusAxis: {\n      type: 'category',\n      data: ['a', 'b', 'c', 'd']\n    },\n    tooltip: {},\n    series: {\n      type: 'bar',\n      data: [2, 1.2, 2.4, 3.6],\n      coordinateSystem: 'polar',\n      label: {\n        show: true,\n        position: 'middle', // or 'start', 'insideStart', 'end', 'insideEnd'\n        formatter: '{b}: {c}'\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsBarPolarLabelTangential() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

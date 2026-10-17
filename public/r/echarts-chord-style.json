@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-chord-style",
+  "title": "Chord Style",
+  "description": "Chord Style, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-chord-style.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Chord Style\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=chord-style\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {},\n    legend: {},\n    series: [\n      {\n        type: 'chord',\n        padAngle: 1,\n        center: ['50%', '48%'],\n        radius: ['70%', '80%'],\n        data: [\n          { name: 'A' },\n          { name: 'B' },\n          { name: 'C' },\n          { name: 'D' },\n          { name: 'E' },\n          { name: 'F' },\n          { name: 'G' }\n        ],\n        itemStyle: {\n          borderRadius: [0, 15],\n          borderWidth: 2,\n          borderColor: '#fff'\n        },\n        lineStyle: {\n          opacity: 0.3,\n          color: 'gradient' // or 'source' (default), 'target'\n        },\n        emphasis: {\n          focus: 'self' // or 'none', 'adjacency' (default)\n        },\n        label: {\n          show: true,\n          position: 'inside',\n          color: '#fff',\n          fontWeight: 'bold'\n        },\n        links: [\n          { source: 'A', target: 'B', value: 14 },\n          { source: 'A', target: 'C', value: 8 },\n          { source: 'B', target: 'C', value: 20 },\n          { source: 'B', target: 'E', value: 15 },\n          { source: 'C', target: 'B', value: 8 },\n          { source: 'C', target: 'E', value: 3 },\n          { source: 'D', target: 'A', value: 12 },\n          { source: 'D', target: 'B', value: 3 },\n          { source: 'E', target: 'A', value: 15 },\n          { source: 'E', target: 'C', value: 5 },\n          { source: 'F', target: 'C', value: 5 },\n          { source: 'G', target: 'A', value: 6 },\n          { source: 'G', target: 'B', value: 8 },\n          { source: 'G', target: 'D', value: 4 }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsChordStyle() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "chord"
+  ],
+  "type": "registry:block"
+}

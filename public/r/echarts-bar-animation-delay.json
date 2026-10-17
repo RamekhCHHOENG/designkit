@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-animation-delay",
+  "title": "Animation Delay",
+  "description": "Animation Delay, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-animation-delay.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Animation Delay\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-animation-delay\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  var xAxisData = [];\n  var data1 = [];\n  var data2 = [];\n  for (var i = 0; i < 100; i++) {\n    xAxisData.push('A' + i);\n    data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);\n    data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);\n  }\n\n  option = {\n    title: {\n      text: 'Bar Animation Delay'\n    },\n    legend: {\n      data: ['bar', 'bar2']\n    },\n    toolbox: {\n      // y: 'bottom',\n      feature: {\n        magicType: {\n          type: ['stack']\n        },\n        dataView: {},\n        saveAsImage: {\n          pixelRatio: 2\n        }\n      }\n    },\n    tooltip: {},\n    xAxis: {\n      data: xAxisData,\n      splitLine: {\n        show: false\n      }\n    },\n    yAxis: {},\n    series: [\n      {\n        name: 'bar',\n        type: 'bar',\n        data: data1,\n        emphasis: {\n          focus: 'series'\n        },\n        animationDelay: function (idx) {\n          return idx * 10;\n        }\n      },\n      {\n        name: 'bar2',\n        type: 'bar',\n        data: data2,\n        emphasis: {\n          focus: 'series'\n        },\n        animationDelay: function (idx) {\n          return idx * 10 + 100;\n        }\n      }\n    ],\n    animationEasing: 'elasticOut',\n    animationDelayUpdate: function (idx) {\n      return idx * 5;\n    }\n  };\n  return option\n}\n\nexport function EchartsBarAnimationDelay() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

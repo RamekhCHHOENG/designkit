@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-y-category-stack",
+  "title": "Stacked Horizontal Bar",
+  "description": "Stacked Horizontal Bar, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-y-category-stack.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stacked Horizontal Bar\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-y-category-stack\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        // Use axis to trigger tooltip\n        type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'\n      }\n    },\n    legend: {},\n    xAxis: {\n      type: 'value'\n    },\n    yAxis: {\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    series: [\n      {\n        name: 'Direct',\n        type: 'bar',\n        stack: 'total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [320, 302, 301, 334, 390, 330, 320]\n      },\n      {\n        name: 'Mail Ad',\n        type: 'bar',\n        stack: 'total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [120, 132, 101, 134, 90, 230, 210]\n      },\n      {\n        name: 'Affiliate Ad',\n        type: 'bar',\n        stack: 'total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [220, 182, 191, 234, 290, 330, 310]\n      },\n      {\n        name: 'Video Ad',\n        type: 'bar',\n        stack: 'total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [150, 212, 201, 154, 190, 330, 410]\n      },\n      {\n        name: 'Search Engine',\n        type: 'bar',\n        stack: 'total',\n        label: {\n          show: true\n        },\n        emphasis: {\n          focus: 'series'\n        },\n        data: [820, 832, 901, 934, 1290, 1330, 1320]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarYCategoryStack() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

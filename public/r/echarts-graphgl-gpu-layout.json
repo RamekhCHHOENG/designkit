@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graphgl-gpu-layout",
+  "title": "GraphGL - GPU Layout",
+  "description": "GraphGL - GPU Layout, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graphgl-gpu-layout.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\n// Adapted from the Apache ECharts example \"GraphGL - GPU Layout\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graphgl-gpu-layout\nconst setup: EChartSetup = () => {\n  let option: any\n  function createNodes(widthCount: any, heightCount: any) {\n    var nodes: any[] = [];\n    for (var i = 0; i < widthCount; i++) {\n      for (var j = 0; j < heightCount; j++) {\n        nodes.push({\n          x: Math.random() * window.innerWidth,\n          y: Math.random() * window.innerHeight,\n          value: 1\n        });\n      }\n    }\n    return nodes;\n  }\n\n  function createEdges(widthCount: any, heightCount: any) {\n    var edges: any[] = [];\n    for (var i = 0; i < widthCount; i++) {\n      for (var j = 0; j < heightCount; j++) {\n        if (i < widthCount - 1) {\n          edges.push({\n            source: i + j * widthCount,\n            target: i + 1 + j * widthCount,\n            value: 1\n          });\n        }\n        if (j < heightCount - 1) {\n          edges.push({\n            source: i + j * widthCount,\n            target: i + (j + 1) * widthCount,\n            value: 1\n          });\n        }\n      }\n    }\n    return edges;\n  }\n\n  var nodes = createNodes(50, 50);\n  var edges = createEdges(50, 50);\n\n  option = {\n    series: [\n      {\n        type: 'graphGL',\n        nodes: nodes,\n        edges: edges,\n        itemStyle: {\n          color: 'rgba(255,255,255,0.8)'\n        },\n        lineStyle: {\n          color: 'rgba(255,255,255,0.8)',\n          width: 3\n        },\n        forceAtlas2: {\n          steps: 5,\n          jitterTolerence: 10,\n          edgeWeightInfluence: 4\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsGraphglGpuLayout() {\n  return <EChart setup={setup} theme=\"dark\" />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graphGL"
+  ],
+  "type": "registry:block"
+}

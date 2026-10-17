@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-data-color",
+  "title": "Set Style of Single Bar.",
+  "description": "Set Style of Single Bar., adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-data-color.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Set Style of Single Bar.\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-data-color\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        data: [\n          120,\n          {\n            value: 200,\n            itemStyle: {\n              color: '#505372'\n            }\n          },\n          150,\n          80,\n          70,\n          110,\n          130\n        ],\n        type: 'bar'\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarDataColor() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

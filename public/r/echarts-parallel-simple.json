@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-parallel-simple",
+  "title": "Basic Parallel",
+  "description": "Basic Parallel, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-parallel-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Parallel\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=parallel-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    parallelAxis: [\n      { dim: 0, name: 'Price' },\n      { dim: 1, name: 'Net Weight' },\n      { dim: 2, name: 'Amount' },\n      {\n        dim: 3,\n        name: 'Score',\n        type: 'category',\n        data: ['Excellent', 'Good', 'OK', 'Bad']\n      }\n    ],\n    series: {\n      type: 'parallel',\n      lineStyle: {\n        width: 4\n      },\n      data: [\n        [12.99, 100, 82, 'Good'],\n        [9.99, 80, 77, 'OK'],\n        [20, 120, 60, 'Excellent']\n      ]\n    }\n  };\n  return option\n}\n\nexport function EchartsParallelSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "parallel"
+  ],
+  "type": "registry:block"
+}

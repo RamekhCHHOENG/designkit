@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter3d-orthographic",
+  "title": "Scatter3D - Orthographic",
+  "description": "Scatter3D - Orthographic, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter3d-orthographic.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\ndeclare const SimplexNoise: any\nconst CDN_PATH = \"https://cdn.jsdelivr.net/npm/\"\n\n// Adapted from the Apache ECharts example \"Scatter3D - Orthographic\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter3d-orthographic\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.getScript(CDN_PATH + 'simplex-noise@2.4.0/simplex-noise.js').done(\n    function () {\n      var noise = new SimplexNoise(Math.random);\n      function generateData(theta: any, min: any, max: any) {\n        var data: any[] = [];\n        for (var i = 0; i <= 40; i++) {\n          for (var j = 0; j <= 40; j++) {\n            for (var k = 0; k <= 40; k++) {\n              var value = noise.noise3D(i / 20, j / 20, k / 20);\n              valMax = Math.max(valMax, value);\n              valMin = Math.min(valMin, value);\n              data.push([i, j, k, value * 2 + 4]);\n            }\n          }\n        }\n        return data;\n      }\n      var valMin = Infinity;\n      var valMax = -Infinity;\n      var data = generateData(2, -5, 5);\n      console.log(valMin, valMax);\n\n      myChart.setOption(\n        (option = {\n          visualMap: {\n            show: false,\n            min: 2,\n            max: 6,\n            inRange: {\n              symbolSize: [0.5, 15],\n              color: [\n                '#313695',\n                '#4575b4',\n                '#74add1',\n                '#abd9e9',\n                '#e0f3f8',\n                '#ffffbf',\n                '#fee090',\n                '#fdae61',\n                '#f46d43',\n                '#d73027',\n                '#a50026'\n              ],\n              colorAlpha: [0.2, 1]\n            }\n          },\n          xAxis3D: {\n            type: 'value'\n          },\n          yAxis3D: {\n            type: 'value'\n          },\n          zAxis3D: {\n            type: 'value'\n          },\n          grid3D: {\n            axisLine: {\n              lineStyle: { color: '#fff' }\n            },\n            axisPointer: {\n              lineStyle: { color: '#fff' }\n            },\n            viewControl: {\n              projection: 'orthographic'\n            }\n          },\n          series: [\n            {\n              type: 'scatter3D',\n              data: data\n            }\n          ]\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsScatter3dOrthographic() {\n  return <EChart setup={setup} theme=\"dark\" />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter3D"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-borderRadius",
+  "title": "Doughnut Chart with Rounded Corner",
+  "description": "Doughnut Chart with Rounded Corner, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-borderRadius.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Doughnut Chart with Rounded Corner\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-borderRadius\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      trigger: 'item'\n    },\n    legend: {\n      top: '5%',\n      left: 'center'\n    },\n    series: [\n      {\n        name: 'Access From',\n        type: 'pie',\n        radius: ['40%', '70%'],\n        avoidLabelOverlap: false,\n        itemStyle: {\n          borderRadius: 10,\n          borderColor: '#fff',\n          borderWidth: 2\n        },\n        label: {\n          show: false,\n          position: 'center'\n        },\n        emphasis: {\n          label: {\n            show: true,\n            fontSize: 40,\n            fontWeight: 'bold'\n          }\n        },\n        labelLine: {\n          show: false\n        },\n        data: [\n          { value: 1048, name: 'Search Engine' },\n          { value: 735, name: 'Direct' },\n          { value: 580, name: 'Email' },\n          { value: 484, name: 'Union Ads' },\n          { value: 300, name: 'Video Ads' }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieBorderRadius() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie"
+  ],
+  "type": "registry:block"
+}

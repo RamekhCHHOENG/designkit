@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "title": "Copy Button",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/copy-button.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CheckIcon, CopyIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface CopyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  value: string\n  timeout?: number\n  onCopySuccess?: () => void\n  onCopyError?: (err: unknown) => void\n}\n\nexport const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonProps>(\n  (\n    {\n      value,\n      timeout = 2000,\n      onCopySuccess,\n      onCopyError,\n      className,\n      children,\n      disabled,\n      ...props\n    },\n    ref\n  ) => {\n    const [copied, setCopied] = React.useState(false)\n\n    const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {\n      e.stopPropagation()\n      if (disabled || !value) return\n\n      try {\n        await navigator.clipboard.writeText(value)\n        setCopied(true)\n        onCopySuccess?.()\n\n        setTimeout(() => {\n          setCopied(false)\n        }, timeout)\n      } catch (err) {\n        onCopyError?.(err)\n      }\n    }\n\n    return (\n      <button\n        ref={ref}\n        type=\"button\"\n        disabled={disabled}\n        onClick={handleCopy}\n        aria-label={copied ? \"Copied\" : \"Copy to clipboard\"}\n        data-slot=\"copy-button\"\n        data-copied={copied ? \"true\" : undefined}\n        className={cn(\n          \"inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-input bg-background text-muted-foreground transition-all hover:bg-muted hover:text-foreground\",\n          \"focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 outline-none\",\n          \"disabled:pointer-events-none disabled:opacity-50\",\n          copied && \"border-emerald-500/50 text-emerald-600 dark:text-emerald-400\",\n          className\n        )}\n        {...props}\n      >\n        {copied ? (\n          <CheckIcon className=\"size-3.5 transition-transform scale-100\" />\n        ) : (\n          (children ?? <CopyIcon className=\"size-3.5 transition-transform\" />)\n        )}\n      </button>\n    )\n  }\n)\n\nCopyButton.displayName = \"CopyButton\"\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

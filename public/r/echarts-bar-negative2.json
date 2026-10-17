@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-negative2",
+  "title": "Bar Chart with Negative Value",
+  "description": "Bar Chart with Negative Value, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-negative2.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Bar Chart with Negative Value\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-negative2\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const labelRight = {\n    position: 'right'\n  } as const;\n\n  option = {\n    title: {\n      text: 'Bar Chart with Negative Value'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    grid: {\n      top: 80,\n      bottom: 30\n    },\n    xAxis: {\n      type: 'value',\n      position: 'top',\n      splitLine: {\n        lineStyle: {\n          type: 'dashed'\n        }\n      }\n    },\n    yAxis: {\n      type: 'category',\n      axisLine: { show: false },\n      axisLabel: { show: false },\n      axisTick: { show: false },\n      splitLine: { show: false },\n      data: [\n        'ten',\n        'nine',\n        'eight',\n        'seven',\n        'six',\n        'five',\n        'four',\n        'three',\n        'two',\n        'one'\n      ]\n    },\n    series: [\n      {\n        name: 'Cost',\n        type: 'bar',\n        stack: 'Total',\n        label: {\n          show: true,\n          formatter: '{b}'\n        },\n        data: [\n          { value: -0.07, label: labelRight },\n          { value: -0.09, label: labelRight },\n          0.2,\n          0.44,\n          { value: -0.23, label: labelRight },\n          0.08,\n          { value: -0.17, label: labelRight },\n          0.47,\n          { value: -0.36, label: labelRight },\n          0.18\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarNegative2() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

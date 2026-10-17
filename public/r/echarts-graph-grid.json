@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graph-grid",
+  "title": "Graph on Cartesian",
+  "description": "Graph on Cartesian, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graph-grid.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Graph on Cartesian\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graph-grid\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const axisData = ['Mon', 'Tue', 'Wed', 'Very Loooong Thu', 'Fri', 'Sat', 'Sun'];\n  const data = axisData.map(function (item, i) {\n    return Math.round(Math.random() * 1000 * (i + 1));\n  });\n  const links = data.map(function (item, i) {\n    return {\n      source: i,\n      target: i + 1\n    };\n  });\n  links.pop();\n  option = {\n    title: {\n      text: 'Graph on Cartesian'\n    },\n    tooltip: {},\n    xAxis: {\n      type: 'category',\n      boundaryGap: false,\n      data: axisData\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        type: 'graph',\n        layout: 'none',\n        coordinateSystem: 'cartesian2d',\n        symbolSize: 40,\n        label: {\n          show: true\n        },\n        edgeSymbol: ['circle', 'arrow'],\n        edgeSymbolSize: [4, 10],\n        data: data,\n        links: links,\n        lineStyle: {\n          color: '#2f4554'\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsGraphGrid() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graph"
+  ],
+  "type": "registry:block"
+}

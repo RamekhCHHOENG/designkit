@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-21",
+  "title": "Calendar 21",
+  "description": "Custom days and formatters.",
+  "dependencies": [
+    "react-day-picker@^10.0.1"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/calendar.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-21/page.tsx",
+      "content": "import * as React from \"react\"\nimport { DateRange } from \"react-day-picker\"\n\nimport { Calendar, CalendarDayButton } from \"@/components/ui/calendar\"\n\nfunction Calendar21() {\n  const [range, setRange] = React.useState<DateRange | undefined>({\n    from: new Date(2025, 5, 12),\n    to: new Date(2025, 5, 17),\n  })\n\n  return (\n    <Calendar\n      mode=\"range\"\n      defaultMonth={range?.from}\n      selected={range}\n      onSelect={setRange}\n      numberOfMonths={1}\n      captionLayout=\"dropdown\"\n      className=\"rounded-lg border shadow-sm [--cell-size:2.75rem] md:[--cell-size:3rem]\"\n      formatters={{\n        formatMonthDropdown: (date) => {\n          return date.toLocaleString(\"default\", { month: \"long\" })\n        },\n      }}\n      components={{\n        DayButton: ({ children, modifiers, day, ...props }) => {\n          const isWeekend = day.date.getDay() === 0 || day.date.getDay() === 6\n\n          return (\n            <CalendarDayButton day={day} modifiers={modifiers} {...props}>\n              {children}\n              {!modifiers.outside && <span>{isWeekend ? \"$220\" : \"$100\"}</span>}\n            </CalendarDayButton>\n          )\n        },\n      }}\n    />\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar21 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-21/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

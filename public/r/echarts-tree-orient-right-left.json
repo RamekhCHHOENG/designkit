@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-tree-orient-right-left",
+  "title": "From Right to Left Tree",
+  "description": "From Right to Left Tree, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-tree-orient-right-left.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"From Right to Left Tree\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=tree-orient-right-left\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n  $.get(ROOT_PATH + '/data/asset/data/flare.json', function (data) {\n    myChart.hideLoading();\n\n    data.children.forEach(function (\n      datum: { collapsed: boolean },\n      index: number\n    ) {\n      index % 2 === 0 && (datum.collapsed = true);\n    });\n\n    myChart.setOption(\n      (option = {\n        tooltip: {\n          trigger: 'item',\n          triggerOn: 'mousemove'\n        },\n\n        series: [\n          {\n            type: 'tree',\n\n            data: [data],\n\n            top: '1%',\n            left: '15%',\n            bottom: '1%',\n            right: '7%',\n\n            symbolSize: 7,\n\n            orient: 'RL',\n\n            label: {\n              position: 'right',\n              verticalAlign: 'middle',\n              align: 'left'\n            },\n\n            leaves: {\n              label: {\n                position: 'left',\n                verticalAlign: 'middle',\n                align: 'right'\n              }\n            },\n\n            emphasis: {\n              focus: 'descendant'\n            },\n\n            expandAndCollapse: true,\n            animationDuration: 550,\n            animationDurationUpdate: 750\n          }\n        ]\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsTreeOrientRightLeft() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "tree"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graphgl-npm-dep",
+  "title": "NPM Dependencies with graphGL",
+  "description": "NPM Dependencies with graphGL, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graphgl-npm-dep.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"NPM Dependencies with graphGL\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graphgl-npm-dep\nconst setup: EChartSetup = ({ myChart }) => {\n  $.getJSON(ROOT_PATH + '/data-gl/asset/data/npmdep.json', function (data: any) {\n    var nodes = data.nodes.map(function (nodeName: any, idx: any) {\n      return {\n        name: nodeName,\n        value: data.dependentsCount[idx]\n      };\n    });\n    var edges: any[] = [];\n    for (var i = 0; i < data.edges.length; ) {\n      var s = data.edges[i++];\n      var t = data.edges[i++];\n      edges.push({\n        source: s,\n        target: t\n      });\n    }\n\n    nodes.forEach(function (node: any) {\n      // if (node.value > 100) {\n      node.emphasis = {\n        label: {\n          show: true\n        }\n      };\n      // }\n      if (node.value > 5000) {\n        node.label = {\n          show: true\n        };\n      }\n    });\n\n    myChart.setOption({\n      backgroundColor: '#000',\n      series: [\n        {\n          color: [\n            'rgb(203,239,15)',\n            'rgb(73,15,239)',\n            'rgb(15,217,239)',\n            'rgb(30,15,239)',\n            'rgb(15,174,239)',\n            'rgb(116,239,15)',\n            'rgb(239,15,58)',\n            'rgb(15,239,174)',\n            'rgb(239,102,15)',\n            'rgb(239,15,15)',\n            'rgb(15,44,239)',\n            'rgb(239,145,15)',\n            'rgb(30,239,15)',\n            'rgb(239,188,15)',\n            'rgb(159,239,15)',\n            'rgb(159,15,239)',\n            'rgb(15,239,44)',\n            'rgb(15,239,87)',\n            'rgb(15,239,217)',\n            'rgb(203,15,239)',\n            'rgb(239,15,188)',\n            'rgb(239,15,102)',\n            'rgb(239,58,15)',\n            'rgb(239,15,145)',\n            'rgb(116,15,239)',\n            'rgb(15,131,239)',\n            'rgb(73,239,15)',\n            'rgb(15,239,131)',\n            'rgb(15,87,239)',\n            'rgb(239,15,231)'\n          ],\n          type: 'graphGL',\n          nodes: nodes,\n          edges: edges,\n          modularity: {\n            resolution: 2,\n            sort: true\n          },\n          lineStyle: {\n            color: 'rgba(255,255,255,1)',\n            opacity: 0.05\n          },\n          itemStyle: {\n            opacity: 1\n            // borderColor: '#fff',\n            // borderWidth: 1\n          },\n          focusNodeAdjacency: false,\n          focusNodeAdjacencyOn: 'click',\n          symbolSize: function (value: any) {\n            return Math.sqrt(value / 10);\n          },\n          label: {\n            color: '#fff'\n          },\n          emphasis: {\n            label: {\n              show: false\n            },\n            lineStyle: {\n              opacity: 0.5,\n              width: 4\n            }\n          },\n          forceAtlas2: {\n            steps: 5,\n            stopThreshold: 20,\n            jitterTolerence: 10,\n            edgeWeight: [0.2, 1],\n            gravity: 5,\n            edgeWeightInfluence: 0\n            // preventOverlap: true\n          }\n        }\n      ]\n    });\n  });\n}\n\nexport function EchartsGraphglNpmDep() {\n  return <EChart setup={setup} theme=\"dark\" />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graphGL"
+  ],
+  "type": "registry:block"
+}

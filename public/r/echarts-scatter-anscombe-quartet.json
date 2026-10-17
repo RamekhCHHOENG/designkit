@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-anscombe-quartet",
+  "title": "Anscomb's quartet",
+  "description": "Anscomb's quartet, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-anscombe-quartet.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Anscomb's quartet\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-anscombe-quartet\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const dataAll = [\n    [\n      [10.0, 8.04],\n      [8.0, 6.95],\n      [13.0, 7.58],\n      [9.0, 8.81],\n      [11.0, 8.33],\n      [14.0, 9.96],\n      [6.0, 7.24],\n      [4.0, 4.26],\n      [12.0, 10.84],\n      [7.0, 4.82],\n      [5.0, 5.68]\n    ],\n    [\n      [10.0, 9.14],\n      [8.0, 8.14],\n      [13.0, 8.74],\n      [9.0, 8.77],\n      [11.0, 9.26],\n      [14.0, 8.1],\n      [6.0, 6.13],\n      [4.0, 3.1],\n      [12.0, 9.13],\n      [7.0, 7.26],\n      [5.0, 4.74]\n    ],\n    [\n      [10.0, 7.46],\n      [8.0, 6.77],\n      [13.0, 12.74],\n      [9.0, 7.11],\n      [11.0, 7.81],\n      [14.0, 8.84],\n      [6.0, 6.08],\n      [4.0, 5.39],\n      [12.0, 8.15],\n      [7.0, 6.42],\n      [5.0, 5.73]\n    ],\n    [\n      [8.0, 6.58],\n      [8.0, 5.76],\n      [8.0, 7.71],\n      [8.0, 8.84],\n      [8.0, 8.47],\n      [8.0, 7.04],\n      [8.0, 5.25],\n      [19.0, 12.5],\n      [8.0, 5.56],\n      [8.0, 7.91],\n      [8.0, 6.89]\n    ]\n  ];\n\n  const markLineOpt: echarts.MarkLineComponentOption = {\n    animation: false,\n    label: {\n      formatter: 'y = 0.5 * x + 3',\n      align: 'right'\n    },\n    lineStyle: {\n      type: 'solid'\n    },\n    tooltip: {\n      formatter: 'y = 0.5 * x + 3'\n    },\n    data: [\n      [\n        {\n          coord: [0, 3],\n          symbol: 'none'\n        },\n        {\n          coord: [20, 13],\n          symbol: 'none'\n        }\n      ]\n    ]\n  };\n\n  option = {\n    title: {\n      text: \"Anscombe's quartet\",\n      left: 'center',\n      top: 0\n    },\n    grid: [\n      { left: '7%', top: '7%', width: '38%', height: '38%' },\n      { right: '7%', top: '7%', width: '38%', height: '38%' },\n      { left: '7%', bottom: '7%', width: '38%', height: '38%' },\n      { right: '7%', bottom: '7%', width: '38%', height: '38%' }\n    ],\n    tooltip: {\n      formatter: 'Group {a}: ({c})'\n    },\n    xAxis: [\n      { gridIndex: 0, min: 0, max: 20 },\n      { gridIndex: 1, min: 0, max: 20 },\n      { gridIndex: 2, min: 0, max: 20 },\n      { gridIndex: 3, min: 0, max: 20 }\n    ],\n    yAxis: [\n      { gridIndex: 0, min: 0, max: 15 },\n      { gridIndex: 1, min: 0, max: 15 },\n      { gridIndex: 2, min: 0, max: 15 },\n      { gridIndex: 3, min: 0, max: 15 }\n    ],\n    series: [\n      {\n        name: 'I',\n        type: 'scatter',\n        xAxisIndex: 0,\n        yAxisIndex: 0,\n        data: dataAll[0],\n        markLine: markLineOpt\n      },\n      {\n        name: 'II',\n        type: 'scatter',\n        xAxisIndex: 1,\n        yAxisIndex: 1,\n        data: dataAll[1],\n        markLine: markLineOpt\n      },\n      {\n        name: 'III',\n        type: 'scatter',\n        xAxisIndex: 2,\n        yAxisIndex: 2,\n        data: dataAll[2],\n        markLine: markLineOpt\n      },\n      {\n        name: 'IV',\n        type: 'scatter',\n        xAxisIndex: 3,\n        yAxisIndex: 3,\n        data: dataAll[3],\n        markLine: markLineOpt\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsScatterAnscombeQuartet() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

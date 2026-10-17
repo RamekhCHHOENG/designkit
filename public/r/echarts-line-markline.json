@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-markline",
+  "title": "Line with Marklines",
+  "description": "Line with Marklines, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-markline.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Line with Marklines\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-markline\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const markLine: echarts.MarkLineComponentOption['data'] = [];\n  const positions = [\n    'start',\n    'middle',\n    'end',\n    'insideStart',\n    'insideStartTop',\n    'insideStartBottom',\n    'insideMiddle',\n    'insideMiddleTop',\n    'insideMiddleBottom',\n    'insideEnd',\n    'insideEndTop',\n    'insideEndBottom'\n  ] as const;\n  for (var i = 0; i < positions.length; ++i) {\n    markLine.push({\n      name: positions[i],\n      yAxis: 1.8 - 0.2 * Math.floor(i / 3),\n      label: {\n        formatter: '{b}',\n        position: positions[i]\n      }\n    });\n\n    if (positions[i] !== 'middle') {\n      const name =\n        positions[i] === 'insideMiddle' ? 'insideMiddle / middle' : positions[i];\n\n      markLine.push([\n        {\n          name: 'start: ' + positions[i],\n          coord: [0, 0.3],\n          label: {\n            formatter: name,\n            position: positions[i]\n          }\n        },\n        {\n          name: 'end: ' + positions[i],\n          coord: [3, 1]\n        }\n      ]);\n    }\n  }\n\n  option = {\n    animation: false,\n    textStyle: {\n      fontSize: 14\n    },\n    xAxis: {\n      data: ['A', 'B', 'C', 'D', 'E'],\n      boundaryGap: true,\n      splitArea: {\n        show: true\n      }\n    },\n    yAxis: {\n      max: 2\n    },\n    series: [\n      {\n        name: 'line',\n        type: 'line',\n        stack: 'all',\n        symbolSize: 6,\n        data: [0.3, 1.4, 1.2, 1, 0.6],\n        markLine: {\n          data: markLine,\n          label: {\n            distance: [20, 8]\n          }\n        }\n      }\n    ],\n    grid: {\n      top: 30,\n      left: 60,\n      right: 60,\n      bottom: 40\n    }\n  };\n  return option\n}\n\nexport function EchartsLineMarkline() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

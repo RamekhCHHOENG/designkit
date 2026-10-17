@@ -1,0 +1,6141 @@
+[
+  {
+    "name": "accordion",
+    "type": "registry:ui",
+    "title": "Accordion",
+    "url": "https://designkit-smoky.vercel.app/r/accordion.json"
+  },
+  {
+    "name": "alert-dialog",
+    "type": "registry:ui",
+    "title": "Alert Dialog",
+    "url": "https://designkit-smoky.vercel.app/r/alert-dialog.json"
+  },
+  {
+    "name": "alert",
+    "type": "registry:ui",
+    "title": "Alert",
+    "url": "https://designkit-smoky.vercel.app/r/alert.json"
+  },
+  {
+    "name": "aspect-ratio",
+    "type": "registry:ui",
+    "title": "Aspect Ratio",
+    "url": "https://designkit-smoky.vercel.app/r/aspect-ratio.json"
+  },
+  {
+    "name": "attachment",
+    "type": "registry:ui",
+    "title": "Attachment",
+    "url": "https://designkit-smoky.vercel.app/r/attachment.json"
+  },
+  {
+    "name": "avatar",
+    "type": "registry:ui",
+    "title": "Avatar",
+    "url": "https://designkit-smoky.vercel.app/r/avatar.json"
+  },
+  {
+    "name": "badge",
+    "type": "registry:ui",
+    "title": "Badge",
+    "url": "https://designkit-smoky.vercel.app/r/badge.json"
+  },
+  {
+    "name": "breadcrumb",
+    "type": "registry:ui",
+    "title": "Breadcrumb",
+    "url": "https://designkit-smoky.vercel.app/r/breadcrumb.json"
+  },
+  {
+    "name": "bubble",
+    "type": "registry:ui",
+    "title": "Bubble",
+    "url": "https://designkit-smoky.vercel.app/r/bubble.json"
+  },
+  {
+    "name": "button-group",
+    "type": "registry:ui",
+    "title": "Button Group",
+    "url": "https://designkit-smoky.vercel.app/r/button-group.json"
+  },
+  {
+    "name": "button",
+    "type": "registry:ui",
+    "title": "Button",
+    "url": "https://designkit-smoky.vercel.app/r/button.json"
+  },
+  {
+    "name": "calendar",
+    "type": "registry:ui",
+    "title": "Calendar",
+    "url": "https://designkit-smoky.vercel.app/r/calendar.json"
+  },
+  {
+    "name": "card",
+    "type": "registry:ui",
+    "title": "Card",
+    "url": "https://designkit-smoky.vercel.app/r/card.json"
+  },
+  {
+    "name": "carousel",
+    "type": "registry:ui",
+    "title": "Carousel",
+    "url": "https://designkit-smoky.vercel.app/r/carousel.json"
+  },
+  {
+    "name": "chart",
+    "type": "registry:ui",
+    "title": "Chart",
+    "url": "https://designkit-smoky.vercel.app/r/chart.json"
+  },
+  {
+    "name": "checkbox",
+    "type": "registry:ui",
+    "title": "Checkbox",
+    "url": "https://designkit-smoky.vercel.app/r/checkbox.json"
+  },
+  {
+    "name": "code-block",
+    "type": "registry:ui",
+    "title": "Code Block",
+    "url": "https://designkit-smoky.vercel.app/r/code-block.json"
+  },
+  {
+    "name": "collapsible",
+    "type": "registry:ui",
+    "title": "Collapsible",
+    "url": "https://designkit-smoky.vercel.app/r/collapsible.json"
+  },
+  {
+    "name": "color-picker",
+    "type": "registry:ui",
+    "title": "Color Picker",
+    "url": "https://designkit-smoky.vercel.app/r/color-picker.json"
+  },
+  {
+    "name": "combobox",
+    "type": "registry:ui",
+    "title": "Combobox",
+    "url": "https://designkit-smoky.vercel.app/r/combobox.json"
+  },
+  {
+    "name": "command",
+    "type": "registry:ui",
+    "title": "Command",
+    "url": "https://designkit-smoky.vercel.app/r/command.json"
+  },
+  {
+    "name": "context-menu",
+    "type": "registry:ui",
+    "title": "Context Menu",
+    "url": "https://designkit-smoky.vercel.app/r/context-menu.json"
+  },
+  {
+    "name": "copy-button",
+    "type": "registry:ui",
+    "title": "Copy Button",
+    "url": "https://designkit-smoky.vercel.app/r/copy-button.json"
+  },
+  {
+    "name": "descriptions",
+    "type": "registry:ui",
+    "title": "Descriptions",
+    "url": "https://designkit-smoky.vercel.app/r/descriptions.json"
+  },
+  {
+    "name": "dialog",
+    "type": "registry:ui",
+    "title": "Dialog",
+    "url": "https://designkit-smoky.vercel.app/r/dialog.json"
+  },
+  {
+    "name": "direction",
+    "type": "registry:ui",
+    "title": "Direction",
+    "url": "https://designkit-smoky.vercel.app/r/direction.json"
+  },
+  {
+    "name": "drawer",
+    "type": "registry:ui",
+    "title": "Drawer",
+    "url": "https://designkit-smoky.vercel.app/r/drawer.json"
+  },
+  {
+    "name": "dropdown-menu",
+    "type": "registry:ui",
+    "title": "Dropdown Menu",
+    "url": "https://designkit-smoky.vercel.app/r/dropdown-menu.json"
+  },
+  {
+    "name": "echart",
+    "type": "registry:ui",
+    "title": "Echart",
+    "url": "https://designkit-smoky.vercel.app/r/echart.json"
+  },
+  {
+    "name": "empty",
+    "type": "registry:ui",
+    "title": "Empty",
+    "url": "https://designkit-smoky.vercel.app/r/empty.json"
+  },
+  {
+    "name": "field",
+    "type": "registry:ui",
+    "title": "Field",
+    "url": "https://designkit-smoky.vercel.app/r/field.json"
+  },
+  {
+    "name": "file-dropzone",
+    "type": "registry:ui",
+    "title": "File Dropzone",
+    "url": "https://designkit-smoky.vercel.app/r/file-dropzone.json"
+  },
+  {
+    "name": "float-button",
+    "type": "registry:ui",
+    "title": "Float Button",
+    "url": "https://designkit-smoky.vercel.app/r/float-button.json"
+  },
+  {
+    "name": "form",
+    "type": "registry:ui",
+    "title": "Form",
+    "url": "https://designkit-smoky.vercel.app/r/form.json"
+  },
+  {
+    "name": "hover-card",
+    "type": "registry:ui",
+    "title": "Hover Card",
+    "url": "https://designkit-smoky.vercel.app/r/hover-card.json"
+  },
+  {
+    "name": "image-cropper",
+    "type": "registry:ui",
+    "title": "Image Cropper",
+    "url": "https://designkit-smoky.vercel.app/r/image-cropper.json"
+  },
+  {
+    "name": "input-group",
+    "type": "registry:ui",
+    "title": "Input Group",
+    "url": "https://designkit-smoky.vercel.app/r/input-group.json"
+  },
+  {
+    "name": "input-otp",
+    "type": "registry:ui",
+    "title": "Input OTP",
+    "url": "https://designkit-smoky.vercel.app/r/input-otp.json"
+  },
+  {
+    "name": "input",
+    "type": "registry:ui",
+    "title": "Input",
+    "url": "https://designkit-smoky.vercel.app/r/input.json"
+  },
+  {
+    "name": "item",
+    "type": "registry:ui",
+    "title": "Item",
+    "url": "https://designkit-smoky.vercel.app/r/item.json"
+  },
+  {
+    "name": "kbd",
+    "type": "registry:ui",
+    "title": "Kbd",
+    "url": "https://designkit-smoky.vercel.app/r/kbd.json"
+  },
+  {
+    "name": "label",
+    "type": "registry:ui",
+    "title": "Label",
+    "url": "https://designkit-smoky.vercel.app/r/label.json"
+  },
+  {
+    "name": "marker",
+    "type": "registry:ui",
+    "title": "Marker",
+    "url": "https://designkit-smoky.vercel.app/r/marker.json"
+  },
+  {
+    "name": "menubar",
+    "type": "registry:ui",
+    "title": "Menubar",
+    "url": "https://designkit-smoky.vercel.app/r/menubar.json"
+  },
+  {
+    "name": "message-scroller",
+    "type": "registry:ui",
+    "title": "Message Scroller",
+    "url": "https://designkit-smoky.vercel.app/r/message-scroller.json"
+  },
+  {
+    "name": "message",
+    "type": "registry:ui",
+    "title": "Message",
+    "url": "https://designkit-smoky.vercel.app/r/message.json"
+  },
+  {
+    "name": "multiselect",
+    "type": "registry:ui",
+    "title": "Multiselect",
+    "url": "https://designkit-smoky.vercel.app/r/multiselect.json"
+  },
+  {
+    "name": "native-select",
+    "type": "registry:ui",
+    "title": "Native Select",
+    "url": "https://designkit-smoky.vercel.app/r/native-select.json"
+  },
+  {
+    "name": "navigation-menu",
+    "type": "registry:ui",
+    "title": "Navigation Menu",
+    "url": "https://designkit-smoky.vercel.app/r/navigation-menu.json"
+  },
+  {
+    "name": "number-input",
+    "type": "registry:ui",
+    "title": "Number Input",
+    "url": "https://designkit-smoky.vercel.app/r/number-input.json"
+  },
+  {
+    "name": "pagination",
+    "type": "registry:ui",
+    "title": "Pagination",
+    "url": "https://designkit-smoky.vercel.app/r/pagination.json"
+  },
+  {
+    "name": "password-input",
+    "type": "registry:ui",
+    "title": "Password Input",
+    "url": "https://designkit-smoky.vercel.app/r/password-input.json"
+  },
+  {
+    "name": "payment-input",
+    "type": "registry:ui",
+    "title": "Payment Input",
+    "url": "https://designkit-smoky.vercel.app/r/payment-input.json"
+  },
+  {
+    "name": "phone-input",
+    "type": "registry:ui",
+    "title": "Phone Input",
+    "url": "https://designkit-smoky.vercel.app/r/phone-input.json"
+  },
+  {
+    "name": "popover",
+    "type": "registry:ui",
+    "title": "Popover",
+    "url": "https://designkit-smoky.vercel.app/r/popover.json"
+  },
+  {
+    "name": "progress",
+    "type": "registry:ui",
+    "title": "Progress",
+    "url": "https://designkit-smoky.vercel.app/r/progress.json"
+  },
+  {
+    "name": "qr-code",
+    "type": "registry:ui",
+    "title": "Qr Code",
+    "url": "https://designkit-smoky.vercel.app/r/qr-code.json"
+  },
+  {
+    "name": "questionnaire",
+    "type": "registry:ui",
+    "title": "Questionnaire",
+    "url": "https://designkit-smoky.vercel.app/r/questionnaire.json"
+  },
+  {
+    "name": "radio-group",
+    "type": "registry:ui",
+    "title": "Radio Group",
+    "url": "https://designkit-smoky.vercel.app/r/radio-group.json"
+  },
+  {
+    "name": "rating",
+    "type": "registry:ui",
+    "title": "Rating",
+    "url": "https://designkit-smoky.vercel.app/r/rating.json"
+  },
+  {
+    "name": "resizable",
+    "type": "registry:ui",
+    "title": "Resizable",
+    "url": "https://designkit-smoky.vercel.app/r/resizable.json"
+  },
+  {
+    "name": "result",
+    "type": "registry:ui",
+    "title": "Result",
+    "url": "https://designkit-smoky.vercel.app/r/result.json"
+  },
+  {
+    "name": "ring-progress",
+    "type": "registry:ui",
+    "title": "Ring Progress",
+    "url": "https://designkit-smoky.vercel.app/r/ring-progress.json"
+  },
+  {
+    "name": "scroll-area",
+    "type": "registry:ui",
+    "title": "Scroll Area",
+    "url": "https://designkit-smoky.vercel.app/r/scroll-area.json"
+  },
+  {
+    "name": "segmented-control",
+    "type": "registry:ui",
+    "title": "Segmented Control",
+    "url": "https://designkit-smoky.vercel.app/r/segmented-control.json"
+  },
+  {
+    "name": "select",
+    "type": "registry:ui",
+    "title": "Select",
+    "url": "https://designkit-smoky.vercel.app/r/select.json"
+  },
+  {
+    "name": "separator",
+    "type": "registry:ui",
+    "title": "Separator",
+    "url": "https://designkit-smoky.vercel.app/r/separator.json"
+  },
+  {
+    "name": "sheet",
+    "type": "registry:ui",
+    "title": "Sheet",
+    "url": "https://designkit-smoky.vercel.app/r/sheet.json"
+  },
+  {
+    "name": "sidebar",
+    "type": "registry:ui",
+    "title": "Sidebar",
+    "url": "https://designkit-smoky.vercel.app/r/sidebar.json"
+  },
+  {
+    "name": "skeleton",
+    "type": "registry:ui",
+    "title": "Skeleton",
+    "url": "https://designkit-smoky.vercel.app/r/skeleton.json"
+  },
+  {
+    "name": "slider",
+    "type": "registry:ui",
+    "title": "Slider",
+    "url": "https://designkit-smoky.vercel.app/r/slider.json"
+  },
+  {
+    "name": "sonner",
+    "type": "registry:ui",
+    "title": "Sonner",
+    "url": "https://designkit-smoky.vercel.app/r/sonner.json"
+  },
+  {
+    "name": "spinner",
+    "type": "registry:ui",
+    "title": "Spinner",
+    "url": "https://designkit-smoky.vercel.app/r/spinner.json"
+  },
+  {
+    "name": "spoiler",
+    "type": "registry:ui",
+    "title": "Spoiler",
+    "url": "https://designkit-smoky.vercel.app/r/spoiler.json"
+  },
+  {
+    "name": "statistic",
+    "type": "registry:ui",
+    "title": "Statistic",
+    "url": "https://designkit-smoky.vercel.app/r/statistic.json"
+  },
+  {
+    "name": "stepper",
+    "type": "registry:ui",
+    "title": "Stepper",
+    "url": "https://designkit-smoky.vercel.app/r/stepper.json"
+  },
+  {
+    "name": "switch",
+    "type": "registry:ui",
+    "title": "Switch",
+    "url": "https://designkit-smoky.vercel.app/r/switch.json"
+  },
+  {
+    "name": "table",
+    "type": "registry:ui",
+    "title": "Table",
+    "url": "https://designkit-smoky.vercel.app/r/table.json"
+  },
+  {
+    "name": "tabs",
+    "type": "registry:ui",
+    "title": "Tabs",
+    "url": "https://designkit-smoky.vercel.app/r/tabs.json"
+  },
+  {
+    "name": "tag",
+    "type": "registry:ui",
+    "title": "Tag",
+    "url": "https://designkit-smoky.vercel.app/r/tag.json"
+  },
+  {
+    "name": "tags-input",
+    "type": "registry:ui",
+    "title": "Tags Input",
+    "url": "https://designkit-smoky.vercel.app/r/tags-input.json"
+  },
+  {
+    "name": "textarea",
+    "type": "registry:ui",
+    "title": "Textarea",
+    "url": "https://designkit-smoky.vercel.app/r/textarea.json"
+  },
+  {
+    "name": "timeline",
+    "type": "registry:ui",
+    "title": "Timeline",
+    "url": "https://designkit-smoky.vercel.app/r/timeline.json"
+  },
+  {
+    "name": "toast",
+    "type": "registry:ui",
+    "title": "Toast",
+    "url": "https://designkit-smoky.vercel.app/r/toast.json"
+  },
+  {
+    "name": "toggle-group",
+    "type": "registry:ui",
+    "title": "Toggle Group",
+    "url": "https://designkit-smoky.vercel.app/r/toggle-group.json"
+  },
+  {
+    "name": "toggle",
+    "type": "registry:ui",
+    "title": "Toggle",
+    "url": "https://designkit-smoky.vercel.app/r/toggle.json"
+  },
+  {
+    "name": "tooltip",
+    "type": "registry:ui",
+    "title": "Tooltip",
+    "url": "https://designkit-smoky.vercel.app/r/tooltip.json"
+  },
+  {
+    "name": "tour",
+    "type": "registry:ui",
+    "title": "Tour",
+    "url": "https://designkit-smoky.vercel.app/r/tour.json"
+  },
+  {
+    "name": "tree",
+    "type": "registry:ui",
+    "title": "Tree",
+    "url": "https://designkit-smoky.vercel.app/r/tree.json"
+  },
+  {
+    "name": "watermark",
+    "type": "registry:ui",
+    "title": "Watermark",
+    "url": "https://designkit-smoky.vercel.app/r/watermark.json"
+  },
+  {
+    "name": "use-mobile",
+    "type": "registry:hook",
+    "title": "Use Mobile",
+    "url": "https://designkit-smoky.vercel.app/r/use-mobile.json"
+  },
+  {
+    "name": "dashboard-01",
+    "type": "registry:block",
+    "title": "Dashboard 01",
+    "description": "A dashboard with sidebar, charts and data table.",
+    "categories": [
+      "dashboard"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/dashboard-01.json"
+  },
+  {
+    "name": "sidebar-07",
+    "type": "registry:block",
+    "title": "Sidebar 07",
+    "description": "A sidebar that collapses to icons.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-07.json"
+  },
+  {
+    "name": "sidebar-03",
+    "type": "registry:block",
+    "title": "Sidebar 03",
+    "description": "A sidebar with submenus.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-03.json"
+  },
+  {
+    "name": "login-03",
+    "type": "registry:block",
+    "title": "Login 03",
+    "description": "A login page with a muted background color.",
+    "categories": [
+      "login"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/login-03.json"
+  },
+  {
+    "name": "login-04",
+    "type": "registry:block",
+    "title": "Login 04",
+    "description": "A login page with form and image.",
+    "categories": [
+      "login"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/login-04.json"
+  },
+  {
+    "name": "sidebar-01",
+    "type": "registry:block",
+    "title": "Sidebar 01",
+    "description": "A simple sidebar with navigation grouped by section.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-01.json"
+  },
+  {
+    "name": "sidebar-02",
+    "type": "registry:block",
+    "title": "Sidebar 02",
+    "description": "A sidebar with collapsible sections.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-02.json"
+  },
+  {
+    "name": "sidebar-04",
+    "type": "registry:block",
+    "title": "Sidebar 04",
+    "description": "A floating sidebar with submenus.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-04.json"
+  },
+  {
+    "name": "sidebar-05",
+    "type": "registry:block",
+    "title": "Sidebar 05",
+    "description": "A sidebar with collapsible submenus.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-05.json"
+  },
+  {
+    "name": "sidebar-06",
+    "type": "registry:block",
+    "title": "Sidebar 06",
+    "description": "A sidebar with submenus as dropdowns.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-06.json"
+  },
+  {
+    "name": "sidebar-08",
+    "type": "registry:block",
+    "title": "Sidebar 08",
+    "description": "An inset sidebar with secondary navigation.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-08.json"
+  },
+  {
+    "name": "sidebar-09",
+    "type": "registry:block",
+    "title": "Sidebar 09",
+    "description": "Collapsible nested sidebars.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-09.json"
+  },
+  {
+    "name": "sidebar-10",
+    "type": "registry:block",
+    "title": "Sidebar 10",
+    "description": "A sidebar in a popover.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-10.json"
+  },
+  {
+    "name": "sidebar-11",
+    "type": "registry:block",
+    "title": "Sidebar 11",
+    "description": "A sidebar with a collapsible file tree.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-11.json"
+  },
+  {
+    "name": "sidebar-12",
+    "type": "registry:block",
+    "title": "Sidebar 12",
+    "description": "A sidebar with a calendar.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-12.json"
+  },
+  {
+    "name": "sidebar-13",
+    "type": "registry:block",
+    "title": "Sidebar 13",
+    "description": "A sidebar in a dialog.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-13.json"
+  },
+  {
+    "name": "sidebar-14",
+    "type": "registry:block",
+    "title": "Sidebar 14",
+    "description": "A sidebar on the right.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-14.json"
+  },
+  {
+    "name": "sidebar-15",
+    "type": "registry:block",
+    "title": "Sidebar 15",
+    "description": "A left and right sidebar.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-15.json"
+  },
+  {
+    "name": "sidebar-16",
+    "type": "registry:block",
+    "title": "Sidebar 16",
+    "description": "A sidebar with a sticky site header.",
+    "categories": [
+      "sidebar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/sidebar-16.json"
+  },
+  {
+    "name": "login-01",
+    "type": "registry:block",
+    "title": "Login 01",
+    "description": "A simple login form.",
+    "categories": [
+      "login"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/login-01.json"
+  },
+  {
+    "name": "login-02",
+    "type": "registry:block",
+    "title": "Login 02",
+    "description": "A two column login page with a cover image.",
+    "categories": [
+      "login"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/login-02.json"
+  },
+  {
+    "name": "login-05",
+    "type": "registry:block",
+    "title": "Login 05",
+    "description": "A simple email-only login page.",
+    "categories": [
+      "login"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/login-05.json"
+  },
+  {
+    "name": "signup-01",
+    "type": "registry:block",
+    "title": "Signup 01",
+    "description": "A simple signup form.",
+    "categories": [
+      "signup"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/signup-01.json"
+  },
+  {
+    "name": "signup-02",
+    "type": "registry:block",
+    "title": "Signup 02",
+    "description": "A two column signup page with a cover image.",
+    "categories": [
+      "signup"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/signup-02.json"
+  },
+  {
+    "name": "signup-03",
+    "type": "registry:block",
+    "title": "Signup 03",
+    "description": "A signup page with a muted background color.",
+    "categories": [
+      "signup"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/signup-03.json"
+  },
+  {
+    "name": "signup-04",
+    "type": "registry:block",
+    "title": "Signup 04",
+    "description": "A signup page with form and image.",
+    "categories": [
+      "signup"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/signup-04.json"
+  },
+  {
+    "name": "signup-05",
+    "type": "registry:block",
+    "title": "Signup 05",
+    "description": "A simple signup form with social providers.",
+    "categories": [
+      "signup"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/signup-05.json"
+  },
+  {
+    "name": "otp-01",
+    "type": "registry:block",
+    "title": "OTP 01",
+    "description": "A simple OTP verification form.",
+    "categories": [
+      "otp"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/otp-01.json"
+  },
+  {
+    "name": "otp-02",
+    "type": "registry:block",
+    "title": "OTP 02",
+    "description": "An OTP form with large, spaced slots.",
+    "categories": [
+      "otp"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/otp-02.json"
+  },
+  {
+    "name": "otp-03",
+    "type": "registry:block",
+    "title": "OTP 03",
+    "description": "An OTP page with a muted background color.",
+    "categories": [
+      "otp"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/otp-03.json"
+  },
+  {
+    "name": "otp-04",
+    "type": "registry:block",
+    "title": "OTP 04",
+    "description": "An OTP page with form and image.",
+    "categories": [
+      "otp"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/otp-04.json"
+  },
+  {
+    "name": "otp-05",
+    "type": "registry:block",
+    "title": "OTP 05",
+    "description": "A minimal OTP form with separated slots.",
+    "categories": [
+      "otp"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/otp-05.json"
+  },
+  {
+    "name": "calendar-01",
+    "type": "registry:block",
+    "title": "Calendar 01",
+    "description": "A simple calendar.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-01.json"
+  },
+  {
+    "name": "calendar-02",
+    "type": "registry:block",
+    "title": "Calendar 02",
+    "description": "Multiple months with single selection.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-02.json"
+  },
+  {
+    "name": "calendar-03",
+    "type": "registry:block",
+    "title": "Calendar 03",
+    "description": "Multiple months with multiple selection.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-03.json"
+  },
+  {
+    "name": "calendar-04",
+    "type": "registry:block",
+    "title": "Calendar 04",
+    "description": "Single month with range selection.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-04.json"
+  },
+  {
+    "name": "calendar-05",
+    "type": "registry:block",
+    "title": "Calendar 05",
+    "description": "Multiple months with range selection.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-05.json"
+  },
+  {
+    "name": "calendar-06",
+    "type": "registry:block",
+    "title": "Calendar 06",
+    "description": "Range selection with minimum days.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-06.json"
+  },
+  {
+    "name": "calendar-07",
+    "type": "registry:block",
+    "title": "Calendar 07",
+    "description": "Range selection with a maximum number of days.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-07.json"
+  },
+  {
+    "name": "calendar-08",
+    "type": "registry:block",
+    "title": "Calendar 08",
+    "description": "Calendar with disabled days.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-08.json"
+  },
+  {
+    "name": "calendar-09",
+    "type": "registry:block",
+    "title": "Calendar 09",
+    "description": "Calendar with disabled weekends.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-09.json"
+  },
+  {
+    "name": "calendar-10",
+    "type": "registry:block",
+    "title": "Calendar 10",
+    "description": "Today button.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-10.json"
+  },
+  {
+    "name": "calendar-11",
+    "type": "registry:block",
+    "title": "Calendar 11",
+    "description": "Start and end of month.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-11.json"
+  },
+  {
+    "name": "calendar-12",
+    "type": "registry:block",
+    "title": "Calendar 12",
+    "description": "Localized calendar.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-12.json"
+  },
+  {
+    "name": "calendar-13",
+    "type": "registry:block",
+    "title": "Calendar 13",
+    "description": "With month and year dropdown.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-13.json"
+  },
+  {
+    "name": "calendar-14",
+    "type": "registry:block",
+    "title": "Calendar 14",
+    "description": "With booked / unavailable days.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-14.json"
+  },
+  {
+    "name": "calendar-15",
+    "type": "registry:block",
+    "title": "Calendar 15",
+    "description": "With week numbers.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-15.json"
+  },
+  {
+    "name": "calendar-16",
+    "type": "registry:block",
+    "title": "Calendar 16",
+    "description": "With time picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-16.json"
+  },
+  {
+    "name": "calendar-17",
+    "type": "registry:block",
+    "title": "Calendar 17",
+    "description": "With inline time picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-17.json"
+  },
+  {
+    "name": "calendar-18",
+    "type": "registry:block",
+    "title": "Calendar 18",
+    "description": "Variable size.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-18.json"
+  },
+  {
+    "name": "calendar-19",
+    "type": "registry:block",
+    "title": "Calendar 19",
+    "description": "With presets.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-19.json"
+  },
+  {
+    "name": "calendar-20",
+    "type": "registry:block",
+    "title": "Calendar 20",
+    "description": "With time presets.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-20.json"
+  },
+  {
+    "name": "calendar-21",
+    "type": "registry:block",
+    "title": "Calendar 21",
+    "description": "Custom days and formatters.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-21.json"
+  },
+  {
+    "name": "calendar-22",
+    "type": "registry:block",
+    "title": "Calendar 22",
+    "description": "Date picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-22.json"
+  },
+  {
+    "name": "calendar-23",
+    "type": "registry:block",
+    "title": "Calendar 23",
+    "description": "Date range picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-23.json"
+  },
+  {
+    "name": "calendar-24",
+    "type": "registry:block",
+    "title": "Calendar 24",
+    "description": "Date and time picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-24.json"
+  },
+  {
+    "name": "calendar-25",
+    "type": "registry:block",
+    "title": "Calendar 25",
+    "description": "Date and time range picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-25.json"
+  },
+  {
+    "name": "calendar-26",
+    "type": "registry:block",
+    "title": "Calendar 26",
+    "description": "Date range picker with time.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-26.json"
+  },
+  {
+    "name": "calendar-27",
+    "type": "registry:block",
+    "title": "Calendar 27",
+    "description": "Chart filter.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-27.json"
+  },
+  {
+    "name": "calendar-28",
+    "type": "registry:block",
+    "title": "Calendar 28",
+    "description": "Input with date picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-28.json"
+  },
+  {
+    "name": "calendar-29",
+    "type": "registry:block",
+    "title": "Calendar 29",
+    "description": "Natural language date picker.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-29.json"
+  },
+  {
+    "name": "calendar-30",
+    "type": "registry:block",
+    "title": "Calendar 30",
+    "description": "Compact range formatting.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-30.json"
+  },
+  {
+    "name": "calendar-31",
+    "type": "registry:block",
+    "title": "Calendar 31",
+    "description": "With event slots.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-31.json"
+  },
+  {
+    "name": "calendar-32",
+    "type": "registry:block",
+    "title": "Calendar 32",
+    "description": "Date picker in a drawer.",
+    "categories": [
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/calendar-32.json"
+  },
+  {
+    "name": "products-01",
+    "type": "registry:block",
+    "title": "Products 01",
+    "description": "A table of products with tabs, filters and pagination.",
+    "categories": [
+      "products"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/products-01.json"
+  },
+  {
+    "name": "chart-area-axes",
+    "type": "registry:block",
+    "title": "Area Axes",
+    "description": "An area chart with axes",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-axes.json"
+  },
+  {
+    "name": "chart-area-default",
+    "type": "registry:block",
+    "title": "Area Default",
+    "description": "A simple area chart",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-default.json"
+  },
+  {
+    "name": "chart-area-gradient",
+    "type": "registry:block",
+    "title": "Area Gradient",
+    "description": "An area chart with gradient fill",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-gradient.json"
+  },
+  {
+    "name": "chart-area-icons",
+    "type": "registry:block",
+    "title": "Area Icons",
+    "description": "An area chart with icons",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-icons.json"
+  },
+  {
+    "name": "chart-area-interactive",
+    "type": "registry:block",
+    "title": "Area Interactive",
+    "description": "An interactive area chart",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-interactive.json"
+  },
+  {
+    "name": "chart-area-legend",
+    "type": "registry:block",
+    "title": "Area Legend",
+    "description": "An area chart with a legend",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-legend.json"
+  },
+  {
+    "name": "chart-area-linear",
+    "type": "registry:block",
+    "title": "Area Linear",
+    "description": "A linear area chart",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-linear.json"
+  },
+  {
+    "name": "chart-area-stacked",
+    "type": "registry:block",
+    "title": "Area Stacked",
+    "description": "A stacked area chart",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-stacked.json"
+  },
+  {
+    "name": "chart-area-stacked-expand",
+    "type": "registry:block",
+    "title": "Area Stacked Expand",
+    "description": "A stacked area chart with expand stacking",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-stacked-expand.json"
+  },
+  {
+    "name": "chart-area-step",
+    "type": "registry:block",
+    "title": "Area Step",
+    "description": "A step area chart",
+    "categories": [
+      "charts",
+      "area"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-area-step.json"
+  },
+  {
+    "name": "chart-bar-active",
+    "type": "registry:block",
+    "title": "Bar Active",
+    "description": "A bar chart with an active bar",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-active.json"
+  },
+  {
+    "name": "chart-bar-default",
+    "type": "registry:block",
+    "title": "Bar Default",
+    "description": "A bar chart",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-default.json"
+  },
+  {
+    "name": "chart-bar-horizontal",
+    "type": "registry:block",
+    "title": "Bar Horizontal",
+    "description": "A horizontal bar chart",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-horizontal.json"
+  },
+  {
+    "name": "chart-bar-interactive",
+    "type": "registry:block",
+    "title": "Bar Interactive",
+    "description": "An interactive bar chart",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-interactive.json"
+  },
+  {
+    "name": "chart-bar-label",
+    "type": "registry:block",
+    "title": "Bar Label",
+    "description": "A bar chart with a label",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-label.json"
+  },
+  {
+    "name": "chart-bar-label-custom",
+    "type": "registry:block",
+    "title": "Bar Label Custom",
+    "description": "A bar chart with a custom label",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-label-custom.json"
+  },
+  {
+    "name": "chart-bar-mixed",
+    "type": "registry:block",
+    "title": "Bar Mixed",
+    "description": "A mixed bar chart",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-mixed.json"
+  },
+  {
+    "name": "chart-bar-multiple",
+    "type": "registry:block",
+    "title": "Bar Multiple",
+    "description": "A multiple bar chart",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-multiple.json"
+  },
+  {
+    "name": "chart-bar-negative",
+    "type": "registry:block",
+    "title": "Bar Negative",
+    "description": "A bar chart with negative values",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-negative.json"
+  },
+  {
+    "name": "chart-bar-stacked",
+    "type": "registry:block",
+    "title": "Bar Stacked",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-bar-stacked.json"
+  },
+  {
+    "name": "chart-line-default",
+    "type": "registry:block",
+    "title": "Line Default",
+    "description": "A line chart",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-default.json"
+  },
+  {
+    "name": "chart-line-dots",
+    "type": "registry:block",
+    "title": "Line Dots",
+    "description": "A line chart with dots",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-dots.json"
+  },
+  {
+    "name": "chart-line-dots-colors",
+    "type": "registry:block",
+    "title": "Line Dots Colors",
+    "description": "A line chart with dots and colors",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-dots-colors.json"
+  },
+  {
+    "name": "chart-line-dots-custom",
+    "type": "registry:block",
+    "title": "Line Dots Custom",
+    "description": "A line chart with custom dots",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-dots-custom.json"
+  },
+  {
+    "name": "chart-line-interactive",
+    "type": "registry:block",
+    "title": "Line Interactive",
+    "description": "An interactive line chart",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-interactive.json"
+  },
+  {
+    "name": "chart-line-label",
+    "type": "registry:block",
+    "title": "Line Label",
+    "description": "A line chart with a label",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-label.json"
+  },
+  {
+    "name": "chart-line-label-custom",
+    "type": "registry:block",
+    "title": "Line Label Custom",
+    "description": "A line chart with a custom label",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-label-custom.json"
+  },
+  {
+    "name": "chart-line-linear",
+    "type": "registry:block",
+    "title": "Line Linear",
+    "description": "A linear line chart",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-linear.json"
+  },
+  {
+    "name": "chart-line-multiple",
+    "type": "registry:block",
+    "title": "Line Multiple",
+    "description": "A multiple line chart",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-multiple.json"
+  },
+  {
+    "name": "chart-line-step",
+    "type": "registry:block",
+    "title": "Line Step",
+    "description": "A line chart with step",
+    "categories": [
+      "charts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-line-step.json"
+  },
+  {
+    "name": "chart-pie-donut",
+    "type": "registry:block",
+    "title": "Pie Donut",
+    "description": "A donut chart",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-donut.json"
+  },
+  {
+    "name": "chart-pie-donut-active",
+    "type": "registry:block",
+    "title": "Pie Donut Active",
+    "description": "A donut chart with an active sector",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-donut-active.json"
+  },
+  {
+    "name": "chart-pie-donut-text",
+    "type": "registry:block",
+    "title": "Pie Donut Text",
+    "description": "A donut chart with text",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-donut-text.json"
+  },
+  {
+    "name": "chart-pie-interactive",
+    "type": "registry:block",
+    "title": "Pie Interactive",
+    "description": "An interactive pie chart",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-interactive.json"
+  },
+  {
+    "name": "chart-pie-label",
+    "type": "registry:block",
+    "title": "Pie Label",
+    "description": "A pie chart with a label",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-label.json"
+  },
+  {
+    "name": "chart-pie-label-custom",
+    "type": "registry:block",
+    "title": "Pie Label Custom",
+    "description": "A pie chart with a custom label",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-label-custom.json"
+  },
+  {
+    "name": "chart-pie-label-list",
+    "type": "registry:block",
+    "title": "Pie Label List",
+    "description": "A pie chart with a label list",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-label-list.json"
+  },
+  {
+    "name": "chart-pie-legend",
+    "type": "registry:block",
+    "title": "Pie Legend",
+    "description": "A pie chart with a legend",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-legend.json"
+  },
+  {
+    "name": "chart-pie-separator-none",
+    "type": "registry:block",
+    "title": "Pie Separator None",
+    "description": "A pie chart with no separator",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-separator-none.json"
+  },
+  {
+    "name": "chart-pie-simple",
+    "type": "registry:block",
+    "title": "Pie Simple",
+    "description": "A simple pie chart",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-simple.json"
+  },
+  {
+    "name": "chart-pie-stacked",
+    "type": "registry:block",
+    "title": "Pie Stacked",
+    "description": "A pie chart with stacked sections",
+    "categories": [
+      "charts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-pie-stacked.json"
+  },
+  {
+    "name": "chart-radar-default",
+    "type": "registry:block",
+    "title": "Radar Default",
+    "description": "A radar chart",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-default.json"
+  },
+  {
+    "name": "chart-radar-dots",
+    "type": "registry:block",
+    "title": "Radar Dots",
+    "description": "A radar chart with dots",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-dots.json"
+  },
+  {
+    "name": "chart-radar-grid-circle",
+    "type": "registry:block",
+    "title": "Radar Grid Circle",
+    "description": "A radar chart with a grid and circle",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-circle.json"
+  },
+  {
+    "name": "chart-radar-grid-circle-fill",
+    "type": "registry:block",
+    "title": "Radar Grid Circle Fill",
+    "description": "A radar chart with a grid and circle fill",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-circle-fill.json"
+  },
+  {
+    "name": "chart-radar-grid-circle-no-lines",
+    "type": "registry:block",
+    "title": "Radar Grid Circle No Lines",
+    "description": "A radar chart with a grid and circle fill",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-circle-no-lines.json"
+  },
+  {
+    "name": "chart-radar-grid-custom",
+    "type": "registry:block",
+    "title": "Radar Grid Custom",
+    "description": "A radar chart with a custom grid",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-custom.json"
+  },
+  {
+    "name": "chart-radar-grid-fill",
+    "type": "registry:block",
+    "title": "Radar Grid Fill",
+    "description": "A radar chart with a grid filled",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-fill.json"
+  },
+  {
+    "name": "chart-radar-grid-none",
+    "type": "registry:block",
+    "title": "Radar Grid None",
+    "description": "A radar chart with no grid",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-grid-none.json"
+  },
+  {
+    "name": "chart-radar-icons",
+    "type": "registry:block",
+    "title": "Radar Icons",
+    "description": "A radar chart with icons",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-icons.json"
+  },
+  {
+    "name": "chart-radar-label-custom",
+    "type": "registry:block",
+    "title": "Radar Label Custom",
+    "description": "A radar chart with a custom label",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-label-custom.json"
+  },
+  {
+    "name": "chart-radar-legend",
+    "type": "registry:block",
+    "title": "Radar Legend",
+    "description": "A radar chart with a legend",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-legend.json"
+  },
+  {
+    "name": "chart-radar-lines-only",
+    "type": "registry:block",
+    "title": "Radar Lines Only",
+    "description": "A radar chart with lines only",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-lines-only.json"
+  },
+  {
+    "name": "chart-radar-multiple",
+    "type": "registry:block",
+    "title": "Radar Multiple",
+    "description": "A radar chart with multiple data",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-multiple.json"
+  },
+  {
+    "name": "chart-radar-radius",
+    "type": "registry:block",
+    "title": "Radar Radius",
+    "description": "A radar chart with a radius axis",
+    "categories": [
+      "charts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radar-radius.json"
+  },
+  {
+    "name": "chart-radial-grid",
+    "type": "registry:block",
+    "title": "Radial Grid",
+    "description": "A radial chart with a grid",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-grid.json"
+  },
+  {
+    "name": "chart-radial-label",
+    "type": "registry:block",
+    "title": "Radial Label",
+    "description": "A radial chart with a label",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-label.json"
+  },
+  {
+    "name": "chart-radial-shape",
+    "type": "registry:block",
+    "title": "Radial Shape",
+    "description": "A radial chart with a custom shape",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-shape.json"
+  },
+  {
+    "name": "chart-radial-simple",
+    "type": "registry:block",
+    "title": "Radial Simple",
+    "description": "A radial chart",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-simple.json"
+  },
+  {
+    "name": "chart-radial-stacked",
+    "type": "registry:block",
+    "title": "Radial Stacked",
+    "description": "A radial chart with stacked sections",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-stacked.json"
+  },
+  {
+    "name": "chart-radial-text",
+    "type": "registry:block",
+    "title": "Radial Text",
+    "description": "A radial chart with text",
+    "categories": [
+      "charts",
+      "radial"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-radial-text.json"
+  },
+  {
+    "name": "chart-tooltip-advanced",
+    "type": "registry:block",
+    "title": "Tooltip Advanced",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-advanced.json"
+  },
+  {
+    "name": "chart-tooltip-default",
+    "type": "registry:block",
+    "title": "Tooltip Default",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-default.json"
+  },
+  {
+    "name": "chart-tooltip-formatter",
+    "type": "registry:block",
+    "title": "Tooltip Formatter",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-formatter.json"
+  },
+  {
+    "name": "chart-tooltip-icons",
+    "type": "registry:block",
+    "title": "Tooltip Icons",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-icons.json"
+  },
+  {
+    "name": "chart-tooltip-indicator-line",
+    "type": "registry:block",
+    "title": "Tooltip Indicator Line",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-indicator-line.json"
+  },
+  {
+    "name": "chart-tooltip-indicator-none",
+    "type": "registry:block",
+    "title": "Tooltip Indicator None",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-indicator-none.json"
+  },
+  {
+    "name": "chart-tooltip-label-custom",
+    "type": "registry:block",
+    "title": "Tooltip Label Custom",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-label-custom.json"
+  },
+  {
+    "name": "chart-tooltip-label-formatter",
+    "type": "registry:block",
+    "title": "Tooltip Label Formatter",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-label-formatter.json"
+  },
+  {
+    "name": "chart-tooltip-label-none",
+    "type": "registry:block",
+    "title": "Tooltip Label None",
+    "description": "A stacked bar chart with a legend",
+    "categories": [
+      "charts",
+      "tooltip"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/chart-tooltip-label-none.json"
+  },
+  {
+    "name": "echarts-line-simple",
+    "type": "registry:block",
+    "title": "Basic Line Chart",
+    "description": "Basic Line Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-simple.json"
+  },
+  {
+    "name": "echarts-line-smooth",
+    "type": "registry:block",
+    "title": "Smoothed Line Chart",
+    "description": "Smoothed Line Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-smooth.json"
+  },
+  {
+    "name": "echarts-area-basic",
+    "type": "registry:block",
+    "title": "Basic area chart",
+    "description": "Basic area chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-basic.json"
+  },
+  {
+    "name": "echarts-line-stack",
+    "type": "registry:block",
+    "title": "Stacked Line Chart",
+    "description": "Stacked Line Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-stack.json"
+  },
+  {
+    "name": "echarts-bump-chart",
+    "type": "registry:block",
+    "title": "Bump Chart (Ranking)",
+    "description": "Bump Chart (Ranking), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bump-chart.json"
+  },
+  {
+    "name": "echarts-area-stack-gradient",
+    "type": "registry:block",
+    "title": "Gradient Stacked Area Chart",
+    "description": "Gradient Stacked Area Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-stack-gradient.json"
+  },
+  {
+    "name": "echarts-area-stack",
+    "type": "registry:block",
+    "title": "Stacked Area Chart",
+    "description": "Stacked Area Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-stack.json"
+  },
+  {
+    "name": "echarts-line-marker",
+    "type": "registry:block",
+    "title": "Temperature Change in the Coming Week",
+    "description": "Temperature Change in the Coming Week, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-marker.json"
+  },
+  {
+    "name": "echarts-area-pieces",
+    "type": "registry:block",
+    "title": "Area Pieces",
+    "description": "Area Pieces, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line",
+      "visualMap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-pieces.json"
+  },
+  {
+    "name": "echarts-data-transform-filter",
+    "type": "registry:block",
+    "title": "Data Transform Filter",
+    "description": "Data Transform Filter, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-data-transform-filter.json"
+  },
+  {
+    "name": "echarts-line-sections",
+    "type": "registry:block",
+    "title": "Distribution of Electricity",
+    "description": "Distribution of Electricity, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-sections.json"
+  },
+  {
+    "name": "echarts-line-gradient",
+    "type": "registry:block",
+    "title": "Line Gradient",
+    "description": "Line Gradient, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-gradient.json"
+  },
+  {
+    "name": "echarts-line-aqi",
+    "type": "registry:block",
+    "title": "Beijing AQI",
+    "description": "Beijing AQI, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-aqi.json"
+  },
+  {
+    "name": "echarts-confidence-band",
+    "type": "registry:block",
+    "title": "Confidence Band",
+    "description": "Confidence Band, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-confidence-band.json"
+  },
+  {
+    "name": "echarts-area-simple",
+    "type": "registry:block",
+    "title": "Large scale area chart",
+    "description": "Large scale area chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line",
+      "dataZoom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-simple.json"
+  },
+  {
+    "name": "echarts-multiple-x-axis",
+    "type": "registry:block",
+    "title": "Multiple X Axes",
+    "description": "Multiple X Axes, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-multiple-x-axis.json"
+  },
+  {
+    "name": "echarts-grid-multiple",
+    "type": "registry:block",
+    "title": "Rainfall vs Evaporation",
+    "description": "Rainfall vs Evaporation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-grid-multiple.json"
+  },
+  {
+    "name": "echarts-area-time-axis",
+    "type": "registry:block",
+    "title": "Area Chart with Time Axis",
+    "description": "Area Chart with Time Axis, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-time-axis.json"
+  },
+  {
+    "name": "echarts-dynamic-data2",
+    "type": "registry:block",
+    "title": "Dynamic Data + Time Axis",
+    "description": "Dynamic Data + Time Axis, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dynamic-data2.json"
+  },
+  {
+    "name": "echarts-line-function",
+    "type": "registry:block",
+    "title": "Function Plot",
+    "description": "Function Plot, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-function.json"
+  },
+  {
+    "name": "echarts-line-race",
+    "type": "registry:block",
+    "title": "Line Race",
+    "description": "Line Race, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-race.json"
+  },
+  {
+    "name": "echarts-area-rainfall",
+    "type": "registry:block",
+    "title": "Rainfall",
+    "description": "Rainfall, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-area-rainfall.json"
+  },
+  {
+    "name": "echarts-line-style",
+    "type": "registry:block",
+    "title": "Line Style and Item Style",
+    "description": "Line Style and Item Style, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-style.json"
+  },
+  {
+    "name": "echarts-line-markline",
+    "type": "registry:block",
+    "title": "Line with Marklines",
+    "description": "Line with Marklines, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-markline.json"
+  },
+  {
+    "name": "echarts-line-in-cartesian-coordinate-system",
+    "type": "registry:block",
+    "title": "Line Chart in Cartesian Coordinate System",
+    "description": "Line Chart in Cartesian Coordinate System, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-in-cartesian-coordinate-system.json"
+  },
+  {
+    "name": "echarts-line-log",
+    "type": "registry:block",
+    "title": "Log Axis",
+    "description": "Log Axis, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-log.json"
+  },
+  {
+    "name": "echarts-line-step",
+    "type": "registry:block",
+    "title": "Step Line",
+    "description": "Step Line, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-step.json"
+  },
+  {
+    "name": "echarts-line-fisheye-lens",
+    "type": "registry:block",
+    "title": "Fisheye Lens on Line Chart",
+    "description": "Fisheye Lens on Line Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-fisheye-lens.json"
+  },
+  {
+    "name": "echarts-line-easing",
+    "type": "registry:block",
+    "title": "Line Easing Visualizing",
+    "description": "Line Easing Visualizing, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-easing.json"
+  },
+  {
+    "name": "echarts-line-y-category",
+    "type": "registry:block",
+    "title": "Line Y Category",
+    "description": "Line Y Category, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-y-category.json"
+  },
+  {
+    "name": "echarts-line-pen",
+    "type": "registry:block",
+    "title": "Click to Add Points",
+    "description": "Click to Add Points, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-pen.json"
+  },
+  {
+    "name": "echarts-line-graphic",
+    "type": "registry:block",
+    "title": "Custom Graphic Component",
+    "description": "Custom Graphic Component, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line",
+      "graphic"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-graphic.json"
+  },
+  {
+    "name": "echarts-line-tooltip-touch",
+    "type": "registry:block",
+    "title": "Tooltip and DataZoom on Mobile",
+    "description": "Tooltip and DataZoom on Mobile, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line",
+      "dataZoom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-tooltip-touch.json"
+  },
+  {
+    "name": "echarts-line-polar",
+    "type": "registry:block",
+    "title": "Two Value-Axes in Polar",
+    "description": "Two Value-Axes in Polar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-polar.json"
+  },
+  {
+    "name": "echarts-line-polar2",
+    "type": "registry:block",
+    "title": "Two Value-Axes in Polar",
+    "description": "Two Value-Axes in Polar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-polar2.json"
+  },
+  {
+    "name": "echarts-line-draggable",
+    "type": "registry:block",
+    "title": "Draggable Points",
+    "description": "Draggable Points, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line",
+      "graphic"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line-draggable.json"
+  },
+  {
+    "name": "echarts-bar-tick-align",
+    "type": "registry:block",
+    "title": "Axis Align with Tick",
+    "description": "Axis Align with Tick, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-tick-align.json"
+  },
+  {
+    "name": "echarts-bar-simple",
+    "type": "registry:block",
+    "title": "Basic Bar",
+    "description": "Basic Bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-simple.json"
+  },
+  {
+    "name": "echarts-bar-background",
+    "type": "registry:block",
+    "title": "Bar with Background",
+    "description": "Bar with Background, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-background.json"
+  },
+  {
+    "name": "echarts-bar-data-color",
+    "type": "registry:block",
+    "title": "Set Style of Single Bar.",
+    "description": "Set Style of Single Bar., adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-data-color.json"
+  },
+  {
+    "name": "echarts-bar-waterfall",
+    "type": "registry:block",
+    "title": "Waterfall Chart",
+    "description": "Waterfall Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-waterfall.json"
+  },
+  {
+    "name": "echarts-bar-negative2",
+    "type": "registry:block",
+    "title": "Bar Chart with Negative Value",
+    "description": "Bar Chart with Negative Value, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-negative2.json"
+  },
+  {
+    "name": "echarts-polar-endAngle",
+    "type": "registry:block",
+    "title": "Polar endAngle",
+    "description": "Polar endAngle, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-polar-endAngle.json"
+  },
+  {
+    "name": "echarts-bar-polar-label-radial",
+    "type": "registry:block",
+    "title": "Radial Polar Bar Label Position",
+    "description": "Radial Polar Bar Label Position, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-polar-label-radial.json"
+  },
+  {
+    "name": "echarts-bar-polar-label-tangential",
+    "type": "registry:block",
+    "title": "Tangential Polar Bar Label Position",
+    "description": "Tangential Polar Bar Label Position, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-polar-label-tangential.json"
+  },
+  {
+    "name": "echarts-bar-y-category",
+    "type": "registry:block",
+    "title": "World Population",
+    "description": "World Population, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-y-category.json"
+  },
+  {
+    "name": "echarts-bar-breaks-simple",
+    "type": "registry:block",
+    "title": "Bar Chart with Axis Breaks",
+    "description": "Bar Chart with Axis Breaks, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-breaks-simple.json"
+  },
+  {
+    "name": "echarts-bar-label-rotation",
+    "type": "registry:block",
+    "title": "Bar Label Rotation",
+    "description": "Bar Label Rotation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-label-rotation.json"
+  },
+  {
+    "name": "echarts-bar-gradient",
+    "type": "registry:block",
+    "title": "Clickable Column Chart with Gradient",
+    "description": "Clickable Column Chart with Gradient, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-gradient.json"
+  },
+  {
+    "name": "echarts-bar-stack-normalization",
+    "type": "registry:block",
+    "title": "Stacked Bar Normalization",
+    "description": "Stacked Bar Normalization, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-stack-normalization.json"
+  },
+  {
+    "name": "echarts-bar-stack-normalization-and-variation",
+    "type": "registry:block",
+    "title": "Stacked Bar Normalization and Variation",
+    "description": "Stacked Bar Normalization and Variation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-stack-normalization-and-variation.json"
+  },
+  {
+    "name": "echarts-bar-stack-borderRadius",
+    "type": "registry:block",
+    "title": "Stacked Bar with borderRadius",
+    "description": "Stacked Bar with borderRadius, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-stack-borderRadius.json"
+  },
+  {
+    "name": "echarts-bar-stack",
+    "type": "registry:block",
+    "title": "Stacked Column Chart",
+    "description": "Stacked Column Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-stack.json"
+  },
+  {
+    "name": "echarts-bar-y-category-stack",
+    "type": "registry:block",
+    "title": "Stacked Horizontal Bar",
+    "description": "Stacked Horizontal Bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-y-category-stack.json"
+  },
+  {
+    "name": "echarts-bar-waterfall2",
+    "type": "registry:block",
+    "title": "Waterfall Chart",
+    "description": "Waterfall Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-waterfall2.json"
+  },
+  {
+    "name": "echarts-bar-negative",
+    "type": "registry:block",
+    "title": "Bar Chart with Negative Value",
+    "description": "Bar Chart with Negative Value, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-negative.json"
+  },
+  {
+    "name": "echarts-bar-brush",
+    "type": "registry:block",
+    "title": "Brush Select on Column Chart",
+    "description": "Brush Select on Column Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-brush.json"
+  },
+  {
+    "name": "echarts-mix-zoom-on-value",
+    "type": "registry:block",
+    "title": "Mix Zoom On Value",
+    "description": "Mix Zoom On Value, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-mix-zoom-on-value.json"
+  },
+  {
+    "name": "echarts-mix-line-bar",
+    "type": "registry:block",
+    "title": "Mixed Line and Bar",
+    "description": "Mixed Line and Bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-mix-line-bar.json"
+  },
+  {
+    "name": "echarts-multiple-y-axis",
+    "type": "registry:block",
+    "title": "Multiple Y Axes",
+    "description": "Multiple Y Axes, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-multiple-y-axis.json"
+  },
+  {
+    "name": "echarts-bar1",
+    "type": "registry:block",
+    "title": "Rainfall and Evaporation",
+    "description": "Rainfall and Evaporation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar1.json"
+  },
+  {
+    "name": "echarts-bar-animation-delay",
+    "type": "registry:block",
+    "title": "Animation Delay",
+    "description": "Animation Delay, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-animation-delay.json"
+  },
+  {
+    "name": "echarts-bar-drilldown",
+    "type": "registry:block",
+    "title": "Bar Chart Drilldown Animation",
+    "description": "Bar Chart Drilldown Animation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-drilldown.json"
+  },
+  {
+    "name": "echarts-bar-race",
+    "type": "registry:block",
+    "title": "Bar Race",
+    "description": "Bar Race, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-race.json"
+  },
+  {
+    "name": "echarts-bar-large",
+    "type": "registry:block",
+    "title": "Large Scale Bar Chart",
+    "description": "Large Scale Bar Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-large.json"
+  },
+  {
+    "name": "echarts-bar-multi-drilldown",
+    "type": "registry:block",
+    "title": "Bar Chart Multi-level Drilldown Animation",
+    "description": "Bar Chart Multi-level Drilldown Animation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-multi-drilldown.json"
+  },
+  {
+    "name": "echarts-bar-race-country",
+    "type": "registry:block",
+    "title": "Bar Race",
+    "description": "Bar Race, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-race-country.json"
+  },
+  {
+    "name": "echarts-dynamic-data",
+    "type": "registry:block",
+    "title": "Dynamic Data",
+    "description": "Dynamic Data, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dynamic-data.json"
+  },
+  {
+    "name": "echarts-mix-timeline-finance",
+    "type": "registry:block",
+    "title": "Finance Indices 2002",
+    "description": "Finance Indices 2002, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-mix-timeline-finance.json"
+  },
+  {
+    "name": "echarts-watermark",
+    "type": "registry:block",
+    "title": "Watermark - ECharts Download",
+    "description": "Watermark - ECharts Download, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-watermark.json"
+  },
+  {
+    "name": "echarts-bar-rich-text",
+    "type": "registry:block",
+    "title": "Weather Statistics",
+    "description": "Weather Statistics, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar",
+      "rich"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-rich-text.json"
+  },
+  {
+    "name": "echarts-bar-polar-real-estate",
+    "type": "registry:block",
+    "title": "Bar Chart on Polar",
+    "description": "Bar Chart on Polar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-polar-real-estate.json"
+  },
+  {
+    "name": "echarts-polar-roundCap",
+    "type": "registry:block",
+    "title": "Rounded Bar on Polar",
+    "description": "Rounded Bar on Polar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-polar-roundCap.json"
+  },
+  {
+    "name": "echarts-bar-polar-stack",
+    "type": "registry:block",
+    "title": "Stacked Bar Chart on Polar",
+    "description": "Stacked Bar Chart on Polar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-polar-stack.json"
+  },
+  {
+    "name": "echarts-bar-polar-stack-radial",
+    "type": "registry:block",
+    "title": "Stacked Bar Chart on Polar(Radial)",
+    "description": "Stacked Bar Chart on Polar(Radial), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-polar-stack-radial.json"
+  },
+  {
+    "name": "echarts-bar-breaks-brush",
+    "type": "registry:block",
+    "title": "Bar Chart with Axis Breaks (Brush-enabled)",
+    "description": "Bar Chart with Axis Breaks (Brush-enabled), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-breaks-brush.json"
+  },
+  {
+    "name": "echarts-pie-simple",
+    "type": "registry:block",
+    "title": "Referer of a Website",
+    "description": "Referer of a Website, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-simple.json"
+  },
+  {
+    "name": "echarts-pie-doughnut",
+    "type": "registry:block",
+    "title": "Doughnut Chart",
+    "description": "Doughnut Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-doughnut.json"
+  },
+  {
+    "name": "echarts-pie-borderRadius",
+    "type": "registry:block",
+    "title": "Doughnut Chart with Rounded Corner",
+    "description": "Doughnut Chart with Rounded Corner, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-borderRadius.json"
+  },
+  {
+    "name": "echarts-pie-half-donut",
+    "type": "registry:block",
+    "title": "Half Doughnut Chart",
+    "description": "Half Doughnut Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-half-donut.json"
+  },
+  {
+    "name": "echarts-pie-padAngle",
+    "type": "registry:block",
+    "title": "Pie with padAngle",
+    "description": "Pie with padAngle, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-padAngle.json"
+  },
+  {
+    "name": "echarts-pie-custom",
+    "type": "registry:block",
+    "title": "Customized Pie",
+    "description": "Customized Pie, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-custom.json"
+  },
+  {
+    "name": "echarts-pie-roseType-simple",
+    "type": "registry:block",
+    "title": "Nightingale Chart",
+    "description": "Nightingale Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-roseType-simple.json"
+  },
+  {
+    "name": "echarts-pie-roseType",
+    "type": "registry:block",
+    "title": "Nightingale Chart",
+    "description": "Nightingale Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-roseType.json"
+  },
+  {
+    "name": "echarts-pie-pattern",
+    "type": "registry:block",
+    "title": "Texture on Pie Chart",
+    "description": "Texture on Pie Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-pattern.json"
+  },
+  {
+    "name": "echarts-pie-labelLine-adjust",
+    "type": "registry:block",
+    "title": "Label Line Adjust",
+    "description": "Label Line Adjust, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-labelLine-adjust.json"
+  },
+  {
+    "name": "echarts-pie-alignTo",
+    "type": "registry:block",
+    "title": "Pie Label Align",
+    "description": "Pie Label Align, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-alignTo.json"
+  },
+  {
+    "name": "echarts-pie-rich-text",
+    "type": "registry:block",
+    "title": "Pie Special Label",
+    "description": "Pie Special Label, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie",
+      "rich"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-rich-text.json"
+  },
+  {
+    "name": "echarts-pie-legend",
+    "type": "registry:block",
+    "title": "Pie with Scrollable Legend",
+    "description": "Pie with Scrollable Legend, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-legend.json"
+  },
+  {
+    "name": "echarts-pie-nest",
+    "type": "registry:block",
+    "title": "Nested Pies",
+    "description": "Nested Pies, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pie",
+      "rich"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-nest.json"
+  },
+  {
+    "name": "echarts-scatter-simple",
+    "type": "registry:block",
+    "title": "Basic Scatter Chart",
+    "description": "Basic Scatter Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-simple.json"
+  },
+  {
+    "name": "echarts-scatter-anscombe-quartet",
+    "type": "registry:block",
+    "title": "Anscomb's quartet",
+    "description": "Anscomb's quartet, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-anscombe-quartet.json"
+  },
+  {
+    "name": "echarts-scatter-clustering-process",
+    "type": "registry:block",
+    "title": "Clustering Process",
+    "description": "Clustering Process, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-clustering-process.json"
+  },
+  {
+    "name": "echarts-scatter-clustering",
+    "type": "registry:block",
+    "title": "Clustering Process",
+    "description": "Clustering Process, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-clustering.json"
+  },
+  {
+    "name": "echarts-scatter-exponential-regression",
+    "type": "registry:block",
+    "title": "Exponential Regression",
+    "description": "Exponential Regression, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-exponential-regression.json"
+  },
+  {
+    "name": "echarts-effectScatter-map",
+    "type": "registry:block",
+    "title": "Air Quality",
+    "description": "Air Quality, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-effectScatter-map.json"
+  },
+  {
+    "name": "echarts-scatter-effect",
+    "type": "registry:block",
+    "title": "Effect Scatter Chart",
+    "description": "Effect Scatter Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-effect.json"
+  },
+  {
+    "name": "echarts-scatter-linear-regression",
+    "type": "registry:block",
+    "title": "Linear Regression",
+    "description": "Linear Regression, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-linear-regression.json"
+  },
+  {
+    "name": "echarts-scatter-polynomial-regression",
+    "type": "registry:block",
+    "title": "Polynomial Regression",
+    "description": "Polynomial Regression, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-polynomial-regression.json"
+  },
+  {
+    "name": "echarts-scatter-weight",
+    "type": "registry:block",
+    "title": "Distribution of Height and Weight",
+    "description": "Distribution of Height and Weight, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-weight.json"
+  },
+  {
+    "name": "echarts-scatter-punchCard",
+    "type": "registry:block",
+    "title": "Punch Card of Github",
+    "description": "Punch Card of Github, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-punchCard.json"
+  },
+  {
+    "name": "echarts-scatter-single-axis",
+    "type": "registry:block",
+    "title": "Scatter on Single Axis",
+    "description": "Scatter on Single Axis, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-single-axis.json"
+  },
+  {
+    "name": "echarts-scatter-jitter",
+    "type": "registry:block",
+    "title": "Scatter with Jittering",
+    "description": "Scatter with Jittering, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-jitter.json"
+  },
+  {
+    "name": "echarts-scatter-aggregate-bar",
+    "type": "registry:block",
+    "title": "Aggregate Scatter to Bar",
+    "description": "Aggregate Scatter to Bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter",
+      "animation"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-aggregate-bar.json"
+  },
+  {
+    "name": "echarts-scatter-label-align-right",
+    "type": "registry:block",
+    "title": "Align Label on the Top",
+    "description": "Align Label on the Top, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-label-align-right.json"
+  },
+  {
+    "name": "echarts-scatter-label-align-top",
+    "type": "registry:block",
+    "title": "Align Label on the Top",
+    "description": "Align Label on the Top, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-label-align-top.json"
+  },
+  {
+    "name": "echarts-scatter-symbol-morph",
+    "type": "registry:block",
+    "title": "Symbol Shape Morph",
+    "description": "Symbol Shape Morph, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-symbol-morph.json"
+  },
+  {
+    "name": "echarts-scatter-large",
+    "type": "registry:block",
+    "title": "Large Scatter",
+    "description": "Large Scatter, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-large.json"
+  },
+  {
+    "name": "echarts-scatter-nebula",
+    "type": "registry:block",
+    "title": "Scatter Nebula",
+    "description": "Scatter Nebula, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-nebula.json"
+  },
+  {
+    "name": "echarts-scatter-stream-visual",
+    "type": "registry:block",
+    "title": "Visual interaction with stream",
+    "description": "Visual interaction with stream, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-stream-visual.json"
+  },
+  {
+    "name": "echarts-bubble-gradient",
+    "type": "registry:block",
+    "title": "Bubble Chart",
+    "description": "Bubble Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bubble-gradient.json"
+  },
+  {
+    "name": "echarts-scatter-aqi-color",
+    "type": "registry:block",
+    "title": "Scatter Aqi Color",
+    "description": "Scatter Aqi Color, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-aqi-color.json"
+  },
+  {
+    "name": "echarts-scatter-nutrients",
+    "type": "registry:block",
+    "title": "Scatter Nutrients",
+    "description": "Scatter Nutrients, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-nutrients.json"
+  },
+  {
+    "name": "echarts-scatter-nutrients-matrix",
+    "type": "registry:block",
+    "title": "Scatter Nutrients Matrix",
+    "description": "Scatter Nutrients Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-nutrients-matrix.json"
+  },
+  {
+    "name": "echarts-scatter-polar-punchCard",
+    "type": "registry:block",
+    "title": "Punch Card of Github",
+    "description": "Punch Card of Github, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-polar-punchCard.json"
+  },
+  {
+    "name": "echarts-scatter-life-expectancy-timeline",
+    "type": "registry:block",
+    "title": "Life Expectancy and GDP",
+    "description": "Life Expectancy and GDP, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-life-expectancy-timeline.json"
+  },
+  {
+    "name": "echarts-scatter-painter-choice",
+    "type": "registry:block",
+    "title": "Master Painter Color Choices Throughout History",
+    "description": "Master Painter Color Choices Throughout History, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-painter-choice.json"
+  },
+  {
+    "name": "echarts-scatter-logarithmic-regression",
+    "type": "registry:block",
+    "title": "Logarithmic Regression",
+    "description": "Logarithmic Regression, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-logarithmic-regression.json"
+  },
+  {
+    "name": "echarts-scatter-map",
+    "type": "registry:block",
+    "title": "Air Quality",
+    "description": "Air Quality, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-map.json"
+  },
+  {
+    "name": "echarts-scatter-map-brush",
+    "type": "registry:block",
+    "title": "Scatter Map Brush",
+    "description": "Scatter Map Brush, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-map-brush.json"
+  },
+  {
+    "name": "echarts-scatter-weibo",
+    "type": "registry:block",
+    "title": "Sign in of weibo",
+    "description": "Sign in of weibo, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-weibo.json"
+  },
+  {
+    "name": "echarts-scatter-world-population",
+    "type": "registry:block",
+    "title": "World Population (2011)",
+    "description": "World Population (2011), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-world-population.json"
+  },
+  {
+    "name": "echarts-geo-graph",
+    "type": "registry:block",
+    "title": "Geo Graph",
+    "description": "Geo Graph, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-graph.json"
+  },
+  {
+    "name": "echarts-geo-choropleth-scatter",
+    "type": "registry:block",
+    "title": "Geo Choropleth and Scatter",
+    "description": "Geo Choropleth and Scatter, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-choropleth-scatter.json"
+  },
+  {
+    "name": "echarts-map-iceland-pie",
+    "type": "registry:block",
+    "title": "Pie Charts on GEO Map",
+    "description": "Pie Charts on GEO Map, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map-iceland-pie.json"
+  },
+  {
+    "name": "echarts-lines-airline",
+    "type": "registry:block",
+    "title": "65k+ Airline",
+    "description": "65k+ Airline, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "lines"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines-airline.json"
+  },
+  {
+    "name": "echarts-geo-seatmap-flight",
+    "type": "registry:block",
+    "title": "Flight Seatmap with SVG",
+    "description": "Flight Seatmap with SVG, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-seatmap-flight.json"
+  },
+  {
+    "name": "echarts-geo-beef-cuts",
+    "type": "registry:block",
+    "title": "GEO Beef Cuts",
+    "description": "GEO Beef Cuts, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-beef-cuts.json"
+  },
+  {
+    "name": "echarts-geo-svg-lines",
+    "type": "registry:block",
+    "title": "GEO SVG Lines",
+    "description": "GEO SVG Lines, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-svg-lines.json"
+  },
+  {
+    "name": "echarts-geo-svg-map",
+    "type": "registry:block",
+    "title": "GEO SVG Map",
+    "description": "GEO SVG Map, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-svg-map.json"
+  },
+  {
+    "name": "echarts-geo-svg-scatter-simple",
+    "type": "registry:block",
+    "title": "GEO SVG Scatter",
+    "description": "GEO SVG Scatter, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-svg-scatter-simple.json"
+  },
+  {
+    "name": "echarts-geo-svg-traffic",
+    "type": "registry:block",
+    "title": "GEO SVG Traffic",
+    "description": "GEO SVG Traffic, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-svg-traffic.json"
+  },
+  {
+    "name": "echarts-geo-map-scatter",
+    "type": "registry:block",
+    "title": "map and scatter share a geo",
+    "description": "map and scatter share a geo, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-map-scatter.json"
+  },
+  {
+    "name": "echarts-geo-lines",
+    "type": "registry:block",
+    "title": "Migration",
+    "description": "Migration, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-lines.json"
+  },
+  {
+    "name": "echarts-map-bar-morph",
+    "type": "registry:block",
+    "title": "Morphing between Map and Bar",
+    "description": "Morphing between Map and Bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "animation"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map-bar-morph.json"
+  },
+  {
+    "name": "echarts-geo-organ",
+    "type": "registry:block",
+    "title": "Organ Data with SVG",
+    "description": "Organ Data with SVG, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-organ.json"
+  },
+  {
+    "name": "echarts-map-HK",
+    "type": "registry:block",
+    "title": "Population Density of HongKong (2011)",
+    "description": "Population Density of HongKong (2011), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map-HK.json"
+  },
+  {
+    "name": "echarts-map-usa-projection",
+    "type": "registry:block",
+    "title": "USA Choropleth Map with Projection",
+    "description": "USA Choropleth Map with Projection, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map-usa-projection.json"
+  },
+  {
+    "name": "echarts-map-usa",
+    "type": "registry:block",
+    "title": "USA Population Estimates (2012)",
+    "description": "USA Population Estimates (2012), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map-usa.json"
+  },
+  {
+    "name": "echarts-lines-ny",
+    "type": "registry:block",
+    "title": "Use lines to draw 1 million New York streets",
+    "description": "Use lines to draw 1 million New York streets, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map",
+      "lines"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines-ny.json"
+  },
+  {
+    "name": "echarts-candlestick-simple",
+    "type": "registry:block",
+    "title": "Basic Candlestick",
+    "description": "Basic Candlestick, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-simple.json"
+  },
+  {
+    "name": "echarts-custom-ohlc",
+    "type": "registry:block",
+    "title": "OHLC Chart",
+    "description": "OHLC Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-ohlc.json"
+  },
+  {
+    "name": "echarts-candlestick-sh",
+    "type": "registry:block",
+    "title": "ShangHai Index",
+    "description": "ShangHai Index, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-sh.json"
+  },
+  {
+    "name": "echarts-candlestick-large",
+    "type": "registry:block",
+    "title": "Large Scale Candlestick",
+    "description": "Large Scale Candlestick, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-large.json"
+  },
+  {
+    "name": "echarts-candlestick-touch",
+    "type": "registry:block",
+    "title": "Axis Pointer Link and Touch",
+    "description": "Axis Pointer Link and Touch, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-touch.json"
+  },
+  {
+    "name": "echarts-intraday-breaks-1",
+    "type": "registry:block",
+    "title": "Intraday Chart with Breaks",
+    "description": "Intraday Chart with Breaks, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-intraday-breaks-1.json"
+  },
+  {
+    "name": "echarts-intraday-breaks-2",
+    "type": "registry:block",
+    "title": "Intraday Chart with Breaks (II)",
+    "description": "Intraday Chart with Breaks (II), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-intraday-breaks-2.json"
+  },
+  {
+    "name": "echarts-candlestick-brush",
+    "type": "registry:block",
+    "title": "Candlestick Brush",
+    "description": "Candlestick Brush, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-brush.json"
+  },
+  {
+    "name": "echarts-candlestick-sh-2015",
+    "type": "registry:block",
+    "title": "ShangHai Index, 2015",
+    "description": "ShangHai Index, 2015, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-candlestick-sh-2015.json"
+  },
+  {
+    "name": "echarts-radar",
+    "type": "registry:block",
+    "title": "Basic Radar Chart",
+    "description": "Basic Radar Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-radar.json"
+  },
+  {
+    "name": "echarts-radar-aqi",
+    "type": "registry:block",
+    "title": "AQI - Radar Chart",
+    "description": "AQI - Radar Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-radar-aqi.json"
+  },
+  {
+    "name": "echarts-radar-custom",
+    "type": "registry:block",
+    "title": "Customized Radar Chart",
+    "description": "Customized Radar Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-radar-custom.json"
+  },
+  {
+    "name": "echarts-radar2",
+    "type": "registry:block",
+    "title": "Proportion of Browsers",
+    "description": "Proportion of Browsers, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-radar2.json"
+  },
+  {
+    "name": "echarts-radar-multiple",
+    "type": "registry:block",
+    "title": "Multiple Radar",
+    "description": "Multiple Radar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "radar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-radar-multiple.json"
+  },
+  {
+    "name": "echarts-data-transform-aggregate",
+    "type": "registry:block",
+    "title": "Data Transform Simple Aggregate",
+    "description": "Data Transform Simple Aggregate, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "boxplot"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-data-transform-aggregate.json"
+  },
+  {
+    "name": "echarts-boxplot-light-velocity",
+    "type": "registry:block",
+    "title": "Boxplot Light Velocity",
+    "description": "Boxplot Light Velocity, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "boxplot"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-boxplot-light-velocity.json"
+  },
+  {
+    "name": "echarts-boxplot-light-velocity2",
+    "type": "registry:block",
+    "title": "Boxplot Light Velocity2",
+    "description": "Boxplot Light Velocity2, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "boxplot"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-boxplot-light-velocity2.json"
+  },
+  {
+    "name": "echarts-boxplot-multi",
+    "type": "registry:block",
+    "title": "Multiple Categories",
+    "description": "Multiple Categories, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "boxplot"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-boxplot-multi.json"
+  },
+  {
+    "name": "echarts-heatmap-cartesian",
+    "type": "registry:block",
+    "title": "Heatmap on Cartesian",
+    "description": "Heatmap on Cartesian, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-heatmap-cartesian.json"
+  },
+  {
+    "name": "echarts-heatmap-large",
+    "type": "registry:block",
+    "title": "Heatmap - 20K data",
+    "description": "Heatmap - 20K data, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-heatmap-large.json"
+  },
+  {
+    "name": "echarts-heatmap-large-piecewise",
+    "type": "registry:block",
+    "title": "Heatmap - Discrete Mapping of Color",
+    "description": "Heatmap - Discrete Mapping of Color, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-heatmap-large-piecewise.json"
+  },
+  {
+    "name": "echarts-heatmap-map",
+    "type": "registry:block",
+    "title": "Air Qulity",
+    "description": "Air Qulity, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-heatmap-map.json"
+  },
+  {
+    "name": "echarts-graph-force2",
+    "type": "registry:block",
+    "title": "Force Layout",
+    "description": "Force Layout, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-force2.json"
+  },
+  {
+    "name": "echarts-graph-grid",
+    "type": "registry:block",
+    "title": "Graph on Cartesian",
+    "description": "Graph on Cartesian, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-grid.json"
+  },
+  {
+    "name": "echarts-graph-simple",
+    "type": "registry:block",
+    "title": "Simple Graph",
+    "description": "Simple Graph, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-simple.json"
+  },
+  {
+    "name": "echarts-graph-force",
+    "type": "registry:block",
+    "title": "Force Layout",
+    "description": "Force Layout, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-force.json"
+  },
+  {
+    "name": "echarts-graph-label-overlap",
+    "type": "registry:block",
+    "title": "Hide Overlapped Label",
+    "description": "Hide Overlapped Label, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-label-overlap.json"
+  },
+  {
+    "name": "echarts-graph",
+    "type": "registry:block",
+    "title": "Les Miserables",
+    "description": "Les Miserables, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph.json"
+  },
+  {
+    "name": "echarts-graph-circular-layout",
+    "type": "registry:block",
+    "title": "Les Miserables",
+    "description": "Les Miserables, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-circular-layout.json"
+  },
+  {
+    "name": "echarts-graph-force-dynamic",
+    "type": "registry:block",
+    "title": "Graph Dynamic",
+    "description": "Graph Dynamic, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-force-dynamic.json"
+  },
+  {
+    "name": "echarts-graph-life-expectancy",
+    "type": "registry:block",
+    "title": "Graph Life Expectancy",
+    "description": "Graph Life Expectancy, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-life-expectancy.json"
+  },
+  {
+    "name": "echarts-graph-webkit-dep",
+    "type": "registry:block",
+    "title": "Graph Webkit Dep",
+    "description": "Graph Webkit Dep, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-webkit-dep.json"
+  },
+  {
+    "name": "echarts-graph-npm",
+    "type": "registry:block",
+    "title": "NPM Dependencies",
+    "description": "NPM Dependencies, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graph-npm.json"
+  },
+  {
+    "name": "echarts-tree-orient-bottom-top",
+    "type": "registry:block",
+    "title": "From Bottom to Top Tree",
+    "description": "From Bottom to Top Tree, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-orient-bottom-top.json"
+  },
+  {
+    "name": "echarts-tree-basic",
+    "type": "registry:block",
+    "title": "From Left to Right Tree",
+    "description": "From Left to Right Tree, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-basic.json"
+  },
+  {
+    "name": "echarts-tree-orient-right-left",
+    "type": "registry:block",
+    "title": "From Right to Left Tree",
+    "description": "From Right to Left Tree, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-orient-right-left.json"
+  },
+  {
+    "name": "echarts-tree-vertical",
+    "type": "registry:block",
+    "title": "From Top to Bottom Tree",
+    "description": "From Top to Bottom Tree, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-vertical.json"
+  },
+  {
+    "name": "echarts-tree-legend",
+    "type": "registry:block",
+    "title": "Multiple Trees",
+    "description": "Multiple Trees, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-legend.json"
+  },
+  {
+    "name": "echarts-tree-radial",
+    "type": "registry:block",
+    "title": "Radial Tree",
+    "description": "Radial Tree, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-radial.json"
+  },
+  {
+    "name": "echarts-tree-polyline",
+    "type": "registry:block",
+    "title": "Tree with Polyline Edge",
+    "description": "Tree with Polyline Edge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "tree"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-tree-polyline.json"
+  },
+  {
+    "name": "echarts-treemap-sunburst-transition",
+    "type": "registry:block",
+    "title": "Transition between Treemap and Sunburst",
+    "description": "Transition between Treemap and Sunburst, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-sunburst-transition.json"
+  },
+  {
+    "name": "echarts-treemap-simple",
+    "type": "registry:block",
+    "title": "Basic Treemap",
+    "description": "Basic Treemap, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-simple.json"
+  },
+  {
+    "name": "echarts-treemap-disk",
+    "type": "registry:block",
+    "title": "Disk Usage",
+    "description": "Disk Usage, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-disk.json"
+  },
+  {
+    "name": "echarts-treemap-drill-down",
+    "type": "registry:block",
+    "title": "ECharts Option Query",
+    "description": "ECharts Option Query, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-drill-down.json"
+  },
+  {
+    "name": "echarts-treemap-visual",
+    "type": "registry:block",
+    "title": "Gradient Mapping",
+    "description": "Gradient Mapping, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-visual.json"
+  },
+  {
+    "name": "echarts-treemap-obama",
+    "type": "registry:block",
+    "title": "How $3.7 Trillion is Spent",
+    "description": "How $3.7 Trillion is Spent, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-obama.json"
+  },
+  {
+    "name": "echarts-treemap-show-parent",
+    "type": "registry:block",
+    "title": "Show Parent Labels",
+    "description": "Show Parent Labels, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "treemap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-treemap-show-parent.json"
+  },
+  {
+    "name": "echarts-sunburst-simple",
+    "type": "registry:block",
+    "title": "Basic Sunburst",
+    "description": "Basic Sunburst, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-simple.json"
+  },
+  {
+    "name": "echarts-sunburst-label-rotate",
+    "type": "registry:block",
+    "title": "Sunburst Label Rotate",
+    "description": "Sunburst Label Rotate, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-label-rotate.json"
+  },
+  {
+    "name": "echarts-sunburst-borderRadius",
+    "type": "registry:block",
+    "title": "Sunburst with Rounded Corner",
+    "description": "Sunburst with Rounded Corner, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-borderRadius.json"
+  },
+  {
+    "name": "echarts-sunburst-monochrome",
+    "type": "registry:block",
+    "title": "Monochrome Sunburst",
+    "description": "Monochrome Sunburst, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-monochrome.json"
+  },
+  {
+    "name": "echarts-sunburst-visualMap",
+    "type": "registry:block",
+    "title": "Sunburst VisualMap",
+    "description": "Sunburst VisualMap, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-visualMap.json"
+  },
+  {
+    "name": "echarts-sunburst-drink",
+    "type": "registry:block",
+    "title": "Drink Flavors",
+    "description": "Drink Flavors, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-drink.json"
+  },
+  {
+    "name": "echarts-sunburst-book",
+    "type": "registry:block",
+    "title": "Book Records",
+    "description": "Book Records, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sunburst"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sunburst-book.json"
+  },
+  {
+    "name": "echarts-parallel-simple",
+    "type": "registry:block",
+    "title": "Basic Parallel",
+    "description": "Basic Parallel, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "parallel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-parallel-simple.json"
+  },
+  {
+    "name": "echarts-parallel-aqi",
+    "type": "registry:block",
+    "title": "Parallel Aqi",
+    "description": "Parallel Aqi, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "parallel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-parallel-aqi.json"
+  },
+  {
+    "name": "echarts-parallel-nutrients",
+    "type": "registry:block",
+    "title": "Parallel Nutrients",
+    "description": "Parallel Nutrients, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "parallel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-parallel-nutrients.json"
+  },
+  {
+    "name": "echarts-scatter-matrix",
+    "type": "registry:block",
+    "title": "Scatter Matrix",
+    "description": "Scatter Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "parallel",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter-matrix.json"
+  },
+  {
+    "name": "echarts-sankey-simple",
+    "type": "registry:block",
+    "title": "Basic Sankey",
+    "description": "Basic Sankey, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-simple.json"
+  },
+  {
+    "name": "echarts-sankey-vertical",
+    "type": "registry:block",
+    "title": "Sankey Orient Vertical",
+    "description": "Sankey Orient Vertical, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-vertical.json"
+  },
+  {
+    "name": "echarts-sankey-levels",
+    "type": "registry:block",
+    "title": "Sankey with Levels Setting",
+    "description": "Sankey with Levels Setting, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-levels.json"
+  },
+  {
+    "name": "echarts-sankey-itemstyle",
+    "type": "registry:block",
+    "title": "Specify ItemStyle for Each Node in Sankey",
+    "description": "Specify ItemStyle for Each Node in Sankey, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-itemstyle.json"
+  },
+  {
+    "name": "echarts-sankey-energy",
+    "type": "registry:block",
+    "title": "Gradient Edge",
+    "description": "Gradient Edge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-energy.json"
+  },
+  {
+    "name": "echarts-sankey-nodeAlign-left",
+    "type": "registry:block",
+    "title": "Node Align Left in Sankey",
+    "description": "Node Align Left in Sankey, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-nodeAlign-left.json"
+  },
+  {
+    "name": "echarts-sankey-nodeAlign-right",
+    "type": "registry:block",
+    "title": "Node Align Right in Sankey",
+    "description": "Node Align Right in Sankey, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "sankey"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sankey-nodeAlign-right.json"
+  },
+  {
+    "name": "echarts-funnel-customize",
+    "type": "registry:block",
+    "title": "Customized Funnel",
+    "description": "Customized Funnel, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "funnel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-funnel-customize.json"
+  },
+  {
+    "name": "echarts-funnel",
+    "type": "registry:block",
+    "title": "Funnel Chart",
+    "description": "Funnel Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "funnel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-funnel.json"
+  },
+  {
+    "name": "echarts-funnel-align",
+    "type": "registry:block",
+    "title": "Funnel Compare",
+    "description": "Funnel Compare, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "funnel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-funnel-align.json"
+  },
+  {
+    "name": "echarts-funnel-mutiple",
+    "type": "registry:block",
+    "title": "Multiple Funnels",
+    "description": "Multiple Funnels, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "funnel"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-funnel-mutiple.json"
+  },
+  {
+    "name": "echarts-gauge",
+    "type": "registry:block",
+    "title": "Gauge Basic chart",
+    "description": "Gauge Basic chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge.json"
+  },
+  {
+    "name": "echarts-gauge-simple",
+    "type": "registry:block",
+    "title": "Simple Gauge",
+    "description": "Simple Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-simple.json"
+  },
+  {
+    "name": "echarts-gauge-speed",
+    "type": "registry:block",
+    "title": "Speed Gauge",
+    "description": "Speed Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-speed.json"
+  },
+  {
+    "name": "echarts-gauge-progress",
+    "type": "registry:block",
+    "title": "Progress Gauge",
+    "description": "Progress Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-progress.json"
+  },
+  {
+    "name": "echarts-gauge-stage",
+    "type": "registry:block",
+    "title": "Stage Speed Gauge",
+    "description": "Stage Speed Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-stage.json"
+  },
+  {
+    "name": "echarts-gauge-grade",
+    "type": "registry:block",
+    "title": "Grade Gauge",
+    "description": "Grade Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-grade.json"
+  },
+  {
+    "name": "echarts-gauge-multi-title",
+    "type": "registry:block",
+    "title": "Multi Title Gauge",
+    "description": "Multi Title Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-multi-title.json"
+  },
+  {
+    "name": "echarts-gauge-temperature",
+    "type": "registry:block",
+    "title": "Temperature Gauge chart",
+    "description": "Temperature Gauge chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-temperature.json"
+  },
+  {
+    "name": "echarts-gauge-ring",
+    "type": "registry:block",
+    "title": "Ring Gauge",
+    "description": "Ring Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-ring.json"
+  },
+  {
+    "name": "echarts-gauge-barometer",
+    "type": "registry:block",
+    "title": "Gauge Barometer chart",
+    "description": "Gauge Barometer chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-barometer.json"
+  },
+  {
+    "name": "echarts-gauge-clock",
+    "type": "registry:block",
+    "title": "Clock",
+    "description": "Clock, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-clock.json"
+  },
+  {
+    "name": "echarts-gauge-car",
+    "type": "registry:block",
+    "title": "Gauge Car",
+    "description": "Gauge Car, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "gauge"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-gauge-car.json"
+  },
+  {
+    "name": "echarts-pictorialBar-bar-transition",
+    "type": "registry:block",
+    "title": "Transition between pictorialBar and bar",
+    "description": "Transition between pictorialBar and bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar",
+      "animation"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-bar-transition.json"
+  },
+  {
+    "name": "echarts-pictorialBar-dotted",
+    "type": "registry:block",
+    "title": "Dotted bar",
+    "description": "Dotted bar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-dotted.json"
+  },
+  {
+    "name": "echarts-pictorialBar-forest",
+    "type": "registry:block",
+    "title": "Expansion of forest",
+    "description": "Expansion of forest, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-forest.json"
+  },
+  {
+    "name": "echarts-pictorialBar-spirit",
+    "type": "registry:block",
+    "title": "Spirits",
+    "description": "Spirits, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-spirit.json"
+  },
+  {
+    "name": "echarts-pictorialBar-vehicle",
+    "type": "registry:block",
+    "title": "Vehicles",
+    "description": "Vehicles, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-vehicle.json"
+  },
+  {
+    "name": "echarts-pictorialBar-velocity",
+    "type": "registry:block",
+    "title": "Velocity of Christmas Reindeers",
+    "description": "Velocity of Christmas Reindeers, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-velocity.json"
+  },
+  {
+    "name": "echarts-pictorialBar-body-fill",
+    "type": "registry:block",
+    "title": "Water Content",
+    "description": "Water Content, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-body-fill.json"
+  },
+  {
+    "name": "echarts-pictorialBar-hill",
+    "type": "registry:block",
+    "title": "Wish List and Mountain Height",
+    "description": "Wish List and Mountain Height, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "pictorialBar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pictorialBar-hill.json"
+  },
+  {
+    "name": "echarts-themeRiver-basic",
+    "type": "registry:block",
+    "title": "ThemeRiver",
+    "description": "ThemeRiver, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "themeRiver"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-themeRiver-basic.json"
+  },
+  {
+    "name": "echarts-themeRiver-lastfm",
+    "type": "registry:block",
+    "title": "ThemeRiver Lastfm",
+    "description": "ThemeRiver Lastfm, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "themeRiver"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-themeRiver-lastfm.json"
+  },
+  {
+    "name": "echarts-calendar-simple",
+    "type": "registry:block",
+    "title": "Simple Calendar",
+    "description": "Simple Calendar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-simple.json"
+  },
+  {
+    "name": "echarts-calendar-heatmap",
+    "type": "registry:block",
+    "title": "Calendar Heatmap",
+    "description": "Calendar Heatmap, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-heatmap.json"
+  },
+  {
+    "name": "echarts-calendar-vertical",
+    "type": "registry:block",
+    "title": "Calendar Heatmap Vertical",
+    "description": "Calendar Heatmap Vertical, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar",
+      "heatmap"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-vertical.json"
+  },
+  {
+    "name": "echarts-calendar-horizontal",
+    "type": "registry:block",
+    "title": "Calendar Heatmap Horizontal",
+    "description": "Calendar Heatmap Horizontal, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-horizontal.json"
+  },
+  {
+    "name": "echarts-calendar-effectscatter",
+    "type": "registry:block",
+    "title": "Calendar EffectScatter",
+    "description": "Calendar EffectScatter, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-effectscatter.json"
+  },
+  {
+    "name": "echarts-calendar-graph",
+    "type": "registry:block",
+    "title": "Calendar Graph",
+    "description": "Calendar Graph, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar",
+      "graph"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-graph.json"
+  },
+  {
+    "name": "echarts-calendar-lunar",
+    "type": "registry:block",
+    "title": "Calendar Lunar",
+    "description": "Calendar Lunar, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-lunar.json"
+  },
+  {
+    "name": "echarts-calendar-pie",
+    "type": "registry:block",
+    "title": "Calendar Pie",
+    "description": "Calendar Pie, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-pie.json"
+  },
+  {
+    "name": "echarts-calendar-charts",
+    "type": "registry:block",
+    "title": "Calendar Charts",
+    "description": "Calendar Charts, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "calendar",
+      "scatter"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-calendar-charts.json"
+  },
+  {
+    "name": "echarts-matrix-simple",
+    "type": "registry:block",
+    "title": "Simple Matrix",
+    "description": "Simple Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-simple.json"
+  },
+  {
+    "name": "echarts-matrix-correlation-heatmap",
+    "type": "registry:block",
+    "title": "Correlation Matrix (Heatmap)",
+    "description": "Correlation Matrix (Heatmap), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-correlation-heatmap.json"
+  },
+  {
+    "name": "echarts-matrix-correlation-scatter",
+    "type": "registry:block",
+    "title": "Correlation Matrix (Scatter)",
+    "description": "Correlation Matrix (Scatter), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-correlation-scatter.json"
+  },
+  {
+    "name": "echarts-matrix-covariance",
+    "type": "registry:block",
+    "title": "Covariance Matrix",
+    "description": "Covariance Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-covariance.json"
+  },
+  {
+    "name": "echarts-matrix-graph",
+    "type": "registry:block",
+    "title": "Graph Chart in Matrix",
+    "description": "Graph Chart in Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-graph.json"
+  },
+  {
+    "name": "echarts-matrix-pie",
+    "type": "registry:block",
+    "title": "Pie Charts in Matrix",
+    "description": "Pie Charts in Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-pie.json"
+  },
+  {
+    "name": "echarts-matrix-confusion",
+    "type": "registry:block",
+    "title": "Confusion Matrix",
+    "description": "Confusion Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-confusion.json"
+  },
+  {
+    "name": "echarts-matrix-mini-bar-data-collection",
+    "type": "registry:block",
+    "title": "Matrix Header Data Collection (Mini Bar)",
+    "description": "Matrix Header Data Collection (Mini Bar), adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-mini-bar-data-collection.json"
+  },
+  {
+    "name": "echarts-matrix-stock",
+    "type": "registry:block",
+    "title": "Matrix Stock Application",
+    "description": "Matrix Stock Application, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix",
+      "candlestick"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-stock.json"
+  },
+  {
+    "name": "echarts-matrix-grid-layout",
+    "type": "registry:block",
+    "title": "Responsive grid layout based on matrix",
+    "description": "Responsive grid layout based on matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-grid-layout.json"
+  },
+  {
+    "name": "echarts-matrix-sparkline",
+    "type": "registry:block",
+    "title": "Mini Line Charts (Sparkline) in Matrix",
+    "description": "Mini Line Charts (Sparkline) in Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix",
+      "line"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-sparkline.json"
+  },
+  {
+    "name": "echarts-matrix-mini-bar-geo",
+    "type": "registry:block",
+    "title": "Mini Bars and Geo in Matrix",
+    "description": "Mini Bars and Geo in Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix",
+      "bar",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-mini-bar-geo.json"
+  },
+  {
+    "name": "echarts-matrix-periodic-table",
+    "type": "registry:block",
+    "title": "Periodic Table",
+    "description": "Periodic Table, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-periodic-table.json"
+  },
+  {
+    "name": "echarts-matrix-mbti",
+    "type": "registry:block",
+    "title": "MBTI Partner Compatibility",
+    "description": "MBTI Partner Compatibility, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "matrix"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-matrix-mbti.json"
+  },
+  {
+    "name": "echarts-chord-simple",
+    "type": "registry:block",
+    "title": "Basic Chord",
+    "description": "Basic Chord, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "chord"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-chord-simple.json"
+  },
+  {
+    "name": "echarts-chord-minAngle",
+    "type": "registry:block",
+    "title": "Chord minAngle",
+    "description": "Chord minAngle, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "chord"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-chord-minAngle.json"
+  },
+  {
+    "name": "echarts-chord-lineStyle-color",
+    "type": "registry:block",
+    "title": "Chord lineStyle.color",
+    "description": "Chord lineStyle.color, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "chord"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-chord-lineStyle-color.json"
+  },
+  {
+    "name": "echarts-chord-style",
+    "type": "registry:block",
+    "title": "Chord Style",
+    "description": "Chord Style, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "chord"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-chord-style.json"
+  },
+  {
+    "name": "echarts-bar-histogram",
+    "type": "registry:block",
+    "title": "Histogram with Custom Series",
+    "description": "Histogram with Custom Series, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar-histogram.json"
+  },
+  {
+    "name": "echarts-custom-profit",
+    "type": "registry:block",
+    "title": "Profit",
+    "description": "Profit, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-profit.json"
+  },
+  {
+    "name": "echarts-custom-error-scatter",
+    "type": "registry:block",
+    "title": "Error Scatter on Catesian",
+    "description": "Error Scatter on Catesian, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "dataZoom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-error-scatter.json"
+  },
+  {
+    "name": "echarts-custom-bar-trend",
+    "type": "registry:block",
+    "title": "Custom Bar Trend",
+    "description": "Custom Bar Trend, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-bar-trend.json"
+  },
+  {
+    "name": "echarts-custom-cartesian-polygon",
+    "type": "registry:block",
+    "title": "Custom Cartesian Polygon",
+    "description": "Custom Cartesian Polygon, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-cartesian-polygon.json"
+  },
+  {
+    "name": "echarts-cycle-plot",
+    "type": "registry:block",
+    "title": "Cycle Plot",
+    "description": "Cycle Plot, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-cycle-plot.json"
+  },
+  {
+    "name": "echarts-custom-error-bar",
+    "type": "registry:block",
+    "title": "Error Bar on Catesian",
+    "description": "Error Bar on Catesian, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-error-bar.json"
+  },
+  {
+    "name": "echarts-custom-profile",
+    "type": "registry:block",
+    "title": "Profile",
+    "description": "Profile, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-profile.json"
+  },
+  {
+    "name": "echarts-flame-graph",
+    "type": "registry:block",
+    "title": "Flame graph",
+    "description": "Flame graph, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-flame-graph.json"
+  },
+  {
+    "name": "echarts-custom-gantt-flight",
+    "type": "registry:block",
+    "title": "Gantt Chart of Airport Flights",
+    "description": "Gantt Chart of Airport Flights, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "dataZoom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-gantt-flight.json"
+  },
+  {
+    "name": "echarts-custom-polar-heatmap",
+    "type": "registry:block",
+    "title": "Polar Heatmap",
+    "description": "Polar Heatmap, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-polar-heatmap.json"
+  },
+  {
+    "name": "echarts-wind-barb",
+    "type": "registry:block",
+    "title": "Wind Barb",
+    "description": "Wind Barb, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "dataZoom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-wind-barb.json"
+  },
+  {
+    "name": "echarts-custom-hexbin",
+    "type": "registry:block",
+    "title": "Hexagonal Binning",
+    "description": "Hexagonal Binning, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "map"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-hexbin.json"
+  },
+  {
+    "name": "echarts-custom-calendar-icon",
+    "type": "registry:block",
+    "title": "Custom Calendar Icon",
+    "description": "Custom Calendar Icon, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "calendar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-calendar-icon.json"
+  },
+  {
+    "name": "echarts-custom-wind",
+    "type": "registry:block",
+    "title": "Use custom series to draw wind vectors",
+    "description": "Use custom series to draw wind vectors, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-wind.json"
+  },
+  {
+    "name": "echarts-custom-gauge",
+    "type": "registry:block",
+    "title": "Custom Gauge",
+    "description": "Custom Gauge, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-gauge.json"
+  },
+  {
+    "name": "echarts-pie-parliament-transition",
+    "type": "registry:block",
+    "title": "Transition of Parliament and Pie Chart",
+    "description": "Transition of Parliament and Pie Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom",
+      "animation"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-pie-parliament-transition.json"
+  },
+  {
+    "name": "echarts-circle-packing-with-d3",
+    "type": "registry:block",
+    "title": "Circle Packing with d3",
+    "description": "Circle Packing with d3, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-circle-packing-with-d3.json"
+  },
+  {
+    "name": "echarts-custom-spiral-race",
+    "type": "registry:block",
+    "title": "Custom Spiral Race",
+    "description": "Custom Spiral Race, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-custom-spiral-race.json"
+  },
+  {
+    "name": "echarts-geo-svg-custom-effect",
+    "type": "registry:block",
+    "title": "GEO SVG with Customized Effect",
+    "description": "GEO SVG with Customized Effect, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "custom"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo-svg-custom-effect.json"
+  },
+  {
+    "name": "echarts-data-transform-sort-bar",
+    "type": "registry:block",
+    "title": "Sort Data in Bar Chart",
+    "description": "Sort Data in Bar Chart, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "bar",
+      "transform"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-data-transform-sort-bar.json"
+  },
+  {
+    "name": "echarts-dataset-encode0",
+    "type": "registry:block",
+    "title": "Simple Encode",
+    "description": "Simple Encode, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-encode0.json"
+  },
+  {
+    "name": "echarts-dataset-default",
+    "type": "registry:block",
+    "title": "Default arrangement",
+    "description": "Default arrangement, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-default.json"
+  },
+  {
+    "name": "echarts-dataset-encode1",
+    "type": "registry:block",
+    "title": "Encode and Matrix",
+    "description": "Encode and Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-encode1.json"
+  },
+  {
+    "name": "echarts-data-transform-multiple-pie",
+    "type": "registry:block",
+    "title": "Partition Data to Pies",
+    "description": "Partition Data to Pies, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "pie",
+      "transform"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-data-transform-multiple-pie.json"
+  },
+  {
+    "name": "echarts-dataset-simple1",
+    "type": "registry:block",
+    "title": "Dataset in Object Array",
+    "description": "Dataset in Object Array, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-simple1.json"
+  },
+  {
+    "name": "echarts-dataset-series-layout-by",
+    "type": "registry:block",
+    "title": "Series Layout By Column or Row",
+    "description": "Series Layout By Column or Row, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-series-layout-by.json"
+  },
+  {
+    "name": "echarts-dataset-link",
+    "type": "registry:block",
+    "title": "Share Dataset",
+    "description": "Share Dataset, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "line",
+      "pie"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-link.json"
+  },
+  {
+    "name": "echarts-dataset-simple0",
+    "type": "registry:block",
+    "title": "Simple Example of Dataset",
+    "description": "Simple Example of Dataset, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "dataset",
+      "bar"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-dataset-simple0.json"
+  },
+  {
+    "name": "echarts-graphic-stroke-animation",
+    "type": "registry:block",
+    "title": "Stroke Animation",
+    "description": "Stroke Animation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphic"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphic-stroke-animation.json"
+  },
+  {
+    "name": "echarts-graphic-loading",
+    "type": "registry:block",
+    "title": "Customized Loading Animation",
+    "description": "Customized Loading Animation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphic"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphic-loading.json"
+  },
+  {
+    "name": "echarts-graphic-wave-animation",
+    "type": "registry:block",
+    "title": "Wave Animation",
+    "description": "Wave Animation, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphic"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphic-wave-animation.json"
+  },
+  {
+    "name": "echarts-bar3d-dataset",
+    "type": "registry:block",
+    "title": "3D Bar with Dataset",
+    "description": "3D Bar with Dataset, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-dataset.json"
+  },
+  {
+    "name": "echarts-bar3d-global-population",
+    "type": "registry:block",
+    "title": "Bar3D - Global Population",
+    "description": "Bar3D - Global Population, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-global-population.json"
+  },
+  {
+    "name": "echarts-bar3d-myth",
+    "type": "registry:block",
+    "title": "Bar3D - Myth",
+    "description": "Bar3D - Myth, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-myth.json"
+  },
+  {
+    "name": "echarts-bar3d-punch-card",
+    "type": "registry:block",
+    "title": "Bar3D - Punch Card",
+    "description": "Bar3D - Punch Card, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-punch-card.json"
+  },
+  {
+    "name": "echarts-bar3d-simplex-noise",
+    "type": "registry:block",
+    "title": "Bar3D - Simplex Noise",
+    "description": "Bar3D - Simplex Noise, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-simplex-noise.json"
+  },
+  {
+    "name": "echarts-global-population-bar3d-on-globe",
+    "type": "registry:block",
+    "title": "Global Population - Bar3D on Globe",
+    "description": "Global Population - Bar3D on Globe, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-global-population-bar3d-on-globe.json"
+  },
+  {
+    "name": "echarts-image-to-bar3d",
+    "type": "registry:block",
+    "title": "Image to Bar3D",
+    "description": "Image to Bar3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-image-to-bar3d.json"
+  },
+  {
+    "name": "echarts-metal-bar3d",
+    "type": "registry:block",
+    "title": "Metal Bar3D",
+    "description": "Metal Bar3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-metal-bar3d.json"
+  },
+  {
+    "name": "echarts-bar3d-noise-modified-from-marpi-demo",
+    "type": "registry:block",
+    "title": "Noise modified from marpi's demo",
+    "description": "Noise modified from marpi's demo, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-noise-modified-from-marpi-demo.json"
+  },
+  {
+    "name": "echarts-stacked-bar3d",
+    "type": "registry:block",
+    "title": "Stacked Bar3D",
+    "description": "Stacked Bar3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-stacked-bar3d.json"
+  },
+  {
+    "name": "echarts-transparent-bar3d",
+    "type": "registry:block",
+    "title": "Transparent Bar3D",
+    "description": "Transparent Bar3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-transparent-bar3d.json"
+  },
+  {
+    "name": "echarts-bar3d-voxelize-image",
+    "type": "registry:block",
+    "title": "Voxelize image",
+    "description": "Voxelize image, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "bar3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-bar3d-voxelize-image.json"
+  },
+  {
+    "name": "echarts-scatter3D-dataset",
+    "type": "registry:block",
+    "title": "3D Scatter with Dataset",
+    "description": "3D Scatter with Dataset, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3D-dataset.json"
+  },
+  {
+    "name": "echarts-scatter3d-scatter",
+    "type": "registry:block",
+    "title": "3D Scatter with Scatter Matrix",
+    "description": "3D Scatter with Scatter Matrix, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3d-scatter.json"
+  },
+  {
+    "name": "echarts-scatter3d",
+    "type": "registry:block",
+    "title": "Scatter3D",
+    "description": "Scatter3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3d.json"
+  },
+  {
+    "name": "echarts-scatter3d-globe-population",
+    "type": "registry:block",
+    "title": "Scatter3D - Global Population",
+    "description": "Scatter3D - Global Population, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3d-globe-population.json"
+  },
+  {
+    "name": "echarts-scatter3d-orthographic",
+    "type": "registry:block",
+    "title": "Scatter3D - Orthographic",
+    "description": "Scatter3D - Orthographic, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3d-orthographic.json"
+  },
+  {
+    "name": "echarts-scatter3d-simplex-noise",
+    "type": "registry:block",
+    "title": "Scatter3D - Simplex Noise",
+    "description": "Scatter3D - Simplex Noise, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatter3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatter3d-simplex-noise.json"
+  },
+  {
+    "name": "echarts-line3d-orthographic",
+    "type": "registry:block",
+    "title": "Line3D - Orthographic Projection",
+    "description": "Line3D - Orthographic Projection, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "line3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-line3d-orthographic.json"
+  },
+  {
+    "name": "echarts-lines3d-airline-on-globe",
+    "type": "registry:block",
+    "title": "Airline on Globe",
+    "description": "Airline on Globe, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "lines3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines3d-airline-on-globe.json"
+  },
+  {
+    "name": "echarts-lines3d-flights",
+    "type": "registry:block",
+    "title": "Flights",
+    "description": "Flights, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "lines3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines3d-flights.json"
+  },
+  {
+    "name": "echarts-lines3d-flights-gl",
+    "type": "registry:block",
+    "title": "Flights GL",
+    "description": "Flights GL, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "lines3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines3d-flights-gl.json"
+  },
+  {
+    "name": "echarts-lines3d-flights-on-geo3d",
+    "type": "registry:block",
+    "title": "Flights on Geo3D",
+    "description": "Flights on Geo3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "lines3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-lines3d-flights-on-geo3d.json"
+  },
+  {
+    "name": "echarts-surface-breather",
+    "type": "registry:block",
+    "title": "Breather",
+    "description": "Breather, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-breather.json"
+  },
+  {
+    "name": "echarts-surface-golden-rose",
+    "type": "registry:block",
+    "title": "Golden Rose",
+    "description": "Golden Rose, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-golden-rose.json"
+  },
+  {
+    "name": "echarts-image-surface-sushuang",
+    "type": "registry:block",
+    "title": "Image Surface Sushuang",
+    "description": "Image Surface Sushuang, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-image-surface-sushuang.json"
+  },
+  {
+    "name": "echarts-surface-leather",
+    "type": "registry:block",
+    "title": "Leather Material",
+    "description": "Leather Material, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-leather.json"
+  },
+  {
+    "name": "echarts-metal-surface",
+    "type": "registry:block",
+    "title": "Metal Surface",
+    "description": "Metal Surface, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-metal-surface.json"
+  },
+  {
+    "name": "echarts-surface-mollusc-shell",
+    "type": "registry:block",
+    "title": "Mollusc Shell",
+    "description": "Mollusc Shell, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-mollusc-shell.json"
+  },
+  {
+    "name": "echarts-simple-surface",
+    "type": "registry:block",
+    "title": "Simple Surface",
+    "description": "Simple Surface, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-simple-surface.json"
+  },
+  {
+    "name": "echarts-sphere-parametric-surface",
+    "type": "registry:block",
+    "title": "Sphere Parametric Surface",
+    "description": "Sphere Parametric Surface, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-sphere-parametric-surface.json"
+  },
+  {
+    "name": "echarts-surface-wave",
+    "type": "registry:block",
+    "title": "Surface Wave",
+    "description": "Surface Wave, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-wave.json"
+  },
+  {
+    "name": "echarts-surface-theme-roses",
+    "type": "registry:block",
+    "title": "Theme Roses",
+    "description": "Theme Roses, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "surface"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-surface-theme-roses.json"
+  },
+  {
+    "name": "echarts-globe-echarts-gl-hello-world",
+    "type": "registry:block",
+    "title": "ECharts-GL Hello World",
+    "description": "ECharts-GL Hello World, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-echarts-gl-hello-world.json"
+  },
+  {
+    "name": "echarts-globe-layers",
+    "type": "registry:block",
+    "title": "Globe Layers",
+    "description": "Globe Layers, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-layers.json"
+  },
+  {
+    "name": "echarts-globe-atmosphere",
+    "type": "registry:block",
+    "title": "Globe with Atmosphere",
+    "description": "Globe with Atmosphere, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-atmosphere.json"
+  },
+  {
+    "name": "echarts-animating-contour-on-globe",
+    "type": "registry:block",
+    "title": "Animating Contour on Globe",
+    "description": "Animating Contour on Globe, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-animating-contour-on-globe.json"
+  },
+  {
+    "name": "echarts-globe-contour-paint",
+    "type": "registry:block",
+    "title": "Contour Paint",
+    "description": "Contour Paint, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-contour-paint.json"
+  },
+  {
+    "name": "echarts-globe-country-carousel",
+    "type": "registry:block",
+    "title": "Country Carousel",
+    "description": "Country Carousel, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-country-carousel.json"
+  },
+  {
+    "name": "echarts-globe-displacement",
+    "type": "registry:block",
+    "title": "Globe Displacement",
+    "description": "Globe Displacement, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-displacement.json"
+  },
+  {
+    "name": "echarts-globe-with-echarts-surface",
+    "type": "registry:block",
+    "title": "Globe with ECharts Surface",
+    "description": "Globe with ECharts Surface, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-with-echarts-surface.json"
+  },
+  {
+    "name": "echarts-globe-moon",
+    "type": "registry:block",
+    "title": "Moon",
+    "description": "Moon, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "globe"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-globe-moon.json"
+  },
+  {
+    "name": "echarts-map3d-buildings",
+    "type": "registry:block",
+    "title": "Buildings",
+    "description": "Buildings, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map3d-buildings.json"
+  },
+  {
+    "name": "echarts-map3d-alcohol-consumption",
+    "type": "registry:block",
+    "title": "Map3D - Alcohol Consumption",
+    "description": "Map3D - Alcohol Consumption, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map3d-alcohol-consumption.json"
+  },
+  {
+    "name": "echarts-map3d-wood-city",
+    "type": "registry:block",
+    "title": "Wood City",
+    "description": "Wood City, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "map3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-map3d-wood-city.json"
+  },
+  {
+    "name": "echarts-geo3d",
+    "type": "registry:block",
+    "title": "Geo3D",
+    "description": "Geo3D, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "geo3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo3d.json"
+  },
+  {
+    "name": "echarts-geo3d-with-different-height",
+    "type": "registry:block",
+    "title": "Geo3D with Different Height",
+    "description": "Geo3D with Different Height, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "geo3D"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-geo3d-with-different-height.json"
+  },
+  {
+    "name": "echarts-flowGL-noise",
+    "type": "registry:block",
+    "title": "Flow on the cartesian",
+    "description": "Flow on the cartesian, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "flowGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-flowGL-noise.json"
+  },
+  {
+    "name": "echarts-scatterGL-gps",
+    "type": "registry:block",
+    "title": "10 million Bulk GPS points",
+    "description": "10 million Bulk GPS points, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatterGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scatterGL-gps.json"
+  },
+  {
+    "name": "echarts-scattergl-weibo",
+    "type": "registry:block",
+    "title": "微博签到数据点亮中国",
+    "description": "微博签到数据点亮中国, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "scatterGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-scattergl-weibo.json"
+  },
+  {
+    "name": "echarts-linesGL-ny",
+    "type": "registry:block",
+    "title": "Use linesGL to draw 1 million New York streets",
+    "description": "Use linesGL to draw 1 million New York streets, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "linesGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-linesGL-ny.json"
+  },
+  {
+    "name": "echarts-graphgl-gpu-layout",
+    "type": "registry:block",
+    "title": "GraphGL - GPU Layout",
+    "description": "GraphGL - GPU Layout, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphgl-gpu-layout.json"
+  },
+  {
+    "name": "echarts-graphgl-large-internet",
+    "type": "registry:block",
+    "title": "GraphGL - Large Internet",
+    "description": "GraphGL - Large Internet, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphgl-large-internet.json"
+  },
+  {
+    "name": "echarts-graphgl-npm-dep",
+    "type": "registry:block",
+    "title": "NPM Dependencies with graphGL",
+    "description": "NPM Dependencies with graphGL, adapted from the Apache ECharts examples.",
+    "categories": [
+      "charts",
+      "echarts",
+      "graphGL"
+    ],
+    "url": "https://designkit-smoky.vercel.app/r/echarts-graphgl-npm-dep.json"
+  }
+]

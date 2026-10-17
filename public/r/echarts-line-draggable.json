@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-draggable",
+  "title": "Draggable Points",
+  "description": "Draggable Points, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-draggable.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Draggable Points\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-draggable\nconst setup: EChartSetup = ({ myChart, setTimeout }) => {\n  let option!: EChartsOption\n  const symbolSize = 20;\n  const data = [\n    [40, -10],\n    [-30, -5],\n    [-76.5, 20],\n    [-63.5, 40],\n    [-22.1, 50]\n  ];\n\n  option = {\n    title: {\n      text: 'Try Dragging these Points',\n      left: 'center'\n    },\n    tooltip: {\n      triggerOn: 'none',\n      formatter: function (params: any) {\n        return (\n          'X: ' +\n          params.data[0].toFixed(2) +\n          '<br>Y: ' +\n          params.data[1].toFixed(2)\n        );\n      }\n    },\n    grid: {\n      top: '8%',\n      bottom: '12%'\n    },\n    xAxis: {\n      min: -100,\n      max: 70,\n      type: 'value',\n      axisLine: { onZero: false }\n    },\n    yAxis: {\n      min: -30,\n      max: 60,\n      type: 'value',\n      axisLine: { onZero: false }\n    },\n    dataZoom: [\n      {\n        type: 'slider',\n        xAxisIndex: 0,\n        filterMode: 'none'\n      },\n      {\n        type: 'slider',\n        yAxisIndex: 0,\n        filterMode: 'none'\n      },\n      {\n        type: 'inside',\n        xAxisIndex: 0,\n        filterMode: 'none'\n      },\n      {\n        type: 'inside',\n        yAxisIndex: 0,\n        filterMode: 'none'\n      }\n    ],\n    series: [\n      {\n        id: 'a',\n        type: 'line',\n        smooth: true,\n        symbolSize: symbolSize,\n        data: data\n      }\n    ]\n  };\n\n  setTimeout(function () {\n    // Add shadow circles (which is not visible) to enable drag.\n    myChart.setOption({\n      graphic: data.map(function (item, dataIndex) {\n        return {\n          type: 'circle',\n          position: myChart.convertToPixel('grid', item),\n          shape: {\n            cx: 0,\n            cy: 0,\n            r: symbolSize / 2\n          },\n          invisible: true,\n          draggable: true,\n          ondrag: function () {\n            onPointDragging(dataIndex, [(this as any).x, (this as any).y]);\n          },\n          ondragend: function () {\n            // Axis bounds may change, so move the drag handles to the updated points.\n            updatePosition();\n          },\n          onmousemove: function () {\n            showTooltip(dataIndex);\n          },\n          onmouseout: function () {\n            hideTooltip(dataIndex);\n          },\n          z: 100\n        };\n      })\n    });\n  }, 0);\n\n  window.addEventListener('resize', updatePosition);\n\n  myChart.on('dataZoom', updatePosition);\n\n  function updatePosition() {\n    myChart.setOption({\n      graphic: data.map(function (item, dataIndex) {\n        return {\n          position: myChart.convertToPixel('grid', item)\n        };\n      })\n    });\n  }\n\n  function showTooltip(dataIndex: number) {\n    myChart.dispatchAction({\n      type: 'showTip',\n      seriesIndex: 0,\n      dataIndex: dataIndex\n    });\n  }\n\n  function hideTooltip(dataIndex: number) {\n    myChart.dispatchAction({\n      type: 'hideTip'\n    });\n  }\n\n  function onPointDragging(dataIndex: number, pos: number[]) {\n    data[dataIndex] = myChart.convertFromPixel('grid', pos);\n\n    // Update data\n    myChart.setOption({\n      series: [\n        {\n          id: 'a',\n          data: data\n        }\n      ]\n    });\n  }\n  return option\n}\n\nexport function EchartsLineDraggable() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line",
+    "graphic"
+  ],
+  "type": "registry:block"
+}

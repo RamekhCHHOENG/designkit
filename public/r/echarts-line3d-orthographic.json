@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line3d-orthographic",
+  "title": "Line3D - Orthographic Projection",
+  "description": "Line3D - Orthographic Projection, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line3d-orthographic.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\n// Adapted from the Apache ECharts example \"Line3D - Orthographic Projection\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line3d-orthographic\nconst setup: EChartSetup = () => {\n  let option: any\n  var data: any[] = [];\n  // Parametric curve\n  for (var t = 0; t < 25; t += 0.001) {\n    var x = (1 + 0.25 * Math.cos(75 * t)) * Math.cos(t);\n    var y = (1 + 0.25 * Math.cos(75 * t)) * Math.sin(t);\n    var z = t + 2.0 * Math.sin(75 * t);\n    data.push([x, y, z]);\n  }\n  console.log(data.length);\n\n  option = {\n    tooltip: {},\n    backgroundColor: '#fff',\n    visualMap: {\n      show: false,\n      dimension: 2,\n      min: 0,\n      max: 30,\n      inRange: {\n        color: [\n          '#313695',\n          '#4575b4',\n          '#74add1',\n          '#abd9e9',\n          '#e0f3f8',\n          '#ffffbf',\n          '#fee090',\n          '#fdae61',\n          '#f46d43',\n          '#d73027',\n          '#a50026'\n        ]\n      }\n    },\n    xAxis3D: {\n      type: 'value'\n    },\n    yAxis3D: {\n      type: 'value'\n    },\n    zAxis3D: {\n      type: 'value'\n    },\n    grid3D: {\n      viewControl: {\n        projection: 'orthographic'\n      }\n    },\n    series: [\n      {\n        type: 'line3D',\n        data: data,\n        lineStyle: {\n          width: 4\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLine3dOrthographic() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line3D"
+  ],
+  "type": "registry:block"
+}

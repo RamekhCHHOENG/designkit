@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-parliament-transition",
+  "title": "Transition of Parliament and Pie Chart",
+  "description": "Transition of Parliament and Pie Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-parliament-transition.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Transition of Parliament and Pie Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-parliament-transition\nconst setup: EChartSetup = ({ myChart, setInterval }) => {\n  let option!: EChartsOption\n  const data = [\n    { value: 800, name: 'A' },\n    { value: 635, name: 'B' },\n    { value: 580, name: 'C' },\n    { value: 484, name: 'D' },\n    { value: 300, name: 'E' },\n    { value: 200, name: 'F' }\n  ];\n\n  const defaultPalette = [\n    '#5070dd',\n    '#b6d634',\n    '#505372',\n    '#ff994d',\n    '#0ca8df',\n    '#ffd10a',\n    '#fb628b',\n    '#785db0',\n    '#3fbe95'\n  ];\n\n  const radius = ['30%', '80%'];\n\n  const pieOption: echarts.EChartsOption = {\n    series: [\n      {\n        type: 'pie',\n        id: 'distribution',\n        radius: radius,\n        label: {\n          show: false\n        },\n        universalTransition: true,\n        animationDurationUpdate: 1000,\n        data: data\n      }\n    ]\n  };\n\n  const parliamentOption = (function () {\n    let sum = data.reduce(function (sum, cur) {\n      return sum + cur.value;\n    }, 0);\n\n    let angles: number[] = [];\n    let startAngle = -Math.PI / 2;\n    let curAngle = startAngle;\n    data.forEach(function (item) {\n      angles.push(curAngle);\n      curAngle += (item.value / sum) * Math.PI * 2;\n    });\n    angles.push(startAngle + Math.PI * 2);\n    function parliamentLayout(\n      startAngle: number,\n      endAngle: number,\n      totalAngle: number,\n      r0: number,\n      r1: number,\n      size: number\n    ) {\n      let rowsCount = Math.ceil((r1 - r0) / size);\n      let points = [];\n\n      let r = r0;\n      for (let i = 0; i < rowsCount; i++) {\n        // Recalculate size\n        let totalRingSeatsNumber = Math.round((totalAngle * r) / size);\n        let newSize = (totalAngle * r) / totalRingSeatsNumber;\n        for (\n          let k = Math.floor((startAngle * r) / newSize) * newSize;\n          k < Math.floor((endAngle * r) / newSize) * newSize - 1e-6;\n          k += newSize\n        ) {\n          let angle = k / r;\n          let x = Math.cos(angle) * r;\n          let y = Math.sin(angle) * r;\n          points.push([x, y]);\n        }\n\n        r += size;\n      }\n\n      return points;\n    }\n    return {\n      series: {\n        type: 'custom',\n        id: 'distribution',\n        data: data,\n        coordinateSystem: undefined,\n        universalTransition: true,\n        animationDurationUpdate: 1000,\n        renderItem: function (params, api) {\n          var idx = params.dataIndex;\n          var viewSize = Math.min(api.getWidth(), api.getHeight());\n          var r0 = ((parseFloat(radius[0]) / 100) * viewSize) / 2;\n          var r1 = ((parseFloat(radius[1]) / 100) * viewSize) / 2;\n          var cx = api.getWidth() * 0.5;\n          var cy = api.getHeight() * 0.5;\n          var size = viewSize / 50;\n\n          var points = parliamentLayout(\n            angles[idx],\n            angles[idx + 1],\n            Math.PI * 2,\n            r0,\n            r1,\n            size + 3\n          );\n\n          return {\n            type: 'group',\n            children: points.map(function (pt) {\n              return {\n                type: 'circle',\n                autoBatch: true,\n                shape: {\n                  cx: cx + pt[0],\n                  cy: cy + pt[1],\n                  r: size / 2\n                },\n                style: {\n                  fill: defaultPalette[idx % defaultPalette.length]\n                }\n              };\n            })\n          };\n        }\n      }\n    } as echarts.EChartsOption;\n  })();\n\n  let currentOption = (option = pieOption);\n\n  setInterval(function () {\n    currentOption = currentOption === pieOption ? parliamentOption : pieOption;\n    myChart.setOption(currentOption);\n  }, 2000);\n  return option\n}\n\nexport function EchartsPieParliamentTransition() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom",
+    "animation"
+  ],
+  "type": "registry:block"
+}

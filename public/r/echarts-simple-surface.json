@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-simple-surface",
+  "title": "Simple Surface",
+  "description": "Simple Surface, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-simple-surface.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\n// Adapted from the Apache ECharts example \"Simple Surface\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=simple-surface\nconst setup: EChartSetup = () => {\n  let option: any\n  option = {\n    tooltip: {},\n    backgroundColor: '#fff',\n    visualMap: {\n      show: false,\n      dimension: 2,\n      min: -1,\n      max: 1,\n      inRange: {\n        color: [\n          '#313695',\n          '#4575b4',\n          '#74add1',\n          '#abd9e9',\n          '#e0f3f8',\n          '#ffffbf',\n          '#fee090',\n          '#fdae61',\n          '#f46d43',\n          '#d73027',\n          '#a50026'\n        ]\n      }\n    },\n    xAxis3D: {\n      type: 'value'\n    },\n    yAxis3D: {\n      type: 'value'\n    },\n    zAxis3D: {\n      type: 'value'\n    },\n    grid3D: {\n      viewControl: {\n        // projection: 'orthographic'\n      }\n    },\n    series: [\n      {\n        type: 'surface',\n        wireframe: {\n          // show: false\n        },\n        equation: {\n          x: {\n            step: 0.05\n          },\n          y: {\n            step: 0.05\n          },\n          z: function (x: any, y: any) {\n            if (Math.abs(x) < 0.1 && Math.abs(y) < 0.1) {\n              return '-';\n            }\n            return Math.sin(x * Math.PI) * Math.sin(y * Math.PI);\n          }\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsSimpleSurface() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "surface"
+  ],
+  "type": "registry:block"
+}

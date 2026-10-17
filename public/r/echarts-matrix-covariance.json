@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-matrix-covariance",
+  "title": "Covariance Matrix",
+  "description": "Covariance Matrix, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-matrix-covariance.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Covariance Matrix\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=matrix-covariance\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const xData = [];\n  const yData = [];\n  for (let i = 0; i < 5; ++i) {\n    const children = [];\n    for (let j = 0; j < 5; ++j) {\n      children.push(i * 5 + j + 1 + '');\n    }\n    xData.push({\n      value: 'X' + (i + 1),\n      children\n    });\n    yData.push({\n      value: 'Y' + (i + 1),\n      children\n    });\n  }\n\n  const data = [];\n  const size = 25;\n  let temp = {};\n\n  for (let i = 1; i <= size; ++i) {\n    for (let j = 1; j <= size; ++j) {\n      let base = i === j ? 100 : 20;\n      const iGroup = Math.ceil(i / 5);\n      const jGroup = Math.ceil(j / 5);\n      base += (3 - Math.abs(iGroup - jGroup)) * 35;\n      if (i % 5 === j % 5) {\n        base += 20;\n      }\n      if (Math.random() > 0.9) {\n        base += Math.random() * 40;\n      }\n\n      if (i > j) {\n        // Use the previously calculated value to ensure symmetry\n        data.push([\n          i + '',\n          j + '',\n          // @ts-ignore\n          temp[j + '_' + i]\n        ]);\n      } else {\n        // Calculate a new value and save it for future use\n        let value = (Math.random() * 0.5 + 0.5) * base;\n        data.push([\n          i + '',\n          j + '',\n          value\n        ]);\n        // @ts-ignore\n        temp[i + '_' + j] = value;\n      }\n    }\n  }\n\n  option = {\n    // @ts-ignore\n    matrix: {\n      x: {\n        data: xData,\n        show: false\n      },\n      y: {\n        data: yData,\n        show: false\n      },\n      width: 500,\n      height: 500,\n      left: (window.innerWidth - 500) / 2\n    },\n    // @ts-ignore\n    tooltip: {\n      show: true,\n      // @ts-ignore\n      valueFormatter: value => Math.round(value)\n    },\n    visualMap: {\n      type: 'continuous',\n      min: 15,\n      max: 120,\n      dimension: 2,\n      calculable: true,\n      orient: 'horizontal',\n      top: 5,\n      left: 'center',\n      inRange: {\n        color: [\n          '#313695',\n          '#4575b4',\n          '#74add1',\n          '#abd9e9',\n          '#e0f3f8',\n          '#ffffbf',\n          '#fee090',\n          '#fdae61',\n          '#f46d43',\n          '#d73027',\n          '#a50026'\n        ]\n      }\n    },\n    series: {\n      type: 'heatmap',\n      coordinateSystem: 'matrix',\n      data\n    }\n  };\n  return option\n}\n\nexport function EchartsMatrixCovariance() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "matrix"
+  ],
+  "type": "registry:block"
+}

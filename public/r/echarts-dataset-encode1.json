@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dataset-encode1",
+  "title": "Encode and Matrix",
+  "description": "Encode and Matrix, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dataset-encode1.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Encode and Matrix\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dataset-encode1\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(\n    ROOT_PATH + '/data/asset/data/life-expectancy-table.json',\n    function (data) {\n      var sizeValue = '57%';\n      var symbolSize = 2.5;\n      option = {\n        legend: {},\n        tooltip: {},\n        toolbox: {\n          left: 'center',\n          feature: {\n            dataZoom: {}\n          }\n        },\n        grid: [\n          { right: sizeValue, bottom: sizeValue },\n          { left: sizeValue, bottom: sizeValue },\n          { right: sizeValue, top: sizeValue },\n          { left: sizeValue, top: sizeValue }\n        ],\n        xAxis: [\n          {\n            type: 'value',\n            gridIndex: 0,\n            name: 'Income',\n            axisLabel: { rotate: 50, interval: 0 }\n          },\n          {\n            type: 'category',\n            gridIndex: 1,\n            name: 'Country',\n            boundaryGap: false,\n            axisLabel: { rotate: 50, interval: 0 }\n          },\n          {\n            type: 'value',\n            gridIndex: 2,\n            name: 'Income',\n            axisLabel: { rotate: 50, interval: 0 }\n          },\n          {\n            type: 'value',\n            gridIndex: 3,\n            name: 'Life Expectancy',\n            axisLabel: { rotate: 50, interval: 0 }\n          }\n        ],\n        yAxis: [\n          { type: 'value', gridIndex: 0, name: 'Life Expectancy' },\n          { type: 'value', gridIndex: 1, name: 'Income' },\n          { type: 'value', gridIndex: 2, name: 'Population' },\n          { type: 'value', gridIndex: 3, name: 'Population' }\n        ],\n        dataset: {\n          dimensions: [\n            'Income',\n            'Life Expectancy',\n            'Population',\n            'Country',\n            { name: 'Year', type: 'ordinal' }\n          ],\n          source: data\n        },\n        series: [\n          {\n            type: 'scatter',\n            symbolSize: symbolSize,\n            xAxisIndex: 0,\n            yAxisIndex: 0,\n            encode: {\n              x: 'Income',\n              y: 'Life Expectancy',\n              tooltip: [0, 1, 2, 3, 4]\n            }\n          },\n          {\n            type: 'scatter',\n            symbolSize: symbolSize,\n            xAxisIndex: 1,\n            yAxisIndex: 1,\n            encode: {\n              x: 'Country',\n              y: 'Income',\n              tooltip: [0, 1, 2, 3, 4]\n            }\n          },\n          {\n            type: 'scatter',\n            symbolSize: symbolSize,\n            xAxisIndex: 2,\n            yAxisIndex: 2,\n            encode: {\n              x: 'Income',\n              y: 'Population',\n              tooltip: [0, 1, 2, 3, 4]\n            }\n          },\n          {\n            type: 'scatter',\n            symbolSize: symbolSize,\n            xAxisIndex: 3,\n            yAxisIndex: 3,\n            encode: {\n              x: 'Life Expectancy',\n              y: 'Population',\n              tooltip: [0, 1, 2, 3, 4]\n            }\n          }\n        ]\n      };\n\n      myChart.setOption<echarts.EChartsOption>(option);\n    }\n  );\n  return option\n}\n\nexport function EchartsDatasetEncode1() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "dataset"
+  ],
+  "type": "registry:block"
+}

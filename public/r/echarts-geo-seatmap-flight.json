@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-seatmap-flight",
+  "title": "Flight Seatmap with SVG",
+  "description": "Flight Seatmap with SVG, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-seatmap-flight.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Flight Seatmap with SVG\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-seatmap-flight\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(ROOT_PATH + '/data/asset/geo/flight-seats.svg', function (svg) {\n    echarts.registerMap('flight-seats', { svg: svg });\n\n    const takenSeatNames = ['26E', '26D', '26C', '25D', '23C', '21A', '20F'];\n\n    option = {\n      tooltip: {},\n      geo: {\n        map: 'flight-seats',\n        roam: true,\n        selectedMode: 'multiple',\n        layoutCenter: ['50%', '50%'],\n        layoutSize: '95%',\n        tooltip: {\n          show: true\n        },\n        itemStyle: {\n          color: '#fff'\n        },\n        emphasis: {\n          itemStyle: {\n            color: undefined,\n            borderColor: 'green',\n            borderWidth: 2\n          },\n          label: {\n            show: false\n          }\n        },\n        select: {\n          itemStyle: {\n            color: 'green'\n          },\n          label: {\n            show: false,\n            textBorderColor: '#fff',\n            textBorderWidth: 2\n          }\n        },\n        regions: makeTakenRegions(takenSeatNames)\n      }\n    };\n\n    function makeTakenRegions(takenSeatNames: string[]) {\n      var regions = [];\n      for (var i = 0; i < takenSeatNames.length; i++) {\n        regions.push({\n          name: takenSeatNames[i],\n          silent: true,\n          itemStyle: {\n            color: '#bf0e08'\n          },\n          emphasis: {\n            itemStyle: {\n              borderColor: '#aaa',\n              borderWidth: 1\n            }\n          },\n          select: {\n            itemStyle: {\n              color: '#bf0e08'\n            }\n          }\n        });\n      }\n      return regions;\n    }\n\n    myChart.setOption(option);\n\n    // Get selected seats.\n    myChart.on('geoselectchanged', function (params: any) {\n      const selectedNames: string[] = params.allSelected[0].name.slice();\n\n      // Remove taken seats.\n      for (var i = selectedNames.length - 1; i >= 0; i--) {\n        if (takenSeatNames.indexOf(selectedNames[i]) >= 0) {\n          selectedNames.splice(i, 1);\n        }\n      }\n\n      console.log('selected', selectedNames);\n    });\n  });\n  return option\n}\n\nexport function EchartsGeoSeatmapFlight() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map"
+  ],
+  "type": "registry:block"
+}

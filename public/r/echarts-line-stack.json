@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-stack",
+  "title": "Stacked Line Chart",
+  "description": "Stacked Line Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-stack.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stacked Line Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-stack\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Stacked Line'\n    },\n    tooltip: {\n      trigger: 'axis'\n    },\n    legend: {\n      data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']\n    },\n    grid: {\n      left: '3%',\n      right: '4%',\n      bottom: '3%',\n      containLabel: true\n    },\n    toolbox: {\n      feature: {\n        saveAsImage: {}\n      }\n    },\n    xAxis: {\n      type: 'category',\n      boundaryGap: false,\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    yAxis: {\n      type: 'value'\n    },\n    series: [\n      {\n        name: 'Email',\n        type: 'line',\n        stack: 'Total',\n        data: [120, 132, 101, 134, 90, 230, 210]\n      },\n      {\n        name: 'Union Ads',\n        type: 'line',\n        stack: 'Total',\n        data: [220, 182, 191, 234, 290, 330, 310]\n      },\n      {\n        name: 'Video Ads',\n        type: 'line',\n        stack: 'Total',\n        data: [150, 232, 201, 154, 190, 330, 410]\n      },\n      {\n        name: 'Direct',\n        type: 'line',\n        stack: 'Total',\n        data: [320, 332, 301, 334, 390, 330, 320]\n      },\n      {\n        name: 'Search Engine',\n        type: 'line',\n        stack: 'Total',\n        data: [820, 932, 901, 934, 1290, 1330, 1320]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineStack() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

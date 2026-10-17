@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-metal-surface",
+  "title": "Metal Surface",
+  "description": "Metal Surface, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-metal-surface.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Metal Surface\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=metal-surface\nconst setup: EChartSetup = () => {\n  let option: any\n  var sin = Math.sin;\n  var cos = Math.cos;\n  var pow = Math.pow;\n  var sqrt = Math.sqrt;\n  var cosh = Math.cosh;\n  var sinh = Math.sinh;\n  var PI = Math.PI;\n\n  var aa = 0.4;\n  var r = 1 - aa * aa;\n  var w = sqrt(r);\n\n  option = {\n    tooltip: {},\n    visualMap: {\n      show: false,\n      dimension: 2,\n      min: -5,\n      max: 5,\n      inRange: {\n        color: [\n          '#313695',\n          '#4575b4',\n          '#74add1',\n          '#abd9e9',\n          '#e0f3f8',\n          '#ffffbf',\n          '#fee090',\n          '#fdae61',\n          '#f46d43',\n          '#d73027',\n          '#a50026'\n        ]\n      }\n    },\n    xAxis3D: {},\n    yAxis3D: {},\n    zAxis3D: {},\n    grid3D: {\n      show: false,\n      postEffect: {\n        enable: true,\n        SSAO: {\n          enable: true,\n          radius: 4,\n          quality: 'high',\n          intensity: 1.5\n        }\n      },\n      temporalSuperSampling: {\n        enable: true\n      },\n      light: {\n        main: {\n          intensity: 2,\n          shadow: true\n        },\n        ambient: {\n          intensity: 0\n        },\n        ambientCubemap: {\n          texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',\n          exposure: 2,\n          diffuseIntensity: 0.2,\n          specularIntensity: 3\n        }\n      }\n    },\n    series: [\n      {\n        type: 'surface',\n        parametric: true,\n        silent: true,\n        wireframe: {\n          show: false\n        },\n        shading: 'realistic',\n        realisticMaterial: {\n          roughness: 0.2,\n          metalness: 1\n        },\n        parametricEquation: {\n          u: {\n            min: -13.2,\n            max: 13.2,\n            step: 0.2\n          },\n          v: {\n            min: -37.4,\n            max: 37.4,\n            step: 0.2\n          },\n          x: function (u: any, v: any) {\n            var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));\n            return -u + (2 * r * cosh(aa * u) * sinh(aa * u)) / denom;\n          },\n          y: function (u: any, v: any) {\n            var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));\n            return (\n              (2 *\n                w *\n                cosh(aa * u) *\n                (-(w * cos(v) * cos(w * v)) - sin(v) * sin(w * v))) /\n              denom\n            );\n          },\n          z: function (u: any, v: any) {\n            var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));\n            return (\n              (2 *\n                w *\n                cosh(aa * u) *\n                (-(w * sin(v) * cos(w * v)) + cos(v) * sin(w * v))) /\n              denom\n            );\n          }\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsMetalSurface() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "surface"
+  ],
+  "type": "registry:block"
+}

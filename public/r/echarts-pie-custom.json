@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-custom",
+  "title": "Customized Pie",
+  "description": "Customized Pie, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-custom.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Customized Pie\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-custom\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    backgroundColor: '#2c343c',\n\n    title: {\n      text: 'Customized Pie',\n      left: 'center',\n      top: 20,\n      textStyle: {\n        color: '#ccc'\n      }\n    },\n\n    tooltip: {\n      trigger: 'item'\n    },\n\n    visualMap: {\n      show: false,\n      min: 80,\n      max: 600,\n      inRange: {\n        colorLightness: [0, 1]\n      }\n    },\n    series: [\n      {\n        name: 'Access From',\n        type: 'pie',\n        radius: '55%',\n        center: ['50%', '50%'],\n        data: [\n          { value: 335, name: 'Direct' },\n          { value: 310, name: 'Email' },\n          { value: 274, name: 'Union Ads' },\n          { value: 235, name: 'Video Ads' },\n          { value: 400, name: 'Search Engine' }\n        ].sort(function (a, b) {\n          return a.value - b.value;\n        }),\n        roseType: 'radius',\n        label: {\n          color: 'rgba(255, 255, 255, 0.3)'\n        },\n        labelLine: {\n          lineStyle: {\n            color: 'rgba(255, 255, 255, 0.3)'\n          },\n          smooth: 0.2,\n          length: 10,\n          length2: 20\n        },\n        itemStyle: {\n          color: '#c23531',\n          shadowBlur: 200,\n          shadowColor: 'rgba(0, 0, 0, 0.5)'\n        },\n\n        animationType: 'scale',\n        animationEasing: 'elasticOut',\n        animationDelay: function (idx) {\n          return Math.random() * 200;\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieCustom() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie"
+  ],
+  "type": "registry:block"
+}

@@ -64,7 +64,7 @@ See [`#installation`](https://designkit-smoky.vercel.app/#installation) for the 
 
 ## Public components
 
-Every primitive vendored under `src/components/ui/` is a real package export — there is no separate curated subset. That's the full shadcn/ui (Base UI, Nova preset) catalog: `Accordion`, `Alert`, `AlertDialog`, `Avatar`, `Badge`, `Breadcrumb`, `Button`, `Calendar`, `Card`, `Carousel`, `Checkbox`, `Command`, `ContextMenu`, `Dialog`, `Drawer`, `DropdownMenu`, `Field`, `Input`, `Menubar`, `NavigationMenu`, `Popover`, `RadioGroup`, `Select`, `Sheet`, `Sidebar`, `Table`, `Tabs`, `Toast`, `Toaster`, `Tooltip`, and more — see the sidebar in the docs app for the complete, current list.
+Every primitive under `src/components/ui/` is a real package export — there is no separate curated subset. That includes the full core set (`Accordion`, `Alert`, `AlertDialog`, `Avatar`, `Badge`, `Breadcrumb`, `Button`, `Calendar`, `Card`, `Carousel`, `Checkbox`, `Command`, `ContextMenu`, `Dialog`, `Drawer`, `DropdownMenu`, `Field`, `Input`, `Menubar`, `NavigationMenu`, `Popover`, `RadioGroup`, `Select`, `Sheet`, `Sidebar`, `Table`, `Tabs`, `Toast`, `Tooltip`, etc.) along with enriched enterprise primitives: `SegmentedControl`, `NumberInput`, `PasswordInput`, `PhoneInput`, `PaymentInput`, `TagsInput`, `ColorPicker`, `Rating`, `FileDropzone`, `MultiSelect`, `Tree`, `Stepper`, `Timeline`, `Tour`, `Statistic`, `Descriptions`, `RingProgress`, `CodeBlock`, `Tag`, `Spoiler`, `CopyButton`, `QRCode`, `Watermark`, `Result`, `FloatButton`, and `ImageCropper` — see the sidebar in the docs app for the complete, current list.
 
 ## Theming
 

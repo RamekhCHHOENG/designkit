@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sankey-vertical",
+  "title": "Sankey Orient Vertical",
+  "description": "Sankey Orient Vertical, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sankey-vertical.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Sankey Orient Vertical\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sankey-vertical\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    tooltip: {\n      trigger: 'item',\n      triggerOn: 'mousemove'\n    },\n    animation: false,\n    series: [\n      {\n        type: 'sankey',\n        bottom: '10%',\n        emphasis: {\n          focus: 'adjacency'\n        },\n        data: [\n          { name: 'a' },\n          { name: 'b' },\n          { name: 'a1' },\n          { name: 'b1' },\n          { name: 'c' },\n          { name: 'e' }\n        ],\n        links: [\n          { source: 'a', target: 'a1', value: 5 },\n          { source: 'e', target: 'b', value: 3 },\n          { source: 'a', target: 'b1', value: 3 },\n          { source: 'b1', target: 'a1', value: 1 },\n          { source: 'b1', target: 'c', value: 2 },\n          { source: 'b', target: 'c', value: 1 }\n        ],\n        orient: 'vertical',\n        label: {\n          position: 'top'\n        },\n        lineStyle: {\n          color: 'source',\n          curveness: 0.5\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsSankeyVertical() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sankey"
+  ],
+  "type": "registry:block"
+}

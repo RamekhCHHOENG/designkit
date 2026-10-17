@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-breaks-simple",
+  "title": "Bar Chart with Axis Breaks",
+  "description": "Bar Chart with Axis Breaks, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-breaks-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Bar Chart with Axis Breaks\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-breaks-simple\nconst setup: EChartSetup = ({ myChart, setTimeout }) => {\n  let option!: EChartsOption\n  var _currentAxisBreaks = [{\n    start: 5000,\n    end: 100000,\n    gap: '1.5%'\n  }, {\n    // `start` and `end` are also used as the identifier for a certain axis break.\n    start: 105000,\n    end: 3100000,\n    gap: '1.5%'\n  }];\n\n  option = {\n    title: {\n      text: 'Bar Chart with Axis Breaks',\n      subtext: 'Click the break area to expand it',\n      left: 'center',\n      textStyle: {\n        fontSize: 20\n      },\n      subtextStyle: {\n        color: '#175ce5',\n        fontSize: 15,\n        fontWeight: 'bold'\n      }\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    legend: {},\n    grid: {\n      top: 120,\n    },\n    xAxis: [{\n      type: 'category',\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    }],\n    yAxis: [{\n      type: 'value',\n      breaks: _currentAxisBreaks,\n      breakArea: {\n        itemStyle: {\n          opacity: 1\n        },\n        zigzagZ: 200,\n      }\n    }],\n    series: [\n      {\n        name: 'Data A',\n        type: 'bar',\n        emphasis: {\n          focus: 'series'\n        },\n        data: [1500, 2032, 2001, 3154, 2190, 4330, 2410]\n      },\n      {\n        name: 'Data B',\n        type: 'bar',\n        emphasis: {\n          focus: 'series'\n        },\n        data: [1200, 1320, 1010, 1340, 900, 2300, 2100]\n      },\n      {\n        name: 'Data C',\n        type: 'bar',\n        emphasis: {\n          focus: 'series'\n        },\n        data: [103200, 100320, 103010, 102340, 103900, 103300, 103200]\n      },\n      {\n        name: 'Data D',\n        type: 'bar',\n        data: [3106212, 3102118, 3102643, 3104631, 3106679, 3100130, 3107022],\n        emphasis: {\n          focus: 'series'\n        },\n      }\n    ]\n  };\n\n  /**\n   * This is some interaction logic with axis break:\n   *  - Click to expand and reset button.\n   *\n   * You can ignore this part if you do not need it.\n   */\n  function initAxisBreakInteraction() {\n\n    myChart.on('axisbreakchanged', function (params) {\n      updateCollapseButton(params as echarts.AxisBreakChangedEvent);\n    });\n\n    myChart.on('click', function (params) {\n      if (params.name === 'collapseAxisBreakBtn') {\n        collapseAxisBreak();\n      }\n    });\n\n    function updateCollapseButton(params: echarts.AxisBreakChangedEvent) {\n      // If there is any axis break expanded, we need to show the collapse button.\n      var needReset = false;\n      for (let i = 0; i < params.breaks.length; i++) {\n        const changedBreakItem = params.breaks[i];\n        if (changedBreakItem.isExpanded) {\n          needReset = true;\n          break;\n        }\n      }\n      myChart.setOption({\n        // Draw the collapse button.\n        graphic: [{\n          elements: [{\n            type: 'rect',\n            ignore: !needReset,\n            name: 'collapseAxisBreakBtn',\n            top: 5,\n            left: 5,\n            shape: {r: 3, width: 140, height: 24},\n            style: {fill: '#eee', stroke: '#999', lineWidth: 1},\n            textContent: {\n              type: 'text',\n              style: {\n                text: 'Collapse Axis Breaks',\n                fontSize: 13,\n                fontWeight: 'bold'\n              }\n            },\n            textConfig: {position: 'inside'}\n          }]\n        }]\n      });\n    }\n\n    function collapseAxisBreak() {\n      myChart.dispatchAction({\n        type: 'collapseAxisBreak',\n        yAxisIndex: 0,\n        breaks: _currentAxisBreaks\n      });\n    }\n\n  } // End of initAxisBreakInteraction\n\n  setTimeout(initAxisBreakInteraction, 0);\n  return option\n}\n\nexport function EchartsBarBreaksSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-roseType",
+  "title": "Nightingale Chart",
+  "description": "Nightingale Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-roseType.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Nightingale Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-roseType\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Nightingale Chart',\n      subtext: 'Fake Data',\n      left: 'center'\n    },\n    tooltip: {\n      trigger: 'item',\n      formatter: '{a} <br/>{b} : {c} ({d}%)'\n    },\n    legend: {\n      left: 'center',\n      top: 'bottom',\n      data: [\n        'rose1',\n        'rose2',\n        'rose3',\n        'rose4',\n        'rose5',\n        'rose6',\n        'rose7',\n        'rose8'\n      ]\n    },\n    toolbox: {\n      show: true,\n      feature: {\n        mark: { show: true },\n        dataView: { show: true, readOnly: false },\n        restore: { show: true },\n        saveAsImage: { show: true }\n      }\n    },\n    series: [\n      {\n        name: 'Radius Mode',\n        type: 'pie',\n        radius: [20, 140],\n        center: ['25%', '50%'],\n        roseType: 'radius',\n        itemStyle: {\n          borderRadius: 5\n        },\n        label: {\n          show: false\n        },\n        emphasis: {\n          label: {\n            show: true\n          }\n        },\n        data: [\n          { value: 40, name: 'rose 1' },\n          { value: 33, name: 'rose 2' },\n          { value: 28, name: 'rose 3' },\n          { value: 22, name: 'rose 4' },\n          { value: 20, name: 'rose 5' },\n          { value: 15, name: 'rose 6' },\n          { value: 12, name: 'rose 7' },\n          { value: 10, name: 'rose 8' }\n        ]\n      },\n      {\n        name: 'Area Mode',\n        type: 'pie',\n        radius: [20, 140],\n        center: ['75%', '50%'],\n        roseType: 'area',\n        itemStyle: {\n          borderRadius: 5\n        },\n        data: [\n          { value: 30, name: 'rose 1' },\n          { value: 28, name: 'rose 2' },\n          { value: 26, name: 'rose 3' },\n          { value: 24, name: 'rose 4' },\n          { value: 22, name: 'rose 5' },\n          { value: 20, name: 'rose 6' },\n          { value: 18, name: 'rose 7' },\n          { value: 16, name: 'rose 8' }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieRoseType() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie"
+  ],
+  "type": "registry:block"
+}

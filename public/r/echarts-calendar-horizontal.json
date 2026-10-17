@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-calendar-horizontal",
+  "title": "Calendar Heatmap Horizontal",
+  "description": "Calendar Heatmap Horizontal, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-calendar-horizontal.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Calendar Heatmap Horizontal\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=calendar-horizontal\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function getVirtualData(year: string) {\n    const date = +echarts.time.parse(year + '-01-01');\n    const end = +echarts.time.parse(+year + 1 + '-01-01');\n    const dayTime = 3600 * 24 * 1000;\n    const data: [string, number][] = [];\n    for (let time = date; time < end; time += dayTime) {\n      data.push([\n        echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n        Math.floor(Math.random() * 1000)\n      ]);\n    }\n    return data;\n  }\n\n  option = {\n    tooltip: {\n      position: 'top'\n    },\n    visualMap: {\n      min: 0,\n      max: 1000,\n      calculable: true,\n      orient: 'horizontal',\n      left: 'center',\n      top: 'top'\n    },\n\n    calendar: [\n      {\n        range: '2017',\n        cellSize: ['auto', 20]\n      },\n      {\n        top: 260,\n        range: '2016',\n        cellSize: ['auto', 20]\n      },\n      {\n        top: 450,\n        range: '2015',\n        cellSize: ['auto', 20],\n        right: 5\n      }\n    ],\n\n    series: [\n      {\n        type: 'heatmap',\n        coordinateSystem: 'calendar',\n        calendarIndex: 0,\n        data: getVirtualData('2017')\n      },\n      {\n        type: 'heatmap',\n        coordinateSystem: 'calendar',\n        calendarIndex: 1,\n        data: getVirtualData('2016')\n      },\n      {\n        type: 'heatmap',\n        coordinateSystem: 'calendar',\n        calendarIndex: 2,\n        data: getVirtualData('2015')\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCalendarHorizontal() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "calendar"
+  ],
+  "type": "registry:block"
+}

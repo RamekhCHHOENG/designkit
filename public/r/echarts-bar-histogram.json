@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-histogram",
+  "title": "Histogram with Custom Series",
+  "description": "Histogram with Custom Series, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0",
+    "echarts-stat@^1.2.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-histogram.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\nimport ecStatModule from \"echarts-stat\"\n\nconst ecStat: any = ecStatModule\n\n// Adapted from the Apache ECharts example \"Histogram with Custom Series\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-histogram\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  // See https://github.com/ecomfe/echarts-stat\n  echarts.registerTransform(ecStat.transform.histogram);\n\n  option = {\n    dataset: [\n      {\n        source: [\n          [8.3, 143],\n          [8.6, 214],\n          [8.8, 251],\n          [10.5, 26],\n          [10.7, 86],\n          [10.8, 93],\n          [11.0, 176],\n          [11.0, 39],\n          [11.1, 221],\n          [11.2, 188],\n          [11.3, 57],\n          [11.4, 91],\n          [11.4, 191],\n          [11.7, 8],\n          [12.0, 196],\n          [12.9, 177],\n          [12.9, 153],\n          [13.3, 201],\n          [13.7, 199],\n          [13.8, 47],\n          [14.0, 81],\n          [14.2, 98],\n          [14.5, 121],\n          [16.0, 37],\n          [16.3, 12],\n          [17.3, 105],\n          [17.5, 168],\n          [17.9, 84],\n          [18.0, 197],\n          [18.0, 155],\n          [20.6, 125]\n        ]\n      },\n      {\n        transform: {\n          type: 'ecStat:histogram',\n          config: {}\n        }\n      },\n      {\n        transform: {\n          type: 'ecStat:histogram',\n          // print: true,\n          config: { dimensions: [1] }\n        }\n      }\n    ],\n    tooltip: {},\n    grid: [\n      {\n        top: '50%',\n        right: '50%'\n      },\n      {\n        bottom: '52%',\n        right: '50%'\n      },\n      {\n        top: '50%',\n        left: '52%'\n      }\n    ],\n    xAxis: [\n      {\n        scale: true,\n        gridIndex: 0\n      },\n      {\n        type: 'category',\n        // @ts-ignore\n        scale: true,\n        axisTick: { show: false },\n        axisLabel: { show: false },\n        axisLine: { show: false },\n        gridIndex: 1\n      },\n      {\n        scale: true,\n        gridIndex: 2\n      }\n    ],\n    yAxis: [\n      {\n        gridIndex: 0\n      },\n      {\n        gridIndex: 1\n      },\n      {\n        type: 'category',\n        axisTick: { show: false },\n        axisLabel: { show: false },\n        axisLine: { show: false },\n        gridIndex: 2\n      }\n    ],\n    series: [\n      {\n        name: 'origianl scatter',\n        type: 'scatter',\n        xAxisIndex: 0,\n        yAxisIndex: 0,\n        encode: { tooltip: [0, 1] },\n        datasetIndex: 0\n      },\n      {\n        name: 'histogram',\n        type: 'bar',\n        xAxisIndex: 1,\n        yAxisIndex: 1,\n        barWidth: '99.3%',\n        label: {\n          show: true,\n          position: 'top'\n        },\n        encode: { x: 0, y: 1, itemName: 4 },\n        datasetIndex: 1\n      },\n      {\n        name: 'histogram',\n        type: 'bar',\n        xAxisIndex: 2,\n        yAxisIndex: 2,\n        barWidth: '99.3%',\n        label: {\n          show: true,\n          position: 'right'\n        },\n        encode: { x: 1, y: 0, itemName: 4 },\n        datasetIndex: 2\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBarHistogram() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

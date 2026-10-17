@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-calendar-effectscatter",
+  "title": "Calendar EffectScatter",
+  "description": "Calendar EffectScatter, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-calendar-effectscatter.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Calendar EffectScatter\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=calendar-effectscatter\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function getVirtualData(year: string) {\n    const date = +echarts.time.parse(year + '-01-01');\n    const end = +echarts.time.parse(+year + 1 + '-01-01');\n    const dayTime = 3600 * 24 * 1000;\n    const data: [string, number][] = [];\n    for (let time = date; time < end; time += dayTime) {\n      data.push([\n        echarts.time.format(time, '{yyyy}-{MM}-{dd}', false),\n        Math.floor(Math.random() * 10000)\n      ]);\n    }\n    return data;\n  }\n\n  const data = getVirtualData('2016');\n\n  option = {\n    backgroundColor: '#404a59',\n\n    title: {\n      top: 30,\n      text: 'Daily Step Count in 2016',\n      subtext: 'Fake Data',\n      left: 'center',\n      textStyle: {\n        color: '#fff'\n      }\n    },\n    tooltip: {\n      trigger: 'item'\n    },\n    legend: {\n      top: '30',\n      left: '100',\n      data: ['Steps', 'Top 12'],\n      textStyle: {\n        color: '#fff'\n      }\n    },\n    calendar: [\n      {\n        top: 120,\n        left: 'center',\n        range: ['2016-01-01', '2016-06-30'],\n        splitLine: {\n          show: true,\n          lineStyle: {\n            color: '#000',\n            width: 4,\n            type: 'solid'\n          }\n        },\n        yearLabel: {\n          formatter: '{start}  1st',\n          color: '#fff'\n        },\n        monthLabel: {\n          color: '#aaa'\n        },\n        dayLabel: {\n          color: '#aaa'\n        },\n        itemStyle: {\n          color: '#323c48',\n          borderWidth: 1,\n          borderColor: '#111'\n        }\n      },\n      {\n        top: 340,\n        left: 'center',\n        range: ['2016-07-01', '2016-12-31'],\n        splitLine: {\n          show: true,\n          lineStyle: {\n            color: '#000',\n            width: 4,\n            type: 'solid'\n          }\n        },\n        yearLabel: {\n          formatter: '{start}  2nd',\n          color: '#fff'\n        },\n        monthLabel: {\n          color: '#aaa'\n        },\n        dayLabel: {\n          color: '#aaa'\n        },\n        itemStyle: {\n          color: '#323c48',\n          borderWidth: 1,\n          borderColor: '#111'\n        }\n      }\n    ],\n    series: [\n      {\n        name: 'Steps',\n        type: 'scatter',\n        coordinateSystem: 'calendar',\n        data: data,\n        symbolSize: function (val) {\n          return val[1] / 500;\n        },\n        itemStyle: {\n          color: '#ddb926'\n        }\n      },\n      {\n        name: 'Steps',\n        type: 'scatter',\n        coordinateSystem: 'calendar',\n        calendarIndex: 1,\n        data: data,\n        symbolSize: function (val) {\n          return val[1] / 500;\n        },\n        itemStyle: {\n          color: '#ddb926'\n        }\n      },\n      {\n        name: 'Top 12',\n        type: 'effectScatter',\n        coordinateSystem: 'calendar',\n        calendarIndex: 1,\n        data: data\n          .sort(function (a, b) {\n            return b[1] - a[1];\n          })\n          .slice(0, 12),\n        symbolSize: function (val) {\n          return val[1] / 500;\n        },\n        showEffectOn: 'render',\n        rippleEffect: {\n          brushType: 'stroke'\n        },\n        itemStyle: {\n          color: '#f4e925',\n          shadowBlur: 10,\n          shadowColor: '#333'\n        },\n        zlevel: 1\n      },\n      {\n        name: 'Top 12',\n        type: 'effectScatter',\n        coordinateSystem: 'calendar',\n        data: data\n          .sort(function (a, b) {\n            return b[1] - a[1];\n          })\n          .slice(0, 12),\n        symbolSize: function (val) {\n          return val[1] / 500;\n        },\n        showEffectOn: 'render',\n        rippleEffect: {\n          brushType: 'stroke'\n        },\n        itemStyle: {\n          color: '#f4e925',\n          shadowBlur: 10,\n          shadowColor: '#333'\n        },\n        zlevel: 1\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsCalendarEffectscatter() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "calendar"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graph-webkit-dep",
+  "title": "Graph Webkit Dep",
+  "description": "Graph Webkit Dep, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graph-webkit-dep.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Graph Webkit Dep\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graph-webkit-dep\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  myChart.showLoading();\n  $.get(ROOT_PATH + '/data/asset/data/webkit-dep.json', function (webkitDep) {\n    myChart.hideLoading();\n\n    option = {\n      legend: {\n        data: ['HTMLElement', 'WebGL', 'SVG', 'CSS', 'Other']\n      },\n      series: [\n        {\n          type: 'graph',\n          layout: 'force',\n          animation: false,\n          roam: true,\n          roamTrigger: 'global',\n          scaleLimit: {\n            max: 8,\n            min: 0.5\n          },\n          label: {\n            position: 'right',\n            formatter: '{b}'\n          },\n          draggable: true,\n          data: webkitDep.nodes.map(function (node: any, idx: number) {\n            node.id = idx;\n            return node;\n          }),\n          categories: webkitDep.categories,\n          force: {\n            edgeLength: 5,\n            repulsion: 20,\n            gravity: 0.2\n          },\n          edges: webkitDep.links\n        }\n      ],\n      thumbnail: {\n        width: '15%',\n        height: '15%',\n        windowStyle: {\n          color: 'rgba(140, 212, 250, 0.5)',\n          borderColor: 'rgba(30, 64, 175, 0.7)',\n          opacity: 1,\n        }\n      }\n    };\n\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsGraphWebkitDep() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graph"
+  ],
+  "type": "registry:block"
+}

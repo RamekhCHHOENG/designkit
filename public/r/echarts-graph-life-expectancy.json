@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graph-life-expectancy",
+  "title": "Graph Life Expectancy",
+  "description": "Graph Life Expectancy, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graph-life-expectancy.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Graph Life Expectancy\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graph-life-expectancy\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  $.get(ROOT_PATH + '/data/asset/data/life-expectancy.json', function (rawData) {\n    const series: NonNullable<echarts.EChartsOption['series']> = [];\n\n    rawData.counties.forEach(function (country: string) {\n      const data = rawData.series.map(function (yearData: (string | number)[][]) {\n        const item = yearData.filter(function (item: (string | number)[]) {\n          return item[3] === country;\n        })[0];\n        return {\n          label: {\n            show: +item[4] % 20 === 0 && +item[4] > 1940,\n            position: 'top'\n          },\n          emphasis: {\n            label: {\n              show: true\n            }\n          },\n          name: item[4],\n          value: item\n        };\n      });\n      var links = data.map(function (item: unknown, idx: number) {\n        return {\n          source: idx,\n          target: idx + 1\n        };\n      });\n      links.pop();\n\n      series.push({\n        name: country,\n        type: 'graph',\n        coordinateSystem: 'cartesian2d',\n        data: data,\n        links: links,\n        edgeSymbol: ['none', 'arrow'],\n        edgeSymbolSize: 5,\n        legendHoverLink: false,\n        lineStyle: {\n          color: '#333'\n        },\n        itemStyle: {\n          borderWidth: 1,\n          borderColor: '#333'\n        },\n        label: {\n          color: '#333',\n          position: 'right'\n        },\n        symbolSize: 10,\n        animationDelay: function (idx) {\n          return idx * 100;\n        }\n      });\n    });\n\n    option = {\n      visualMap: {\n        show: false,\n        min: 0,\n        max: 100,\n        dimension: 1\n      },\n      legend: {\n        data: rawData.counties,\n        selectedMode: 'single',\n        right: 100\n      },\n      grid: {\n        left: 0,\n        bottom: 0,\n        containLabel: true,\n        top: 80\n      },\n      xAxis: {\n        type: 'value'\n      },\n      yAxis: {\n        type: 'value',\n        scale: true\n      },\n      toolbox: {\n        feature: {\n          dataZoom: {}\n        }\n      },\n      dataZoom: {\n        type: 'inside'\n      },\n      series: series\n    };\n\n    myChart.setOption(option);\n  });\n  return option\n}\n\nexport function EchartsGraphLifeExpectancy() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graph"
+  ],
+  "type": "registry:block"
+}

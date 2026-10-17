@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-boxplot-multi",
+  "title": "Multiple Categories",
+  "description": "Multiple Categories, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-boxplot-multi.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Multiple Categories\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=boxplot-multi\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  // Generate data.\n  function makeData() {\n    let data = [];\n    for (let i = 0; i < 18; i++) {\n      let cate = [];\n      for (let j = 0; j < 100; j++) {\n        cate.push(Math.random() * 200);\n      }\n      data.push(cate);\n    }\n    return data;\n  }\n  const data0 = makeData();\n  const data1 = makeData();\n  const data2 = makeData();\n\n  option = {\n    title: {\n      text: 'Multiple Categories',\n      left: 'center'\n    },\n    dataset: [\n      {\n        source: data0\n      },\n      {\n        source: data1\n      },\n      {\n        source: data2\n      },\n      {\n        fromDatasetIndex: 0,\n        transform: { type: 'boxplot' }\n      },\n      {\n        fromDatasetIndex: 1,\n        transform: { type: 'boxplot' }\n      },\n      {\n        fromDatasetIndex: 2,\n        transform: { type: 'boxplot' }\n      }\n    ],\n    legend: {\n      top: '10%'\n    },\n    tooltip: {\n      trigger: 'item',\n      axisPointer: {\n        type: 'shadow'\n      }\n    },\n    grid: {\n      left: '10%',\n      top: '20%',\n      right: '10%',\n      bottom: '15%'\n    },\n    xAxis: {\n      type: 'category',\n      boundaryGap: true,\n      nameGap: 30,\n      splitArea: {\n        show: true\n      },\n      splitLine: {\n        show: false\n      }\n    },\n    yAxis: {\n      type: 'value',\n      name: 'Value',\n      min: -400,\n      max: 600,\n      splitArea: {\n        show: false\n      }\n    },\n    dataZoom: [\n      {\n        type: 'inside',\n        start: 0,\n        end: 20\n      },\n      {\n        show: true,\n        type: 'slider',\n        top: '90%',\n        xAxisIndex: [0],\n        start: 0,\n        end: 20\n      }\n    ],\n    series: [\n      {\n        name: 'category0',\n        type: 'boxplot',\n        datasetIndex: 3\n      },\n      {\n        name: 'category1',\n        type: 'boxplot',\n        datasetIndex: 4\n      },\n      {\n        name: 'category2',\n        type: 'boxplot',\n        datasetIndex: 5\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsBoxplotMulti() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "boxplot"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-18",
+  "title": "Calendar 18",
+  "description": "Variable size.",
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/calendar.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-18/page.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Calendar } from \"@/components/ui/calendar\"\n\nfunction Calendar18() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2025, 5, 12)\n  )\n\n  return (\n    <Calendar\n      mode=\"single\"\n      selected={date}\n      onSelect={setDate}\n      className=\"rounded-lg border [--cell-size:2.75rem] md:[--cell-size:3rem]\"\n      buttonVariant=\"ghost\"\n    />\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar18 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-18/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-matrix-simple",
+  "title": "Simple Matrix",
+  "description": "Simple Matrix, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-matrix-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Simple Matrix\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=matrix-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    // @ts-ignore\n    matrix: {\n      x: {\n        data: [\n          {\n            value: 'A',\n            children: [\n              'A1',\n              'A2',\n              {\n                value: 'A3',\n                children: ['A31', 'A32']\n              }\n            ]\n          }\n        ]\n      },\n      y: {\n        data: ['U', 'V']\n      },\n      top: 150,\n      bottom: 150\n    },\n    visualMap: {\n      type: 'continuous',\n      min: 0,\n      max: 80,\n      top: 'middle',\n      dimension: 2,\n      calculable: true\n    },\n    series: {\n      type: 'heatmap',\n      coordinateSystem: 'matrix',\n      data: [\n        ['A1', 'U', 10],\n        ['A1', 'V', 20],\n        ['A2', 'U', 30],\n        ['A2', 'V', 40],\n        ['A31', 'U', 50],\n        ['A3', 'V', 60]\n      ],\n      label: {\n        show: true\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsMatrixSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "matrix"
+  ],
+  "type": "registry:block"
+}

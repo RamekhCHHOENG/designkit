@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-weibo",
+  "title": "Sign in of weibo",
+  "description": "Sign in of weibo, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-weibo.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Sign in of weibo\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-weibo\nconst setup: EChartSetup = async ({ myChart }) => {\n  let option!: EChartsOption\n  await registerBuiltinMap(\"china\")\n  myChart.showLoading();\n\n  $.get(\n    ROOT_PATH + '/data/asset/data/weibo.json',\n    function (weiboData: number[][]) {\n      myChart.hideLoading();\n\n      const newWeiboData = weiboData.map(function (serieData, idx: number) {\n        let px = serieData[0] / 1000;\n        let py = serieData[1] / 1000;\n        let res: number[][] = [[px, py]];\n\n        for (let i = 2; i < serieData.length; i += 2) {\n          let dx = serieData[i] / 1000;\n          let dy = serieData[i + 1] / 1000;\n          let x = px + dx;\n          let y = py + dy;\n          res.push([+x.toFixed(2), +y.toFixed(2), 1]);\n\n          px = x;\n          py = y;\n        }\n        return res;\n      });\n      myChart.setOption(\n        (option = {\n          backgroundColor: '#404a59',\n          title: {\n            text: '微博签到数据点亮中国',\n            subtext: 'From ThinkGIS',\n            sublink: 'http://www.thinkgis.cn/public/sina',\n            left: 'center',\n            top: 'top',\n            textStyle: {\n              color: '#fff'\n            }\n          },\n          tooltip: {},\n          legend: {\n            left: 'left',\n            data: ['强', '中', '弱'],\n            textStyle: {\n              color: '#ccc'\n            }\n          },\n          geo: {\n            map: 'china',\n            roam: true,\n            emphasis: {\n              label: {\n                show: false\n              },\n              itemStyle: {\n                areaColor: '#2a333d'\n              }\n            },\n            itemStyle: {\n              areaColor: '#323c48',\n              borderColor: '#111'\n            }\n          },\n          series: [\n            {\n              name: '弱',\n              type: 'scatter',\n              coordinateSystem: 'geo',\n              symbolSize: 1,\n              large: true,\n              itemStyle: {\n                shadowBlur: 2,\n                shadowColor: 'rgba(37, 140, 249, 0.8)',\n                color: 'rgba(37, 140, 249, 0.8)'\n              },\n              data: newWeiboData[0]\n            },\n            {\n              name: '中',\n              type: 'scatter',\n              coordinateSystem: 'geo',\n              symbolSize: 1,\n              large: true,\n              itemStyle: {\n                shadowBlur: 2,\n                shadowColor: 'rgba(14, 241, 242, 0.8)',\n                color: 'rgba(14, 241, 242, 0.8)'\n              },\n              data: newWeiboData[1]\n            },\n            {\n              name: '强',\n              type: 'scatter',\n              coordinateSystem: 'geo',\n              symbolSize: 1,\n              large: true,\n              itemStyle: {\n                shadowBlur: 2,\n                shadowColor: 'rgba(255, 255, 255, 0.8)',\n                color: 'rgba(255, 255, 255, 0.8)'\n              },\n              data: newWeiboData[2]\n            }\n          ]\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsScatterWeibo() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

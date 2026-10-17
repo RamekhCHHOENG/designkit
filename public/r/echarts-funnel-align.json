@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-funnel-align",
+  "title": "Funnel Compare",
+  "description": "Funnel Compare, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-funnel-align.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Funnel Compare\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=funnel-align\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Funnel Compare',\n      subtext: 'Fake Data',\n      left: 'left',\n      top: 'bottom'\n    },\n    tooltip: {\n      trigger: 'item',\n      formatter: '{a} <br/>{b} : {c}%'\n    },\n    toolbox: {\n      show: true,\n      orient: 'vertical',\n      top: 'center',\n      feature: {\n        dataView: { readOnly: false },\n        restore: {},\n        saveAsImage: {}\n      }\n    },\n    legend: {\n      orient: 'vertical',\n      left: 'left',\n      data: ['Prod A', 'Prod B', 'Prod C', 'Prod D', 'Prod E']\n    },\n\n    series: [\n      {\n        name: 'Funnel',\n        type: 'funnel',\n        width: '40%',\n        height: '45%',\n        left: '5%',\n        top: '50%',\n        funnelAlign: 'right',\n\n        data: [\n          { value: 60, name: 'Prod C' },\n          { value: 30, name: 'Prod D' },\n          { value: 10, name: 'Prod E' },\n          { value: 80, name: 'Prod B' },\n          { value: 100, name: 'Prod A' }\n        ]\n      },\n      {\n        name: 'Pyramid',\n        type: 'funnel',\n        width: '40%',\n        height: '45%',\n        left: '5%',\n        top: '5%',\n        sort: 'ascending',\n        funnelAlign: 'right',\n\n        data: [\n          { value: 60, name: 'Prod C' },\n          { value: 30, name: 'Prod D' },\n          { value: 10, name: 'Prod E' },\n          { value: 80, name: 'Prod B' },\n          { value: 100, name: 'Prod A' }\n        ]\n      },\n      {\n        name: 'Funnel',\n        type: 'funnel',\n        width: '40%',\n        height: '45%',\n        left: '55%',\n        top: '5%',\n        funnelAlign: 'left',\n\n        data: [\n          { value: 60, name: 'Prod C' },\n          { value: 30, name: 'Prod D' },\n          { value: 10, name: 'Prod E' },\n          { value: 80, name: 'Prod B' },\n          { value: 100, name: 'Prod A' }\n        ]\n      },\n      {\n        name: 'Pyramid',\n        type: 'funnel',\n        width: '40%',\n        height: '45%',\n        left: '55%',\n        top: '50%',\n        sort: 'ascending',\n        funnelAlign: 'left',\n\n        data: [\n          { value: 60, name: 'Prod C' },\n          { value: 30, name: 'Prod D' },\n          { value: 10, name: 'Prod E' },\n          { value: 80, name: 'Prod B' },\n          { value: 100, name: 'Prod A' }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsFunnelAlign() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "funnel"
+  ],
+  "type": "registry:block"
+}

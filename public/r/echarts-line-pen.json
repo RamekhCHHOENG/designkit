@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-pen",
+  "title": "Click to Add Points",
+  "description": "Click to Add Points, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-pen.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Click to Add Points\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-pen\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  const symbolSize = 20;\n  const data = [\n    [15, 0],\n    [-50, 10],\n    [-56.5, 20],\n    [-46.5, 30],\n    [-22.1, 40]\n  ];\n\n  option = {\n    title: {\n      text: 'Click to Add Points'\n    },\n    tooltip: {\n      formatter: function (params: any) {\n        var data = params.data || [0, 0];\n        return data[0].toFixed(2) + ', ' + data[1].toFixed(2);\n      }\n    },\n    grid: {\n      left: '3%',\n      right: '4%',\n      bottom: '3%',\n      containLabel: true\n    },\n    xAxis: {\n      min: -60,\n      max: 20,\n      type: 'value',\n      axisLine: { onZero: false }\n    },\n    yAxis: {\n      min: 0,\n      max: 40,\n      type: 'value',\n      axisLine: { onZero: false }\n    },\n    series: [\n      {\n        id: 'a',\n        type: 'line',\n        smooth: true,\n        symbolSize: symbolSize,\n        data: data\n      }\n    ]\n  };\n\n  var zr = myChart.getZr();\n\n  zr.on('click', function (params: any) {\n    var pointInPixel = [params.offsetX, params.offsetY];\n    var pointInGrid = myChart.convertFromPixel('grid', pointInPixel);\n\n    if (myChart.containPixel('grid', pointInPixel)) {\n      data.push(pointInGrid);\n\n      myChart.setOption({\n        series: [\n          {\n            id: 'a',\n            data: data\n          }\n        ]\n      });\n    }\n  });\n\n  zr.on('mousemove', function (params: any) {\n    var pointInPixel = [params.offsetX, params.offsetY];\n    zr.setCursorStyle(\n      myChart.containPixel('grid', pointInPixel) ? 'copy' : 'default'\n    );\n  });\n  return option\n}\n\nexport function EchartsLinePen() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

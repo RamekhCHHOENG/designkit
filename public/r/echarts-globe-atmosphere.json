@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-globe-atmosphere",
+  "title": "Globe with Atmosphere",
+  "description": "Globe with Atmosphere, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-globe-atmosphere.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Globe with Atmosphere\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=globe-atmosphere\nconst setup: EChartSetup = () => {\n  let option: any\n  option = {\n    backgroundColor: '#000',\n    globe: {\n      baseTexture: ROOT_PATH + '/data-gl/asset/earth.jpg',\n\n      shading: 'lambert',\n\n      environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',\n\n      atmosphere: {\n        show: true\n      },\n\n      light: {\n        ambient: {\n          intensity: 0.1\n        },\n        main: {\n          intensity: 1.5\n        }\n      }\n    },\n    series: []\n  };\n  return option\n}\n\nexport function EchartsGlobeAtmosphere() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "globe"
+  ],
+  "type": "registry:block"
+}

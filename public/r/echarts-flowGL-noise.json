@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-flowGL-noise",
+  "title": "Flow on the cartesian",
+  "description": "Flow on the cartesian, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-flowGL-noise.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\ndeclare const SimplexNoise: any\nconst CDN_PATH = \"https://cdn.jsdelivr.net/npm/\"\n\n// Adapted from the Apache ECharts example \"Flow on the cartesian\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=flowGL-noise\nconst setup: EChartSetup = ({ myChart }) => {\n  $.getScript(CDN_PATH + 'simplex-noise@2.4.0/simplex-noise.js').done(\n    function () {\n      var noise = new SimplexNoise(Math.random);\n      var noise2 = new SimplexNoise(Math.random);\n      function generateData() {\n        var data: any[] = [];\n        for (var i = 0; i <= 50; i++) {\n          for (var j = 0; j <= 50; j++) {\n            var dx = noise.noise2D(i / 30, j / 30);\n            var dy = noise2.noise2D(i / 30, j / 30);\n            var mag = Math.sqrt(dx * dx + dy * dy);\n            valMax = Math.max(valMax, mag);\n            valMin = Math.min(valMin, mag);\n            data.push([i, j, dx, dy, mag]);\n          }\n        }\n        return data;\n      }\n      var valMin = Infinity;\n      var valMax = -Infinity;\n      var data = generateData();\n\n      myChart.setOption({\n        visualMap: {\n          show: false,\n          min: valMin,\n          max: valMax,\n          dimension: 4,\n          inRange: {\n            color: [\n              '#313695',\n              '#4575b4',\n              '#74add1',\n              '#abd9e9',\n              '#e0f3f8',\n              '#ffffbf',\n              '#fee090',\n              '#fdae61',\n              '#f46d43',\n              '#d73027',\n              '#a50026'\n            ]\n          }\n        },\n        xAxis: {\n          type: 'value',\n          axisLine: {\n            lineStyle: {\n              color: '#fff'\n            }\n          },\n          splitLine: {\n            show: false,\n            lineStyle: {\n              color: 'rgba(255,255,255,0.2)'\n            }\n          }\n        },\n        yAxis: {\n          type: 'value',\n          axisLine: {\n            lineStyle: {\n              color: '#fff'\n            }\n          },\n          splitLine: {\n            show: false,\n            lineStyle: {\n              color: 'rgba(255,255,255,0.2)'\n            }\n          }\n        },\n        series: [\n          {\n            type: 'flowGL',\n            data: data,\n            particleDensity: 64,\n            particleSize: 5,\n            itemStyle: {\n              opacity: 0.5\n            }\n          },\n          {\n            type: 'custom',\n            data: data,\n            encode: {\n              x: 0,\n              y: 0\n            },\n            renderItem: function (params: any, api: any) {\n              var x = api.value(0),\n                y = api.value(1),\n                dx = api.value(2),\n                dy = api.value(3);\n              var start = api.coord([x - dx / 2, y - dy / 2]);\n              var end = api.coord([x + dx / 2, y + dy / 2]);\n              return {\n                type: 'line',\n                shape: {\n                  x1: start[0],\n                  y1: start[1],\n                  x2: end[0],\n                  y2: end[1]\n                },\n                style: {\n                  lineWidth: 2,\n                  stroke: '#fff',\n                  opacity: 0.2\n                }\n              };\n            }\n          }\n        ]\n      });\n    }\n  );\n}\n\nexport function EchartsFlowGLNoise() {\n  return <EChart setup={setup} theme=\"dark\" />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "flowGL"
+  ],
+  "type": "registry:block"
+}

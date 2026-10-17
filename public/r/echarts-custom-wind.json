@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-custom-wind",
+  "title": "Use custom series to draw wind vectors",
+  "description": "Use custom series to draw wind vectors, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-custom-wind.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Use custom series to draw wind vectors\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=custom-wind\nconst setup: EChartSetup = async ({ myChart }) => {\n  let option!: EChartsOption\n  await registerBuiltinMap(\"world\")\n  function shuffle(array: any[]) {\n    // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array\n    var currentIndex = array.length;\n    var temporaryValue;\n    var randomIndex;\n\n    // While there remain elements to shuffle...\n    while (0 !== currentIndex) {\n      // Pick a remaining element...\n      randomIndex = Math.floor(Math.random() * currentIndex);\n      currentIndex -= 1;\n\n      // And swap it with the current element.\n      temporaryValue = array[currentIndex];\n      array[currentIndex] = array[randomIndex];\n      array[randomIndex] = temporaryValue;\n    }\n\n    return array;\n  }\n\n  $.getJSON(ROOT_PATH + '/data-gl/asset/data/winds.json', function (windData) {\n    var p = 0;\n    var maxMag = 0;\n    var minMag = Infinity;\n    var data = [];\n    for (var j = 0; j < windData.ny; j++) {\n      for (var i = 0; i < windData.nx; i++, p++) {\n        var vx = windData.data[p][0];\n        var vy = windData.data[p][1];\n        var mag = Math.sqrt(vx * vx + vy * vy);\n        // 数据是一个一维数组\n        // [ [经度, 维度，向量经度方向的值，向量维度方向的值] ]\n        data.push([\n          (i / windData.nx) * 360 - 180,\n          (j / windData.ny) * 180 - 90,\n          vx,\n          vy,\n          mag\n        ]);\n        maxMag = Math.max(mag, maxMag);\n        minMag = Math.min(mag, minMag);\n      }\n    }\n    shuffle(data);\n\n    myChart.setOption(\n      (option = {\n        backgroundColor: '#333',\n        visualMap: {\n          left: 'center',\n          min: minMag,\n          max: maxMag,\n          dimension: 4,\n          inRange: {\n            // prettier-ignore\n            color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']\n          },\n          calculable: true,\n          textStyle: {\n            color: '#fff'\n          },\n          orient: 'horizontal'\n        },\n        geo: {\n          map: 'world',\n          left: 0,\n          right: 0,\n          top: 0,\n          zoom: 1,\n          silent: true,\n          roam: true,\n          itemStyle: {\n            areaColor: '#323c48',\n            borderColor: '#111'\n          }\n        },\n        series: {\n          type: 'custom',\n          coordinateSystem: 'geo',\n          data: data,\n          encode: {\n            x: 0,\n            y: 0\n          },\n          renderItem: function (params, api) {\n            const x = api.value(0) as number;\n            const y = api.value(1) as number;\n            const dx = api.value(2) as number;\n            const dy = api.value(3) as number;\n            const start = api.coord([\n              Math.max(x - dx / 5, -180),\n              Math.max(y - dy / 5, -90)\n            ]);\n            const end = api.coord([\n              Math.min(x + dx / 5, 180),\n              Math.min(y + dy / 5, 90)\n            ]);\n            return {\n              type: 'line',\n              shape: {\n                x1: start[0],\n                y1: start[1],\n                x2: end[0],\n                y2: end[1]\n              },\n              style: {\n                lineWidth: 0.5,\n                stroke: api.visual('color')\n              }\n            };\n          },\n          progressive: 2000\n        }\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsCustomWind() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "custom"
+  ],
+  "type": "registry:block"
+}

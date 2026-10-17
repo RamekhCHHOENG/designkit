@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graphgl-large-internet",
+  "title": "GraphGL - Large Internet",
+  "description": "GraphGL - Large Internet, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graphgl-large-internet.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"GraphGL - Large Internet\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graphgl-large-internet\nconst setup: EChartSetup = ({ myChart }) => {\n  $.getJSON(\n    ROOT_PATH + '/data-gl/asset/data/internet.graph.json',\n    function (graph: any) {\n      var edges = graph.edges.map(function (edge: any) {\n        return {\n          source: edge[0],\n          target: edge[1],\n          value: 2\n        };\n      });\n      var categories: any[] = [];\n      var categoriesMap: any = {};\n      var nodes = graph.nodes.map(function (node: any) {\n        if (!categoriesMap[node[3]]) {\n          categories.push({\n            name: node[3]\n          });\n          categoriesMap[node[3]] = true;\n        }\n        return {\n          x: Math.random() * window.innerWidth,\n          y: Math.random() * window.innerHeight,\n          // x: node[0],\n          // y: node[1],\n          symbolSize: node[2],\n          category: node[3],\n          value: 1\n        };\n      });\n\n      myChart.setOption({\n        color: [\n          'rgb(203,239,15)',\n          'rgb(73,15,239)',\n          'rgb(239,231,15)',\n          'rgb(15,217,239)',\n          'rgb(30,15,239)',\n          'rgb(15,174,239)',\n          'rgb(116,239,15)',\n          'rgb(239,15,58)',\n          'rgb(15,239,174)',\n          'rgb(239,102,15)',\n          'rgb(239,15,15)',\n          'rgb(15,44,239)',\n          'rgb(239,145,15)',\n          'rgb(30,239,15)',\n          'rgb(239,188,15)',\n          'rgb(159,239,15)',\n          'rgb(159,15,239)',\n          'rgb(15,239,44)',\n          'rgb(15,239,87)',\n          'rgb(15,239,217)',\n          'rgb(203,15,239)',\n          'rgb(239,15,188)',\n          'rgb(239,15,102)',\n          'rgb(239,58,15)',\n          'rgb(239,15,145)',\n          'rgb(116,15,239)',\n          'rgb(15,131,239)',\n          'rgb(73,239,15)',\n          'rgb(15,239,131)',\n          'rgb(15,87,239)',\n          'rgb(239,15,231)'\n        ],\n        series: [\n          {\n            type: 'graphGL',\n            nodes: nodes,\n            edges: edges,\n            categories: categories.sort(function (a: any, b: any) {\n              return a.name - b.name;\n            }),\n            lineStyle: {\n              color: 'rgba(255,255,255,0.2)'\n            },\n            itemStyle: {\n              opacity: 1\n            },\n            forceAtlas2: {\n              steps: 1,\n              stopThreshold: 1,\n              jitterTolerence: 10,\n              edgeWeight: [0.2, 1],\n              gravity: 0,\n              edgeWeightInfluence: 1,\n              scaling: 0.2\n            }\n          }\n        ]\n      });\n    }\n  );\n}\n\nexport function EchartsGraphglLargeInternet() {\n  return <EChart setup={setup} theme=\"dark\" />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graphGL"
+  ],
+  "type": "registry:block"
+}

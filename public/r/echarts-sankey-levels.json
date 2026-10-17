@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-sankey-levels",
+  "title": "Sankey with Levels Setting",
+  "description": "Sankey with Levels Setting, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-sankey-levels.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Sankey with Levels Setting\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=sankey-levels\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n  $.get(ROOT_PATH + '/data/asset/data/product.json', function (data) {\n    myChart.hideLoading();\n\n    myChart.setOption(\n      (option = {\n        title: {\n          text: 'Sankey Diagram'\n        },\n        tooltip: {\n          trigger: 'item',\n          triggerOn: 'mousemove'\n        },\n        series: [\n          {\n            type: 'sankey',\n            data: data.nodes,\n            links: data.links,\n            emphasis: {\n              focus: 'adjacency'\n            },\n            levels: [\n              {\n                depth: 0,\n                itemStyle: {\n                  color: '#fbb4ae'\n                },\n                lineStyle: {\n                  color: 'source',\n                  opacity: 0.6\n                }\n              },\n              {\n                depth: 1,\n                itemStyle: {\n                  color: '#b3cde3'\n                },\n                lineStyle: {\n                  color: 'source',\n                  opacity: 0.6\n                }\n              },\n              {\n                depth: 2,\n                itemStyle: {\n                  color: '#ccebc5'\n                },\n                lineStyle: {\n                  color: 'source',\n                  opacity: 0.6\n                }\n              },\n              {\n                depth: 3,\n                itemStyle: {\n                  color: '#decbe4'\n                },\n                lineStyle: {\n                  color: 'source',\n                  opacity: 0.6\n                }\n              }\n            ],\n            lineStyle: {\n              curveness: 0.5\n            }\n          }\n        ]\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsSankeyLevels() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "sankey"
+  ],
+  "type": "registry:block"
+}

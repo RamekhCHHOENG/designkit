@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-area-stack",
+  "title": "Stacked Area Chart",
+  "description": "Stacked Area Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-area-stack.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stacked Area Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=area-stack\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Stacked Area Chart'\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'cross',\n        label: {\n          backgroundColor: '#6a7985'\n        }\n      }\n    },\n    legend: {\n      data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']\n    },\n    toolbox: {\n      feature: {\n        saveAsImage: {}\n      }\n    },\n    xAxis: [\n      {\n        type: 'category',\n        boundaryGap: false,\n        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n      }\n    ],\n    yAxis: [\n      {\n        type: 'value'\n      }\n    ],\n    series: [\n      {\n        name: 'Email',\n        type: 'line',\n        stack: 'Total',\n        areaStyle: {},\n        emphasis: {\n          focus: 'series'\n        },\n        data: [120, 132, 101, 134, 90, 230, 210]\n      },\n      {\n        name: 'Union Ads',\n        type: 'line',\n        stack: 'Total',\n        areaStyle: {},\n        emphasis: {\n          focus: 'series'\n        },\n        data: [220, 182, 191, 234, 290, 330, 310]\n      },\n      {\n        name: 'Video Ads',\n        type: 'line',\n        stack: 'Total',\n        areaStyle: {},\n        emphasis: {\n          focus: 'series'\n        },\n        data: [150, 232, 201, 154, 190, 330, 410]\n      },\n      {\n        name: 'Direct',\n        type: 'line',\n        stack: 'Total',\n        areaStyle: {},\n        emphasis: {\n          focus: 'series'\n        },\n        data: [320, 332, 301, 334, 390, 330, 320]\n      },\n      {\n        name: 'Search Engine',\n        type: 'line',\n        stack: 'Total',\n        label: {\n          show: true,\n          position: 'top'\n        },\n        areaStyle: {},\n        emphasis: {\n          focus: 'series'\n        },\n        data: [820, 932, 901, 934, 1290, 1330, 1320]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsAreaStack() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

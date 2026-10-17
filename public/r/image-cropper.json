@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-cropper",
+  "title": "Image Cropper",
+  "dependencies": [
+    "@origin-space/image-cropper@^0.1.9"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/image-cropper.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Cropper as CropperPrimitive } from \"@origin-space/image-cropper\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction ImageCropper({\n  className,\n  ...props\n}: React.ComponentProps<typeof CropperPrimitive.Root>) {\n  return (\n    <CropperPrimitive.Root\n      data-slot=\"cropper\"\n      className={cn(\n        \"relative flex w-full cursor-move touch-none items-center justify-center overflow-hidden focus:outline-none\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction ImageCropperDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof CropperPrimitive.Description>) {\n  return (\n    <CropperPrimitive.Description\n      data-slot=\"cropper-description\"\n      className={cn(\"sr-only\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction ImageCropperImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof CropperPrimitive.Image>) {\n  return (\n    <CropperPrimitive.Image\n      data-slot=\"cropper-image\"\n      className={cn(\n        \"pointer-events-none h-full w-full object-cover\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction ImageCropperCropArea({\n  className,\n  ...props\n}: React.ComponentProps<typeof CropperPrimitive.CropArea>) {\n  return (\n    <CropperPrimitive.CropArea\n      data-slot=\"cropper-crop-area\"\n      className={cn(\n        \"pointer-events-none absolute border-3 border-white shadow-[0_0_0_9999px_rgba(0,0,0,0.3)] in-[[data-slot=cropper]:focus-visible]:ring-[3px] in-[[data-slot=cropper]:focus-visible]:ring-white/50\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport {\n  ImageCropper,\n  ImageCropperDescription,\n  ImageCropperImage,\n  ImageCropperCropArea,\n  // Aliases for compatibility\n  ImageCropper as Cropper,\n  ImageCropperDescription as CropperDescription,\n  ImageCropperImage as CropperImage,\n  ImageCropperCropArea as CropperCropArea,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

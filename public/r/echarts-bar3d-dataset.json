@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar3d-dataset",
+  "title": "3D Bar with Dataset",
+  "description": "3D Bar with Dataset, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts-gl@^2.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar3d-dataset.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport \"echarts-gl\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"3D Bar with Dataset\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar3d-dataset\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.get(\n    ROOT_PATH + '/data/asset/data/life-expectancy-table.json',\n    function (data: any) {\n      option = {\n        grid3D: {},\n        tooltip: {},\n        xAxis3D: {\n          type: 'category'\n        },\n        yAxis3D: {\n          type: 'category'\n        },\n        zAxis3D: {},\n        visualMap: {\n          max: 1e8,\n          dimension: 'Population'\n        },\n        dataset: {\n          dimensions: [\n            'Income',\n            'Life Expectancy',\n            'Population',\n            'Country',\n            { name: 'Year', type: 'ordinal' }\n          ],\n          source: data\n        },\n        series: [\n          {\n            type: 'bar3D',\n            // symbolSize: symbolSize,\n            shading: 'lambert',\n            encode: {\n              x: 'Year',\n              y: 'Country',\n              z: 'Life Expectancy',\n              tooltip: [0, 1, 2, 3, 4]\n            }\n          }\n        ]\n      };\n\n      myChart.setOption(option);\n    }\n  );\n  return option\n}\n\nexport function EchartsBar3dDataset() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar3D"
+  ],
+  "type": "registry:block"
+}

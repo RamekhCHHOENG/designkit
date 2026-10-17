@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-15",
+  "title": "Calendar 15",
+  "description": "With week numbers.",
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/calendar.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-15/page.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Calendar } from \"@/components/ui/calendar\"\n\nfunction Calendar15() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2025, 5, 12)\n  )\n\n  return (\n    <Calendar\n      mode=\"single\"\n      defaultMonth={date}\n      selected={date}\n      onSelect={setDate}\n      className=\"rounded-lg border shadow-sm\"\n      showWeekNumber\n    />\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar15 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-15/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

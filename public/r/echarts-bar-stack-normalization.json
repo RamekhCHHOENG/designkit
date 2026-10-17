@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-stack-normalization",
+  "title": "Stacked Bar Normalization",
+  "description": "Stacked Bar Normalization, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-stack-normalization.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stacked Bar Normalization\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-stack-normalization\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  // There should not be negative values in rawData\n  const rawData = [\n      [100, 302, 301, 334, 390, 330, 320],\n      [320, 132, 101, 134, 90, 230, 210],\n      [220, 182, 191, 234, 290, 330, 310],\n      [150, 212, 201, 154, 190, 330, 410],\n      [820, 832, 901, 934, 1290, 1330, 1320]\n  ];\n  const totalData: number[] = [];\n  for (let i = 0; i < rawData[0].length; ++i) {\n      let sum = 0;\n      for (let j = 0; j < rawData.length; ++j) {\n          sum += rawData[j][i];\n      }\n      totalData.push(sum);\n  }\n\n  const series: echarts.BarSeriesOption[] = [\n      'Direct',\n      'Mail Ad',\n      'Affiliate Ad',\n      'Video Ad',\n      'Search Engine'\n  ].map((name, sid) => {\n      return {\n          name,\n          type: 'bar',\n          stack: 'total',\n          barWidth: '60%',\n          label: {\n              show: true,\n              formatter: (params: any) => Math.round(params.value * 1000) / 10 + '%'\n          },\n          data: rawData[sid].map((d, did) =>\n          totalData[did] <= 0 ? 0 : d / totalData[did]\n          )\n      };\n  });\n\n  option = {\n      legend: {\n          selectedMode: false\n      },\n      yAxis: {\n          type: 'value'\n      },\n      xAxis: {\n          type: 'category',\n          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n      },\n      series\n  };\n  return option\n}\n\nexport function EchartsBarStackNormalization() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

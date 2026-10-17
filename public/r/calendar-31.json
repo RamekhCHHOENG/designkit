@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-31",
+  "title": "Calendar 31",
+  "description": "With event slots.",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/button.json",
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/card.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-31/page.tsx",
+      "content": "import * as React from \"react\"\nimport { PlusIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Card, CardContent, CardFooter } from \"@/components/ui/card\"\n\nconst events = [\n  {\n    title: \"Team Sync Meeting\",\n    from: \"2025-06-12T09:00:00\",\n    to: \"2025-06-12T10:00:00\",\n  },\n  {\n    title: \"Design Review\",\n    from: \"2025-06-12T11:30:00\",\n    to: \"2025-06-12T12:30:00\",\n  },\n  {\n    title: \"Client Presentation\",\n    from: \"2025-06-12T14:00:00\",\n    to: \"2025-06-12T15:00:00\",\n  },\n]\n\n\n// formatRange is ES2021; every modern browser supports it but this project's\n// TypeScript lib is ES2020, so type it locally.\ntype RangeFormat = Intl.DateTimeFormat & { formatRange(from: Date, to: Date): string }\n\n// Compact date range text (\"Jun 4 – 10, 2025\"; times for same-day ranges).\nfunction formatDateRange(from: Date, to: Date, options: { includeTime?: boolean } = {}) {\n  const sameDay = from.toDateString() === to.toDateString()\n  const includeTime = options.includeTime ?? sameDay\n  const fmt = (sameDay && includeTime\n    ? new Intl.DateTimeFormat(\"en-US\", { hour: \"numeric\", minute: \"2-digit\" })\n    : new Intl.DateTimeFormat(\"en-US\", {\n        month: \"short\",\n        day: \"numeric\",\n        ...(includeTime ? { hour: \"numeric\", minute: \"2-digit\" } : { year: \"numeric\" }),\n      })) as RangeFormat\n  return fmt.formatRange(from, to).replace(/\\s/g, \" \")\n}\n\nfunction Calendar31() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2025, 5, 12)\n  )\n\n  return (\n    <Card className=\"w-fit py-4\">\n      <CardContent className=\"px-4\">\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          onSelect={setDate}\n          className=\"bg-transparent p-0\"\n          required\n        />\n      </CardContent>\n      <CardFooter className=\"flex flex-col items-start gap-3 border-t px-4 pb-0 pt-4\">\n        <div className=\"flex w-full items-center justify-between px-1\">\n          <div className=\"text-sm font-medium\">\n            {date?.toLocaleDateString(\"en-US\", {\n              day: \"numeric\",\n              month: \"long\",\n              year: \"numeric\",\n            })}\n          </div>\n          <Button\n            variant=\"ghost\"\n            size=\"icon\"\n            className=\"h-6 w-6\"\n            title=\"Add Event\"\n          >\n            <PlusIcon />\n            <span className=\"sr-only\">Add Event</span>\n          </Button>\n        </div>\n        <div className=\"flex w-full flex-col gap-2\">\n          {events.map((event) => (\n            <div\n              key={event.title}\n              className=\"bg-muted after:bg-primary/70 relative rounded-md p-2 pl-6 text-sm after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full\"\n            >\n              <div className=\"font-medium\">{event.title}</div>\n              <div className=\"text-muted-foreground text-xs\">\n                {formatDateRange(new Date(event.from), new Date(event.to))}\n              </div>\n            </div>\n          ))}\n        </div>\n      </CardFooter>\n    </Card>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar31 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-31/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

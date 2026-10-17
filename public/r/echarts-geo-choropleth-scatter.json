@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-geo-choropleth-scatter",
+  "title": "Geo Choropleth and Scatter",
+  "description": "Geo Choropleth and Scatter, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-geo-choropleth-scatter.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Geo Choropleth and Scatter\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=geo-choropleth-scatter\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  function createChart() {\n    var icelandRoughLatitude = 65;\n    option = {\n      geo: {\n        map: 'iceland',\n        roam: true,\n        aspectScale: Math.cos(icelandRoughLatitude * Math.PI / 180),\n        // nameProperty: 'name_en', // If using en name.\n        label: {\n          show: true,\n          color: '#555',\n        }\n      },\n      tooltip: {},\n      visualMap: [{\n        orient: 'horizontal',\n        calculable: true,\n        right: 0,\n        bottom: 0,\n        seriesIndex: 0,\n        // min/max is specified as series.data value extent.\n        min: 0,\n        max: 1e5,\n        dimension: 2,\n        inRange: {\n          symbolSize: [5, 30]\n        },\n        controller: {\n          inRange: {\n            color: ['#66c2a5']\n          }\n        }\n      }, {\n        orient: 'horizontal',\n        calculable: true,\n        left: 0,\n        bottom: 0,\n        seriesIndex: 1,\n        // min/max is specified as series.data value extent.\n        min: 0,\n        max: 1e3,\n        dimension: 0,\n        inRange: {\n          color: ['#deebf7', '#3182bd']\n        }\n      }],\n      series: [\n        {\n          type: 'scatter',\n          coordinateSystem: 'geo',\n          geoIndex: 0,\n          encode: {\n            // `2` is the dimension index of series.data\n            tooltip: 2,\n            label: 2,\n          },\n          data: [\n            [-21.9348415, 64.1334671, 14523],\n            [-19.028531, 63.710241, 45126],\n            [-17.089925, 65.37887072, 12345],\n            [-19.15936, 65.6218101, 56789],\n            [-19.849175, 65.7287035, 67890],\n            [-23.18326, 65.582939, 89012],\n            [-14.9515, 64.475135, 34567],\n            [-20.88389, 63.85321, 45678]\n          ],\n          itemStyle: {\n            color: '#66c2a5',\n            borderWidth: 1,\n            borderColor: '#3c7865',\n          }\n        },\n        {\n          // Effectively this is a choropleth map.\n          type: 'map',\n          // Specify geoIndex to share the geo component with the scatter series above,\n          // instead of creating an internal geo coord sys.\n          geoIndex: 0,\n          map: '',\n          data: [\n            { name: 'Austurland', value: 423 },\n            { name: 'Suðurland', value: 256 },\n            { name: 'Norðurland vestra', value: 489 },\n            { name: 'Norðurland eystra', value: 51 }\n          ]\n        }\n      ]\n    };\n    myChart.setOption(option);\n  }\n\n  function fetchGeoJSON() {\n    myChart.showLoading();\n    $.get(ROOT_PATH + '/data/asset/geo/iceland.geo.json', function (geoJSON) {\n      echarts.registerMap('iceland', geoJSON);\n      createChart();\n      myChart.hideLoading();\n    });\n  }\n\n  fetchGeoJSON();\n  return option\n}\n\nexport function EchartsGeoChoroplethScatter() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

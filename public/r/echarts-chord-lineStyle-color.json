@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-chord-lineStyle-color",
+  "title": "Chord lineStyle.color",
+  "description": "Chord lineStyle.color, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-chord-lineStyle-color.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Chord lineStyle.color\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=chord-lineStyle-color\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function generateSeries(id: number, lineColor: 'source' | 'target' | 'gradient') {\n    return {\n      type: 'chord' as const,\n      label: { show: true },\n      center: [((id * 2 + 1) / 6) * 100 + '%', '50%'],\n      radius: ['28%', '32%'],\n      lineStyle: {\n        color: lineColor\n      },\n      data: [{ name: 'A' }, { name: 'B' }, { name: 'C' }, { name: 'D' }],\n      links: [\n        { source: 'A', target: 'B', value: 30 },\n        { source: 'A', target: 'C', value: 20 },\n        { source: 'B', target: 'D', value: 10 },\n        { source: 'C', target: 'A', value: 15 },\n        { source: 'D', target: 'A', value: 25 }\n      ]\n    };\n  }\n\n  function generateTitle(id: number, text: string) {\n    return {\n      text,\n      left: ((id * 2 + 1) / 6) * 100 + '%',\n      top: '25%',\n      textAlign: 'center' as const,\n      padding: 0\n    };\n  }\n\n  option = {\n    tooltip: {},\n    legend: {},\n    series: [\n      generateSeries(0, 'source'),\n      generateSeries(1, 'target'),\n      generateSeries(2, 'gradient')\n    ],\n    title: [\n      {\n        text: 'lineStyle.color',\n        textStyle: {\n          fontSize: 24\n        }\n      },\n      generateTitle(0, 'source'),\n      generateTitle(1, 'target'),\n      generateTitle(2, 'gradient')\n    ]\n  };\n  return option\n}\n\nexport function EchartsChordLineStyleColor() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "chord"
+  ],
+  "type": "registry:block"
+}

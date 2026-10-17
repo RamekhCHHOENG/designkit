@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-polar2",
+  "title": "Two Value-Axes in Polar",
+  "description": "Two Value-Axes in Polar, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-polar2.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Two Value-Axes in Polar\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-polar2\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const data: number[][] = [];\n\n  for (let i = 0; i <= 360; i++) {\n    let t = (i / 180) * Math.PI;\n    let r = Math.sin(2 * t) * Math.cos(2 * t);\n    data.push([r, i]);\n  }\n\n  option = {\n    title: {\n      text: 'Two Value-Axes in Polar'\n    },\n    legend: {\n      data: ['line']\n    },\n    polar: {\n      center: ['50%', '54%']\n    },\n    tooltip: {\n      trigger: 'axis',\n      axisPointer: {\n        type: 'cross'\n      }\n    },\n    angleAxis: {\n      type: 'value',\n      startAngle: 0\n    },\n    radiusAxis: {\n      min: 0\n    },\n    series: [\n      {\n        coordinateSystem: 'polar',\n        name: 'line',\n        type: 'line',\n        showSymbol: false,\n        data: data\n      }\n    ],\n    animationDuration: 2000\n  };\n  return option\n}\n\nexport function EchartsLinePolar2() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

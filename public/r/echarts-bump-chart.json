@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bump-chart",
+  "title": "Bump Chart (Ranking)",
+  "description": "Bump Chart (Ranking), adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bump-chart.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\nimport { SeriesOption } from 'echarts'\n\n// Adapted from the Apache ECharts example \"Bump Chart (Ranking)\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bump-chart\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const names = [\n    'Orange',\n    'Tomato',\n    'Apple',\n    'Sakana',\n    'Banana',\n    'Iwashi',\n    'Snappy Fish',\n    'Lemon',\n    'Pasta'\n  ] as const;\n\n  const years = ['2001', '2002', '2003', '2004', '2005', '2006'];\n\n  const shuffle = <T,>(array: T[]): T[] => {\n    let currentIndex = array.length;\n    let randomIndex = 0;\n    while (currentIndex > 0) {\n      randomIndex = Math.floor(Math.random() * currentIndex);\n      currentIndex--;\n      [array[currentIndex], array[randomIndex]] = [\n        array[randomIndex],\n        array[currentIndex]\n      ];\n    }\n    return array;\n  };\n\n  const generateRankingData = (): Map<string, number[]> => {\n    const map: Map<string, number[]> = new Map();\n    const defaultRanking: number[] = Array.from(\n      { length: names.length },\n      (_, i) => i + 1\n    );\n\n    for (const _ of years) {\n      const shuffleArray = shuffle(defaultRanking);\n      names.forEach((name, i) => {\n        map.set(name, (map.get(name) || []).concat(shuffleArray[i]));\n      });\n    }\n    return map;\n  };\n\n  const generateSeriesList = (): SeriesOption[] => {\n    const seriesList: SeriesOption[] = [];\n    const rankingMap = generateRankingData();\n\n    rankingMap.forEach((data, name) => {\n      const series: SeriesOption = {\n        name,\n        symbolSize: 20,\n        type: 'line',\n        smooth: true,\n        emphasis: {\n          focus: 'series'\n        },\n        endLabel: {\n          show: true,\n          formatter: '{a}',\n          distance: 20\n        },\n        lineStyle: {\n          width: 4\n        },\n        data\n      };\n      seriesList.push(series);\n    });\n    return seriesList;\n  };\n\n  option = {\n    title: {\n      text: 'Bump Chart (Ranking)'\n    },\n    tooltip: {\n      trigger: 'item'\n    },\n    grid: {\n      left: 30,\n      right: 110,\n      bottom: 30,\n      containLabel: true\n    },\n    toolbox: {\n      feature: {\n        saveAsImage: {}\n      }\n    },\n    xAxis: {\n      type: 'category',\n      splitLine: {\n        show: true\n      },\n      axisLabel: {\n        margin: 30,\n        fontSize: 16\n      },\n      boundaryGap: false,\n      data: years\n    },\n    yAxis: {\n      type: 'value',\n      axisLabel: {\n        margin: 30,\n        fontSize: 16,\n        formatter: '#{value}'\n      },\n      inverse: true,\n      interval: 1,\n      min: 1,\n      max: names.length\n    },\n    series: generateSeriesList()\n  };\n  return option\n}\n\nexport function EchartsBumpChart() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

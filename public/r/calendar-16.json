@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-16",
+  "title": "Calendar 16",
+  "description": "With time picker.",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/calendar.json",
+    "https://designkit-smoky.vercel.app/r/card.json",
+    "https://designkit-smoky.vercel.app/r/input.json",
+    "https://designkit-smoky.vercel.app/r/label.json"
+  ],
+  "files": [
+    {
+      "path": "src/blocks/calendar-16/page.tsx",
+      "content": "import * as React from \"react\"\nimport { Clock2Icon } from \"lucide-react\"\n\nimport { Calendar } from \"@/components/ui/calendar\"\nimport { Card, CardContent, CardFooter } from \"@/components/ui/card\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\n\nfunction Calendar16() {\n  const [date, setDate] = React.useState<Date | undefined>(\n    new Date(2025, 5, 12)\n  )\n\n  return (\n    <Card className=\"w-fit py-4\">\n      <CardContent className=\"px-4\">\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          onSelect={setDate}\n          className=\"bg-transparent p-0\"\n        />\n      </CardContent>\n      <CardFooter className=\"flex flex-col gap-6 border-t px-4 pb-0 pt-4\">\n        <div className=\"flex w-full flex-col gap-3\">\n          <Label htmlFor=\"time-from\">Start Time</Label>\n          <div className=\"relative flex w-full items-center gap-2\">\n            <Clock2Icon className=\"text-muted-foreground pointer-events-none absolute left-2.5 size-4 select-none\" />\n            <Input\n              id=\"time-from\"\n              type=\"time\"\n              step=\"1\"\n              defaultValue=\"10:30:00\"\n              className=\"appearance-none pl-8 [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none\"\n            />\n          </div>\n        </div>\n        <div className=\"flex w-full flex-col gap-3\">\n          <Label htmlFor=\"time-to\">End Time</Label>\n          <div className=\"relative flex w-full items-center gap-2\">\n            <Clock2Icon className=\"text-muted-foreground pointer-events-none absolute left-2.5 size-4 select-none\" />\n            <Input\n              id=\"time-to\"\n              type=\"time\"\n              step=\"1\"\n              defaultValue=\"12:30:00\"\n              className=\"appearance-none pl-8 [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none\"\n            />\n          </div>\n        </div>\n      </CardFooter>\n    </Card>\n  )\n}\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh items-center justify-center p-6\">\n      <Calendar16 />\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/blocks/calendar-16/page.tsx"
+    }
+  ],
+  "categories": [
+    "calendar"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-lines-airline",
+  "title": "65k+ Airline",
+  "description": "65k+ Airline, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-lines-airline.tsx",
+      "content": "import { $, registerBuiltinMap, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"65k+ Airline\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=lines-airline\nconst setup: EChartSetup = async ({ myChart }) => {\n  let option!: EChartsOption\n  await registerBuiltinMap(\"world\")\n  myChart.showLoading();\n\n  $.get(ROOT_PATH + '/data/asset/data/flights.json', function (data) {\n    myChart.hideLoading();\n\n    function getAirportCoord(idx: number) {\n      return [data.airports[idx][3], data.airports[idx][4]];\n    }\n    var routes = data.routes.map(function (airline: number[]) {\n      return [getAirportCoord(airline[1]), getAirportCoord(airline[2])];\n    });\n\n    myChart.setOption(\n      (option = {\n        title: {\n          text: 'World Flights',\n          left: 'center',\n          textStyle: {\n            color: '#eee'\n          }\n        },\n        backgroundColor: '#003',\n        tooltip: {\n          formatter: function (param: any) {\n            var route = data.routes[param.dataIndex];\n            return (\n              data.airports[route[1]][1] + ' > ' + data.airports[route[2]][1]\n            );\n          }\n        },\n        geo: {\n          map: 'world',\n          left: 0,\n          right: 0,\n          silent: true,\n          roam: true,\n          itemStyle: {\n            borderColor: '#003',\n            color: '#005'\n          }\n        },\n        series: [\n          {\n            type: 'lines',\n            coordinateSystem: 'geo',\n            data: routes,\n            large: true,\n            largeThreshold: 100,\n            lineStyle: {\n              opacity: 0.05,\n              width: 0.5,\n              curveness: 0.3\n            },\n            blendMode: 'lighter'\n          }\n        ]\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsLinesAirline() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "map",
+    "lines"
+  ],
+  "type": "registry:block"
+}

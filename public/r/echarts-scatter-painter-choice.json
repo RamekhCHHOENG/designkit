@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-painter-choice",
+  "title": "Master Painter Color Choices Throughout History",
+  "description": "Master Painter Color Choices Throughout History, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-painter-choice.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Master Painter Color Choices Throughout History\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-painter-choice\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  $.get(\n    ROOT_PATH + '/data/asset/data/masterPainterColorChoice.json',\n    function (json) {\n      myChart.hideLoading();\n\n      var data = json[0].x.map(function (x: number, idx: number) {\n        return [+x, +json[0].y[idx]];\n      });\n\n      myChart.setOption(\n        (option = {\n          title: {\n            text: 'Master Painter Color Choices Throughout History',\n            subtext: 'Data From Plot.ly',\n            left: 'right'\n          },\n          xAxis: {\n            type: 'value',\n            splitLine: {\n              show: false\n            },\n            scale: true,\n            splitNumber: 5,\n            max: 'dataMax',\n            axisLabel: {\n              formatter: function (val: number) {\n                return val + 's';\n              }\n            }\n          },\n          yAxis: {\n            type: 'value',\n            min: 0,\n            max: 360,\n            interval: 60,\n            name: 'Hue',\n            splitLine: {\n              show: false\n            }\n          },\n          series: [\n            {\n              name: 'scatter',\n              type: 'scatter',\n              symbolSize: function (val, param) {\n                return (\n                  json[0].marker.size[param.dataIndex] / json[0].marker.sizeref\n                );\n              },\n              itemStyle: {\n                color: function (param) {\n                  return json[0].marker.color[param.dataIndex] as string;\n                }\n              },\n              data: data\n            }\n          ]\n        })\n      );\n    }\n  );\n  return option\n}\n\nexport function EchartsScatterPainterChoice() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

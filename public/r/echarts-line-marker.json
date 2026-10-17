@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-line-marker",
+  "title": "Temperature Change in the Coming Week",
+  "description": "Temperature Change in the Coming Week, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-line-marker.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Temperature Change in the Coming Week\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=line-marker\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    title: {\n      text: 'Temperature Change in the Coming Week'\n    },\n    tooltip: {\n      trigger: 'axis'\n    },\n    legend: {},\n    toolbox: {\n      show: true,\n      feature: {\n        dataZoom: {\n          yAxisIndex: 'none'\n        },\n        dataView: { readOnly: false },\n        magicType: { type: ['line', 'bar'] },\n        restore: {},\n        saveAsImage: {}\n      }\n    },\n    xAxis: {\n      type: 'category',\n      boundaryGap: false,\n      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n    },\n    yAxis: {\n      type: 'value',\n      axisLabel: {\n        formatter: '{value} °C'\n      }\n    },\n    series: [\n      {\n        name: 'Highest',\n        type: 'line',\n        data: [10, 11, 13, 11, 12, 12, 9],\n        markPoint: {\n          data: [\n            { type: 'max', name: 'Max' },\n            { type: 'min', name: 'Min' }\n          ]\n        },\n        markLine: {\n          data: [{ type: 'average', name: 'Avg' }]\n        }\n      },\n      {\n        name: 'Lowest',\n        type: 'line',\n        data: [1, -2, 2, 5, 3, 2, 0],\n        markPoint: {\n          data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]\n        },\n        markLine: {\n          data: [\n            { type: 'average', name: 'Avg' },\n            [\n              {\n                symbol: 'none',\n                x: '90%',\n                yAxis: 'max'\n              },\n              {\n                symbol: 'circle',\n                label: {\n                  position: 'start',\n                  formatter: 'Max'\n                },\n                type: 'max',\n                name: '最高点'\n              }\n            ]\n          ]\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsLineMarker() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

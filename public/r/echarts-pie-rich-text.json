@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-pie-rich-text",
+  "title": "Pie Special Label",
+  "description": "Pie Special Label, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-pie-rich-text.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Pie Special Label\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=pie-rich-text\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const weatherIcons = {\n    Sunny: ROOT_PATH + '/data/asset/img/weather/sunny_128.png',\n    Cloudy: ROOT_PATH + '/data/asset/img/weather/cloudy_128.png',\n    Showers: ROOT_PATH + '/data/asset/img/weather/showers_128.png'\n  };\n\n  option = {\n    title: {\n      text: 'Weather Statistics',\n      subtext: 'Fake Data',\n      left: 'center'\n    },\n    tooltip: {\n      trigger: 'item',\n      formatter: '{a} <br/>{b} : {c} ({d}%)'\n    },\n    legend: {\n      bottom: 10,\n      left: 'center',\n      data: ['CityA', 'CityB', 'CityD', 'CityC', 'CityE']\n    },\n    series: [\n      {\n        type: 'pie',\n        radius: '65%',\n        center: ['50%', '50%'],\n        selectedMode: 'single',\n        data: [\n          {\n            value: 1548,\n            name: 'CityE',\n            label: {\n              formatter: [\n                '{title|{b}}{abg|}',\n                '  {weatherHead|Weather}{valueHead|Days}{rateHead|Percent}',\n                '{hr|}',\n                '  {Sunny|}{value|202}{rate|55.3%}',\n                '  {Cloudy|}{value|142}{rate|38.9%}',\n                '  {Showers|}{value|21}{rate|5.8%}'\n              ].join('\\n'),\n              backgroundColor: '#eee',\n              borderColor: '#777',\n              borderWidth: 1,\n              borderRadius: 4,\n              rich: {\n                title: {\n                  color: '#eee',\n                  align: 'center'\n                },\n                abg: {\n                  backgroundColor: '#333',\n                  width: '100%',\n                  align: 'right',\n                  height: 25,\n                  borderRadius: [4, 4, 0, 0]\n                },\n                Sunny: {\n                  height: 30,\n                  align: 'left',\n                  backgroundColor: {\n                    image: weatherIcons.Sunny\n                  }\n                },\n                Cloudy: {\n                  height: 30,\n                  align: 'left',\n                  backgroundColor: {\n                    image: weatherIcons.Cloudy\n                  }\n                },\n                Showers: {\n                  height: 30,\n                  align: 'left',\n                  backgroundColor: {\n                    image: weatherIcons.Showers\n                  }\n                },\n                weatherHead: {\n                  color: '#333',\n                  height: 24,\n                  align: 'left'\n                },\n                hr: {\n                  borderColor: '#777',\n                  width: '100%',\n                  borderWidth: 0.5,\n                  height: 0\n                },\n                value: {\n                  width: 20,\n                  padding: [0, 20, 0, 30],\n                  align: 'left'\n                },\n                valueHead: {\n                  color: '#333',\n                  width: 20,\n                  padding: [0, 20, 0, 30],\n                  align: 'center'\n                },\n                rate: {\n                  width: 40,\n                  align: 'right',\n                  padding: [0, 10, 0, 0]\n                },\n                rateHead: {\n                  color: '#333',\n                  width: 40,\n                  align: 'center',\n                  padding: [0, 10, 0, 0]\n                }\n              }\n            }\n          },\n          { value: 735, name: 'CityC' },\n          { value: 510, name: 'CityD' },\n          { value: 434, name: 'CityB' },\n          { value: 335, name: 'CityA' }\n        ],\n        emphasis: {\n          itemStyle: {\n            shadowBlur: 10,\n            shadowOffsetX: 0,\n            shadowColor: 'rgba(0, 0, 0, 0.5)'\n          }\n        }\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsPieRichText() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "pie",
+    "rich"
+  ],
+  "type": "registry:block"
+}

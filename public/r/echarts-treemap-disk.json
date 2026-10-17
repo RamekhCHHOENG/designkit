@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-treemap-disk",
+  "title": "Disk Usage",
+  "description": "Disk Usage, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-treemap-disk.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\n\n// Adapted from the Apache ECharts example \"Disk Usage\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=treemap-disk\nconst setup: EChartSetup = ({ myChart }) => {\n  let option!: EChartsOption\n  myChart.showLoading();\n\n  $.get(ROOT_PATH + '/data/asset/data/disk.tree.json', function (diskData) {\n    myChart.hideLoading();\n\n    const formatUtil = echarts.format;\n\n    function getLevelOption() {\n      return [\n        {\n          itemStyle: {\n            borderWidth: 0,\n            gapWidth: 5\n          }\n        },\n        {\n          itemStyle: {\n            gapWidth: 1\n          }\n        },\n        {\n          colorSaturation: [0.35, 0.5],\n          itemStyle: {\n            gapWidth: 1,\n            borderColorSaturation: 0.6\n          }\n        }\n      ];\n    }\n\n    myChart.setOption(\n      (option = {\n        title: {\n          text: 'Disk Usage',\n          left: 'center'\n        },\n\n        tooltip: {\n          formatter: function (info: any) {\n            var value = info.value;\n            var treePathInfo = info.treePathInfo;\n            var treePath = [];\n\n            for (var i = 1; i < treePathInfo.length; i++) {\n              treePath.push(treePathInfo[i].name);\n            }\n\n            return [\n              '<div class=\"tooltip-title\">' +\n                formatUtil.encodeHTML(treePath.join('/')) +\n                '</div>',\n              'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'\n            ].join('');\n          }\n        },\n\n        series: [\n          {\n            name: 'Disk Usage',\n            type: 'treemap',\n            visibleMin: 300,\n            label: {\n              show: true,\n              formatter: '{b}'\n            },\n            itemStyle: {\n              borderColor: '#fff'\n            },\n            levels: getLevelOption(),\n            data: diskData\n          }\n        ]\n      })\n    );\n  });\n  return option\n}\n\nexport function EchartsTreemapDisk() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "treemap"
+  ],
+  "type": "registry:block"
+}

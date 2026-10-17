@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-dynamic-data2",
+  "title": "Dynamic Data + Time Axis",
+  "description": "Dynamic Data + Time Axis, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-dynamic-data2.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Dynamic Data + Time Axis\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=dynamic-data2\nconst setup: EChartSetup = ({ myChart, setInterval }) => {\n  let option!: EChartsOption\n  interface DataItem {\n    name: string;\n    value: [string, number];\n  }\n\n  function randomData(): DataItem {\n    now = new Date(+now + oneDay);\n    value = value + Math.random() * 21 - 10;\n    return {\n      name: now.toString(),\n      value: [\n        [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),\n        Math.round(value)\n      ]\n    };\n  }\n\n  let data: DataItem[] = [];\n  let now = new Date(1997, 9, 3);\n  let oneDay = 24 * 3600 * 1000;\n  let value = Math.random() * 1000;\n  for (var i = 0; i < 1000; i++) {\n    data.push(randomData());\n  }\n\n  option = {\n    title: {\n      text: 'Dynamic Data & Time Axis'\n    },\n    tooltip: {\n      trigger: 'axis',\n      formatter: function (params: any) {\n        params = params[0];\n        var date = new Date(params.name);\n        return (\n          date.getDate() +\n          '/' +\n          (date.getMonth() + 1) +\n          '/' +\n          date.getFullYear() +\n          ' : ' +\n          params.value[1]\n        );\n      },\n      axisPointer: {\n        animation: false\n      }\n    },\n    xAxis: {\n      type: 'time',\n      splitLine: {\n        show: false\n      }\n    },\n    yAxis: {\n      type: 'value',\n      boundaryGap: [0, '100%'],\n      splitLine: {\n        show: false\n      }\n    },\n    series: [\n      {\n        name: 'Fake Data',\n        type: 'line',\n        showSymbol: false,\n        data: data\n      }\n    ]\n  };\n\n  setInterval(function () {\n    for (var i = 0; i < 5; i++) {\n      data.shift();\n      data.push(randomData());\n    }\n\n    myChart.setOption<echarts.EChartsOption>({\n      series: [\n        {\n          data: data\n        }\n      ]\n    });\n  }, 1000);\n  return option\n}\n\nexport function EchartsDynamicData2() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line"
+  ],
+  "type": "registry:block"
+}

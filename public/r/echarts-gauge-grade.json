@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-gauge-grade",
+  "title": "Grade Gauge",
+  "description": "Grade Gauge, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-gauge-grade.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Grade Gauge\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=gauge-grade\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    series: [\n      {\n        type: 'gauge',\n        startAngle: 180,\n        endAngle: 0,\n        center: ['50%', '75%'],\n        radius: '90%',\n        min: 0,\n        max: 1,\n        splitNumber: 8,\n        axisLine: {\n          lineStyle: {\n            width: 6,\n            color: [\n              [0.25, '#FF6E76'],\n              [0.5, '#FDDD60'],\n              [0.75, '#58D9F9'],\n              [1, '#7CFFB2']\n            ]\n          }\n        },\n        pointer: {\n          icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',\n          length: '12%',\n          width: 20,\n          offsetCenter: [0, '-60%'],\n          itemStyle: {\n            color: 'auto'\n          }\n        },\n        axisTick: {\n          length: 12,\n          lineStyle: {\n            color: 'auto',\n            width: 2\n          }\n        },\n        splitLine: {\n          length: 20,\n          lineStyle: {\n            color: 'auto',\n            width: 5\n          }\n        },\n        axisLabel: {\n          color: '#464646',\n          fontSize: 20,\n          distance: -60,\n          rotate: 'tangential',\n          formatter: function (value: number) {\n            if (value === 0.875) {\n              return 'Grade A';\n            } else if (value === 0.625) {\n              return 'Grade B';\n            } else if (value === 0.375) {\n              return 'Grade C';\n            } else if (value === 0.125) {\n              return 'Grade D';\n            }\n            return '';\n          }\n        },\n        title: {\n          offsetCenter: [0, '-10%'],\n          fontSize: 20\n        },\n        detail: {\n          fontSize: 30,\n          offsetCenter: [0, '-35%'],\n          valueAnimation: true,\n          formatter: function (value: number) {\n            return Math.round(value * 100) + '';\n          },\n          color: 'inherit'\n        },\n        data: [\n          {\n            value: 0.7,\n            name: 'Grade Rating'\n          }\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsGaugeGrade() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "gauge"
+  ],
+  "type": "registry:block"
+}

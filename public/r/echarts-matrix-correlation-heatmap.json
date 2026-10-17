@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-matrix-correlation-heatmap",
+  "title": "Correlation Matrix (Heatmap)",
+  "description": "Correlation Matrix (Heatmap), adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-matrix-correlation-heatmap.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Correlation Matrix (Heatmap)\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=matrix-correlation-heatmap\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  const xCnt = 8;\n  const yCnt = xCnt;\n  const xData = [];\n  const yData = [];\n  for (let i = 0; i < xCnt; ++i) {\n    xData.push({\n      value: 'X' + (i + 1)\n    });\n  }\n\n  for (let i = 0; i < yCnt; ++i) {\n    yData.push({\n      value: 'Y' + (i + 1)\n    });\n  }\n\n  const data = [];\n  for (let i = 1; i <= xCnt; ++i) {\n    for (let j = 1; j <= yCnt; ++j) {\n      if (i >= j) {\n        data.push([\n          'X' + i,\n          'Y' + j,\n          i === j ? 1 : Math.random() * 2 - 1\n        ]);\n      }\n    }\n  }\n\n  option = {\n    matrix: {\n      x: {\n        data: xData\n      },\n      y: {\n        data: yData\n      },\n      top: 80\n    },\n    visualMap: {\n      type: 'continuous',\n      min: -1,\n      max: 1,\n      dimension: 2,\n      calculable: true,\n      orient: 'horizontal',\n      top: 5,\n      left: 'center'\n    },\n    series: {\n      type: 'heatmap',\n      coordinateSystem: 'matrix',\n      data,\n      label: {\n        show: true,\n        // @ts-ignore\n        formatter: params => params.value[2].toFixed(2)\n      }\n    }\n  };\n  return option\n}\n\nexport function EchartsMatrixCorrelationHeatmap() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "matrix"
+  ],
+  "type": "registry:block"
+}

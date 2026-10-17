@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-data-transform-aggregate",
+  "title": "Data Transform Simple Aggregate",
+  "description": "Data Transform Simple Aggregate, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0",
+    "echarts-simple-transform@^1.0.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-data-transform-aggregate.tsx",
+      "content": "import { $, EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\n// @ts-ignore\nimport ecSimpleTransform from \"echarts-simple-transform\"\n\nconst ROOT_PATH = \"https://cdn.jsdelivr.net/gh/apache/echarts-examples@88ca004030e999073a15303e5fe32462b8fefae2/public\"\nconst CDN_PATH = \"https://cdn.jsdelivr.net/npm/\"\n\n// Adapted from the Apache ECharts example \"Data Transform Simple Aggregate\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=data-transform-aggregate\nconst setup: EChartSetup = ({ myChart }) => {\n  let option: any\n  $.when(\n    $.get(ROOT_PATH + '/data/asset/data/life-expectancy-table.json'),\n    $.getScript(\n      CDN_PATH + 'echarts-simple-transform/dist/ecSimpleTransform.min.js'\n    )\n  ).done(function (res: any) {\n    run(res[0]);\n  });\n\n  function run(_rawData: any) {\n    echarts.registerTransform(ecSimpleTransform.aggregate);\n\n    option = {\n      dataset: [\n        {\n          id: 'raw',\n          source: _rawData\n        },\n        {\n          id: 'since_year',\n          fromDatasetId: 'raw',\n          transform: [\n            {\n              type: 'filter',\n              config: {\n                dimension: 'Year',\n                gte: 1950\n              }\n            }\n          ]\n        },\n        {\n          id: 'income_aggregate',\n          fromDatasetId: 'since_year',\n          transform: [\n            {\n              type: 'ecSimpleTransform:aggregate',\n              config: {\n                resultDimensions: [\n                  { name: 'min', from: 'Income', method: 'min' },\n                  { name: 'Q1', from: 'Income', method: 'Q1' },\n                  { name: 'median', from: 'Income', method: 'median' },\n                  { name: 'Q3', from: 'Income', method: 'Q3' },\n                  { name: 'max', from: 'Income', method: 'max' },\n                  { name: 'Country', from: 'Country' }\n                ],\n                groupBy: 'Country'\n              }\n            },\n            {\n              type: 'sort',\n              config: {\n                dimension: 'Q3',\n                order: 'asc'\n              }\n            }\n          ]\n        }\n      ],\n      title: {\n        text: 'Income since 1950'\n      },\n      tooltip: {\n        trigger: 'axis',\n        confine: true\n      },\n      xAxis: {\n        name: 'Income',\n        nameLocation: 'middle',\n        nameGap: 30,\n        scale: true\n      },\n      yAxis: {\n        type: 'category'\n      },\n      grid: {\n        bottom: 140\n      },\n      legend: {\n        selected: { detail: false }\n      },\n      dataZoom: [\n        {\n          type: 'inside'\n        },\n        {\n          type: 'slider',\n          height: 20,\n          bottom: 60\n        }\n      ],\n      series: [\n        {\n          name: 'boxplot',\n          type: 'boxplot',\n          datasetId: 'income_aggregate',\n          itemStyle: {\n            color: '#b8c5f2'\n          },\n          encode: {\n            x: ['min', 'Q1', 'median', 'Q3', 'max'],\n            y: 'Country',\n            itemName: ['Country'],\n            tooltip: ['min', 'Q1', 'median', 'Q3', 'max']\n          }\n        },\n        {\n          name: 'detail',\n          type: 'scatter',\n          datasetId: 'since_year',\n          symbolSize: 6,\n          tooltip: {\n            trigger: 'item'\n          },\n          label: {\n            show: true,\n            position: 'top',\n            align: 'left',\n            verticalAlign: 'middle',\n            rotate: 90,\n            fontSize: 12\n          },\n          itemStyle: {\n            color: '#d00000'\n          },\n          encode: {\n            x: 'Income',\n            y: 'Country',\n            label: 'Year',\n            itemName: 'Year',\n            tooltip: ['Country', 'Year', 'Income']\n          }\n        }\n      ]\n    };\n\n    myChart.setOption(option);\n  }\n  return option\n}\n\nexport function EchartsDataTransformAggregate() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "boxplot"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-large",
+  "title": "Large Scatter",
+  "description": "Large Scatter, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-large.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Large Scatter\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-large\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  function genData(len: number, offset?: number) {\n    let arr = new Float32Array(len * 2);\n    let off = 0;\n\n    for (let i = 0; i < len; i++) {\n      let x = +Math.random() * 10;\n      let y =\n        +Math.sin(x) -\n        x * (len % 2 ? 0.1 : -0.1) * Math.random() +\n        (offset || 0) / 10;\n      arr[off++] = x;\n      arr[off++] = y;\n    }\n    return arr;\n  }\n\n  const data1 = genData(5e5);\n  const data2 = genData(5e5, 10);\n\n  option = {\n    title: {\n      text:\n        echarts.format.addCommas(data1.length / 2 + data2.length / 2) + ' Points'\n    },\n    tooltip: {},\n    toolbox: {\n      left: 'center',\n      feature: {\n        dataZoom: {}\n      }\n    },\n    legend: {\n      orient: 'vertical',\n      right: 10\n    },\n    xAxis: [{}],\n    yAxis: [{}],\n    dataZoom: [\n      {\n        type: 'inside'\n      },\n      {\n        type: 'slider'\n      }\n    ],\n    animation: false,\n    series: [\n      {\n        name: 'A',\n        type: 'scatter',\n        data: data1,\n        dimensions: ['x', 'y'],\n        symbolSize: 3,\n        itemStyle: {\n          opacity: 0.4\n        },\n        large: true\n      },\n      {\n        name: 'B',\n        type: 'scatter',\n        data: data2,\n        dimensions: ['x', 'y'],\n        symbolSize: 3,\n        itemStyle: {\n          opacity: 0.4\n        },\n        large: true\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsScatterLarge() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-bar-race",
+  "title": "Bar Race",
+  "description": "Bar Race, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-bar-race.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport * as echarts from \"echarts\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Bar Race\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=bar-race\nconst setup: EChartSetup = ({ myChart, setTimeout, setInterval }) => {\n  let option!: EChartsOption\n  const data: number[] = [];\n  for (let i = 0; i < 5; ++i) {\n    data.push(Math.round(Math.random() * 200));\n  }\n\n  option = {\n    xAxis: {\n      max: 'dataMax'\n    },\n    yAxis: {\n      type: 'category',\n      data: ['A', 'B', 'C', 'D', 'E'],\n      inverse: true,\n      animationDuration: 300,\n      animationDurationUpdate: 300,\n      max: 2 // only the largest 3 bars will be displayed\n    },\n    series: [\n      {\n        realtimeSort: true,\n        name: 'X',\n        type: 'bar',\n        data: data,\n        label: {\n          show: true,\n          position: 'right',\n          valueAnimation: true\n        }\n      }\n    ],\n    legend: {\n      show: true\n    },\n    animationDuration: 0,\n    animationDurationUpdate: 3000,\n    animationEasing: 'linear',\n    animationEasingUpdate: 'linear'\n  };\n\n  function run() {\n    for (var i = 0; i < data.length; ++i) {\n      if (Math.random() > 0.9) {\n        data[i] += Math.round(Math.random() * 2000);\n      } else {\n        data[i] += Math.round(Math.random() * 200);\n      }\n    }\n    myChart.setOption<echarts.EChartsOption>({\n      series: [\n        {\n          type: 'bar',\n          data\n        }\n      ]\n    });\n  }\n\n  setTimeout(function () {\n    run();\n  }, 0);\n  setInterval(function () {\n    run();\n  }, 3000);\n  return option\n}\n\nexport function EchartsBarRace() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "bar"
+  ],
+  "type": "registry:block"
+}

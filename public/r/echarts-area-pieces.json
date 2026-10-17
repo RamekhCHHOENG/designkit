@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-area-pieces",
+  "title": "Area Pieces",
+  "description": "Area Pieces, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-area-pieces.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Area Pieces\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=area-pieces\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {\n      type: 'category',\n      boundaryGap: false\n    },\n    yAxis: {\n      type: 'value',\n      boundaryGap: [0, '30%']\n    },\n    visualMap: {\n      type: 'piecewise',\n      show: false,\n      dimension: 0,\n      seriesIndex: 0,\n      pieces: [\n        {\n          gt: 1,\n          lt: 3,\n          color: 'rgba(0, 0, 180, 0.4)'\n        },\n        {\n          gt: 5,\n          lt: 7,\n          color: 'rgba(0, 0, 180, 0.4)'\n        }\n      ]\n    },\n    series: [\n      {\n        type: 'line',\n        smooth: 0.6,\n        symbol: 'none',\n        lineStyle: {\n          color: '#5470C6',\n          width: 5\n        },\n        markLine: {\n          symbol: ['none', 'none'],\n          label: { show: false },\n          data: [{ xAxis: 1 }, { xAxis: 3 }, { xAxis: 5 }, { xAxis: 7 }]\n        },\n        areaStyle: {},\n        data: [\n          ['2019-10-10', 200],\n          ['2019-10-11', 560],\n          ['2019-10-12', 750],\n          ['2019-10-13', 580],\n          ['2019-10-14', 250],\n          ['2019-10-15', 300],\n          ['2019-10-16', 450],\n          ['2019-10-17', 300],\n          ['2019-10-18', 100]\n        ]\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsAreaPieces() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "line",
+    "visualMap"
+  ],
+  "type": "registry:block"
+}

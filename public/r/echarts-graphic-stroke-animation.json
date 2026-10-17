@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-graphic-stroke-animation",
+  "title": "Stroke Animation",
+  "description": "Stroke Animation, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-graphic-stroke-animation.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Stroke Animation\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=graphic-stroke-animation\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    graphic: {\n      elements: [\n        {\n          type: 'text',\n          left: 'center',\n          top: 'center',\n          style: {\n            text: 'Apache ECharts',\n            fontSize: 80,\n            fontWeight: 'bold',\n            lineDash: [0, 200],\n            lineDashOffset: 0,\n            fill: 'transparent',\n            stroke: '#000',\n            lineWidth: 1\n          },\n          keyframeAnimation: {\n            duration: 3000,\n            loop: true,\n            keyframes: [\n              {\n                percent: 0.7,\n                style: {\n                  fill: 'transparent',\n                  lineDashOffset: 200,\n                  lineDash: [200, 0]\n                }\n              },\n              {\n                // Stop for a while.\n                percent: 0.8,\n                style: {\n                  fill: 'transparent'\n                }\n              },\n              {\n                percent: 1,\n                style: {\n                  fill: 'black'\n                }\n              }\n            ]\n          }\n        }\n      ]\n    }\n  };\n  return option\n}\n\nexport function EchartsGraphicStrokeAnimation() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "graphic"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echarts-scatter-simple",
+  "title": "Basic Scatter Chart",
+  "description": "Basic Scatter Chart, adapted from the Apache ECharts examples.",
+  "dependencies": [
+    "echarts@^6.1.0"
+  ],
+  "registryDependencies": [
+    "https://designkit-smoky.vercel.app/r/echart.json"
+  ],
+  "files": [
+    {
+      "path": "src/echarts/echarts-scatter-simple.tsx",
+      "content": "import { EChart, type EChartSetup } from \"@/components/ui/echart\"\nimport type { EChartsOption } from \"echarts\"\n\n// Adapted from the Apache ECharts example \"Basic Scatter Chart\" (Apache-2.0):\n// https://echarts.apache.org/examples/en/editor.html?c=scatter-simple\nconst setup: EChartSetup = () => {\n  let option!: EChartsOption\n  option = {\n    xAxis: {},\n    yAxis: {},\n    series: [\n      {\n        symbolSize: 20,\n        data: [\n          [10.0, 8.04],\n          [8.07, 6.95],\n          [13.0, 7.58],\n          [9.05, 8.81],\n          [11.0, 8.33],\n          [14.0, 7.66],\n          [13.4, 6.81],\n          [10.0, 6.33],\n          [14.0, 8.96],\n          [12.5, 6.82],\n          [9.15, 7.2],\n          [11.5, 7.2],\n          [3.03, 4.23],\n          [12.2, 7.83],\n          [2.02, 4.47],\n          [1.05, 3.33],\n          [4.05, 4.96],\n          [6.03, 7.24],\n          [12.0, 6.26],\n          [12.0, 8.84],\n          [7.08, 5.82],\n          [5.02, 5.68]\n        ],\n        type: 'scatter'\n      }\n    ]\n  };\n  return option\n}\n\nexport function EchartsScatterSimple() {\n  return <EChart setup={setup} />\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts",
+    "echarts",
+    "scatter"
+  ],
+  "type": "registry:block"
+}
