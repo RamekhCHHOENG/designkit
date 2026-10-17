@@ -9,33 +9,52 @@ const vueDir = path.join(root, "shadcn-vue");
 const docsDist = path.join(root, "docs-dist");
 const docsDistVue = path.join(docsDist, "vue");
 
-console.log("[build-vue-docs] Ensuring shadcn-vue dependencies are installed...");
-const nodeModules = path.join(vueDir, "node_modules");
-if (!fs.existsSync(nodeModules)) {
-  console.log("[build-vue-docs] Installing shadcn-vue dependencies with npm ci --legacy-peer-deps...");
-  execSync("npm ci --legacy-peer-deps", { cwd: vueDir, stdio: "inherit" });
+let logOutput = "";
+function run(cmd, cwd = vueDir) {
+  console.log(`[build-vue-docs] Running: ${cmd}`);
+  logOutput += `\n--- RUN: ${cmd} ---\n`;
+  try {
+    const out = execSync(cmd, {
+      cwd,
+      encoding: "utf8",
+      stdio: "pipe",
+      env: {
+        ...process.env,
+        NUXT_APP_BASE_URL: "/vue/",
+        NODE_OPTIONS: "--max-old-space-size=4096",
+      },
+    });
+    logOutput += out;
+    console.log(out.slice(-500));
+    return out;
+  } catch (err) {
+    const errDetails = `Command failed: ${cmd}\nStatus: ${err.status}\nSignal: ${err.signal}\nStdout: ${err.stdout || ""}\nStderr: ${err.stderr || ""}\nMessage: ${err.message}`;
+    logOutput += "\n" + errDetails;
+    throw new Error(errDetails);
+  }
 }
 
-console.log("[build-vue-docs] Generating static Nuxt build for /vue/...");
-execSync("npm run generate", {
-  cwd: vueDir,
-  stdio: "inherit",
-  env: {
-    ...process.env,
-    NUXT_APP_BASE_URL: "/vue/",
-    NODE_OPTIONS: "--max-old-space-size=4096",
-  },
-});
+try {
+  const nodeModules = path.join(vueDir, "node_modules");
+  if (!fs.existsSync(nodeModules)) {
+    run("npm ci --legacy-peer-deps --no-audit --no-fund");
+  }
 
-console.log(`[build-vue-docs] Copying generated site to ${docsDistVue}...`);
-fs.rmSync(docsDistVue, { recursive: true, force: true });
-fs.mkdirSync(docsDistVue, { recursive: true });
+  run("npm run generate");
 
-const outputPublic = path.join(vueDir, ".output", "public");
-if (fs.existsSync(outputPublic)) {
-  fs.cpSync(outputPublic, docsDistVue, { recursive: true });
-  console.log("[build-vue-docs] Successfully built and copied Vue docs to docs-dist/vue!");
-} else {
-  console.error("[build-vue-docs] Error: .output/public not found in shadcn-vue!");
-  process.exit(1);
+  const outputPublic = path.join(vueDir, ".output", "public");
+  if (fs.existsSync(outputPublic)) {
+    fs.rmSync(docsDistVue, { recursive: true, force: true });
+    fs.mkdirSync(docsDistVue, { recursive: true });
+    fs.cpSync(outputPublic, docsDistVue, { recursive: true });
+    console.log("[build-vue-docs] Successfully built and copied Vue docs to docs-dist/vue!");
+    fs.mkdirSync(docsDist, { recursive: true });
+    fs.writeFileSync(path.join(docsDist, "vue-build.log"), "SUCCESS\n" + logOutput);
+  } else {
+    throw new Error(`.output/public not found in ${vueDir}`);
+  }
+} catch (err) {
+  console.error("[build-vue-docs] Error during Vue docs build:\n", err.message);
+  fs.mkdirSync(docsDist, { recursive: true });
+  fs.writeFileSync(path.join(docsDist, "vue-build.log"), "FAILED:\n" + err.message + "\n\nLOGS:\n" + logOutput);
 }
