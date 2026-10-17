@@ -12,8 +12,8 @@ const docsDistVue = path.join(docsDist, "vue");
 console.log("[build-vue-docs] Ensuring shadcn-vue dependencies are installed...");
 const nodeModules = path.join(vueDir, "node_modules");
 if (!fs.existsSync(nodeModules)) {
-  console.log("[build-vue-docs] Installing shadcn-vue dependencies with npm ci...");
-  execSync("npm ci", { cwd: vueDir, stdio: "inherit" });
+  console.log("[build-vue-docs] Installing shadcn-vue dependencies with npm ci --legacy-peer-deps...");
+  execSync("npm ci --legacy-peer-deps", { cwd: vueDir, stdio: "inherit" });
 }
 
 console.log("[build-vue-docs] Generating static Nuxt build for /vue/...");
@@ -23,6 +23,7 @@ execSync("npm run generate", {
   env: {
     ...process.env,
     NUXT_APP_BASE_URL: "/vue/",
+    NODE_OPTIONS: "--max-old-space-size=4096",
   },
 });
 
