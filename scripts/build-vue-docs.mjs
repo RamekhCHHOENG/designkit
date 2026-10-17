@@ -20,6 +20,8 @@ function run(cmd, cwd = vueDir) {
       stdio: "pipe",
       env: {
         ...process.env,
+        VERCEL: "",
+        NITRO_PRESET: "static",
         NUXT_APP_BASE_URL: "/vue/",
         NODE_OPTIONS: "--max-old-space-size=4096",
       },
@@ -42,16 +44,25 @@ try {
 
   run("npm run generate");
 
-  const outputPublic = path.join(vueDir, ".output", "public");
-  if (fs.existsSync(outputPublic)) {
+  const candidateDirs = [
+    path.join(vueDir, ".output", "public"),
+    path.join(vueDir, ".vercel", "output", "static", "vue"),
+    path.join(vueDir, ".vercel", "output", "static"),
+    path.join(root, ".vercel", "output", "static", "vue"),
+    path.join(root, ".vercel", "output", "static"),
+  ];
+
+  const foundDir = candidateDirs.find((dir) => fs.existsSync(path.join(dir, "index.html")));
+  if (foundDir) {
     fs.rmSync(docsDistVue, { recursive: true, force: true });
     fs.mkdirSync(docsDistVue, { recursive: true });
-    fs.cpSync(outputPublic, docsDistVue, { recursive: true });
-    console.log("[build-vue-docs] Successfully built and copied Vue docs to docs-dist/vue!");
+    fs.cpSync(foundDir, docsDistVue, { recursive: true });
+    console.log(`[build-vue-docs] Successfully built and copied Vue docs from ${foundDir} to ${docsDistVue}!`);
     fs.mkdirSync(docsDist, { recursive: true });
-    fs.writeFileSync(path.join(docsDist, "vue-build.log"), "SUCCESS\n" + logOutput);
+    fs.writeFileSync(path.join(docsDist, "vue-build.log"), `SUCCESS from ${foundDir}\n` + logOutput);
   } else {
-    throw new Error(`.output/public not found in ${vueDir}`);
+    const debugInfo = candidateDirs.map((d) => `${d} exists: ${fs.existsSync(d)}`).join("\n");
+    throw new Error(`Could not find generated index.html in any candidate directory:\n${debugInfo}`);
   }
 } catch (err) {
   console.error("[build-vue-docs] Error during Vue docs build:\n", err.message);

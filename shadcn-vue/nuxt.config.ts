@@ -84,6 +84,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: "static",
     prerender: {
       failOnError: false,
       ignore: ["/login", "/forgot-password", "/register"],
