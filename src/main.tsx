@@ -385,24 +385,19 @@ function sectionOf(slug: string): Section | null {
   return SECTIONS.find(({ key }) => slug === key || slug.startsWith(`${key}/`))?.key ?? null;
 }
 
-// Map the current React hash route to the Vue site. Blocks live at
-// #blocks/<category>, #charts/<type> and #charts/echarts/<category> here and at /blocks?category=<category>,
-// /charts?type=<type> and /charts?lib=echarts&category=<category> on the Vue site.
+// Map the current React hash route to the Vue site.
+// When deployed, Vue docs are hosted at /vue/; locally they run on :3312.
 function vueUrl() {
   const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
   const base = isLocal
     ? `http://${window.location.hostname}:3312`
-    : (import.meta.env.VITE_SHADCN_VUE_URL ?? "http://localhost:3312");
+    : (import.meta.env.VITE_SHADCN_VUE_URL ?? "/vue");
   const hash = window.location.hash;
-  const blocks = hash.match(/^#blocks(?:\/([a-z]+))?$/);
-  if (blocks) return `${base}/blocks${blocks[1] ? `?category=${blocks[1]}` : ""}`;
-  const echarts = hash.match(/^#charts\/echarts(?:\/([A-Za-z0-9]+))?$/);
-  if (echarts) return `${base}/charts?lib=echarts${echarts[1] ? `&category=${echarts[1]}` : ""}`;
-  const charts = hash.match(/^#charts(?:\/([a-z]+))?$/);
-  if (charts) return `${base}/charts${charts[1] ? `?type=${charts[1]}` : ""}`;
-  if (hash === "#themes") return `${base}/themes`;
-  const docsMatch = hash.match(/^#docs(?:\/([a-z-]+))?$/);
-  if (docsMatch) return `${base}/docs${docsMatch[1] ? `/${docsMatch[1]}` : ""}`;
+  if (!hash || hash === "#") return `${base}/`;
+  // Sections only available in React (blocks, charts, themes, docs) fallback to Vue showcase root
+  if (/^#(?:blocks|charts|themes|docs)/.test(hash)) {
+    return `${base}/`;
+  }
   return `${base}/${hash}`;
 }
 

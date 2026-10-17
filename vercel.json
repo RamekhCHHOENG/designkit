@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build:docs",
-  "outputDirectory": "docs-dist"
+  "outputDirectory": "docs-dist",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/vue/(.*)", "destination": "/vue/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

@@ -1,6 +1,10 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || "/",
+  },
+
   site: {
     url: "http://localhost:3312",
     name: "tipkit / shadcn-vue",
@@ -77,5 +81,12 @@ export default defineNuxtConfig({
     "/": { prerender: true },
     "/easings": { prerender: true },
     "/layouts": { prerender: true },
+  },
+
+  nitro: {
+    prerender: {
+      failOnError: false,
+      ignore: ["/login", "/forgot-password", "/register"],
+    },
   },
 });

@@ -14,6 +14,7 @@ src/assets/
 test-consumers/
 shadcn-vue/.nuxt/
 shadcn-vue/.output/
+shadcn-vue/dist
 
 # Graphify keeps the shared graph in version control; these files are local-only.
 graphify-out/cache/
