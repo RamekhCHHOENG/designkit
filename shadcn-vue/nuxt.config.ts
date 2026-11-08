@@ -3,13 +3,19 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    head: {
+      title: "DesignKit — Vue 3 & Nuxt Components",
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      ],
+    },
   },
 
   site: {
     url: "http://localhost:3312",
-    name: "tipkit / shadcn-vue",
+    name: "DesignKit — Vue 3 & Nuxt Component Library",
     description:
-      "An open-source collection of copy-and-paste components for quickly building application UIs.",
+      "An Apple-inspired collection of accessible, production-ready components for Vue 3 and Nuxt.",
     defaultLocale: "en",
   },
 

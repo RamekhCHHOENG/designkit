@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- **Top 50 UI Systems Gap Closure & Dual-Framework Parity:**
+  - Implemented 8 new universal primitives across React 19 and Vue 3 / Nuxt 4:
+    - `AutoComplete`: Combobox with asynchronous search query, highlighted matches, and keyboard navigation.
+    - `ChatContainer`: AI chat feed with automatic auto-scroll pinned to bottom, smooth user scrolling, and bottom anchor.
+    - `CardChoice` (`RadioCard` & `CheckboxCard`): Interactive selection cards with icon, badge, title, description, and accessibility checked states.
+    - `TimePicker`: 12h/24h time selection with AM/PM toggle and customizable stepping.
+    - `ToolCallCard`: Collapsible AI agent tool-call execution card with duration, status badges, and expandable input/output payloads.
+    - `TreeSelect`: Hierarchical tree browser embedded in popover dropdown with multi-select and path selection.
+    - `Popconfirm`: Compact inline confirmation bubble wrapping triggers to prevent accidental destructive actions.
+    - `Terminal`: macOS dark/light terminal window with tab navigation, copy button, status dots, and command stream output.
+  - Expanded library primitives from 127 to 135 (with 615 items registered in `registry.json` and 617 shadcn CLI endpoints under `public/r/`).
+  - Added interactive sample showcases for all new components with full-screen inspection modals and copy-to-clipboard code viewer.
+  - New brand identity: redesigned modern Apple-inspired vector logo, favicon, and dark/light SVG assets.
+  - Security audit and vulnerability fixes with zero critical vulnerabilities.
+  - 100/100 Vitest tests passing and 1,866 Nuxt static routes prerendered cleanly.
+
 ## 1.2.0
 
 ### Minor Changes

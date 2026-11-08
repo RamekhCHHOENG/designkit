@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import DesignKitLogo from "~/components/DesignKitLogo.vue";
+</script>
+
 <template>
   <footer
     class="before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative mt-16 py-8 before:absolute before:-inset-x-32 before:top-0 before:h-px md:mt-20"
@@ -7,7 +11,10 @@
       aria-hidden="true"
     ></div>
     <div class="flex justify-between gap-2 max-sm:flex-col max-sm:text-center">
-      <p class="text-muted-foreground text-sm">&copy; {{ new Date().getFullYear() }} Origin UI</p>
+      <div class="flex items-center gap-2 max-sm:justify-center">
+        <DesignKitLogo :size="16" />
+        <p class="text-muted-foreground text-sm">&copy; {{ new Date().getFullYear() }} DesignKit</p>
+      </div>
       <p class="text-muted-foreground text-sm">
         Ported to Vue by
         <NuxtLink

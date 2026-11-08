@@ -50,6 +50,20 @@
       ]
     },
     {
+      "name": "announcement-banner",
+      "type": "registry:ui",
+      "title": "Announcement Banner",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/announcement-banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "aspect-ratio",
       "type": "registry:ui",
       "title": "Aspect Ratio",
@@ -79,6 +93,34 @@
       ]
     },
     {
+      "name": "audio-player",
+      "type": "registry:ui",
+      "title": "Audio Player",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/audio-player.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "auto-complete",
+      "type": "registry:ui",
+      "title": "Auto Complete",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/auto-complete.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
@@ -103,6 +145,45 @@
       "files": [
         {
           "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bar-list",
+      "type": "registry:ui",
+      "title": "Bar List",
+      "files": [
+        {
+          "path": "src/components/ui/bar-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:ui",
+      "title": "Bento Grid",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "registryDependencies": [
+        "https://designkit-smoky.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/bento-grid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Border Beam",
+      "files": [
+        {
+          "path": "src/components/ui/border-beam.tsx",
           "type": "registry:ui"
         }
       ]
@@ -189,6 +270,20 @@
       ]
     },
     {
+      "name": "card-choice",
+      "type": "registry:ui",
+      "title": "Card Choice",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/card-choice.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -218,6 +313,31 @@
       ]
     },
     {
+      "name": "cascader",
+      "type": "registry:ui",
+      "title": "Cascader",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/cascader.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "category-bar",
+      "type": "registry:ui",
+      "title": "Category Bar",
+      "files": [
+        {
+          "path": "src/components/ui/category-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "chart",
       "type": "registry:ui",
       "title": "Chart",
@@ -227,6 +347,20 @@
       "files": [
         {
           "path": "src/components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-container",
+      "type": "registry:ui",
+      "title": "Chat Container",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/chat-container.tsx",
           "type": "registry:ui"
         }
       ]
@@ -331,6 +465,20 @@
       ]
     },
     {
+      "name": "comparison-slider",
+      "type": "registry:ui",
+      "title": "Comparison Slider",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/comparison-slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "context-menu",
       "type": "registry:ui",
       "title": "Context Menu",
@@ -341,6 +489,17 @@
       "files": [
         {
           "path": "src/components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "contribution-graph",
+      "type": "registry:ui",
+      "title": "Contribution Graph",
+      "files": [
+        {
+          "path": "src/components/ui/contribution-graph.tsx",
           "type": "registry:ui"
         }
       ]
@@ -360,12 +519,37 @@
       ]
     },
     {
+      "name": "delta-badge",
+      "type": "registry:ui",
+      "title": "Delta Badge",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/delta-badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "descriptions",
       "type": "registry:ui",
       "title": "Descriptions",
       "files": [
         {
           "path": "src/components/ui/descriptions.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "designkit-logo",
+      "type": "registry:ui",
+      "title": "Designkit Logo",
+      "files": [
+        {
+          "path": "src/components/ui/designkit-logo.tsx",
           "type": "registry:ui"
         }
       ]
@@ -389,6 +573,20 @@
       ]
     },
     {
+      "name": "diff-viewer",
+      "type": "registry:ui",
+      "title": "Diff Viewer",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/diff-viewer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "direction",
       "type": "registry:ui",
       "title": "Direction",
@@ -398,6 +596,17 @@
       "files": [
         {
           "path": "src/components/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dock",
+      "type": "registry:ui",
+      "title": "Dock",
+      "files": [
+        {
+          "path": "src/components/ui/dock.tsx",
           "type": "registry:ui"
         }
       ]
@@ -492,6 +701,34 @@
       ]
     },
     {
+      "name": "file-tree",
+      "type": "registry:ui",
+      "title": "File Tree",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/file-tree.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "filter-chips",
+      "type": "registry:ui",
+      "title": "Filter Chips",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/filter-chips.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "float-button",
       "type": "registry:ui",
       "title": "Float Button",
@@ -532,6 +769,17 @@
       "files": [
         {
           "path": "src/components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-motion",
+      "type": "registry:ui",
+      "title": "Icon Motion",
+      "files": [
+        {
+          "path": "src/components/ui/icon-motion.tsx",
           "type": "registry:ui"
         }
       ]
@@ -599,6 +847,17 @@
       ]
     },
     {
+      "name": "interactive-grid-pattern",
+      "type": "registry:ui",
+      "title": "Interactive Grid Pattern",
+      "files": [
+        {
+          "path": "src/components/ui/interactive-grid-pattern.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "item",
       "type": "registry:ui",
       "title": "Item",
@@ -654,6 +913,45 @@
       ]
     },
     {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "files": [
+        {
+          "path": "src/components/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "media-gallery",
+      "type": "registry:ui",
+      "title": "Media Gallery",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/media-gallery.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "mentions",
+      "type": "registry:ui",
+      "title": "Mentions",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/mentions.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "menubar",
       "type": "registry:ui",
       "title": "Menubar",
@@ -696,6 +994,20 @@
       "files": [
         {
           "path": "src/components/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/model-selector.tsx",
           "type": "registry:ui"
         }
       ]
@@ -758,6 +1070,17 @@
       "files": [
         {
           "path": "src/components/ui/number-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:ui",
+      "title": "Number Ticker",
+      "files": [
+        {
+          "path": "src/components/ui/number-ticker.tsx",
           "type": "registry:ui"
         }
       ]
@@ -830,6 +1153,20 @@
       ]
     },
     {
+      "name": "popconfirm",
+      "type": "registry:ui",
+      "title": "Popconfirm",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/popconfirm.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
@@ -844,6 +1181,20 @@
       ]
     },
     {
+      "name": "price-card",
+      "type": "registry:ui",
+      "title": "Price Card",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/price-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "progress",
       "type": "registry:ui",
       "title": "Progress",
@@ -853,6 +1204,20 @@
       "files": [
         {
           "path": "src/components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/prompt-input.tsx",
           "type": "registry:ui"
         }
       ]
@@ -950,6 +1315,20 @@
       ]
     },
     {
+      "name": "rich-text-editor",
+      "type": "registry:ui",
+      "title": "Rich Text Editor",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/rich-text-editor.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "ring-progress",
       "type": "registry:ui",
       "title": "Ring Progress",
@@ -1033,6 +1412,17 @@
       ]
     },
     {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "files": [
+        {
+          "path": "src/components/ui/shimmer-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "sidebar",
       "type": "registry:ui",
       "title": "Sidebar",
@@ -1053,6 +1443,20 @@
       "files": [
         {
           "path": "src/components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "signature-pad",
+      "type": "registry:ui",
+      "title": "Signature Pad",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/signature-pad.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1083,6 +1487,23 @@
       ]
     },
     {
+      "name": "snippet",
+      "type": "registry:ui",
+      "title": "Snippet",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "registryDependencies": [
+        "https://designkit-smoky.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/snippet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "sonner",
       "type": "registry:ui",
       "title": "Sonner",
@@ -1094,6 +1515,17 @@
       "files": [
         {
           "path": "src/components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "files": [
+        {
+          "path": "src/components/ui/sparkline.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1125,6 +1557,17 @@
       "files": [
         {
           "path": "src/components/ui/spoiler.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spotlight",
+      "type": "registry:ui",
+      "title": "Spotlight",
+      "files": [
+        {
+          "path": "src/components/ui/spotlight.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1168,6 +1611,20 @@
       "files": [
         {
           "path": "src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table-of-contents",
+      "type": "registry:ui",
+      "title": "Table Of Contents",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/table-of-contents.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1228,12 +1685,65 @@
       ]
     },
     {
+      "name": "terminal",
+      "type": "registry:ui",
+      "title": "Terminal",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/terminal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
       "files": [
         {
           "path": "src/components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "thinking-block",
+      "type": "registry:ui",
+      "title": "Thinking Block",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/thinking-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:ui",
+      "title": "Tilt Card",
+      "files": [
+        {
+          "path": "src/components/ui/tilt-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "time-picker",
+      "type": "registry:ui",
+      "title": "Time Picker",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/time-picker.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1304,6 +1814,20 @@
       ]
     },
     {
+      "name": "tool-call-card",
+      "type": "registry:ui",
+      "title": "Tool Call Card",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tool-call-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
@@ -1335,6 +1859,59 @@
       ]
     },
     {
+      "name": "trace",
+      "type": "registry:ui",
+      "title": "Trace",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/trace.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tracker",
+      "type": "registry:ui",
+      "title": "Tracker",
+      "files": [
+        {
+          "path": "src/components/ui/tracker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "transfer",
+      "type": "registry:ui",
+      "title": "Transfer",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/transfer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tree-select",
+      "type": "registry:ui",
+      "title": "Tree Select",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tree-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tree",
       "type": "registry:ui",
       "title": "Tree",
@@ -1346,6 +1923,20 @@
       "files": [
         {
           "path": "src/components/ui/tree.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "video-player",
+      "type": "registry:ui",
+      "title": "Video Player",
+      "dependencies": [
+        "lucide-react@^0.562.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/video-player.tsx",
           "type": "registry:ui"
         }
       ]

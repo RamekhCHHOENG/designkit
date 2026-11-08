@@ -18,6 +18,12 @@
     "url": "https://designkit-smoky.vercel.app/r/alert.json"
   },
   {
+    "name": "announcement-banner",
+    "type": "registry:ui",
+    "title": "Announcement Banner",
+    "url": "https://designkit-smoky.vercel.app/r/announcement-banner.json"
+  },
+  {
     "name": "aspect-ratio",
     "type": "registry:ui",
     "title": "Aspect Ratio",
@@ -30,6 +36,18 @@
     "url": "https://designkit-smoky.vercel.app/r/attachment.json"
   },
   {
+    "name": "audio-player",
+    "type": "registry:ui",
+    "title": "Audio Player",
+    "url": "https://designkit-smoky.vercel.app/r/audio-player.json"
+  },
+  {
+    "name": "auto-complete",
+    "type": "registry:ui",
+    "title": "Auto Complete",
+    "url": "https://designkit-smoky.vercel.app/r/auto-complete.json"
+  },
+  {
     "name": "avatar",
     "type": "registry:ui",
     "title": "Avatar",
@@ -40,6 +58,24 @@
     "type": "registry:ui",
     "title": "Badge",
     "url": "https://designkit-smoky.vercel.app/r/badge.json"
+  },
+  {
+    "name": "bar-list",
+    "type": "registry:ui",
+    "title": "Bar List",
+    "url": "https://designkit-smoky.vercel.app/r/bar-list.json"
+  },
+  {
+    "name": "bento-grid",
+    "type": "registry:ui",
+    "title": "Bento Grid",
+    "url": "https://designkit-smoky.vercel.app/r/bento-grid.json"
+  },
+  {
+    "name": "border-beam",
+    "type": "registry:ui",
+    "title": "Border Beam",
+    "url": "https://designkit-smoky.vercel.app/r/border-beam.json"
   },
   {
     "name": "breadcrumb",
@@ -72,6 +108,12 @@
     "url": "https://designkit-smoky.vercel.app/r/calendar.json"
   },
   {
+    "name": "card-choice",
+    "type": "registry:ui",
+    "title": "Card Choice",
+    "url": "https://designkit-smoky.vercel.app/r/card-choice.json"
+  },
+  {
     "name": "card",
     "type": "registry:ui",
     "title": "Card",
@@ -84,10 +126,28 @@
     "url": "https://designkit-smoky.vercel.app/r/carousel.json"
   },
   {
+    "name": "cascader",
+    "type": "registry:ui",
+    "title": "Cascader",
+    "url": "https://designkit-smoky.vercel.app/r/cascader.json"
+  },
+  {
+    "name": "category-bar",
+    "type": "registry:ui",
+    "title": "Category Bar",
+    "url": "https://designkit-smoky.vercel.app/r/category-bar.json"
+  },
+  {
     "name": "chart",
     "type": "registry:ui",
     "title": "Chart",
     "url": "https://designkit-smoky.vercel.app/r/chart.json"
+  },
+  {
+    "name": "chat-container",
+    "type": "registry:ui",
+    "title": "Chat Container",
+    "url": "https://designkit-smoky.vercel.app/r/chat-container.json"
   },
   {
     "name": "checkbox",
@@ -126,10 +186,22 @@
     "url": "https://designkit-smoky.vercel.app/r/command.json"
   },
   {
+    "name": "comparison-slider",
+    "type": "registry:ui",
+    "title": "Comparison Slider",
+    "url": "https://designkit-smoky.vercel.app/r/comparison-slider.json"
+  },
+  {
     "name": "context-menu",
     "type": "registry:ui",
     "title": "Context Menu",
     "url": "https://designkit-smoky.vercel.app/r/context-menu.json"
+  },
+  {
+    "name": "contribution-graph",
+    "type": "registry:ui",
+    "title": "Contribution Graph",
+    "url": "https://designkit-smoky.vercel.app/r/contribution-graph.json"
   },
   {
     "name": "copy-button",
@@ -138,10 +210,22 @@
     "url": "https://designkit-smoky.vercel.app/r/copy-button.json"
   },
   {
+    "name": "delta-badge",
+    "type": "registry:ui",
+    "title": "Delta Badge",
+    "url": "https://designkit-smoky.vercel.app/r/delta-badge.json"
+  },
+  {
     "name": "descriptions",
     "type": "registry:ui",
     "title": "Descriptions",
     "url": "https://designkit-smoky.vercel.app/r/descriptions.json"
+  },
+  {
+    "name": "designkit-logo",
+    "type": "registry:ui",
+    "title": "Designkit Logo",
+    "url": "https://designkit-smoky.vercel.app/r/designkit-logo.json"
   },
   {
     "name": "dialog",
@@ -150,10 +234,22 @@
     "url": "https://designkit-smoky.vercel.app/r/dialog.json"
   },
   {
+    "name": "diff-viewer",
+    "type": "registry:ui",
+    "title": "Diff Viewer",
+    "url": "https://designkit-smoky.vercel.app/r/diff-viewer.json"
+  },
+  {
     "name": "direction",
     "type": "registry:ui",
     "title": "Direction",
     "url": "https://designkit-smoky.vercel.app/r/direction.json"
+  },
+  {
+    "name": "dock",
+    "type": "registry:ui",
+    "title": "Dock",
+    "url": "https://designkit-smoky.vercel.app/r/dock.json"
   },
   {
     "name": "drawer",
@@ -192,6 +288,18 @@
     "url": "https://designkit-smoky.vercel.app/r/file-dropzone.json"
   },
   {
+    "name": "file-tree",
+    "type": "registry:ui",
+    "title": "File Tree",
+    "url": "https://designkit-smoky.vercel.app/r/file-tree.json"
+  },
+  {
+    "name": "filter-chips",
+    "type": "registry:ui",
+    "title": "Filter Chips",
+    "url": "https://designkit-smoky.vercel.app/r/filter-chips.json"
+  },
+  {
     "name": "float-button",
     "type": "registry:ui",
     "title": "Float Button",
@@ -208,6 +316,12 @@
     "type": "registry:ui",
     "title": "Hover Card",
     "url": "https://designkit-smoky.vercel.app/r/hover-card.json"
+  },
+  {
+    "name": "icon-motion",
+    "type": "registry:ui",
+    "title": "Icon Motion",
+    "url": "https://designkit-smoky.vercel.app/r/icon-motion.json"
   },
   {
     "name": "image-cropper",
@@ -234,6 +348,12 @@
     "url": "https://designkit-smoky.vercel.app/r/input.json"
   },
   {
+    "name": "interactive-grid-pattern",
+    "type": "registry:ui",
+    "title": "Interactive Grid Pattern",
+    "url": "https://designkit-smoky.vercel.app/r/interactive-grid-pattern.json"
+  },
+  {
     "name": "item",
     "type": "registry:ui",
     "title": "Item",
@@ -258,6 +378,24 @@
     "url": "https://designkit-smoky.vercel.app/r/marker.json"
   },
   {
+    "name": "marquee",
+    "type": "registry:ui",
+    "title": "Marquee",
+    "url": "https://designkit-smoky.vercel.app/r/marquee.json"
+  },
+  {
+    "name": "media-gallery",
+    "type": "registry:ui",
+    "title": "Media Gallery",
+    "url": "https://designkit-smoky.vercel.app/r/media-gallery.json"
+  },
+  {
+    "name": "mentions",
+    "type": "registry:ui",
+    "title": "Mentions",
+    "url": "https://designkit-smoky.vercel.app/r/mentions.json"
+  },
+  {
     "name": "menubar",
     "type": "registry:ui",
     "title": "Menubar",
@@ -274,6 +412,12 @@
     "type": "registry:ui",
     "title": "Message",
     "url": "https://designkit-smoky.vercel.app/r/message.json"
+  },
+  {
+    "name": "model-selector",
+    "type": "registry:ui",
+    "title": "Model Selector",
+    "url": "https://designkit-smoky.vercel.app/r/model-selector.json"
   },
   {
     "name": "multiselect",
@@ -300,6 +444,12 @@
     "url": "https://designkit-smoky.vercel.app/r/number-input.json"
   },
   {
+    "name": "number-ticker",
+    "type": "registry:ui",
+    "title": "Number Ticker",
+    "url": "https://designkit-smoky.vercel.app/r/number-ticker.json"
+  },
+  {
     "name": "pagination",
     "type": "registry:ui",
     "title": "Pagination",
@@ -324,16 +474,34 @@
     "url": "https://designkit-smoky.vercel.app/r/phone-input.json"
   },
   {
+    "name": "popconfirm",
+    "type": "registry:ui",
+    "title": "Popconfirm",
+    "url": "https://designkit-smoky.vercel.app/r/popconfirm.json"
+  },
+  {
     "name": "popover",
     "type": "registry:ui",
     "title": "Popover",
     "url": "https://designkit-smoky.vercel.app/r/popover.json"
   },
   {
+    "name": "price-card",
+    "type": "registry:ui",
+    "title": "Price Card",
+    "url": "https://designkit-smoky.vercel.app/r/price-card.json"
+  },
+  {
     "name": "progress",
     "type": "registry:ui",
     "title": "Progress",
     "url": "https://designkit-smoky.vercel.app/r/progress.json"
+  },
+  {
+    "name": "prompt-input",
+    "type": "registry:ui",
+    "title": "Prompt Input",
+    "url": "https://designkit-smoky.vercel.app/r/prompt-input.json"
   },
   {
     "name": "qr-code",
@@ -372,6 +540,12 @@
     "url": "https://designkit-smoky.vercel.app/r/result.json"
   },
   {
+    "name": "rich-text-editor",
+    "type": "registry:ui",
+    "title": "Rich Text Editor",
+    "url": "https://designkit-smoky.vercel.app/r/rich-text-editor.json"
+  },
+  {
     "name": "ring-progress",
     "type": "registry:ui",
     "title": "Ring Progress",
@@ -408,10 +582,22 @@
     "url": "https://designkit-smoky.vercel.app/r/sheet.json"
   },
   {
+    "name": "shimmer-button",
+    "type": "registry:ui",
+    "title": "Shimmer Button",
+    "url": "https://designkit-smoky.vercel.app/r/shimmer-button.json"
+  },
+  {
     "name": "sidebar",
     "type": "registry:ui",
     "title": "Sidebar",
     "url": "https://designkit-smoky.vercel.app/r/sidebar.json"
+  },
+  {
+    "name": "signature-pad",
+    "type": "registry:ui",
+    "title": "Signature Pad",
+    "url": "https://designkit-smoky.vercel.app/r/signature-pad.json"
   },
   {
     "name": "skeleton",
@@ -426,10 +612,22 @@
     "url": "https://designkit-smoky.vercel.app/r/slider.json"
   },
   {
+    "name": "snippet",
+    "type": "registry:ui",
+    "title": "Snippet",
+    "url": "https://designkit-smoky.vercel.app/r/snippet.json"
+  },
+  {
     "name": "sonner",
     "type": "registry:ui",
     "title": "Sonner",
     "url": "https://designkit-smoky.vercel.app/r/sonner.json"
+  },
+  {
+    "name": "sparkline",
+    "type": "registry:ui",
+    "title": "Sparkline",
+    "url": "https://designkit-smoky.vercel.app/r/sparkline.json"
   },
   {
     "name": "spinner",
@@ -442,6 +640,12 @@
     "type": "registry:ui",
     "title": "Spoiler",
     "url": "https://designkit-smoky.vercel.app/r/spoiler.json"
+  },
+  {
+    "name": "spotlight",
+    "type": "registry:ui",
+    "title": "Spotlight",
+    "url": "https://designkit-smoky.vercel.app/r/spotlight.json"
   },
   {
     "name": "statistic",
@@ -460,6 +664,12 @@
     "type": "registry:ui",
     "title": "Switch",
     "url": "https://designkit-smoky.vercel.app/r/switch.json"
+  },
+  {
+    "name": "table-of-contents",
+    "type": "registry:ui",
+    "title": "Table Of Contents",
+    "url": "https://designkit-smoky.vercel.app/r/table-of-contents.json"
   },
   {
     "name": "table",
@@ -486,10 +696,34 @@
     "url": "https://designkit-smoky.vercel.app/r/tags-input.json"
   },
   {
+    "name": "terminal",
+    "type": "registry:ui",
+    "title": "Terminal",
+    "url": "https://designkit-smoky.vercel.app/r/terminal.json"
+  },
+  {
     "name": "textarea",
     "type": "registry:ui",
     "title": "Textarea",
     "url": "https://designkit-smoky.vercel.app/r/textarea.json"
+  },
+  {
+    "name": "thinking-block",
+    "type": "registry:ui",
+    "title": "Thinking Block",
+    "url": "https://designkit-smoky.vercel.app/r/thinking-block.json"
+  },
+  {
+    "name": "tilt-card",
+    "type": "registry:ui",
+    "title": "Tilt Card",
+    "url": "https://designkit-smoky.vercel.app/r/tilt-card.json"
+  },
+  {
+    "name": "time-picker",
+    "type": "registry:ui",
+    "title": "Time Picker",
+    "url": "https://designkit-smoky.vercel.app/r/time-picker.json"
   },
   {
     "name": "timeline",
@@ -516,6 +750,12 @@
     "url": "https://designkit-smoky.vercel.app/r/toggle.json"
   },
   {
+    "name": "tool-call-card",
+    "type": "registry:ui",
+    "title": "Tool Call Card",
+    "url": "https://designkit-smoky.vercel.app/r/tool-call-card.json"
+  },
+  {
     "name": "tooltip",
     "type": "registry:ui",
     "title": "Tooltip",
@@ -528,10 +768,40 @@
     "url": "https://designkit-smoky.vercel.app/r/tour.json"
   },
   {
+    "name": "trace",
+    "type": "registry:ui",
+    "title": "Trace",
+    "url": "https://designkit-smoky.vercel.app/r/trace.json"
+  },
+  {
+    "name": "tracker",
+    "type": "registry:ui",
+    "title": "Tracker",
+    "url": "https://designkit-smoky.vercel.app/r/tracker.json"
+  },
+  {
+    "name": "transfer",
+    "type": "registry:ui",
+    "title": "Transfer",
+    "url": "https://designkit-smoky.vercel.app/r/transfer.json"
+  },
+  {
+    "name": "tree-select",
+    "type": "registry:ui",
+    "title": "Tree Select",
+    "url": "https://designkit-smoky.vercel.app/r/tree-select.json"
+  },
+  {
     "name": "tree",
     "type": "registry:ui",
     "title": "Tree",
     "url": "https://designkit-smoky.vercel.app/r/tree.json"
+  },
+  {
+    "name": "video-player",
+    "type": "registry:ui",
+    "title": "Video Player",
+    "url": "https://designkit-smoky.vercel.app/r/video-player.json"
   },
   {
     "name": "watermark",

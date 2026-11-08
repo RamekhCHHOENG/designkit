@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-grid-pattern",
+  "title": "Interactive Grid Pattern",
+  "files": [
+    {
+      "path": "src/components/ui/interactive-grid-pattern.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface InteractiveGridPatternProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  width?: number; // Size of each square in px (default: 32)\n  height?: number;\n  squares?: [number, number]; // [horizontalCount, verticalCount]\n  className?: string;\n}\n\nexport function InteractiveGridPattern({\n  width = 36,\n  height = 36,\n  squares = [24, 16],\n  className,\n  ...props\n}: InteractiveGridPatternProps) {\n  const [hoveredSquare, setHoveredSquare] = React.useState<{\n    x: number;\n    y: number;\n  } | null>(null);\n\n  const [cols, rows] = squares;\n\n  return (\n    <div\n      data-slot=\"interactive-grid-pattern\"\n      className={cn(\n        \"relative overflow-hidden pointer-events-auto select-none\",\n        className\n      )}\n      {...props}\n    >\n      <div\n        className=\"grid\"\n        style={{\n          gridTemplateColumns: `repeat(${cols}, ${width}px)`,\n          gridTemplateRows: `repeat(${rows}, ${height}px)`,\n        }}\n      >\n        {Array.from({ length: rows }).map((_, r) =>\n          Array.from({ length: cols }).map((_, c) => {\n            const isHovered =\n              hoveredSquare?.x === c && hoveredSquare?.y === r;\n            return (\n              <div\n                key={`${r}-${c}`}\n                onMouseEnter={() => setHoveredSquare({ x: c, y: r })}\n                onMouseLeave={() => setHoveredSquare(null)}\n                className={cn(\n                  \"border-r border-b border-border/30 transition-all duration-500\",\n                  isHovered\n                    ? \"bg-primary/20 border-primary/50 shadow-inner duration-75\"\n                    : \"hover:bg-primary/10\"\n                )}\n                style={{\n                  width: `${width}px`,\n                  height: `${height}px`,\n                }}\n              />\n            );\n          })\n        )}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

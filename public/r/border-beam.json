@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "border-beam",
+  "title": "Border Beam",
+  "files": [
+    {
+      "path": "src/components/ui/border-beam.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface BorderBeamProps extends React.HTMLAttributes<HTMLDivElement> {\n  size?: number; // Size of beam in px\n  duration?: number; // Seconds\n  borderWidth?: number;\n  anchor?: number;\n  colorFrom?: string;\n  colorTo?: string;\n  delay?: number;\n}\n\nexport function BorderBeam({\n  size = 200,\n  duration = 12,\n  borderWidth = 1.5,\n  anchor = 90,\n  colorFrom = \"var(--primary, oklch(0.6 0.2 260))\",\n  colorTo = \"transparent\",\n  delay = 0,\n  className,\n  ...props\n}: BorderBeamProps) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      style={\n        {\n          \"--size\": size,\n          \"--duration\": `${duration}s`,\n          \"--anchor\": anchor,\n          \"--border-width\": borderWidth,\n          \"--color-from\": colorFrom,\n          \"--color-to\": colorTo,\n          \"--delay\": `-${delay}s`,\n        } as React.CSSProperties\n      }\n      className={cn(\n        \"pointer-events-none absolute inset-0 rounded-[inherit] [border:calc(var(--border-width)*1px)_solid_transparent]\",\n        \"![mask-clip:padding-box,border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]\",\n        \"after:absolute after:aspect-square after:w-[calc(var(--size)*1px)] after:animate-border-beam after:[animation-delay:var(--delay)] after:[background:linear-gradient(to_left,var(--color-from),var(--color-to),transparent)] after:[offset-anchor:calc(var(--anchor)*1%)_50%] after:[offset-path:rect(0_auto_auto_0_round_calc(var(--size)*1px))]\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -9,10 +9,13 @@ const humanize = (slug: string) =>
 
 const GROUPS: Record<string, string> = {
   "aspect-ratio": "Layout",
+  "bento-grid": "Layout",
+  "border-beam": "Layout",
   resizable: "Layout",
   "scroll-area": "Layout",
   separator: "Layout",
   sidebar: "Layout",
+  spotlight: "Layout",
 
   button: "Forms",
   "button-group": "Forms",
@@ -43,10 +46,15 @@ const GROUPS: Record<string, string> = {
   rating: "Forms",
   "file-dropzone": "Forms",
   multiselect: "Forms",
+  "prompt-input": "Forms",
+  "model-selector": "Forms",
+  "signature-pad": "Forms",
+  "rich-text-editor": "Forms",
 
   breadcrumb: "Navigation",
   command: "Navigation",
   "context-menu": "Navigation",
+  dock: "Navigation",
   "dropdown-menu": "Navigation",
   menubar: "Navigation",
   "navigation-menu": "Navigation",
@@ -74,10 +82,14 @@ const GROUPS: Record<string, string> = {
   carousel: "Data display",
   chart: "Data display",
   collapsible: "Data display",
+  "comparison-slider": "Data display",
   empty: "Data display",
   item: "Data display",
   kbd: "Data display",
   marker: "Data display",
+  marquee: "Data display",
+  "number-ticker": "Data display",
+  sparkline: "Data display",
   table: "Data display",
   statistic: "Data display",
   descriptions: "Data display",
@@ -85,8 +97,12 @@ const GROUPS: Record<string, string> = {
   "code-block": "Data display",
   tag: "Data display",
   timeline: "Data display",
+  tracker: "Data display",
   "qr-code": "Data display",
   watermark: "Data display",
+  "category-bar": "Data display",
+  "bar-list": "Data display",
+  "delta-badge": "Data display",
 
   alert: "Feedback",
   message: "Feedback",
@@ -97,13 +113,44 @@ const GROUPS: Record<string, string> = {
   spinner: "Feedback",
   toast: "Feedback",
   result: "Feedback",
+  "announcement-banner": "Feedback",
+  popconfirm: "Feedback",
 
   attachment: "Content",
   bubble: "Content",
   questionnaire: "Content",
   direction: "Content",
   "copy-button": "Content",
+  snippet: "Content",
   spoiler: "Content",
+  "thinking-block": "Content",
+  trace: "Content",
+  "video-player": "Content",
+  "icon-motion": "Content",
+  "media-gallery": "Content",
+  "diff-viewer": "Content",
+  "audio-player": "Content",
+  "interactive-grid-pattern": "Content",
+  "chat-container": "Content",
+  "tool-call-card": "Content",
+  terminal: "Content",
+
+  "table-of-contents": "Navigation",
+
+  "file-tree": "Data display",
+  "price-card": "Data display",
+  "tilt-card": "Data display",
+  "contribution-graph": "Data display",
+
+  transfer: "Forms",
+  cascader: "Forms",
+  mentions: "Forms",
+  "filter-chips": "Forms",
+  "shimmer-button": "Forms",
+  "auto-complete": "Forms",
+  "card-choice": "Forms",
+  "time-picker": "Forms",
+  "tree-select": "Forms",
 };
 
 export type CatalogExample = {
@@ -118,7 +165,24 @@ export type CatalogEntry = {
   title: string;
   group: string;
   examples: CatalogExample[];
+  isNew?: boolean;
 };
+
+/**
+ * Set of component slugs introduced in the latest release batch.
+ * Only components in this set are labeled with the 'New' badge in navigation.
+ * When newer components are added, previous components revert to normal.
+ */
+export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
+  "auto-complete",
+  "chat-container",
+  "card-choice",
+  "time-picker",
+  "tool-call-card",
+  "tree-select",
+  "popconfirm",
+  "terminal",
+]);
 
 // UI primitive slugs come from the filenames alone (their content isn't
 // needed here -- only the example demos are actually rendered). `?url` keeps
@@ -177,6 +241,7 @@ export const catalog: CatalogEntry[] = uiSlugs.map((slug) => ({
   title: humanize(slug),
   group: GROUPS[slug] ?? "Components",
   examples: examplesByOwner.get(slug) ?? [],
+  isNew: NEW_COMPONENTS.has(slug),
 }));
 
 export const catalogGroups: { name: string; entries: CatalogEntry[] }[] = Object.values(

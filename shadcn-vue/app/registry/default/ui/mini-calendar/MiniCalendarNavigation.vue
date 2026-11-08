@@ -6,12 +6,15 @@ import type { PrimitiveProps } from "reka-ui";
 import { Primitive } from "reka-ui";
 import { computed } from "vue";
 
-export interface MiniCalendarNavigationProps extends /* @vue-ignore */ PrimitiveProps {
+export interface MiniCalendarNavigationProps {
   direction: "prev" | "next";
+  as?: PrimitiveProps["as"];
+  asChild?: boolean;
 }
 
 const props = withDefaults(defineProps<MiniCalendarNavigationProps>(), {
   as: Button,
+  asChild: false,
 });
 
 const context = injectMiniCalendarContext();
@@ -21,8 +24,8 @@ const Icon = computed(() => (props.direction === "prev" ? ChevronLeftIcon : Chev
 
 <template>
   <Primitive
-    :as="as"
-    :as-child="asChild"
+    :as="props.as"
+    :as-child="props.asChild"
     type="button"
     size="icon"
     variant="ghost"

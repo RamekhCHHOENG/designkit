@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-button",
+  "title": "Shimmer Button",
+  "files": [
+    {
+      "path": "src/components/ui/shimmer-button.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface ShimmerButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  shimmerColor?: string;\n  shimmerSize?: string;\n  shimmerDuration?: string;\n  borderRadius?: string;\n  background?: string;\n  children: React.ReactNode;\n}\n\nexport function ShimmerButton({\n  shimmerColor = \"#ffffff\",\n  shimmerSize = \"0.05em\",\n  shimmerDuration = \"2.5s\",\n  borderRadius = \"100px\",\n  background = \"rgba(0, 0, 0, 1)\",\n  children,\n  className,\n  ...props\n}: ShimmerButtonProps) {\n  return (\n    <button\n      data-slot=\"shimmer-button\"\n      style={\n        {\n          \"--spread\": \"90deg\",\n          \"--shimmer-color\": shimmerColor,\n          \"--radius\": borderRadius,\n          \"--speed\": shimmerDuration,\n          \"--cut\": shimmerSize,\n          \"--bg\": background,\n        } as React.CSSProperties\n      }\n      className={cn(\n        \"group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap px-6 py-2.5 text-xs font-semibold text-white [background:var(--bg)] [border-radius:var(--radius)] transition-all duration-300 hover:scale-105 active:scale-95 shadow-md\",\n        className\n      )}\n      {...props}\n    >\n      {/* Spark container */}\n      <div className=\"-z-30 blur-[2px] absolute inset-0 overflow-visible [container-type:size]\">\n        {/* Spark */}\n        <div className=\"absolute inset-0 h-[100cqh] animate-shimmer-slide [aspect-ratio:1] [border-radius:0] [mask:none]\">\n          {/* Spark before */}\n          <div className=\"animate-spin-around absolute -inset-full w-auto rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))] [translate:0_0]\" />\n        </div>\n      </div>\n\n      {/* Backdrop */}\n      <div className=\"absolute [border-radius:var(--radius)] [inset:var(--cut)] -z-20 [background:var(--bg)]\" />\n\n      {/* Content */}\n      <span className=\"relative z-10 flex items-center gap-2\">{children}</span>\n    </button>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -6,7 +6,9 @@ const root = new URL("../", import.meta.url);
 const requiredArtifacts = [
   "dist/index.js",
   "dist/index.cjs",
-  "dist/lib/index.d.ts",
+  "dist/index.d.ts",
+  "dist/index.d.cts",
+  "dist/styles.css",
 ];
 
 await Promise.all(requiredArtifacts.map((path) => access(new URL(path, root))));

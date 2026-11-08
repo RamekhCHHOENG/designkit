@@ -1,29 +1,52 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { catalogGroups, catalog } from "~/config/catalog";
 import { SearchIcon, GithubIcon } from "lucide-vue-next";
 import ExamplesSection from "~/components/ExamplesSection.vue";
+import DesignKitLogo from "~/components/DesignKitLogo.vue";
 
 const route = useRoute();
-const currentHash = ref("");
+const clientHash = ref("");
+const isMounted = ref(false);
 const mode = useState<"components" | "examples">("app-mode", () => "components");
 
 function readHash() {
   if (typeof window !== "undefined") {
-    currentHash.value = window.location.hash.replace(/^#/, "");
-    if (currentHash.value) {
+    clientHash.value = window.location.hash.replace(/^#/, "");
+    if (clientHash.value) {
       mode.value = "components";
     }
   }
 }
 
 onMounted(() => {
+  isMounted.value = true;
   readHash();
   window.addEventListener("hashchange", readHash);
+  window.addEventListener("popstate", readHash);
 });
 
 onUnmounted(() => {
   window.removeEventListener("hashchange", readHash);
+  window.removeEventListener("popstate", readHash);
+});
+
+watch(
+  () => route.hash,
+  (newHash) => {
+    const val = newHash ? newHash.replace(/^#/, "") : "";
+    clientHash.value = val;
+    if (val) {
+      mode.value = "components";
+    }
+  },
+  { immediate: true }
+);
+
+const currentHash = computed(() => {
+  if (!isMounted.value) return "";
+  const fromRoute = route.hash ? route.hash.replace(/^#/, "") : "";
+  return fromRoute || clientHash.value;
 });
 
 const searchQuery = ref("");
@@ -52,9 +75,10 @@ const activeSlug = computed(() => {
   <div class="flex min-h-svh flex-col">
     <!-- Header -->
     <header class="sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur">
-      <a href="#" class="text-sm font-semibold flex items-center gap-1.5" @click="mode = 'components'; currentHash = ''">
-        <span class="font-bold">DesignKit</span>
-      </a>
+      <NuxtLink to="/" class="text-sm font-semibold flex items-center gap-2 group" @click="mode = 'components'; clientHash = ''">
+        <DesignKitLogo :size="24" class="transition-transform group-hover:scale-105" />
+        <span class="font-bold tracking-tight">DesignKit</span>
+      </NuxtLink>
 
       <!-- Framework Switcher -->
       <FrameworkSwitch />
@@ -114,13 +138,13 @@ const activeSlug = computed(() => {
           </label>
 
           <!-- Installation Link -->
-          <a
-            href="#installation"
+          <NuxtLink
+            to="/#installation"
             class="block rounded-md px-2 py-1.5 text-sm font-medium hover:bg-muted transition-colors"
             :class="activeSlug === 'installation' ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'"
           >
             Installation
-          </a>
+          </NuxtLink>
 
           <!-- Grouped Component List -->
           <div class="flex flex-col gap-5">
@@ -130,15 +154,21 @@ const activeSlug = computed(() => {
               class="flex flex-col gap-1"
             >
               <span class="px-2 text-xs font-medium text-muted-foreground">{{ group.name }}</span>
-              <a
+              <NuxtLink
                 v-for="entry in group.entries"
                 :key="entry.slug"
-                :href="`#${entry.slug}`"
-                class="rounded-md px-2 py-1.5 text-sm hover:bg-muted transition-colors"
+                :to="`/#${entry.slug}`"
+                class="flex items-center justify-between rounded-md px-2 py-1.5 text-sm hover:bg-muted transition-colors"
                 :class="activeSlug === entry.slug ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'"
               >
-                {{ entry.title }}
-              </a>
+                <span>{{ entry.title }}</span>
+                <span
+                  v-if="entry.isNew"
+                  class="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary dark:bg-primary/20"
+                >
+                  New
+                </span>
+              </NuxtLink>
             </div>
             <div v-if="filteredGroups.length === 0" class="px-2 text-sm text-muted-foreground">
               No matches.

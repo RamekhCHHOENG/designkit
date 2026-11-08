@@ -22,7 +22,7 @@ onUnmounted(() => {
 const reactUrl = computed(() => {
   if (typeof window === "undefined") return "http://localhost:5173/";
   const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-  const targetHash = hash.value || (route.params.component ? `#${route.params.component}` : "");
+  const targetHash = (route.hash ? route.hash : hash.value) || (route.params.component ? `#${route.params.component}` : "");
   if (isLocal) {
     return `http://${window.location.hostname}:5173/${targetHash}`;
   }

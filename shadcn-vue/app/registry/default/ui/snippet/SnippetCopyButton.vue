@@ -8,16 +8,19 @@ import type { PrimitiveProps } from "reka-ui";
 import { Primitive } from "reka-ui";
 import { type HTMLAttributes } from "vue";
 
-interface Props extends /* @vue-ignore */ PrimitiveProps {
+interface Props {
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   class?: HTMLAttributes["class"];
   value: string;
   timeout?: number;
+  as?: PrimitiveProps["as"];
+  asChild?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   as: "button",
+  asChild: false,
   variant: "ghost",
   size: "icon",
   timeout: 2000,
@@ -31,11 +34,11 @@ const { copy, copied } = useClipboard({
 <template>
   <Primitive
     data-slot="snippet-copy-button"
-    :as="as"
-    :as-child="asChild"
+    :as="props.as"
+    :as-child="props.asChild"
     :class="
       cn(
-        buttonVariants({ variant, size }),
+        buttonVariants({ variant: props.variant, size: props.size }),
         'opacity-0 transition-opacity group-hover:opacity-100',
         props.class,
       )

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="dk-bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="dk-border" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="dk-prism" x1="8" y1="8" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="35%" stop-color="#6366f1"/>
+      <stop offset="70%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="dk-glass" x1="16" y1="12" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.45"/>
+    </linearGradient>
+    <filter id="dk-glow" x="2" y="2" width="36" height="36" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#6366f1" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect x="1" y="1" width="38" height="38" rx="10" fill="url(#dk-bg)"/>
+  <rect x="1.5" y="1.5" width="37" height="37" rx="9.5" fill="none" stroke="url(#dk-border)" stroke-width="1"/>
+  <g filter="url(#dk-glow)">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M10 9.5C10 8.67157 10.6716 8 11.5 8H20.5C26.0228 8 30.5 12.4772 30.5 18C30.5 23.5228 26.0228 28 20.5 28H11.5C10.6716 28 10 27.3284 10 26.5V9.5ZM14.5 12.5V23.5H20C23.0376 23.5 25.5 21.0376 25.5 18C25.5 14.9624 23.0376 12.5 20 12.5H14.5Z"
+      fill="url(#dk-prism)"
+    />
+    <path
+      d="M17.5 13.5L22.5 18L17.5 22.5"
+      stroke="url(#dk-glass)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="14.5" cy="18" r="1.5" fill="#ffffff"/>
+  </g>
+</svg>

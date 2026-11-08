@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LucideLoader } from "lucide-vue-next";
+import { LucideLoader, ChevronLeftIcon } from "lucide-vue-next";
 import { useRoute } from "vue-router";
 import { extendedCategories } from "~/config/extendedComponents";
 
@@ -35,7 +35,14 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div class="px-6 pt-6 max-w-6xl mx-auto">
+    <NuxtLink
+      :to="'/#' + categorySlug"
+      class="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors group mb-3"
+    >
+      <ChevronLeftIcon class="size-3.5 transition-transform group-hover:-translate-x-0.5" />
+      <span>Back to Component</span>
+    </NuxtLink>
     <PageHeader :title="category.name">
       A growing collection of {{ components.length }} {{ category.name.toLowerCase() }} components
       built with Vue and Tailwind CSS.

@@ -1,3 +1,11 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="public/logo.svg">
+    <img src="public/logo-dark.svg" alt="DesignKit" width="220">
+  </picture>
+</p>
+
 # DesignKit
 
 Apple-inspired, accessible React components for web applications. DesignKit combines the clarity and polish of Apple interfaces with practical patterns learned from shadcn/ui and the wider web component ecosystem.

@@ -40,6 +40,7 @@ export function QRCode({
   const [error, setError] = React.useState<string | null>(null)
 
   React.useEffect(() => {
+    let isMounted = true
     if (!value) return
 
     QRCodeGenerator.toDataURL(value, {
@@ -52,12 +53,20 @@ export function QRCode({
       },
     })
       .then((url) => {
-        setDataUrl(url)
-        setError(null)
+        if (isMounted) {
+          setDataUrl(url)
+          setError(null)
+        }
       })
       .catch((err) => {
-        setError(err.message)
+        if (isMounted) {
+          setError(err?.message || "Failed to generate QR code")
+        }
       })
+
+    return () => {
+      isMounted = false
+    }
   }, [value, size, level, color, bgColor])
 
   const handleDownload = () => {

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "title": "Marquee",
+  "files": [
+    {
+      "path": "src/components/ui/marquee.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {\n  pauseOnHover?: boolean;\n  reverse?: boolean;\n  fadeEdges?: boolean;\n  speed?: number; // Duration in seconds\n  vertical?: boolean;\n  gap?: string;\n  repeat?: number;\n  children: React.ReactNode;\n}\n\nexport function Marquee({\n  pauseOnHover = false,\n  reverse = false,\n  fadeEdges = true,\n  speed = 30,\n  vertical = false,\n  gap = \"1rem\",\n  repeat = 4,\n  className,\n  children,\n  ...props\n}: MarqueeProps) {\n  return (\n    <div\n      style={\n        {\n          \"--gap\": gap,\n          \"--duration\": `${speed}s`,\n        } as React.CSSProperties\n      }\n      className={cn(\n        \"group relative flex overflow-hidden p-2\",\n        vertical ? \"flex-col\" : \"flex-row\",\n        fadeEdges &&\n          !vertical &&\n          \"[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]\",\n        fadeEdges &&\n          vertical &&\n          \"[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]\",\n        className\n      )}\n      {...props}\n    >\n      {Array.from({ length: repeat }).map((_, index) => (\n        <div\n          key={index}\n          aria-hidden={index > 0}\n          className={cn(\n            \"flex shrink-0 justify-around [gap:var(--gap)]\",\n            vertical\n              ? \"flex-col animate-marquee-vertical\"\n              : \"flex-row animate-marquee\",\n            reverse && \"[animation-direction:reverse]\",\n            pauseOnHover && \"group-hover:[animation-play-state:paused]\"\n          )}\n        >\n          {children}\n        </div>\n      ))}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

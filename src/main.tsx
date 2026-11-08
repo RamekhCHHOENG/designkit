@@ -12,6 +12,7 @@ import { ChartsPage } from "@/charts-page";
 import { ThemesPage } from "@/themes-page";
 import { DocsPage } from "@/docs-page";
 import { InstallCommand } from "@/install-command";
+import { DesignKitLogo } from "@/components/ui/designkit-logo";
 import { REGISTRY_URL } from "@/registry-url";
 import "./index.css";
 
@@ -117,7 +118,14 @@ function ComponentPage({ entry }: { entry: CatalogEntry }) {
   return (
     <article className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 py-10">
       <header className="flex flex-col gap-1">
-        <span className="text-xs font-medium text-muted-foreground">{entry.group}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-medium text-muted-foreground">{entry.group}</span>
+          {entry.isNew && (
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary dark:bg-primary/20">
+              New
+            </span>
+          )}
+        </div>
         <h1 className="text-3xl font-semibold tracking-tight">{entry.title}</h1>
         <p className="text-sm text-muted-foreground">
           Vendored from shadcn/ui &mdash; <code className="rounded bg-muted px-1 py-0.5 text-xs">src/components/ui/{entry.slug}.tsx</code>
@@ -297,8 +305,11 @@ npx shadcn@latest add @designkit/button @designkit/login-01 @designkit/chart-are
 function Overview() {
   return (
     <article className="mx-auto flex w-full max-w-4xl flex-col gap-8 px-6 py-10">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-semibold tracking-tight">DesignKit</h1>
+      <header className="flex flex-col gap-3">
+        <div className="flex items-center gap-3">
+          <DesignKitLogo size={36} />
+          <h1 className="text-3xl font-semibold tracking-tight">DesignKit</h1>
+        </div>
         <p className="text-sm text-muted-foreground">
           {catalog.length} components vendored from shadcn/ui (Base UI, Nova preset). Pick one from the sidebar.
         </p>
@@ -311,9 +322,14 @@ function Overview() {
               <a
                 key={entry.slug}
                 href={`#${entry.slug}`}
-                className="rounded-lg border p-3 text-sm hover:bg-muted"
+                className="flex items-center justify-between rounded-lg border p-3 text-sm hover:bg-muted"
               >
-                {entry.title}
+                <span>{entry.title}</span>
+                {entry.isNew && (
+                  <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary dark:bg-primary/20">
+                    New
+                  </span>
+                )}
               </a>
             ))}
           </div>
@@ -357,9 +373,14 @@ function Sidebar({ query, setQuery, activeSlug }: { query: string; setQuery: (v:
               <a
                 key={entry.slug}
                 href={`#${entry.slug}`}
-                className={`rounded-md px-2 py-1.5 text-sm hover:bg-muted ${activeSlug === entry.slug ? "bg-muted font-medium text-foreground" : "text-muted-foreground"}`}
+                className={`flex items-center justify-between rounded-md px-2 py-1.5 text-sm hover:bg-muted ${activeSlug === entry.slug ? "bg-muted font-medium text-foreground" : "text-muted-foreground"}`}
               >
-                {entry.title}
+                <span>{entry.title}</span>
+                {entry.isNew && (
+                  <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary dark:bg-primary/20">
+                    New
+                  </span>
+                )}
               </a>
             ))}
           </div>
@@ -409,8 +430,9 @@ function Header({ mode, setMode, section }: { mode: Mode; setMode: (m: Mode) => 
   };
   return (
     <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur">
-      <a href="#" className="text-sm font-semibold" onClick={() => setMode("components")}>
-        DesignKit
+      <a href="#" className="text-sm font-semibold flex items-center gap-2 group" onClick={() => setMode("components")}>
+        <DesignKitLogo size={24} className="transition-transform group-hover:scale-105" />
+        <span className="font-bold tracking-tight">DesignKit</span>
       </a>
       {/* Framework switcher: shadcn/ui | shadcn-vue */}
       <div className="flex items-center gap-0.5 rounded-full border bg-muted/50 p-0.5">

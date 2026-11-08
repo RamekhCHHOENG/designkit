@@ -761,4 +761,251 @@ export const categories: ComponentCategory[] = [
       { name: "comp-576" },
     ],
   },
+  {
+    slug: "video-player",
+    name: "Video Player",
+    components: [
+      { name: "comp-video-player-01" },
+      { name: "comp-video-player-02" },
+      { name: "comp-video-player-03" },
+      { name: "comp-video-player-04" },
+    ],
+  },
+  {
+    slug: "rich-text-editor",
+    name: "Rich Text Editor",
+    components: [
+      { name: "comp-rich-text-editor-01" },
+      { name: "comp-rich-text-editor-02" },
+      { name: "comp-rich-text-editor-03" },
+    ],
+  },
+  {
+    slug: "icon-motion",
+    name: "Icon Motion",
+    components: [
+      { name: "comp-icon-motion-01" },
+      { name: "comp-icon-motion-02" },
+      { name: "comp-icon-motion-03" },
+    ],
+  },
+  {
+    slug: "media-gallery",
+    name: "Media Gallery",
+    components: [
+      { name: "comp-media-gallery-01" },
+      { name: "comp-media-gallery-02" },
+    ],
+  },
+  {
+    slug: "category-bar",
+    name: "Category Bar",
+    components: [
+      { name: "comp-category-bar-01" },
+      { name: "comp-category-bar-02" },
+    ],
+  },
+  {
+    slug: "bar-list",
+    name: "Bar List",
+    components: [
+      { name: "comp-bar-list-01" },
+      { name: "comp-bar-list-02" },
+    ],
+  },
+  {
+    slug: "delta-badge",
+    name: "Delta Badge",
+    components: [
+      { name: "comp-delta-badge-01" },
+      { name: "comp-delta-badge-02" },
+    ],
+  },
+  {
+    slug: "thinking-block",
+    name: "Thinking Block",
+    components: [
+      { name: "comp-thinking-block-01" },
+      { name: "comp-thinking-block-02" },
+    ],
+  },
+  {
+    slug: "trace",
+    name: "Trace",
+    components: [
+      { name: "comp-trace-01" },
+    ],
+  },
+  {
+    slug: "prompt-input",
+    name: "Prompt Input",
+    components: [
+      { name: "comp-prompt-input-01" },
+      { name: "comp-prompt-input-02" },
+    ],
+  },
+  {
+    slug: "model-selector",
+    name: "Model Selector",
+    components: [
+      { name: "comp-model-selector-01" },
+    ],
+  },
+  {
+    slug: "signature-pad",
+    name: "Signature Pad",
+    components: [
+      { name: "comp-signature-pad-01" },
+    ],
+  },
+  {
+    slug: "diff-viewer",
+    name: "Diff Viewer",
+    components: [
+      { name: "comp-diff-viewer-01" },
+      { name: "comp-diff-viewer-02" },
+    ],
+  },
+  {
+    slug: "table-of-contents",
+    name: "Table Of Contents",
+    components: [
+      { name: "comp-table-of-contents-01" },
+    ],
+  },
+  {
+    slug: "file-tree",
+    name: "File Tree",
+    components: [
+      { name: "comp-file-tree-01" },
+    ],
+  },
+  {
+    slug: "transfer",
+    name: "Transfer",
+    components: [
+      { name: "comp-transfer-01" },
+    ],
+  },
+  {
+    slug: "cascader",
+    name: "Cascader",
+    components: [
+      { name: "comp-cascader-01" },
+    ],
+  },
+  {
+    slug: "mentions",
+    name: "Mentions",
+    components: [
+      { name: "comp-mentions-01" },
+    ],
+  },
+  {
+    slug: "filter-chips",
+    name: "Filter Chips",
+    components: [
+      { name: "comp-filter-chips-01" },
+    ],
+  },
+  {
+    slug: "audio-player",
+    name: "Audio Player",
+    components: [
+      { name: "comp-audio-player-01" },
+    ],
+  },
+  {
+    slug: "price-card",
+    name: "Price Card",
+    components: [
+      { name: "comp-price-card-01" },
+      { name: "comp-price-card-02" },
+    ],
+  },
+  {
+    slug: "announcement-banner",
+    name: "Announcement Banner",
+    components: [
+      { name: "comp-announcement-banner-01" },
+      { name: "comp-announcement-banner-02" },
+    ],
+  },
+  {
+    slug: "tilt-card",
+    name: "Tilt Card",
+    components: [
+      { name: "comp-tilt-card-01" },
+    ],
+  },
+  {
+    slug: "interactive-grid-pattern",
+    name: "Interactive Grid Pattern",
+    components: [
+      { name: "comp-interactive-grid-pattern-01" },
+    ],
+  },
+  {
+    slug: "shimmer-button",
+    name: "Shimmer Button",
+    components: [
+      { name: "comp-shimmer-button-01" },
+    ],
+  },
+  {
+    slug: "auto-complete",
+    name: "Auto Complete",
+    components: [
+      { name: "comp-auto-complete-01" },
+    ],
+  },
+  {
+    slug: "chat-container",
+    name: "Chat Container",
+    components: [
+      { name: "comp-chat-container-01" },
+    ],
+  },
+  {
+    slug: "card-choice",
+    name: "Card Choice",
+    components: [
+      { name: "comp-card-choice-01" },
+    ],
+  },
+  {
+    slug: "time-picker",
+    name: "Time Picker",
+    components: [
+      { name: "comp-time-picker-01" },
+    ],
+  },
+  {
+    slug: "tool-call-card",
+    name: "Tool Call Card",
+    components: [
+      { name: "comp-tool-call-card-01" },
+    ],
+  },
+  {
+    slug: "tree-select",
+    name: "Tree Select",
+    components: [
+      { name: "comp-tree-select-01" },
+    ],
+  },
+  {
+    slug: "popconfirm",
+    name: "Popconfirm",
+    components: [
+      { name: "comp-popconfirm-01" },
+    ],
+  },
+  {
+    slug: "terminal",
+    name: "Terminal",
+    components: [
+      { name: "comp-terminal-01" },
+    ],
+  },
 ];

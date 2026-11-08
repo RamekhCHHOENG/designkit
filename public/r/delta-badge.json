@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "delta-badge",
+  "title": "Delta Badge",
+  "dependencies": [
+    "lucide-react@^0.562.0"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/delta-badge.tsx",
+      "content": "import * as React from \"react\";\nimport { TrendingUp, TrendingDown, Minus } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface DeltaBadgeProps extends React.HTMLAttributes<HTMLSpanElement> {\n  value: number;\n  format?: (value: number) => string;\n  isIncreasePositive?: boolean;\n  size?: \"sm\" | \"default\" | \"lg\";\n  showIcon?: boolean;\n}\n\nexport function DeltaBadge({\n  value,\n  format,\n  isIncreasePositive = true,\n  size = \"default\",\n  showIcon = true,\n  className,\n  ...props\n}: DeltaBadgeProps) {\n  const isZero = Math.abs(value) < 0.0001;\n  const isPositive = value > 0;\n\n  // Determine sentiment\n  const isGood = isZero ? null : isIncreasePositive ? isPositive : !isPositive;\n\n  const defaultFormatted = React.useMemo(() => {\n    if (format) return format(value);\n    const sign = value > 0 ? \"+\" : \"\";\n    return `${sign}${value.toFixed(1)}%`;\n  }, [value, format]);\n\n  const sizeClasses = {\n    sm: \"text-[10px] px-1.5 py-0.5 gap-0.5 font-medium\",\n    default: \"text-xs px-2 py-0.5 gap-1 font-semibold\",\n    lg: \"text-sm px-2.5 py-1 gap-1.5 font-semibold\",\n  };\n\n  const iconSizes = {\n    sm: \"size-3\",\n    default: \"size-3.5\",\n    lg: \"size-4\",\n  };\n\n  const sentimentClasses = isZero\n    ? \"bg-muted text-muted-foreground border-transparent\"\n    : isGood\n    ? \"bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20\"\n    : \"bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20\";\n\n  return (\n    <span\n      data-slot=\"delta-badge\"\n      className={cn(\n        \"inline-flex items-center rounded-full border shadow-2xs select-none tabular-nums\",\n        sentimentClasses,\n        sizeClasses[size],\n        className\n      )}\n      role=\"status\"\n      aria-label={`${value >= 0 ? \"Increase\" : \"Decrease\"} of ${defaultFormatted}`}\n      {...props}\n    >\n      {showIcon && (\n        <>\n          {isZero ? (\n            <Minus className={iconSizes[size]} aria-hidden=\"true\" />\n          ) : isPositive ? (\n            <TrendingUp className={iconSizes[size]} aria-hidden=\"true\" />\n          ) : (\n            <TrendingDown className={iconSizes[size]} aria-hidden=\"true\" />\n          )}\n        </>\n      )}\n      <span>{defaultFormatted}</span>\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
