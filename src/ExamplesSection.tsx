@@ -1,7 +1,15 @@
-import React, { Component, lazy, Suspense, useEffect, useState, type ComponentType, type ErrorInfo, type ReactNode } from "react";
+import React, { Component, lazy, Suspense, useEffect, useMemo, useState, type ComponentType, type ErrorInfo, type ReactNode } from "react";
 import { categories, type ComponentCategory } from "@/config/components";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { CheckIcon, CopyIcon, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 // ---------------------------------------------------------------------------
 // Glob maps — keyed by path like `./registry/default/components/comp-01.tsx`
@@ -59,10 +67,12 @@ function ExampleCard({
   compName,
   compModules,
   compSources,
+  onOpenDialog,
 }: {
   compName: string;
   compModules: ModuleMap;
   compSources: SourceMap;
+  onOpenDialog: () => void;
 }) {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -113,9 +123,19 @@ function ExampleCard({
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between border-t px-3 py-2 bg-background">
-        <span className="text-xs text-muted-foreground font-mono">{compName}</span>
-        <div className="flex items-center gap-1">
+      <div className="flex items-center justify-between border-t px-3 py-2 bg-background gap-2">
+        <span className="text-xs text-muted-foreground font-mono truncate">{compName}</span>
+        <div className="flex items-center gap-1 shrink-0">
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={onOpenDialog}
+            title="Show full view in dialog modal"
+            aria-label="Show full in dialog"
+            className="size-7"
+          >
+            <Maximize2 className="size-3.5" />
+          </Button>
           <Button
             variant="ghost"
             size="icon-sm"
@@ -165,6 +185,16 @@ function CategoryGrid({
   compModules: ModuleMap;
   compSources: SourceMap;
 }) {
+  const [activeDialogComp, setActiveDialogComp] = useState<string | null>(null);
+
+  const ActiveComponent = useMemo(() => {
+    if (!activeDialogComp) return null;
+    const path = `./registry/default/components/${activeDialogComp}.tsx`;
+    const loader = compModules[path];
+    if (!loader) return null;
+    return lazy(loader);
+  }, [activeDialogComp, compModules]);
+
   return (
     <article className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-10">
       <header className="flex flex-col gap-1">
@@ -183,9 +213,66 @@ function CategoryGrid({
             compName={comp.name}
             compModules={compModules}
             compSources={compSources}
+            onOpenDialog={() => setActiveDialogComp(comp.name)}
           />
         ))}
       </div>
+
+      {/* Full View Modal Dialog */}
+      <Dialog
+        open={activeDialogComp !== null}
+        onOpenChange={(open) => {
+          if (!open) setActiveDialogComp(null);
+        }}
+      >
+        <DialogContent className="sm:max-w-4xl md:max-w-5xl lg:max-w-6xl w-[94vw] max-h-[92vh] flex flex-col p-0 overflow-hidden gap-0 rounded-xl border bg-background shadow-2xl">
+          <DialogHeader className="border-b px-6 py-4 flex flex-row items-center justify-between gap-4 space-y-0 bg-muted/30">
+            <div className="flex flex-col gap-0.5">
+              <DialogTitle className="font-mono text-base font-semibold flex items-center gap-2">
+                <span>{activeDialogComp}</span>
+                <span className="rounded bg-primary/10 px-2 py-0.5 text-[10px] font-sans font-medium text-primary">
+                  Preview Modal
+                </span>
+              </DialogTitle>
+              <DialogDescription className="text-xs text-muted-foreground">
+                Interactive preview of {activeDialogComp} in expanded modal mode
+              </DialogDescription>
+            </div>
+          </DialogHeader>
+
+          <div
+            className="relative flex-1 min-h-[420px] max-h-[calc(92vh-130px)] overflow-auto p-6 md:p-10 flex items-center justify-center bg-muted/10"
+            style={{ contain: "layout" }}
+          >
+            {ActiveComponent && (
+              <CardErrorBoundary label={activeDialogComp || "preview"}>
+                <Suspense
+                  fallback={
+                    <div className="flex h-32 items-center justify-center text-xs text-muted-foreground">
+                      Loading preview...
+                    </div>
+                  }
+                >
+                  <div className="w-full max-w-4xl flex items-center justify-center">
+                    <ActiveComponent />
+                  </div>
+                </Suspense>
+              </CardErrorBoundary>
+            )}
+          </div>
+
+          <DialogFooter className="border-t px-6 py-3 bg-muted/20 flex sm:flex-row items-center justify-between sm:justify-between">
+            <span className="font-mono text-xs text-muted-foreground">{activeDialogComp}</span>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => setActiveDialogComp(null)}
+            >
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </article>
   );
 }
