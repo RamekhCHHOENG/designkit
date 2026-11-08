@@ -9,31 +9,24 @@ const vueDir = path.join(root, "shadcn-vue");
 const docsDist = path.join(root, "docs-dist");
 const docsDistVue = path.join(docsDist, "vue");
 
-let logOutput = "";
 function run(cmd, cwd = vueDir) {
   console.log(`[build-vue-docs] Running: ${cmd}`);
-  logOutput += `\n--- RUN: ${cmd} ---\n`;
-  try {
-    const out = execSync(cmd, {
-      cwd,
-      encoding: "utf8",
-      stdio: "pipe",
-      env: {
-        ...process.env,
-        VERCEL: "",
-        NITRO_PRESET: "static",
-        NUXT_APP_BASE_URL: "/vue/",
-        NODE_OPTIONS: "--max-old-space-size=4096",
-      },
-    });
-    logOutput += out;
-    console.log(out.slice(-500));
-    return out;
-  } catch (err) {
-    const errDetails = `Command failed: ${cmd}\nStatus: ${err.status}\nSignal: ${err.signal}\nStdout: ${err.stdout || ""}\nStderr: ${err.stderr || ""}\nMessage: ${err.message}`;
-    logOutput += "\n" + errDetails;
-    throw new Error(errDetails);
-  }
+  execSync(cmd, {
+    cwd,
+    stdio: "inherit",
+    env: {
+      ...process.env,
+      VERCEL: "",
+      NITRO_PRESET: "static",
+      NUXT_APP_BASE_URL: "/vue/",
+      NUXT_TELEMETRY_DISABLED: "1",
+      CI: "1",
+      NPM_CONFIG_UPDATE_NOTIFIER: "false",
+      NPM_CONFIG_FUND: "false",
+      NPM_CONFIG_AUDIT: "false",
+      NODE_OPTIONS: "--max-old-space-size=4096",
+    },
+  });
 }
 
 try {
@@ -59,7 +52,7 @@ try {
     fs.cpSync(foundDir, docsDistVue, { recursive: true });
     console.log(`[build-vue-docs] Successfully built and copied Vue docs from ${foundDir} to ${docsDistVue}!`);
     fs.mkdirSync(docsDist, { recursive: true });
-    fs.writeFileSync(path.join(docsDist, "vue-build.log"), `SUCCESS from ${foundDir}\n` + logOutput);
+    fs.writeFileSync(path.join(docsDist, "vue-build.log"), `SUCCESS from ${foundDir}\n`);
   } else {
     const debugInfo = candidateDirs.map((d) => `${d} exists: ${fs.existsSync(d)}`).join("\n");
     throw new Error(`Could not find generated index.html in any candidate directory:\n${debugInfo}`);
@@ -67,5 +60,6 @@ try {
 } catch (err) {
   console.error("[build-vue-docs] Error during Vue docs build:\n", err.message);
   fs.mkdirSync(docsDist, { recursive: true });
-  fs.writeFileSync(path.join(docsDist, "vue-build.log"), "FAILED:\n" + err.message + "\n\nLOGS:\n" + logOutput);
+  fs.writeFileSync(path.join(docsDist, "vue-build.log"), "FAILED:\n" + err.message);
+  process.exit(1);
 }
