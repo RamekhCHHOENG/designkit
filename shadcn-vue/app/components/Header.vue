@@ -80,7 +80,7 @@ function checkIfMobile() {
                 'text-muted-foreground hover:text-foreground/80',
               )
             "
-            href="https://github.com/misbahansori/originui-vue"
+            href="https://github.com/RamekhCHHOENG/designkit"
             target="_blank"
             rel="noopener noreferrer"
           >
