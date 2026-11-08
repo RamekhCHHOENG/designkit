@@ -144,6 +144,8 @@ import ToolCallCardExample from "@/components/examples/ToolCallCardExample.vue";
 import TreeSelectExample from "@/components/examples/TreeSelectExample.vue";
 import PopconfirmExample from "@/components/examples/PopconfirmExample.vue";
 import TerminalExample from "@/components/examples/TerminalExample.vue";
+import ScrollProgressExample from "@/components/examples/ScrollProgressExample.vue";
+import ScrollShadowExample from "@/components/examples/ScrollShadowExample.vue";
 
 export interface CatalogExample {
   slug: string;
@@ -170,6 +172,8 @@ export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
   "tree-select",
   "popconfirm",
   "terminal",
+  "scroll-progress",
+  "scroll-shadow",
 ]);
 
 export const GROUPS: Record<string, string> = {
@@ -178,6 +182,8 @@ export const GROUPS: Record<string, string> = {
   "border-beam": "Layout",
   resizable: "Layout",
   "scroll-area": "Layout",
+  "scroll-progress": "Feedback",
+  "scroll-shadow": "Layout",
   separator: "Layout",
   sidebar: "Layout",
   spotlight: "Layout",
@@ -1159,6 +1165,18 @@ export const catalog: CatalogEntry[] = [
     title: "Terminal",
     group: "Content",
     examples: [{ slug: "terminal", title: "Terminal", component: TerminalExample, sourceKey: "TerminalExample" }],
+  },
+  {
+    slug: "scroll-progress",
+    title: "Scroll Progress",
+    group: "Feedback",
+    examples: [{ slug: "scroll-progress", title: "Scroll Progress", component: ScrollProgressExample, sourceKey: "ScrollProgressExample" }],
+  },
+  {
+    slug: "scroll-shadow",
+    title: "Scroll Shadow",
+    group: "Layout",
+    examples: [{ slug: "scroll-shadow", title: "Scroll Shadow", component: ScrollShadowExample, sourceKey: "ScrollShadowExample" }],
   },
 ].map((entry) => ({
   ...entry,

@@ -4,6 +4,7 @@ import { catalogGroups, catalog } from "~/config/catalog";
 import { SearchIcon, GithubIcon } from "lucide-vue-next";
 import ExamplesSection from "~/components/ExamplesSection.vue";
 import DesignKitLogo from "~/components/DesignKitLogo.vue";
+import { ScrollProgress } from "~/registry/default/ui/scroll-progress";
 
 const route = useRoute();
 const clientHash = ref("");
@@ -73,6 +74,7 @@ const activeSlug = computed(() => {
 
 <template>
   <div class="flex min-h-svh flex-col">
+    <ScrollProgress gradient />
     <!-- Header -->
     <header class="sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-background/95 px-6 backdrop-blur">
       <NuxtLink to="/" class="text-sm font-semibold flex items-center gap-2 group" @click="mode = 'components'; clientHash = ''">

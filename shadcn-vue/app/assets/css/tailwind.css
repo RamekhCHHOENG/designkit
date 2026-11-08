@@ -137,20 +137,33 @@
 }
 
 @layer base {
-  /* Custom scrollbar styling */
-  pre::-webkit-scrollbar {
-    width: 5px;
-  }
-  pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  pre::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 5px;
-  }
-  pre {
+  /* Universal modern custom scrollbar styling */
+  html, body, * {
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }
 

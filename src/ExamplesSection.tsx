@@ -100,8 +100,7 @@ function ExampleCard({
     <div className="flex flex-col rounded-lg border overflow-hidden">
       {/* Preview */}
       <div
-        className="relative min-h-[12rem] flex items-center justify-center bg-muted/30 p-4 overflow-auto"
-        style={{ contain: "layout" }}
+        className="relative min-h-[260px] flex items-center justify-center bg-muted/30 p-4 overflow-visible"
       >
         {LazyComp ? (
           <CardErrorBoundary label={compName}>
@@ -242,7 +241,6 @@ function CategoryGrid({
 
           <div
             className="relative flex-1 min-h-[420px] max-h-[calc(92vh-130px)] overflow-auto p-6 md:p-10 flex items-center justify-center bg-muted/10"
-            style={{ contain: "layout" }}
           >
             {ActiveComponent && (
               <CardErrorBoundary label={activeDialogComp || "preview"}>

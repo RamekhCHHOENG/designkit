@@ -558,6 +558,18 @@
     "url": "https://designkit-smoky.vercel.app/r/scroll-area.json"
   },
   {
+    "name": "scroll-progress",
+    "type": "registry:ui",
+    "title": "Scroll Progress",
+    "url": "https://designkit-smoky.vercel.app/r/scroll-progress.json"
+  },
+  {
+    "name": "scroll-shadow",
+    "type": "registry:ui",
+    "title": "Scroll Shadow",
+    "url": "https://designkit-smoky.vercel.app/r/scroll-shadow.json"
+  },
+  {
     "name": "segmented-control",
     "type": "registry:ui",
     "title": "Segmented Control",

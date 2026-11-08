@@ -166,8 +166,7 @@ function getAsyncComponent(compName: string) {
           >
             <!-- Preview Box -->
             <div
-              class="relative min-h-[12rem] flex items-center justify-center bg-muted/30 p-4 overflow-auto"
-              style="contain: layout"
+              class="relative min-h-[260px] flex items-center justify-center bg-muted/30 p-4 overflow-visible"
             >
               <component :is="getAsyncComponent(comp.name)" v-if="getAsyncComponent(comp.name)" />
               <div v-else class="flex h-32 items-center justify-center text-xs text-muted-foreground">
@@ -269,7 +268,6 @@ function getAsyncComponent(compName: string) {
             <!-- Dialog Body: Live Preview -->
             <div
               class="relative flex-1 min-h-[420px] max-h-[calc(92vh-130px)] overflow-auto p-6 md:p-10 flex items-center justify-center bg-muted/10"
-              style="contain: layout"
             >
               <div v-if="activeDialogComp" class="w-full max-w-4xl flex items-center justify-center">
                 <component :is="getAsyncComponent(activeDialogComp)" />

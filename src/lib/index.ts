@@ -149,5 +149,7 @@ export * from "../components/ui/tool-call-card";
 export * from "../components/ui/tree-select";
 export * from "../components/ui/popconfirm";
 export * from "../components/ui/terminal";
+export * from "../components/ui/scroll-progress";
+export * from "../components/ui/scroll-shadow";
 
 export { cn } from "./utils";

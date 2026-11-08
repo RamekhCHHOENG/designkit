@@ -13,6 +13,7 @@ import { ThemesPage } from "@/themes-page";
 import { DocsPage } from "@/docs-page";
 import { InstallCommand } from "@/install-command";
 import { DesignKitLogo } from "@/components/ui/designkit-logo";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { REGISTRY_URL } from "@/registry-url";
 import "./index.css";
 
@@ -98,11 +99,7 @@ function ExampleViewer({ example, showTitle }: { example: CatalogExample; showTi
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          {/* `contain: layout` gives fixed-position descendants (some demos,
-              e.g. sidebar, dock a real app shell with `position: fixed`) a
-              containing block here instead of the viewport, so they stay
-              inside this scroll frame instead of covering the real page. */}
-          <div className="relative max-h-[36rem] overflow-auto rounded-lg border" style={{ contain: "layout" }}>
+          <div className="relative min-h-[380px] w-full flex items-center justify-center rounded-xl border bg-muted/20 p-6 md:p-10 overflow-visible transition-colors">
             <Component />
           </div>
         </TabsContent>
@@ -509,6 +506,7 @@ function App() {
 
   return (
     <div className="flex min-h-svh flex-col">
+      <ScrollProgress gradient />
       <Header mode={mode} setMode={setMode} section={section} />
       {section ? (
         <main className="min-w-0 flex-1">

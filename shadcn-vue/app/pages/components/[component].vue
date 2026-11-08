@@ -151,7 +151,7 @@ useSeoMeta({
           </div>
 
           <TabsContent value="preview">
-            <div class="relative max-h-[36rem] overflow-auto rounded-lg border" style="contain: layout">
+            <div class="relative min-h-[380px] w-full flex items-center justify-center rounded-xl border bg-muted/20 p-6 md:p-10 overflow-visible transition-colors">
               <component :is="example.component" />
             </div>
           </TabsContent>
@@ -218,7 +218,6 @@ useSeoMeta({
 
         <div
           class="relative flex-1 min-h-[420px] max-h-[calc(92vh-130px)] overflow-auto p-6 md:p-10 flex items-center justify-center bg-muted/10"
-          style="contain: layout"
         >
           <div v-if="activeDialogExample" class="w-full max-w-4xl flex items-center justify-center">
             <component :is="activeDialogExample.component" />

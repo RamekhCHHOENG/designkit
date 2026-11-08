@@ -55,6 +55,8 @@ import {
   TreeSelect,
   Popconfirm,
   Terminal,
+  ScrollProgress,
+  ScrollShadow,
 } from "@/lib";
 
 describe("New Motion & Analytics Primitives Suite", () => {
@@ -644,6 +646,26 @@ describe("New Motion & Analytics Primitives Suite", () => {
     );
     expect(screen.getByText("echo hello")).toBeInTheDocument();
     expect(screen.getByText("hello world")).toBeInTheDocument();
+  });
+
+  it("renders ScrollProgress with progressbar role and accessibility attributes", () => {
+    render(<ScrollProgress gradient />);
+    const progressBar = screen.getByRole("progressbar");
+    expect(progressBar).toBeInTheDocument();
+    expect(progressBar).toHaveAttribute("aria-valuemin", "0");
+    expect(progressBar).toHaveAttribute("aria-valuemax", "100");
+  });
+
+  it("renders ScrollShadow container and scroll slots", () => {
+    const { container } = render(
+      <ScrollShadow className="h-40">
+        <p>Scrollable item 1</p>
+        <p>Scrollable item 2</p>
+      </ScrollShadow>
+    );
+    expect(screen.getByText("Scrollable item 1")).toBeInTheDocument();
+    expect(container.querySelector('[data-slot="scroll-shadow"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-slot="scroll-shadow-content"]')).toBeInTheDocument();
   });
 
   it("labels only newly added components with isNew: true in catalog", async () => {

@@ -1354,6 +1354,28 @@
       ]
     },
     {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "files": [
+        {
+          "path": "src/components/ui/scroll-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-shadow",
+      "type": "registry:ui",
+      "title": "Scroll Shadow",
+      "files": [
+        {
+          "path": "src/components/ui/scroll-shadow.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "segmented-control",
       "type": "registry:ui",
       "title": "Segmented Control",

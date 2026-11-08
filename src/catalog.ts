@@ -13,6 +13,8 @@ const GROUPS: Record<string, string> = {
   "border-beam": "Layout",
   resizable: "Layout",
   "scroll-area": "Layout",
+  "scroll-progress": "Feedback",
+  "scroll-shadow": "Layout",
   separator: "Layout",
   sidebar: "Layout",
   spotlight: "Layout",
@@ -182,6 +184,8 @@ export const NEW_COMPONENTS: ReadonlySet<string> = new Set([
   "tree-select",
   "popconfirm",
   "terminal",
+  "scroll-progress",
+  "scroll-shadow",
 ]);
 
 // UI primitive slugs come from the filenames alone (their content isn't

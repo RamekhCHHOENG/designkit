@@ -156,8 +156,7 @@ function closeFullDialog() {
       >
         <!-- Live Preview -->
         <div
-          class="relative min-h-[220px] flex items-center justify-center bg-muted/20 p-6 overflow-auto"
-          style="contain: layout"
+          class="relative min-h-[260px] flex items-center justify-center bg-muted/20 p-6 overflow-visible"
         >
           <Suspense>
             <template #default>
@@ -264,7 +263,6 @@ function closeFullDialog() {
         <!-- Dialog Body: Interactive Component Stage -->
         <div
           class="relative flex-1 min-h-[420px] max-h-[calc(92vh-130px)] overflow-auto p-6 md:p-10 flex items-center justify-center bg-muted/10"
-          style="contain: layout"
         >
           <Suspense v-if="activeDialogComp">
             <template #default>
